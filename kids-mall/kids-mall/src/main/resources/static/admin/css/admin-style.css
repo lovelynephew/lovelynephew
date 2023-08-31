@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    vertical-align: baseline;
+}
+
+html {
+    background-color: #f4f5f8;
+
+    overflow-y: scroll;
+    overflow-x: auto;
+
+    font-size: 13px;
+}
+
+body {
+    background-color: #f4f5f8;
+    color: #1b1e26;
+
+    margin: 0;
+    padding: 0;
+
+    min-width: 1240px;
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+li {
+    list-style: none;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
