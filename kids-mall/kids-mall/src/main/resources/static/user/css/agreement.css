@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /*하이라이트 표시를 투명하게 설정*/
+    
+}
+
+body {
+    margin: 0;
+    display:block;
+    color: #242729;
+}
+
+header {
+    position: fixed;
+    height: 52px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    margin: 0px auto;
+}
+
+div { display: block; }
+.div-btn-back { flex: 1; }
+
+.btn-back { /*헤더 뒤로가기 버튼(고정)*/
+    display: flex;
+    padding-right: 8px;
+}
+
+main {
+    margin: auto;
+    padding-top: 52px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 48px); /* 48px 고정임 */
+    background-color: #ffffff;
+    max-width: 600px;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--vh, 1vh) * 100 - 112px);
+}
+
+h1 {
+    margin: 8px 0px;
+    padding: 16px 0px;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+a, button {
+    cursor: pointer;
+    
+}
+
+a, button, input, label, select {
+    background-color: transparent;
+}
+
+button, input, optgroup, select, figure, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    border: 0;
+}
+
+a:link, a:active, a:visited {
+    text-decoration: inherit;
+}
+
+.find-log {
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 8px 0px 0px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+label, div, span {
+    font-weight: 500;
+}
+
+button, input {
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.body_13 {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.body_15 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.div-agree {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 16px 0px;
+}
+
+.label-agree {
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.box-check {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+}
+
+[type='checkBox'] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.span-agree {
+    margin: 0px 0px 0px 8px;
+    color: #242729;
+}
+
+.agree_look:link, .agree_look:active, .agree_look:visited {
+    color: rgb(161, 169, 173);
+}
+
+.div-line {
+    height: 1px;
+    margin-top: 25px;
+    background-color: #f5f6f8;
+}
+
+.btn-next {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    justify-content: center;
+    padding: 14px 24px;
+    min-height: 50px;
+    min-width: 74px;
+    background-color: #FFD1DA;
+    color: #fff;
+    margin: 2px 0px 28px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.div-service {
+    color: #b8bfc2;
+    text-align: center;
+    font-weight: 500;
+}
+
+.register:link, .register:active, .register:visited {
+    color: #242729;
+}
+
