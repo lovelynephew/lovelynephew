@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/price-range.css">
+  <link rel="stylesheet" href="/static/css/filter.css">
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <title>Filter Page</title>
+</head>
+
+<body>
+  <header>
+    <p>필터</p>
+  </header>
+  <main>
+    <div class="main-container">
+      <div class="gender-box-line">
+        <h4>아이의 성별을 선택해주세요.</h4>
+        <div class="gender-button-box">
+          <button type="button" class="gender-button gender-color">남자</button>
+          <button type="button" class="gender-button">여자</button>
+        </div>
+      </div>
+      <div class="set-age-box">
+        <h4>아이의 연령대를 선택해주세요.</h4>
+        <div class="age-range-box">
+          <button type="button" class="age-range-button">0세~1세</button>
+          <button type="button" class="age-range-button">2세~3세</button>
+          <button type="button" class="age-range-button">4세~5세</button>
+        </div>
+        <div class="age-range-box">
+          <button type="button" class="age-range-button">6세~7세</button>
+          <button type="button" class="age-range-button">초등학교 저학년</button>
+        </div>
+      </div>
+      <div class="style-choose-box">
+        <h4>아이의 성향을 선택해주세요.</h4>
+        <section>
+          <button type="button" class="style-button">활발함</button>
+          <button type="button" class="style-button">호기심</button>
+          <button type="button" class="style-button">씩씩함</button>
+          <button type="button" class="style-button">공감능력</button>
+          <button type="button" class="style-button">인내심</button>
+          <button type="button" class="style-button">애교</button>
+        </section>
+        <section>
+          <button type="button" class="style-button">꼼꼼함</button>
+          <button type="button" class="style-button">창의적임</button>
+          <button type="button" class="style-button">조심성</button>
+          <button type="button" class="style-button">섬세함</button>
+          <button type="button" class="style-button">독립성</button>
+          <button type="button" class="style-button">수줍음</button>
+        </section>
+        <section>
+          <button type="button" class="style-button">민감함</button>
+          <button type="button" class="style-button">끈기</button>
+          <button type="button" class="style-button">화려함</button>
+          <button type="button" class="style-button">신중함</button>
+          <button type="button" class="style-button">도전정신</button>
+        </section>
+      </div>
+      <div class="price-range-box-line">
+        <h4>원하시는 가격대를 설정해주세요.</h4>
+        <div class="price-input-box">
+          <div class="middle">
+            <div class="multi-range-slider">
+              <!-- 진짜 슬라이더 -->
+              <input type="range" class="input-left" min="0" max="999999" value="0" />
+              <input type="range" class="input-right" min="0" max="999999" value="999999" />
+
+              <!-- 커스텀 슬라이더 -->
+              <div class="slider">
+                <div class="track"></div>
+                <div class="range"></div>
+                <div class="thumb left"></div>
+                <div class="thumb right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="free-price">
+        <input type="checkbox">
+        <label>설정 안함</label>
+      </div>
+      <div class="submit-button">
+        <button>완료</button>
+      </div>
+    </div>
+  </main>
+  <script src="/static/js/price-range.js"></script>
+  <script src="/static/js/filter.js"></script>
+</body>
+
+</html>
