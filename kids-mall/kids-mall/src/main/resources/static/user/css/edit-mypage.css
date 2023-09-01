@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /*하이라이트 표시를 투명하게 설정*/
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    color: #242729;
+}
+
+.edit-mypage {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    margin: 0px auto;
+}
+
+button {
+    color: #242729;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+    text-indent: 1;
+}
+
+a, button, input, label, select {
+    background-color: transparent;
+}
+
+input, textarea, input[type='text'] {
+    appearance: none;
+}
+
+a, button, input, optgroup, select, figure, textarea {
+    font-family: inherit;
+    margin: 0;
+    border: none;
+}
+
+a:link, a:active, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.head-nav {
+    height: 52px;
+    background-color: #fff;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    z-index: 2;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    max-width: 600px;
+    margin: auto;
+}
+
+svg {
+    width: 32;
+    height: 32;
+    fill: none;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    margin: 0px auto;
+}
+
+div { display: block; }
+.divbtn-back { flex: 1;}
+
+/*btn*/
+
+.btn-back { /*헤더 뒤로가기 버튼(고정)*/
+    display: flex;
+    padding-right: 8px;
+}
+
+.btn-edit {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 10px 16px;
+    min-height: 42px;
+    min-width: 68px;
+    background: rgb(36, 39, 41);
+    color: #fff;
+    flex-shrink: 0;
+    width: 80px;
+}
+
+
+.body_13 {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.body_15 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.body_17 {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+/*div*/
+
+.div-myprofile1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    flex: 2;
+}
+
+.div-myprofile2 {
+    font-weight: 700;
+    color: #242729;
+}
+
+.div-myprofile3 {
+    text-align: right;
+    flex: 1;
+}
+
+.div-edit1 {
+    margin: 18px 0px;
+}
+
+.div-edit2 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.la-deit1 {
+    font-weight: 600;
+    display: inline-block;
+    margin: 0px 0px 4px 8px;
+    color: rgb(79, 85, 88);
+}
+
+
+/*span*/
+
+.span-edit1 {
+    border: 2px solid rgb(245, 246, 248);
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 16px;
+    height: 48px;
+    color: rgb(210, 213, 214);
+    background: rgb(250, 250, 251);
+    margin: 0px 8px 0px 0px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.span-edit2 {
+    flex: 0 1 0%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    right: -8px;
+}
+
+/*input*/
+.input-edit1 {
+    caret-color: rgb(250, 110, 227);
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: inherit;
+}

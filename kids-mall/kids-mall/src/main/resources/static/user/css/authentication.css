@@ -122,19 +122,19 @@ button, input {
 
 .div-in { margin: 18px 0px; }
 
-.label-login {
+.label-phone {
     display: inline-block;
     margin: 0px 0px 4px 8px;
     color: rgb(79, 85, 88);
 }
 
-.la-divlog {
+.la-divauth {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
 
-.span-log {
+.span-auth {
     background: rgb(255, 255, 255);
     border: 2px solid rgb(232, 233, 235);
     box-sizing: border-box;
@@ -151,7 +151,7 @@ button, input {
     line-height: 18px;
 }
 
-.span-log:focus-within {
+.span-auth:focus-within {
     border: 2px solid rgb(210, 213, 214);
 }
 
@@ -182,7 +182,7 @@ button, input {
     flex-shrink: 0;
 }
 
-.btn-authenticate {
+.btn-next {
     border-radius: 24px;
     white-space: pre;
     display: inline-flex;

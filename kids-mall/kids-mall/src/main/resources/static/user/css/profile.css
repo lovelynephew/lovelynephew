@@ -35,6 +35,8 @@ a, button, input, optgroup, select, figure, textarea {
     font-family: inherit;
     margin: 0;
     border: none;
+    font-size: 100%;
+    line-height: 1.15;
 }
 
 a:link, a:active, a:visited {
@@ -70,36 +72,6 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-.div-mypage1 {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    text-align: center;
-    flex: 2;
-}
-
-.div-mypage2 {
-    color: #242729;
-}
-
-.div-cart {
-    text-align: right;
-    flex: 1;
-}
-
-.div-cart>*:nth-last-of-type(1) {
-    margin-right: 0;
-}
-
-.a-cart {
-    display: flex;
-    margin: 0 0 0 auto;
-    position: relative;
-    width: 32px;
-    height: 32px;
-}
-
-
 .container {
     max-width: 600px;
     width: 100%;
@@ -116,40 +88,15 @@ div { display: block; }
     padding-right: 8px;
 }
 
-.svg-bagimg {
-    color: #121314;
-    margin: 0 0 0 auto;
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.div-cartnum {
-    padding: 5px;
-    position: absolute;
-    height: 16px;
-    border-radius: 8px;
-    background-color: #FA6EE3;
-    color: #fff;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 12px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    top: -2px;
-    right: -2px;
-}
-
 main {
     display: block;
 }
 
 .main-mypage {
     margin: auto;
-    padding: 52px 0 48px;
+    padding-top: 52px;
+    padding-right: 16px;
+    padding-left: 16px;
     padding-bottom: calc(env(safe-area-inset-bottom) + 48px);
     background-color: #fff;
     max-width: 600px;
@@ -157,8 +104,9 @@ main {
 
 .main-div1 {
     text-align: center;
-    padding: 24px 24px 34px;
+    padding: 36px 0px;
     background: #fff;
+    margin: 0px 0px 8px ;
 }
 
 .main-div2 {
@@ -166,36 +114,13 @@ main {
     color: #242729;
     text-align: center;
 
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 24px;
+    line-height: 29px;
     font-weight: 700;
 }
 
 .main-div3 {
-    margin: 0 0 18px;
-    color: #4f5558;
-    /* font-family: ; 폰트 설정 필요함 */
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-}
-
-
-
-.btn-myinfo {
-    border-radius: 24px;
-    white-space: pre;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding: 6px 12px;
-    min-height: 32px;
-    min-width: 48px;
-    background: #242729;
-    color: #fff;
+    color:rgb(79, 85, 88);
 }
 
 .body_13 {
@@ -208,29 +133,29 @@ main {
     line-height: 18px;
 }
 
+.body_16 {
+    font-size: 16px;
+    line-height: 19px;
+}
+
 .body_17 {
     font-size: 17px;
     line-height: 20px;
 }
 
-/*회색 라인 아래부터*/
+/*이메일 밑으로*/
 
-.gray-line {
-    width: 100%;
-    height: 8px;
-    background-color: #F5F6F8;
-}
-
-.btn-mypage {
-    padding: 0 24px;
+.btn-profile {
     display: block;
     width: 100%;
     height: 56px;
-    background: #fff;
+    padding: 0px 16px;
+    background: #ffffff;
 }
 
-.div-mypage4 {
+.div-profile {
     height: 100%;
+    border-bottom: 1px solid rgb(245, 246, 248);
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -238,43 +163,18 @@ main {
     align-items: center;
 }
 
-.div-mypage5 {
-    height: 100%;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-.img-myshopinfo {
-    width: 32px;
-    height: 32px;
-    fill: none;
-}
-
-.span-name {
-    margin-left: 16px;
-    /* font-family: ; 폰트 지정하면 넣기*/
-    font-style: normal;
-    font-size: 16px;
-    line-height: 19px;
+.span-profile {
     color: #242729;
 }
 
-
-.span-num {
-    color: #FA6EE3;
-}
-
-.mypage-privacy {
-    padding: 0 24px;
+.p-profile {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    width: 100%;
-    height: 56px;
     background: #fff;
-}
-
-.privacy {
-    color: #242729;
+    height: 56px;
+    padding: 0px 16px;
+    color: rgb(184, 191, 194);
+    width: 100%;
+    text-align: left;
 }
