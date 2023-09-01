@@ -7,7 +7,7 @@
 
 html, body {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 header {
@@ -17,10 +17,25 @@ header {
     background: #FFFFFF;
     margin: 0 auto;
 
-    background-color: rgb(236,159,65);
+    background-color: rgb(247, 214, 94);
 
     text-align: center;
     line-height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 89px;
+    height: 30px;
+
+    line-height: 30px;
+}
+
+header h3 {
+    color: rgb(63, 122, 241);
 }
 
 main {
@@ -32,10 +47,15 @@ main {
     align-items: center;
 
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 button {
+    border: 1px solid #dddddd;
     color: #777777;
+    background-color: #FFFFFF;
+
+    cursor: pointer;
 }
 
 .main-container {
@@ -66,14 +86,13 @@ button {
     width: 150px;
     height: 30px;
 
-    font-size: 14px;
-
-    background-color: #FFFFFF;
+    font-size: 14px; 
 }
 
 .gender-color {
-    color: white !important;
-    background-color: rgba(136, 28, 208, 0.734) !important;
+    color: white;
+    /* background-color: rgba(136, 28, 208, 0.734); */
+    background-color: #1e399c;
 }
 
 .set-age-box {
@@ -94,14 +113,18 @@ button {
     border: 1px solid #dddddd;
     border-radius: 30px;
 
-    width: 120px;
-    height: 30px;
+    margin-bottom: 10px;
 
-    background-color: #FFFFFF;
+    width: 100px;
+    height: 30px;
 }
 
 .age-range-button:nth-child(n+2) {
     margin-left: 15px;
+}
+
+.age-range-button:nth-last-child(1) {
+    width: 120px;
 }
 
 .style-choose-box {
@@ -119,13 +142,10 @@ button {
 }
 
 .style-button {
-    border: 1px solid #dddddd;
     border-radius: 30px;
 
     width: 90px;
     height: 30px;
-
-    background-color: #FFFFFF;
 }
 
 .style-button:nth-child(n+2) {
@@ -148,6 +168,37 @@ button {
     margin-bottom: 20px;
 }
 
+.price-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 490px;
+
+    margin-bottom: 10px;
+}
+
+li {
+    position: relative;
+    font-size: 12px;
+}
+
+ul li::before {
+    content: "";
+    width: 1px;
+    height: 5px;
+    background-color: rgb(204, 204, 204);
+    position: absolute;
+    top: -7px;
+    left: 77%;
+    transform: translateX(-50%);
+}
+
 .free-price {
     width: 100%;
     text-align: end;
@@ -164,4 +215,26 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.setting-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    margin-top: 20px;
+}
+
+.setting-button button {
+    width: 120px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.complete-button {
+    margin-left: 10px;
+
+    background-color: #1e399c;
+    color: white;
 }

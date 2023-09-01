@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/price-range.css">
-  <link rel="stylesheet" href="/static/css/filter.css">
+  <link rel="stylesheet" href="/static/filter/css/filter.css">
+  <link rel="stylesheet" href="/static/filter/css/price-range.css">
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   <title>Filter Page</title>
 </head>
 
 <body>
   <header>
-    <p>필터</p>
+    <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg">
+    <h3>에 오신 것을 환영합니다.</h3>
   </header>
   <main>
     <div class="main-container">
@@ -26,12 +27,14 @@
       <div class="set-age-box">
         <h4>아이의 연령대를 선택해주세요.</h4>
         <div class="age-range-box">
-          <button type="button" class="age-range-button">0세~1세</button>
-          <button type="button" class="age-range-button">2세~3세</button>
-          <button type="button" class="age-range-button">4세~5세</button>
-        </div>
-        <div class="age-range-box">
-          <button type="button" class="age-range-button">6세~7세</button>
+          <button type="button" class="age-range-button">0세</button>
+          <button type="button" class="age-range-button">1세</button>
+          <button type="button" class="age-range-button">2세</button>
+          <button type="button" class="age-range-button">3세</button>
+          <button type="button" class="age-range-button">4세</button>
+          <button type="button" class="age-range-button">5세</button>
+          <button type="button" class="age-range-button">6세</button>
+          <button type="button" class="age-range-button">7세</button>
           <button type="button" class="age-range-button">초등학교 저학년</button>
         </div>
       </div>
@@ -63,12 +66,17 @@
       </div>
       <div class="price-range-box-line">
         <h4>원하시는 가격대를 설정해주세요.</h4>
+        <div class="input-value-box">
+          <div class="output-left">0원</div>
+          <span>~</span>
+          <div class="output-right">200000원</div>
+        </div>
         <div class="price-input-box">
           <div class="middle">
             <div class="multi-range-slider">
               <!-- 진짜 슬라이더 -->
-              <input type="range" class="input-left" min="0" max="999999" value="0" />
-              <input type="range" class="input-right" min="0" max="999999" value="999999" />
+              <input type="range" class="input-left" min="0" max="200000" step="5000" value="0"/>
+              <input type="range" class="input-right" min="0" max="200000" step="5000" value="200000"/>
 
               <!-- 커스텀 슬라이더 -->
               <div class="slider">
@@ -80,18 +88,31 @@
             </div>
           </div>
         </div>
+        <div class="price-list">
+          <ul>
+            <li>0</li>
+            <li>5만</li>
+            <li>10만</li>
+            <li>15만</li>
+            <li>20만</li>
+          </ul>
+        </div>
       </div>
       <div class="free-price">
         <input type="checkbox">
         <label>설정 안함</label>
       </div>
-      <div class="submit-button">
-        <button>완료</button>
+      <div class="setting-button">
+        <button type="button">필터 초기화</button>
+        <div>
+          <button type="button" class="skip-button">skip</button>
+          <button type="button" class="complete-button">완료</button>
+        </div>
       </div>
     </div>
   </main>
-  <script src="/static/js/price-range.js"></script>
-  <script src="/static/js/filter.js"></script>
+  <script src="/static/filter/js/price-range.js"></script>
+  <!-- <script src="/static/js/filter.js"></script> -->
 </body>
 
 </html>
