@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.content-title {
+    margin: 0 20px;
+}
+.agreement {
+    margin: 20px 20px;
+}
+.agree .agreement p {
+    text-align: justify;
+}
+.agree {
+    margin: 20px 20px;
+    border: 1px solid #e5e5e5;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+</head>
+<style>
+    .header {
+    width: 560px;
+    display: flex;
+    padding: 20px 20px 5px 20px;
+    margin: 0 auto;
+    /* margin-bottom: 10px; */
+    justify-content: space-between;
+    background-color: tomato;
+    position: fixed; 
+    z-index: 3;
+}
+.content-wrap {
+    /* margin-top: 10px; */
+    padding-top: 70px;
+}
+section {
+            display: flex;
+            background-color: #f7f7f7;
+
+        }
+
+        .section-left {
+            flex-basis: 15%;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 0 2px 1.6px #c7c7c7;
+            height: calc(100vh - 85px);     
+            /*viewport height - 내용을 채우지 않아도 높이값을 주면 브라우저 높이를 채우는 상자를 만들 수 있음 */
+            /* 단! header부분이 있다면 그만큼의 화면 값을 빼줘야함. */
+        }
+
+        .section-right {
+            flex-basis: 85%;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 0 2px 1.6px #c7c7c7;
+        }
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+ul li {
+    list-style: none;
+}
+body {
+    height: auto;
+    font-family: 'Noto Sans KR', sans-serif;    
+}
+.container-wrap {
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fff;
+    max-width: 600px;
+    min-height: 100%;
+    
+}
+.content-wrap {
+    min-height: 100%;
+    /* padding-bottom: 100px; */
+    /* position: relative; */
+}
+</style>
+<body>
+    <div class="container-wrap">
+        <div class="container">
+            <div class="header">
+               
+            </div>
+            
+            <div class="content-wrap">
+                <div class="content">
+                    <section>
+        
+                        <article class="section-left">왼쪽 메뉴</article>
+                        <article class="section-right">본문 내용</article>
+                
+                    </section>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
