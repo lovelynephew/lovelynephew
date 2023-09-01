@@ -8,17 +8,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
 <style>
-    
-
-
-    h3 {
+    .content-wrap {
+        margin-top: 10px;
+    }
+    .table-title h3 {
         text-align: center;
+        margin-bottom: 20px;
     }
     hr {
         border: 1px solid #323232;
     }
-
-
     tr, td {
         font-size: 15px;
         padding: 0 20px;
@@ -37,56 +36,76 @@
     <div class="container-wrap">
         <div class="container">
             <div class="header">
-                <h3>공지사항</h3>
+                <div class="header-logo">
+                    <a href="/">
+                        <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
+                    </a>
+                </div>
+                <div class="search">
+                    <span class="search-img"><img src="../../static/images/svg/icons8-search (1).svg" alt=""></span>
+                    <input type="text" class="search-word" placeholder="검색어를 입력하세요.">
+                </div> 
+                <a href="/cart" class="a-cart">
+                    <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
+                       <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
+                    </svg>
+                    <div class="div-cartnum">1</div>
+                 </a>
             </div>
-            <hr />
             <div class="content-wrap">
-                <table>
-                    <tr>
-                        <td style="padding-top: 30px;">몰 오픈을 축하합니다.</td>
-                    </tr>
-                    <tr>
-                        <td style="border-bottom: 2px solid #ebebeb; padding-bottom: 30px;" >이**** 2023-08-27 00:29:49  조회 10</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-top: 30px;">몰 오픈을 축하합니다.</td>
-                    </tr>
-                    <tr>
-                        <td style="border-bottom: 2px solid #ebebeb; padding-bottom: 30px;" >이**** 2023-08-27 00:29:49  조회 10</td>
-                    </tr>
-                </table>
+                <div class="table-wrap">
+                    <div class="table-title">
+                        <h3>공지사항</h3>
+                    </div>
+                    <hr />
+                    <table>
+                        <tr>
+                            <td style="padding-top: 30px;">몰 오픈을 축하합니다.</td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom: 2px solid #ebebeb; padding-bottom: 30px;" >이**** 2023-08-27 00:29:49  조회 10</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 30px;">몰 오픈을 축하합니다.</td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom: 2px solid #ebebeb; padding-bottom: 30px;" >이**** 2023-08-27 00:29:49  조회 10</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+
             <div class="bottom-btn">
                 <ul>
                     <li>
-                        <button>
+                        <a>
                             <i class="fa-solid fa-bars"></i>
                             <p>카테고리</p>
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button>
+                        <a>
                             <i class="fa-solid fa-baby"></i>
                             <p>아이정보</p>
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button>
+                        <a>
                             <i class="fa-solid fa-house"></i>
                             <p>홈</p>
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button>
+                        <a>
                             <i class="fa-regular fa-heart"></i>
                             <p>찜</p>
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button>
+                        <a>
                             <i class="fa-regular fa-user"></i>
                             <p>나의정보</p>
-                        </button>
+                        </a>
                     </li>
                 </ul>
             </div>
