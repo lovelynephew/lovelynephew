@@ -5,6 +5,7 @@
 
 }
 
+/* 헤더시작 */
 .wrap-header {
     position: fixed;
     top: 0;
@@ -14,6 +15,7 @@
     background-color: #fff;
 
 }
+/* 헤더 끝 */
 
 .container {
     position: relative;
@@ -24,6 +26,7 @@
     background-color: #f4f5f8;
 }
 
+/* 사이드 시작 */
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -96,8 +99,8 @@
     display: block;
     position: relative;
     padding: 10px 42px 10px 62px;
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 20px;
     color: #f0f2f4;
     font-weight: 500;
     text-decoration: none;
@@ -111,6 +114,7 @@
     background-color: #3c69dd;
     opacity: 1;
 }
+/* 사이드 끝 */
 
 .content {
     width: 1118px;
@@ -225,3 +229,137 @@
 .dashboard-nav li button {
     background-color: #fff;
 }
+
+.tabmall-status1 {
+    display: block;
+    padding: 24px;
+    margin: -1px 0px 0px;
+    border: 1px solid #e2e5ea;
+    border-radius: 0px 0px 4px 4px;
+    background-color: #fff;
+}
+
+.flow-grap {
+    width: 460px;
+    float: left;
+}
+
+.flow-grap span {
+    font-size: 11px;
+    letter-spacing: 0;
+
+    margin-left: 11px;
+    display: block;
+    margin-top: 10px;
+}
+
+.flow-grap div {
+    width: 100%;
+    height: 278px;
+}
+
+.flow-grap p {
+    margin-left: 11px;
+}
+
+.flow-table {
+    width: 483px;
+    float: right;
+}
+
+.flow-table table {
+    border-top: 1px solid #e2e5ea;
+    line-height: 16px;
+    background-color: #fff;
+}
+
+.flow-table thead th {
+    border: 1px solid #e2e5ea;
+    font-weight: normal;
+    background-color: #fafafd;
+    padding: 6px 8px;
+    vertical-align: middle;
+}
+
+.flow-table tbody {
+    text-align: right;
+}
+
+.flow-table tbody th {
+    height: 28px;
+    text-align: center;
+    color: #222;
+    border: 1px solid #e2e5ea;
+    background-color: #fff;
+    padding: 6px 8px;
+    line-height: 28px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.flow-table tbody td {
+    height: 28px;
+    color: #222;
+    border: 1px solid #e2e5ea;
+    background-color: #fff;
+    padding: 6px 8px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.flow-table .table-today th{
+    color: #3971ff;
+}
+
+.flow-table .table-today td{
+    color: #3971ff;
+}
+
+.flow-table .week-avg th {
+    color: #7956de;
+}
+
+.flow-table .week-avg td {
+    color: #7956de;
+}
+
+.flow-table .month-avg th {
+    color: #7956de;
+}
+
+.flow-table .month-avg td {
+    color: #7956de;
+}
+
+
+
+
+
+
+.tabarea::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
