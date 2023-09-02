@@ -92,6 +92,7 @@
 }
 
 .menu li {
+    position: relative;
     margin: 0px -16px;
 }
 
@@ -104,6 +105,15 @@
     color: #f0f2f4;
     font-weight: 500;
     text-decoration: none;
+}
+
+.menu img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 8px;
+    left: 24px;
+    filter: invert() opacity(0.7);
 }
 
 .haschild:hover {   
