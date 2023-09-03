@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+    <link rel="stylesheet" href="/static/admin/css/admin-shipped-begin-list.css">
+    <title>Admin 배송 준비중 관리</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap-header">
+            <div class="header">
+                <h2>헤더내용 확인필요</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="sidebar">
+                <div class="logo">
+                    <a href="">
+                        <h1>조카바보</h1>
+                    </a>
+                </div>
+                <div class="sidearea">
+                    <div class="menulistbar">
+                        <div class="menulistbox">
+                            <div class="menulistbox-containter">
+                                <ul class="menu">
+                                    <li class="selected">
+                                        <img src="/static/images/jpg/free-icon-home-1946436.png" alt="">
+                                        <a href="">홈</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/icons8-bag-50 (1).png" alt="">
+                                        <a href="">주문</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-baby-body-496278.png" alt="">
+                                        <a href="">상품</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-user-456212.png" alt="">
+                                        <a href="">고객</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-write-message-7103906.png" alt="">
+                                        <a href="">메시지</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-notepad-318530.png" alt="">
+                                        <a href="">게시판</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-graph-2567943.png" alt="">
+                                        <a href="">통계</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submenulistbar">
+                        <div class="submenulistbox">
+                            <div class="submenulistbox-containter">
+                                <div class="subtitle">
+                                    <span>주문</span>
+                                </div>
+                                <div class="sublist">
+                                    <ul>
+                                        <li class="selected">
+                                            <a href="">
+                                                <span>주문 대시보드</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>전체 주문 조회</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>입금전 관리</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>배송 준비중 관리</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>배송 대기 관리</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>배송 중 관리</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>배송 완료 조회</span>
+                                            </a>
+                                        </li>
+                                        <li class="haschild">
+                                            <a href="">
+                                                <span>취소/교환/반품/환불</span>
+                                            </a>
+                                            <ul class="sublist-list">
+                                                <li>
+                                                    <a href="">
+                                                        <span>입금전 취소 관리</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>취소 관리</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>교환 관리</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>반품 관리</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>환불 관리</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>카드 취소 조회</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>관리자 환불 관리</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>현금영수증 관리</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="headarea">
+                    <div class="headarea-title">
+                        <h1>입금전 관리</h1>
+                    </div>
+                </div>
+                <div class="option-area">
+                    <div class="option">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        기간
+                                    </th>
+                                    <td>
+                                        <select name="date_type" style="width: 115px;">
+                                            <option value="order_date">주문일</option>
+                                            <option value="pay_date">결제일</option>
+                                            <option value="shipbegin_date">배송시작일</option>
+                                            <option value="shipend_date">배송완료일</option>
+                                            <option value="purchaseconfirm_date">구매확정일</option>
+                                        </select>
+                                        <button type="button">
+                                            오늘
+                                        </button>
+                                        <button type="button">
+                                            어제
+                                        </button>
+                                        <button type="button">
+                                            7일
+                                        </button>
+                                        <button type="button">
+                                            1개월
+                                        </button>
+                                        <button type="button">
+                                            3개월
+                                        </button>
+                                        <button type="button">
+                                            6개월
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        검색어
+                                    </th>
+                                    <td>
+                                        <div class="mainsearch">
+                                            <div class="keywordsearch">
+                                                <select name="" id="">
+                                                    <option value="">주문번호</option>
+                                                    <option value="">배송번호</option>
+                                                    <option value="">운송장번호</option>
+                                                    <option value="">주문자명</option>
+                                                    <option value="">주문자 아이디</option>
+                                                    <option value="">회원 이메일</option>
+                                                    <option value="">주문자 휴대전화</option>
+                                                    <option value="">입금자명</option>
+                                                    <option value="">수령자명</option>
+                                                    <option value="">수령자 휴대전화</option>
+                                                    <option value="">배송지 주소</option>
+                                                    <option value="">상품명</option>
+                                                    <option value="">상품코드</option>
+                                                    <option value="">품목코드</option>
+                                                </select>
+                                                <input type="text" class="keywordsearch-input" style="width: 400px;">
+                                                <button type="button">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="option division" style="display: block;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>결제상태</th>
+                                    <td colspan="3">
+                                        <label class="option-label">
+                                            <input type="radio" name="statuspayment" class="option-check">
+                                            전체
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="statuspayment" class="option-check">
+                                            입금전
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="statuspayment" class="option-check">
+                                            입금완료
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="statuspayment" class="option-check">
+                                            결제완료
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>결제수단</th>
+                                    <td colspan="3">
+                                        <div class="table-select">
+                                            <div class="table-value">
+                                                <p>전체</p>
+                                                <img src="/static/images/jpg/arrow_down.png" alt="">
+                                            </div>
+                                            <div class="table-list">
+                                                <ul>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            전체
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            무통장입금
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            신용카드
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            계좌이체
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            가상계좌
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            휴대폰
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>금액조건</th>
+                                    <td colspan="3">
+                                        <select name="" id="">
+                                            <option value="">총상품구매금액</option>
+                                            <option value="">총실결제금액</option>
+                                        </select>
+                                        <input type="text" class="price-text">
+                                        <span>~</span>
+                                        <input type="text" class="price-text">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="option-toggle">
+                        <div class="option-toggle-main">
+                            <span>
+                                <button>
+                                    상세검색 열기
+                                </button>
+                                <img src="/static/images/jpg/arrow_down.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="option-btn">
+                        <button type="button">
+                            <span>검색</span>
+                        </button>
+                        <a href="">
+                            <span>초기화</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-tab">
+                        <ul>
+                            <li>
+                                <a href="">주문번호별</a>
+                            </li>
+                            <li>
+                                <a href="">상품별</a>
+                            </li>
+                            <li>
+                                <a href="">배송번호별</a>
+                            </li>
+                            <li>
+                                <a href="">배송보류</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-header">
+                            <div class="header-left">
+                                <a href="" class="header-left-btn">배송중처리</a>
+                                <a href="" class="header-left-btn">배송보류처리</a>
+                            </div>
+                        </div>
+                        <div class="section-list">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 30px;">
+                                            <input type="checkbox">
+                                        </th>
+                                        <th style="width: 50px;">No</th>
+                                        <th style="width: 70px;">주문일</th>
+                                        <th style="width: 140px;">주문번호</th>
+                                        <th style="width: 180px;">상품명</th>
+                                        <th style="width: 85px;">주문자</th>
+                                        <th style="width: 100px;">총 상품구매금액</th>
+                                        <th style="width: 100px;">총 주문금액</th>
+                                        <th style="width: 100px;">총 실결제금액</th>
+                                        <th style="width: 70px;">입금자</th>
+                                        <th style="width: 90px;">입금액</th>
+                                        <th style="width: 80px;">입금은행</th>
+                                        <th style="width: 75px;">처리여부</th>
+                                        <th style="width: 75px;">추가입금</th>
+                                        <th style="width: 45px;">메모</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="19">검색된 주문내역이 없습니다.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page"> 1 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
