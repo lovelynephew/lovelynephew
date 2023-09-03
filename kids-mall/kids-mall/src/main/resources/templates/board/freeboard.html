@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>싱품 사용후기</title>
+    <title>자유게시판</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
@@ -24,7 +24,7 @@
         vertical-align: middle;
         border-bottom: 0;
         /* border: none; */
-        padding: 15px 10px 16px;
+        padding: 10px 20px 10px 20px;
         font-weight: 400;
         background-color: #e5e5e5;
         font-size: 13px;
@@ -43,7 +43,7 @@
         height: 30px;
     }
     .product-img a img {
-        width: 70px;
+        width: 60px;
         max-width: 100%;
         height: auto;
         box-sizing: border-box;
@@ -109,7 +109,6 @@
         padding: 0;
         border: none;
     }
-
 </style>
 <body>
     <div class="container-wrap">
@@ -134,7 +133,7 @@
             <div class="content-wrap">
                 <div class="table-wrap">
                     <div class="table-title">
-                        <h3>상품사용 후기</h3>
+                        <h3>자유 게시판</h3>
                     </div>
                     <hr />
                     <div class="write-btn">
@@ -144,19 +143,12 @@
                     <table>
                         <thead>
                             <th>번호</th>
-                            <th>상품정보</th>
                             <th>제목</th>
                             <th>작성자</th>
                             <th>작성일</th>
                             <th>조회</th>
-                            
                             <tr>
                                 <td class="num">3</td>
-                                <td class="product-img">
-                                    <a href="#">
-                                        <img src="../../static/images/jpg/pororocars.jpg" alt="">
-                                    </a>
-                                </td>
                                 <td class="subject">
                                     <p class="product left">핑크퐁 날따라오는 아기상어</p>
                                     <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
@@ -167,11 +159,6 @@
                             </tr>
                             <tr>
                                 <td class="num">2</td>
-                                <td class="product-img">
-                                    <a href="#">
-                                        <img src="../../static/images/jpg/babyshark.jpeg" alt="">
-                                    </a>
-                                </td>
                                 <td class="subject">
                                     <p class="product left">핑크퐁 날따라오는 아기상어</p>
                                     <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
@@ -182,11 +169,6 @@
                             </tr>
                             <tr>
                                 <td class="num">1</td>
-                                <td class="product-img">
-                                    <a href="#">
-                                        <img src="../../static/images/jpg/bearT-shirt.jpg" alt="">
-                                    </a>
-                                </td>
                                 <td class="subject">
                                     <p class="product left">핑크퐁 날따라오는 아기상어</p>
                                     <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
@@ -206,12 +188,9 @@
                                 <option value="whole">전체</option>
                             </select>
                             <select class="product" name="" id="">
-                                <option value="">카테고리별</option>
-                                <option value="toy">장난감</option>
-                                <option value="shirt">의류</option>
-                                <option value="pants">기념일</option>
-                                <option value="ballons">이벤트풍선</option>
-                                <option value="stationery">생활용품</option>
+                                <option value="">제목</option>
+                                <option value="toy">작성자</option>
+                                <option value="shirt">내용</option>
                             </select>
                             <input type="text" class="word" placeholder="검색어를 입력하세요.">
                             <button class="find-review">찾기</button>

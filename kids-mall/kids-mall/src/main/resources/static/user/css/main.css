@@ -28,7 +28,6 @@
     font-size: 12px;
     font-weight:bold;
     color: #9a9898;
-    
 }
 .recommend-box {
     display: flex;
@@ -42,6 +41,7 @@
 }
 .recommend-img img {
     width: 170px;
+    height: 200px;
     border: 2px solid rgba(154, 152, 152, 0.1);
     border-radius: 10px;
 }
@@ -53,7 +53,7 @@
     font-size: 15px;
     font-weight: bolder;
 }
-.box1  {
+.box1, .box2 {
     
     margin: 20px 20px 50px 20px;
 }
