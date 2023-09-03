@@ -68,6 +68,7 @@
     height: 28px;
     padding: 8px;
     border: 1px solid #d9dadc;  
+    border-collapse: collapse;
     text-align: left;
 }
 
@@ -132,6 +133,56 @@
     background-color: #fff;
 }
 
+.division {
+    position: relative;
+    top: -1px;
+}
+
+.hidden-menu {
+    display: none;
+}
+
+.available-stock-input {
+    width: 60px;
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid #d6dae1;
+    border-radius: 3px;
+    line-height: 28px;
+    outline: 0 none;
+    vertical-align: middle;
+}
+
+.sub-button, .add-button {
+    width: 28px !important;
+    height: 28px;
+}
+
+
+.sub-button span::before,
+.add-button span::before
+{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 2px;
+    margin: -1px 0 0 -5px;
+    background-color: #6b6b6b;
+}
+
+.add-button span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    margin: -5px 0 0 -1px;
+    background-color: #6b6b6b;
+}
+
 .option-label {
     padding-right: 20px;
     vertical-align: middle;
@@ -179,7 +230,7 @@
     margin: 16px 0 0;
 }
 
-.option-btn button {
+.search-button {
     height: 36px;
     cursor: pointer;
 
@@ -193,7 +244,7 @@
     color: #fff;
 }
 
-.option-btn a {
+.reset-button {
     height: 36px;
     cursor: pointer;
 
@@ -206,6 +257,7 @@
     border: 1px solid #d9dadc;
     width: 72px;
     color: #1b1e26;
+    margin-left: 8px;
 }
 
 .option-btn a span {
@@ -213,3 +265,184 @@
     font-size: 13px;
     line-height: 34px;
 }
+
+/* 등록한 상품 정보*/
+
+.section-title h2{
+    color: #1b1e26;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 46px;
+    margin: 8px 0 -1px;
+    padding: 8px;
+    border: 1px solid #d9dadc;
+    background-color: #fff;
+}
+
+.header-left {
+    float: left;
+}
+
+.section-header button {
+    background-color: #fff;
+    font-size: 13px;
+    padding: 0 8px;
+    border: 1px solid #aeb4c6;
+    line-height: 26px;
+    color: #1b1e26;
+    font-weight: normal;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.header-left-button button:hover {
+    background-color: #f4f9ff;
+}
+
+.header-right-button button {
+    border: 1px solid transparent;
+    line-height: 26px;
+    color: #fff;
+    font-weight: normal;
+    background-color: #444b59;
+}
+
+.header-right-button button:hover {
+    background-color: #667084;
+}
+
+.section-list {
+    overflow: auto;
+    border-right: 1px solid #d9dadc;
+    border-left: 1px solid #d9dadc;
+    background-color: #fff;
+}
+
+.section-list table {
+    border-top: 0;
+    color: #222;
+}
+
+.section-list table tbody th {
+    border: 1px solid #d9dadc;
+    height: 56px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 9px 4px 7px 4px;
+    font-weight: normal;
+    font-size: 13px;
+    background-color: #fafafb;
+}
+
+.all-check, .product-check {
+    width: 35px;
+}
+
+.no {
+    width: 50px;
+}
+
+.product-type {
+    width: 70px;
+}
+.product-code {
+    width: 140px;
+}
+
+.product-name {
+    width: 250px;
+}
+
+.product-price,
+.sale-price
+{
+    width: 100px;
+}
+
+.order-address{
+    width: 160px;
+}
+
+.section-list table tbody td {
+    text-align: center;
+    padding: 8px;
+    vertical-align: top;
+    border: 1px solid #d9dadc;
+}
+
+.product-table-main .product-name {
+    text-align: left;
+}
+
+.product-table-main .product-name a{
+    vertical-align: top;
+}
+
+.order-address-input {
+    max-width: 100%;
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid #d6dae1;
+    border-radius: 3px;
+    line-height: 28px;
+    outline: 0 none;
+}
+
+.order-address-atag {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 5px;
+
+    width: 100%;
+}
+
+.order-address-atag a {
+    display: flex;
+    
+    background-color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 26px;
+    color: #1b1e26;
+    font-weight: normal;
+    text-align: center;
+}
+
+.order-address-atag a span {
+    display: block;
+    padding: 0 8px;
+    border: 1px solid #aeb4c6;
+    border-radius: 3px;
+    height: 28px;
+    width: 68px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 0;
+    width: 100%;
+}
+
+.page strong {
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3971ff;
+}
+
+/* 본문 메인 끝 */
