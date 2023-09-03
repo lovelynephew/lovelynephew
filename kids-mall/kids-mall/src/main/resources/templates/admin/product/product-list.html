@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/static/admin/css/admin-order-list.css">/ -->
+    <link rel="stylesheet" href="/static/admin/css/product/product-list.css">
+    <link rel="stylesheet" href="/static/admin/css/product/sidebar.css">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+</head>
+<body>
+    <div class="wrap-header">
+        <div class="header">
+            <h2>헤더내용 확인필요</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <a href="">
+                    <h1>조카바보</h1>
+                </a>
+            </div>
+            <div class="sidearea">
+                <div class="menulistbar">
+                    <div class="menulistbox">
+                        <div class="menulistbox-containter">
+                            <ul class="menu">
+                                <li class="haschild">
+                                    <a href="" class="link">홈</a>
+                                </li>
+                                <li class="haschild show">
+                                    <a href="" class="link">주문</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">상품</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">고객</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">메시지</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">게시판</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">통계</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="submenulistbar">
+                    <div class="submenulistbox">
+                        <div class="submenulistbox-containter">
+                            <div class="subtitle">
+                                <span>상품</span>
+                            </div>
+                            <div class="sublist">
+                                <ul>
+                                    <li class="selected">
+                                        <a href="">
+                                            <span>상품 대시보드</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 목록</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 등록</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 관리</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>재고 관리</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="headarea">
+                <div class="headarea-title">
+                    <h1>전체 주문 조회</h1>
+                </div>
+            </div>
+            <div class="option-area">
+                <div class="option">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    검색분류
+                                </th>
+                                <td>
+                                    <div class="mainsearch">
+                                        <div class="keywordsearch">
+                                            <select name="" id="">
+                                                <option value="">상품명</option>
+                                            </select>
+                                            <input type="text" class="keywordsearch-input" style="width: 400px;">
+                                            <button type="button">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>상품구분</th>
+                                <td>
+                                    <label class="option-label">
+                                        <input type="radio" class="option-check">
+                                        전체
+                                    </label>
+                                    <label class="option-label">
+                                        <input type="radio" class="option-check">
+                                        기본상품
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>상품분류</th>
+                                <td>
+                                    <select name="product_major_type" style="width: 128px;">
+                                        <option value="major-category">- 대분류 선택 -</option>
+                                    </select>
+                                    <select name="product_middle_type" style="width: 128px;">
+                                        <option value="middle-category">- 중분류 선택 -</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    상품등록일
+                                </th>
+                                <td>
+                                    <select name="date_type" style="width: 128px;">
+                                        <option value="product-create-date">상품등록일</option>
+                                        <option value="product-update-date">상품최종수정일</option>
+                                    </select>
+                                    <button type="button">
+                                        오늘
+                                    </button>
+                                    <button type="button">
+                                        3일
+                                    </button>
+                                    <button type="button">
+                                        7일
+                                    </button>
+                                    <button type="button">
+                                        1개월
+                                    </button>
+                                    <button type="button">
+                                        3개월
+                                    </button>
+                                    <button type="button">
+                                        1년
+                                    </button>
+                                    <button type="button">
+                                        전체
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="option-toggle">
+                    <div class="option-toggle-main">
+                        <span>
+                            <button>
+                                상세검색 열기
+                            </button>
+                            <img src="/static/images/jpg/arrow_down.png" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="option-btn">
+                    <button type="button">
+                        <span>검색</span>
+                    </button>
+                    <a href="">
+                        <span>초기화</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
