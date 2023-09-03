@@ -328,18 +328,6 @@
     background-color: #fff;
 }
 
-.option-label {
-    padding-right: 20px;
-    vertical-align: middle;
-}
-
-.option-label input {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    vertical-align: sub;
-}
-
 .table-select {
     display: inline-block;
     position: relative;
@@ -520,16 +508,25 @@
 
 .header-left {
     float: left;
+    text-align: left;
 }
 
-.header-left-total {
-    float: left;
-    margin: 6px 8px 0 0;
-}
+.header-left-btn {
+    height: 28px;
+    cursor: pointer;
 
-.header-left-total strong {
-    color: #3971ff;
-    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    border-radius: 3px;
+
+    font-size: 13px;
+    padding: 0 8px;
+    border: 1px solid #d9dadc;
+    line-height: 26px;
+    color: #fff;
+    background-color: #444b59;
 }
 
 .section-list {
