@@ -4,9 +4,14 @@
     -webkit-tap-highlight-color: transparent; /*하이라이트 표시를 투명하게 설정*/
 }
 
+html {
+    background-color: #f4f5f8;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     color: #242729;
+    margin: 0;
 }
 
 button {
@@ -74,6 +79,7 @@ svg:not(:root) {
 
 .container {
     max-width: 600px;
+    min-height: 100vh;
     width: 100%;
     height: auto;
     background-color: #fff;

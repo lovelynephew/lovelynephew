@@ -1,0 +1,101 @@
+.content-wrap {
+    margin-top: 10px;
+}
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+hr {
+    /* border: 1px solid #323232; */
+}
+th {
+    height: 29px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-bottom: 0;
+    /* border: none; */
+    padding: 10px 20px 10px 20px;
+    font-weight: 400;
+    background-color: #e5e5e5;
+    font-size: 13px;
+}
+td {
+    font-size: 12px;
+    padding: 0 20px;
+}
+table {
+    width: 100%;
+    /* border: 1px solid #323232; */
+    border-collapse: collapse;
+    text-align: center;
+}
+table tr {
+    height: 30px;
+}
+.product-img a img {
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: none;
+    vertical-align: top;
+}
+td {
+    padding: 15px 10px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 29px;
+}
+table td .left {
+    text-align: left;
+}    
+.subject {
+    text-align: left;
+}
+.selbox-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selbox {
+    margin-top: 30px;
+    
+}
+select {
+    margin: 0 3px 0 0; 
+    font-size: 12px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px; 
+    padding-left: 3px;
+}
+input {
+    width: 150px;
+    height: 30px;
+    border-radius: 24px;
+    font-size: 12px;
+    padding-left: 5px;
+    border: 1px solid #555555;
+}
+.find-review {
+    font-size: 13px;
+    border-radius: 24px;
+    /* white-space: pre; */
+    /* display: inline-flex; */
+    /* -webkit-box-align: center; */
+    align-items: center;
+    /* -webkit-box-align: center; */
+    justify-self: center;
+    /* padding: 5px 10px; */
+    height: 35px;
+    width: 55px;
+    background: rgb(245, 246, 248);
+    color: #737373
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
