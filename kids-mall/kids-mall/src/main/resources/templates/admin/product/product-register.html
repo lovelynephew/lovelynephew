@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/product/product-register.css">
+    <link rel="stylesheet" href="/static/admin/css/product/sidebar.css">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+    <script src="/static/texteditor/js/service/HuskyEZCreator.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap-header">
+        <div class="header">
+            <h2>헤더내용 확인필요</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <a href="">
+                    <h1>조카바보</h1>
+                </a>
+            </div>
+            <div class="sidearea">
+                <div class="menulistbar">
+                    <div class="menulistbox">
+                        <div class="menulistbox-containter">
+                            <ul class="menu">
+                                <li class="haschild">
+                                    <a href="" class="link">홈</a>
+                                </li>
+                                <li class="haschild show">
+                                    <a href="" class="link">주문</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">상품</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">고객</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">메시지</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">게시판</a>
+                                </li>
+                                <li class="haschild">
+                                    <a href="" class="link">통계</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="submenulistbar">
+                    <div class="submenulistbox">
+                        <div class="submenulistbox-containter">
+                            <div class="subtitle">
+                                <span>상품</span>
+                            </div>
+                            <div class="sublist">
+                                <ul>
+                                    <li class="selected">
+                                        <a href="">
+                                            <span>상품 대시보드</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 목록</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 등록</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>상품 관리</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span>재고 관리</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="headarea">
+                <div class="headarea-title">
+                    <h1>상품 등록</h1>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-toggle-bar">
+                    <h2>표시 설정</h2>
+                    <div class="ctrl">
+                        <img src="/static/images/jpg/arrow_up.png">
+                    </div>
+                </div>
+                <div class="option-area">
+                    <div class="option">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        상품분류 선택
+                                    </th>
+                                    <td>
+                                        <select name="product_type" style="width: 128px;">
+                                            <option value="major-category">- 대분류 선택 -</option>
+                                        </select>
+                                        <select name="product_type" style="width: 128px;">
+                                            <option value="middle-category">- 중분류 선택 -</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-toggle-bar">
+                    <h2>기본 정보</h2>
+                    <div class="ctrl">
+                        <img src="/static/images/jpg/arrow_up.png">
+                    </div>
+                </div>
+                <div class="option-area">
+                    <div class="option">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        상품명
+                                    </th>
+                                    <td>
+                                        <div class="product-info">
+                                            <input type="text" placeholder="예시) 플라워 미니 원피스">
+                                            <span class="txtbyte">
+                                                [
+                                                <strong>0</strong>
+                                                / 250 ]
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        영문 상품명
+                                    </th>
+                                    <td>
+                                        <div class="product-info">
+                                            <input type="text">
+                                            <span class="txtbyte">
+                                                [
+                                                <strong>0</strong>
+                                                / 250 ]
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        모델명
+                                    </th>
+                                    <td>
+                                        <div class="product-info">
+                                            <input type="text">
+                                            <span class="txtbyte">
+                                                [
+                                                <strong>0</strong>
+                                                / 100 ]
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        상품코드
+                                    </th>
+                                    <td>
+                                        자동생성
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        제조사
+                                    </th>
+                                    <td>
+                                        <div class="product-info">
+                                            <input type="text">
+                                            <span class="txtbyte">
+                                                [
+                                                <strong>0</strong>
+                                                / 100 ]
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>재고수량</th>
+                                    <td>
+                                        <div class="stock-type">
+                                            <select name="" id="">
+                                                <option value="">재고수량</option>
+                                                <option value="">안전재고</option>
+                                            </select>
+                                            <input type="text">
+                                            개 ~
+                                            <input type="text">
+                                            개
+                                            <button type="button" class="sub-button">
+                                                <span></span>
+                                            </button>
+                                            <button type="button" class="add-button">
+                                                <span></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        성별
+                                    </th>
+                                    <td>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            남자
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            여자
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        연령대
+                                    </th>
+                                    <td>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            1세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            2세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            3세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            4세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            5세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            6세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            7세
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            초등학교 저학년
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        성향
+                                    </th>
+                                    <td>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            활발함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            호기심
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            씩씩함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            공감능력
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            인내심
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            애교
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            꼼꼼함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            창의적임
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            조심성
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            섬세함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            독립성
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            수줍음
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            민감함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            끈기
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            화려함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            신중함
+                                        </label>
+                                        <label class="category-info-label">
+                                            <input type="checkbox">
+                                            도전정신
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        판매가
+                                    </th>
+                                    <td>
+                                        <table class="sale-price">
+                                            <thead>
+                                                <tr>
+                                                    <th>판매가</th>
+                                                    <th>최종가격</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text">
+                                                        KRW
+                                                    </td>
+                                                    <td>
+                                                        <input type="text">
+                                                        KRW
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="discount-content">
+                                            <select>
+                                                <option value="">할인율</option>
+                                                <option value="">할인가격</option>
+                                            </select>
+                                            <div class="discount-input">
+                                                <input type="text">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        상품 상세설명
+                                    </th>
+                                    <td>
+                                        <textarea name="ir1" id="ir1" rows="10" cols="100"
+                                                style="width: 100%; height: 500px;">test</textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let oEditors = [];
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors,
+            elPlaceHolder: "ir1",
+            sSkinURI: "/static/texteditor/SmartEditor2Skin.html",
+            fCreator: "createSEditor2",
+            fOnAppLoad : () => {
+                oEditors.getById["ir1"].exec("PASTE_HTML", ["유저가 작성한 n번글"]);
+            }
+        });
+
+        const submitButton = document.querySelector(".submit");
+
+        submitButton.onclick = () => {
+            oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문이 삽입되는 text 입니다."]);
+            oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+            const textareaValue = document.querySelector("#ir1").value;
+            alert(textareaValue);
+        }
+        </script>
+</body>
+</html>
