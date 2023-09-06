@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    touch-action: manipulation;
+    width: 100%;
+    min-height: 100vh;
+    color: #242729;
+    display: block;
+}
+
+svg {
+    width: 16;
+    height: 16;
+    fill: none;
+}
+
+div {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+section {
+    display: block;
+}
+
+button, input, optgroup, select, figure, textarea {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.body_13 {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.body_15 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.body_17 {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.div-point1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.div-point2 {
+    position: relative;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.div-point3 {
+    position: relative;
+    padding: 16px;
+    color: rgb(36, 39, 41);
+}
+
+.div-point4 {
+    padding: 0px 8px;
+}
+
+.div-point5 {
+    position: relative;
+    border-top: 1px solid rgb(245, 246, 248);
+    margin: 16px 0px 0px;
+    padding: 16px 8px 0px;
+    color: rgb(116, 99, 242);
+    display: none;
+}
+
+.div-point6 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.div-point7 {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    border-color: #fff;
+    display: flex;
+    border-bottom: 1px solid rgb(245, 246, 248);
+    padding: 8px 16px;
+}
+
+.div-point8 {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    min-height: 40px;
+    margin: 16px;
+    padding: 10px 16px;
+    border: 1px solid rgb(210, 213, 214);
+    border-radius: 4px;
+    color: rgb(105, 113, 117);
+    background: #fff;
+}
+
+.div-point9 {
+    border: 1px solid rgb(210, 213, 214);
+    border-radius: 4px;
+    padding: 0px 16px;
+    margin: 0px 0px 12px;
+}
+
+.div-point10 {
+    display: flex;
+    -webkit-box-align: flex;
+    align-items: center;
+    padding: 12px 0px;
+}
+
+.div-point11 {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 64px);
+}
+
+.div-point12 {
+    font-weight: 500;
+    display: flex;
+    color: rgb(105, 113, 117);
+    line-height: 12px;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+
+.p-point1 {
+    margin: 0px 0px 4px;
+    font-weight: 400;
+}
+
+.p-point2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.p-point3 {
+    margin: 0px 0px 6px;
+    font-weight: 400;
+}
+
+.p-point4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.p-point5 {
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.p-point6 {
+    font-weight: 700;
+    padding: 12px 0px;
+}
+
+.span-point1 {
+    margin: 0px 2px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.span-point2 {
+    margin: 0px 2px;
+}
+
+.span-point3 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 0px 8px;
+}
+
+.span-point4 {
+    font-weight: 700;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 48px;
+    height: 32px;
+    margin: 0px 4px 0px 0px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    border: none;
+    background: rgb(36, 39, 41);
+    color: rgb(255, 255, 255);
+}
+
+.span-point5 {
+    font-weight: 700;
+    display: inline-block;
+    word-break: break-all;
+    letter-spacing: -0.3px;
+    color: rgb(130, 138, 143);
+}
+
+.section-point1 {
+    position: relative;
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #fff;
+}
+
+.h4-point1 {
+    font-weight: 700;
+    line-height: 14px;
+    width: calc(100% - 12px);
+    color: rgb(18, 19, 20);
+    margin: 4px 0px 0px;
+}
+
+.figure-point1 {
+    margin-right: 16px;
+}
+
+.figure-point1 svg {
+    display: flex;
+}
