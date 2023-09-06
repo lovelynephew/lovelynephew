@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+    <link rel="stylesheet" href="/static/admin/css/client/admin-oclient-list.css">
+    <title>Admin 주문회원 조회</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="sidebar">
+                <div class="logo">
+                    <a href="">
+                        <h1>조카바보</h1>
+                    </a>
+                </div>
+                <div class="sidearea">
+                    <div class="menulistbar">
+                        <div class="menulistbox">
+                            <div class="menulistbox-containter">
+                                <ul class="menu">
+                                    <li class="selected">
+                                        <img src="/static/images/jpg/free-icon-home-1946436.png" alt="">
+                                        <a href="">홈</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/icons8-bag-50 (1).png" alt="">
+                                        <a href="">주문</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/admintoy2.png" alt="">
+                                        <a href="">상품</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-user-456212.png" alt="">
+                                        <a href="">고객</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-notepad-318530.png" alt="">
+                                        <a href="">게시판</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-graph-2567943.png" alt="">
+                                        <a href="">통계</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submenulistbar">
+                        <div class="submenulistbox">
+                            <div class="submenulistbox-containter">
+                                <div class="subtitle">
+                                    <span>고객</span>
+                                </div>
+                                <div class="sublist">
+                                    <ul>
+                                        <li class="selected">
+                                            <a href="">
+                                                <span>고객 대시보드</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>회원 조회</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="">
+                                                        <span>회원정보조회</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span>주문회원조회</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span>회원 관리</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="">
+                                                        <span>회원 탈퇴 관리</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="headarea">
+                    <div class="headarea-title">
+                        <h1>주문회원 조회</h1>
+                    </div>
+                </div>
+                <div class="option-area">
+                    <div class="option">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>회원구분</th>
+                                    <td colspan="3">
+                                        <label class="option-label">
+                                            <input type="radio" name="gender" class="option-check">
+                                            주문회원
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="gender" class="option-check">
+                                            주문 안한 회원
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>결제수단</th>
+                                    <td colspan="3">
+                                        <div class="table-select">
+                                            <div class="table-value">
+                                                <p>전체</p>
+                                                <img src="/static/images/jpg/arrow_down.png" alt="">
+                                            </div>
+                                            <div class="table-list">
+                                                <ul>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            전체
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            무통장입금
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            신용카드
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            계좌이체
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            가상계좌
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label for="">
+                                                            <input type="checkbox">
+                                                            휴대폰
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        기간
+                                    </th>
+                                    <td colspan="3">
+                                        <button type="button">
+                                            오늘
+                                        </button>
+                                        <button type="button">
+                                            3일
+                                        </button>
+                                        <button type="button">
+                                            7일
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>이름</th>
+                                    <td colspan="3">
+                                        <input type="text" class="input-text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>아이디</th>
+                                    <td colspan="3">
+                                        <input type="text" class="input-text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>주문번호</th>
+                                    <td colspan="3">
+                                        <input type="text" class="input-text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        구매금액
+                                    </th>
+                                    <td colspan="3">
+                                        <select name="date_type" style="width: 120px;">
+                                            <option value="region_00">총 주문금액</option>
+                                            <option value="region_01">총 실결제금액</option>
+                                        </select>
+                                        <input type="text" class="amount-text">
+                                        <span>~</span>
+                                        <input type="text" class="amount-text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        구매건수
+                                    </th>
+                                    <td colspan="3">
+                                        <select name="date_type" style="width: 120px;">
+                                            <option value="region_00">총 주문건수</option>
+                                            <option value="region_01">총 실주문건수</option>
+                                        </select>
+                                        <input type="text" class="amount-text">
+                                        <span>~</span>
+                                        <input type="text" class="amount-text">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="option-btn">
+                        <button type="button">
+                            <span>검색</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="section-title">
+                            <h2>주문 회원 목록</h2>
+                        </div>
+                        <div class="section-header">
+                            <div class="header-left">
+                                <p>
+                                    [ 총회원수 
+                                    <strong> 0 </strong>
+                                    명] 검색결과
+                                    <strong>0</strong>
+                                    명
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-button">
+                            <a href="">SMS 보내기</a>
+                            <a href="">메일 보내기</a>
+                        </div>
+                        <div class="section-list">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 24px;">
+                                            <input type="checkbox">
+                                        </th>
+                                        <th style="width: 50px;">No</th>
+                                        <th style="width: 120px;">최근주문일</th>
+                                        <th style="width: 120px;">이름</th>
+                                        <th style="width: 100px;">아이디</th>
+                                        <th style="width: 120px;">최근주문번호</th>
+                                        <th style="width: 120px;">총 주문금액</th>
+                                        <th style="width: 120px;">총 주문건수</th>
+                                        <th style="width: 100px;">결제수단</th>
+                                        <th style="width: 40px;">메모</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="19">검색된 회원내역이 없습니다.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page"> 1 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
