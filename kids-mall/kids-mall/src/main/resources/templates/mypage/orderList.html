@@ -3,96 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회사소개</title>
+    <title>주문 배송</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../static/user/css/common.css">
-    <link rel="stylesheet" href="../../static/user/css/company.css">
+    <link rel="stylesheet" href="../../static/user/css/main.css">
+    <link rel="stylesheet" href="../../static/user/css/category.css">
+    <link rel="stylesheet" href="../../static/user/css/order-list.css">
 </head>
 <body>
     <div class="container-wrap">
         <div class="container">
             <div class="header">
-                <div class="header-logo">
-                    <a href="/">
-                        <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
-                    </a>
+                <div class="header-img">
+                    <img src="../../static/images/jpg/free-icon-left-arrow-line-symbol-54321.png" alt="">
                 </div>
-                <div class="search">
-                    <span class="search-img"><img src="../../static/images/svg/icons8-search (1).svg" alt=""></span>
-                    <input type="text" class="search-word" placeholder="검색어를 입력하세요.">
-                </div> 
-                <a href="/cart" class="a-cart">
-                    <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
-                       <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
-                    </svg>
-                    <div class="div-cartnum">1</div>
-                 </a>
+                <div class="header-title">
+                    <h3>주문 배송</h3>
+                </div>
+                <div class="header-img">
+                    <img class="search" src="../../static/images/jpg/free-icon-search-149852.png" alt="">
+                    <img src="../../static/images/jpg/icons8-bag-50.png" alt="">
+                </div>
+               
             </div>
-            
             <div class="content-wrap">
-                <div class="benner">
-                    <div class="table-wrap">
-                        <div class="table-title">
-                            <h3>회사소개</h3>
+                <div class="category-wrap">
+                    <div class="category-wrap">
+                        <a href="">
+                            <button class="all btn-option" style="width: 60px;">전체 <span>3</span></button>
+                        </a>
+                    </div>
+                    <div class="category-wrap">
+                        <a href="">
+                            <button class="delivery btn-option" style="width: 80px;">배송중</button>
+                        </a>
+                    </div>
+                    <div class="category-wrap">
+                        <a href="">
+                            <button class="delivery-complete btn-option" style="width: 90px;">배송완료</button>
+                        </a>
+                    </div>
+                    <div class="category-wrap">
+                        <a href="">
+                            <button class="cancel btn-option" style="width: 110px;">취소/교환/반품</button>
+                        </a>
+                    </div>
+                </div>
+                <hr>
+                <section>
+                    <div class="order-wrap">
+                        <div class="section-title-wrap">
+                            <div class="section-title">22.07.28</div>
+                            <div class="section-title">주문상세</div>
                         </div>
-                        <hr />
-                        <table border="1">
-                            
-                            <!-- <caption>회사소개 정보</caption> -->
-                            <colgroup>
-                                <col style="width: 100px;">
-                                <col style="width: auto;">
-                            </colgroup>
-                            <tbody>
-                                <tr>
-                                    <th>상점명</th>
-                                    <td>조카바보</td>
-                                </tr>
-                                <tr>
-                                    <th>대표이사</th>
-                                    <td>
-                                        <a href="#">최연호</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>대표전화</th>
-                                    <td>
-                                        <a href="#">070-3300-4698</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>주소</th>
-                                    <td>부산광역시 연제구 반송로 60 <br> 임대형 사무실 4호</button></td>
-                                </tr>
-                                <tr>
-                                    <th>사업자등록번호</th>
-                                    <td>171-31-01120</td>
-                                </tr>
-                                <tr>
-                                    <th>통신판매업신고</th>
-                                    <td>1683-7807-4446-5119</td>
-                                </tr>
-                                <tr>
-                                    <th>개인정보 관리책임</th>
-                                    <td>
-                                        <a href="#">010-3300-4698</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>호스팅제공</th>
-                                    <td>카페24(주)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>   
-                </div>
-                <div class="productbox box1">
-                    
-                </div>
-                <div class="productbox box2">
-                    
-            </div>
+                        <div class="order-item">
+                            <div class="order-item-header">
+                                <div class="item-header">
+                                    구매확정
+                                </div>
+                            </div>            
+                            <div class="order-item-body">
+                                <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                <div class="order-product-wrap">
+                                    <div class="order-product">
+                                        <div class="product-name">곰돌이티셔츠</div>
+                                        <div class="product-sale">10% sale</div>
+                                        <div class="product-option">19800원 화이트/ s사이즈 <span>1개</span></div>
+                                    </div>
+                                </div>
+                                
+                            </div>  
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="order-wrap">
+                        <div class="section-title-wrap">
+                            <div class="section-title">22.07.28</div>
+                            <div class="section-title">주문상세</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-item-header">
+                                <div class="item-header">
+                                    배송완료
+                                </div>
+                            </div>            
+                            <div class="order-item-body">
+                                <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                <div class="order-product-wrap">
+                                    <div class="order-product">
+                                        <div class="product-name">곰돌이티셔츠</div>
+                                        <div class="product-sale">10% sale</div>
+                                        <div class="product-option">19800원 화이트/ s사이즈 <span>1개</span></div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="order-wrap">
+                        <div class="section-title-wrap">
+                            <div class="section-title">22.07.28</div>
+                            <div class="section-title">주문상세</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-item-header">
+                                <div class="item-header">
+                                    배송 중
+                                </div>
+                                
+                            </div>            
+                            <div class="order-item-body">
+                                <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                <div class="order-product-wrap">
+                                    <div class="order-product">
+                                        <div class="product-name">곰돌이티셔츠</div>
+                                        <div class="product-sale">10% sale</div>
+                                        <div class="product-option">19800원 화이트/ s사이즈 <span>1개</span></div>
+                                    </div>
+                                </div>
+                                
+                            </div>  
+                        </div>
+                    </div>
 
+                </section>
+            </div>
             <div class="bottom-btn">
                 <ul>
                     <li>
@@ -127,6 +164,7 @@
                     </li>
                 </ul>
             </div>
+        </div>
             <div class="footer-wrap">
                 <footer>
                     <div class="footer-01">

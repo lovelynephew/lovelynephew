@@ -34,10 +34,26 @@
     justify-content: space-between;
     margin-bottom: 20px;
 }
+.sale-box {
+    display: flex;
+    font-size: 13px;
+    
+}
+.sale {
+   margin-right: 5px;
+   color: #ff5160;
+   font-weight: 600;
+}
+.sale-box .sale-price {
+    text-decoration: line-through;
+}
 .productbox .product-title {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
+}
+.recommend-img {
+    margin: 0 5px 0 5px;
 }
 .recommend-img img {
     width: 170px;
@@ -47,6 +63,7 @@
 }
 .recommend .explain {
     font-size: 13px;
+    text-align: justify;
 }
 .recommend .price {
     margin-top: 8px;

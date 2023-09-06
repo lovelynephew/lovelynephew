@@ -3,113 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자유게시판</title>
+    <title>싱품 목록</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
-<style>
-    .content-wrap {
-        margin-top: 10px;
-    }
-    h3 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    hr {
-        /* border: 1px solid #323232; */
-    }
-    th {
-        height: 29px;
-        line-height: 22px;
-        vertical-align: middle;
-        border-bottom: 0;
-        /* border: none; */
-        padding: 10px 20px 10px 20px;
-        font-weight: 400;
-        background-color: #e5e5e5;
-        font-size: 13px;
-    }
-    td {
-        font-size: 12px;
-        padding: 0 20px;
-    }
-    table {
-        width: 100%;
-        /* border: 1px solid #323232; */
-        border-collapse: collapse;
-        text-align: center;
-    }
-    table tr {
-        height: 30px;
-    }
-    .product-img a img {
-        width: 60px;
-        max-width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        border: none;
-        vertical-align: top;
-    }
-    td {
-        padding: 15px 10px 16px;
-        border-bottom: 1px solid #e5e5e5;
-        height: 29px;
-    }
-    table td .left {
-        text-align: left;
-    }    
-    .subject {
-        text-align: left;
-    }
-    .selbox-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .selbox {
-        margin-top: 30px;
-        
-    }
-    select {
-        margin: 0 3px 0 0; 
-        font-size: 12px;
-        border-radius: 10px;
-        width: 100px;
-        height: 30px; 
-        padding-left: 3px;
-    }
-    input {
-        width: 150px;
-        height: 30px;
-        border-radius: 24px;
-        font-size: 12px;
-        padding-left: 5px;
-        border: 1px solid #555555;
-    }
-    .find-review {
-        font-size: 13px;
-        border-radius: 24px;
-        /* white-space: pre; */
-        /* display: inline-flex; */
-        /* -webkit-box-align: center; */
-        align-items: center;
-        /* -webkit-box-align: center; */
-        justify-self: center;
-        /* padding: 5px 10px; */
-        height: 35px;
-        width: 55px;
-        background: rgb(245, 246, 248);
-        color: #737373
-    }
-    button {
-        cursor: pointer;
-        background-color: transparent;
-        font-family: inherit;
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
-</style>
+<link rel="stylesheet" href="../../static/admin/css/admin-product-review.css">
 <body>
     <div class="container-wrap">
         <div class="container">
@@ -133,64 +31,69 @@
             <div class="content-wrap">
                 <div class="table-wrap">
                     <div class="table-title">
-                        <h3>자유 게시판</h3>
+                        <h3>상품후기:: 상품목록</h3>
                     </div>
                     <hr />
-                    <div class="write-btn">
-                        <img src="../../static/images/jpg/free-icon-pen-1250615.png" alt="">
-                        <button class="write">글쓰기</button>
-                    </div>
                     <table>
                         <thead>
                             <th>번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                            <th>조회</th>
+                            <th>상품사진</th>
+                            <th>상품명</th>
+                            <th>후기</th>
+                            
                             <tr>
                                 <td class="num">3</td>
-                                <td class="subject">
-                                    <p class="product left">핑크퐁 날따라오는 아기상어</p>
-                                    <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
+                                <td class="product-img">
+                                    <a href="#">
+                                        <img src="../../static/images/jpg/pororocars.jpg" alt="">
+                                    </a>
                                 </td>
-                                <td>김****</td>
-                                <td>2023-08-31 03:47:00</td>
-                                <td>1</td>
+                                <td class="subject">
+                                    <a href="#">핑크퐁 날따라오는 아기상어</a>
+                                </td>
+                                <td>1개</td>
                             </tr>
                             <tr>
                                 <td class="num">2</td>
-                                <td class="subject">
-                                    <p class="product left">핑크퐁 날따라오는 아기상어</p>
-                                    <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
+                                <td class="product-img">
+                                    <a href="#">
+                                        <img src="../../static/images/jpg/benzcar.jpg" alt="">
+                                    </a>
                                 </td>
-                                <td>김****</td>
-                                <td>2023-08-31 03:47:00</td>
-                                <td>1</td>
+                                <td class="subject">
+                                    <a href="#" >핑크퐁 날따라오는 아기상어</a>
+                                </td>
+                                <td>3개</td>
                             </tr>
                             <tr>
                                 <td class="num">1</td>
-                                <td class="subject">
-                                    <p class="product left">핑크퐁 날따라오는 아기상어</p>
-                                    <a href="#" style="color:#555555; text-align: left;">아이가 너무 좋아하네요</a>
+                                <td class="product-img">
+                                    <a href="#">
+                                        <img src="../../static/images/jpg/fishing.jpg" alt="">
+                                    </a>
                                 </td>
-                                <td>김****</td>
-                                <td>2023-08-31 03:47:00</td>
-                                <td>1</td>
+                                <td class="subject">
+                                    <a href="#" >핑크퐁 날따라오는 아기상어</a>
+                                </td>
+                                <td>5개</td>
                             </tr>
                         </thead>
                     </table>
                     <div class="selbox-wrap">
                         <div class="selbox">
+                            <select class="product" name="" id="">
+                                <option value="">카테고리별</option>
+                                <option value="toy">장난감</option>
+                                <option value="shirt">의류</option>
+                                <option value="pants">기념일</option>
+                                <option value="ballons">이벤트풍선</option>
+                                <option value="stationery">생활용품</option>
+                            </select>
                             <select class="day" name="" id="">
                                 <option value="weekend">일주일</option>
                                 <option value="month">한달</option>
                                 <option value="yesr">일년</option>
                                 <option value="whole">전체</option>
-                            </select>
-                            <select class="product" name="" id="">
-                                <option value="">제목</option>
-                                <option value="toy">작성자</option>
-                                <option value="shirt">내용</option>
                             </select>
                             <input type="text" class="word" placeholder="검색어를 입력하세요.">
                             <button class="find-review">찾기</button>
