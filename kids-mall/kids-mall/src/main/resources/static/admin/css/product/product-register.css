@@ -55,8 +55,6 @@
 
 /* 본문 메인 시작 */
 
-/* 기본 세팅 */
-
 .section-toggle-bar {
     margin: 0 0 -1px 0;
     border: 1px solid #d9dadc;
@@ -165,10 +163,8 @@
 
 .txtbyte strong {
     color: #3971ff;
-    font-weight: normal;
     vertical-align: bottom;
 }
-/* 기본 세팅 끝 */
 
 .stock-type {
     display: flex;
@@ -280,5 +276,95 @@
     border: 1px solid #d6dae1;
     border-radius: 3px;
 }
+
+.option-label {
+    padding-right: 20px;
+    vertical-align: middle;
+}
+
+.option-label input {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: sub;
+}
+
+.img-register-box{
+    display: flex;
+}
+
+.img-register-box ul{
+    display: flex;
+}
+
+.img-register-box ul li{
+    display: flex;
+    flex-direction: column;
+
+    margin: 8px 6px 0 0;
+    vertical-align: top;
+}
+
+.txt-color {
+    text-align: left;
+    font-weight: bold;
+}
+
+.txt-color strong {
+    color: #3971ff;
+    vertical-align: bottom;
+}
+
+.img-size-info {
+    margin: 7px 0 0;
+    font-size: 11px;
+    letter-spacing: 0;
+    line-height: 16px;
+    color: #667084;
+    text-align: left;
+}
+
+.img-box {
+    margin: 8px 0 8px;
+}
+
+.img-register-button {
+    text-align: center;
+    padding: 0 8px;
+}
+
+.img-register-button button {
+    border: 1px solid #aeb4c6;
+    color: #1b1e26;
+}
+
+.img-info-setting {
+    margin: 42px 0 0 20px;
+}
+
+.img-info-setting p {
+    font-size: 11px;
+    letter-spacing: 0;
+    color: #667084;
+}
+
+.img-info-setting span {
+    display: block;
+    margin-top: 8px;
+    padding: 0 8px;
+    border: 1px solid #aeb4c6;
+    line-height: 26px;
+    color: #1b1e26;
+    width: 120px;
+    height: 28px;
+
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+
+
 
 /* 본문 메인 끝 */
