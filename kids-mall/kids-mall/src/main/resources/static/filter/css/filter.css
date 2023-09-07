@@ -66,6 +66,33 @@ button {
     margin: 0 auto;
 }
 
+.access-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+
+    position: relative;
+    top: -10px;
+}
+
+.signup-link {
+    margin-left: 10px;
+    position: relative;
+}
+
+.signup-link::before {
+    display: block;
+    content: '';
+    height: 8px;
+    border: 1px solid #bababa;
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    left: -5px;
+}
+
 .gender-box-line {
     width: 100%;
     text-align: center;
