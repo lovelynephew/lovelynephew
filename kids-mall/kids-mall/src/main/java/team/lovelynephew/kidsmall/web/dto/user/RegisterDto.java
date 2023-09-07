@@ -1,4 +1,4 @@
-package team.lovelynephew.kidsmall.web.dto;
+package team.lovelynephew.kidsmall.web.dto.user;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package team.lovelynephew.kidsmall.web.controller;
+package team.lovelynephew.kidsmall.web.controller.user;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import team.lovelynephew.kidsmall.web.dto.RegisterDto;
+import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
 
 @Controller
 public class RegisterController {
