@@ -4,9 +4,74 @@
     box-sizing: border-box;
 }
 
-.product_main_img {
+.product_main_img img {
     width: 100%;
     height: 100%;
+}
+
+.product_img_btn01 {
+    left: 16px;
+    display: flex;
+    position: absolute;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 32px;
+    height: 32px;
+    background: rgb(18, 19, 20);
+    border-radius: 32px;
+    border: none;
+    opacity: 0.6;
+    cursor: pointer;
+    color: #fff;
+}
+
+.product_img_btn02 {
+    right: 16px;
+    display: flex;
+    position: absolute;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 32px;
+    height: 32px;
+    background: rgb(18, 19, 20);
+    border-radius: 32px;
+    border: none;
+    opacity: 0.6;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.product_img_seq {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    font-size: 0;
+    
+}
+
+.product_img_seq span{
+    width: 6px;
+    height: 6px;
+    margin: 0px 4px 0px 0px;
+    background-color: rgb(210, 213, 214);
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .product_total_wrap {
