@@ -70,6 +70,7 @@
 }
 
 .menu li {
+    position: relative;
     margin: 0px -16px;
     height: 40px;
 }
@@ -85,6 +86,16 @@
     font-weight: 500;
     text-decoration: none;
     background: #192642;
+}
+
+.menu img {
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 8px;
+    left: 24px;
+    filter: invert() opacity(0.7);
 }
 
 .menu .show .link {
@@ -169,7 +180,7 @@
     margin: 0px 14px;
 }
 
-.sublist li a:hover {
+.sublist .haschild a:hover {
     background-color: #7e8aae;
 }
 

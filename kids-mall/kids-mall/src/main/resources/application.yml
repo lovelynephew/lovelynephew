@@ -11,6 +11,11 @@ server:
     uri-encoding: UTF-8
     
 spring:
+  security:
+    user:
+      name: test
+      password: 1234
+
   mvc:
     static-path-pattern: /static/**
   datasource:
@@ -21,4 +26,4 @@ spring:
 
 mybatis:
   mapper-locations:
-  - /mappers/*.xml 
+  - /mappers/**/*.xml 
