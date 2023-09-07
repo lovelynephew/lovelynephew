@@ -30,7 +30,7 @@
 							<div class="body_13 la-divlog">아이디</div>
 						</labbody_13 el>
 						<span class="body_15 span-log">
-							<input type="text" placeholder="아이디" required="" class="userid">
+							<input type="text" placeholder="아이디" required class="userid">
 						</span>
 					</div>
 					<div class="div-in">
@@ -38,10 +38,10 @@
 							<div class="body_13 la-divlog">비밀번호</div>
 						</label>
 						<span class="body_15 span-log">
-							<input placeholder="비밀번호" type="password" required="" autocomplete="current-password" class="password" value="">
+							<input placeholder="비밀번호" type="password" required autocomplete="current-password" class="password" value="">
 						</span>
 					</div>
-					<button type="submit" class="body_15 btn-login">로그인</button>
+					<button onclick="alertBox" type="submit" class="body_15 btn-login">로그인</button>
 					<div class="find-log">
 						<a class="body_13 a-log" href="/find-id">아이디 찾기</a>
 						<hr class="bar">
@@ -61,6 +61,12 @@
 			찜(하트 아이콘)
 			내정보
 		</footer>
+
+		<script>
+			function alertBox() {
+				alert("로그인 되었습니다.");
+			}
+		</script>
 
 </body>
 </html>
