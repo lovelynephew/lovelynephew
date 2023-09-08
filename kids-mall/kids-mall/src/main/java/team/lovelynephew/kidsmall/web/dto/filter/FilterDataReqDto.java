@@ -6,13 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.lovelynephew.kidsmall.domain.filter.Filter;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Data
 public class FilterDataReqDto {
 	private int userFlag;
-	private char gender;
+	private String gender;
 	private String age;
 	private String kidStyle;
 	private int priceMin;

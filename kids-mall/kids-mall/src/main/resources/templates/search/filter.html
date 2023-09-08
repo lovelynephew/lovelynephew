@@ -24,7 +24,7 @@
       <div class="gender-box-line">
         <h4>아이의 성별을 선택해주세요.</h4>
         <div class="gender-button-box">
-          <button type="button" class="gender-button gender-color">남자</button>
+          <button type="button" class="gender-button active-color">남자</button>
           <button type="button" class="gender-button">여자</button>
         </div>
       </div>
@@ -71,9 +71,9 @@
       <div class="price-range-box-line">
         <h4>원하시는 가격대를 설정해주세요.</h4>
         <div class="input-value-box">
-          <div class="output-left">0원</div>
+          <div class="output-left price-min" name="price_min">0원</div>
           <span>~</span>
-          <div class="output-right">100000원</div>
+          <div class="output-right price-max" name="price_max">100000원</div>
         </div>
         <div class="price-input-box">
           <div class="middle">
@@ -114,7 +114,7 @@
     </div>
   </main>
   <script src="/static/filter/js/price-range.js"></script>
-  <!-- <script src="/static/js/filter.js"></script> -->
+  <script src="/static/filter/js/filter.js"></script>
 </body>
 
 </html>

@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 public class Filter {
 	private int filter_code;
 	private int user_flag;
-	private char gender;
+	private String gender;
 	private String age;
 	private String kid_style;
 	private int price_min;
 	private int price_max;
-	
-	private LocalDateTime create_date;
-	private LocalDateTime update_date;
+
+//	private LocalDateTime create_date;
+//	private LocalDateTime update_date;
 }
