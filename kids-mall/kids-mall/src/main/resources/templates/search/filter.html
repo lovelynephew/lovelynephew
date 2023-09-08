@@ -24,7 +24,7 @@
       <div class="gender-box-line">
         <h4>아이의 성별을 선택해주세요.</h4>
         <div class="gender-button-box">
-          <button type="button" class="gender-button active-color">남자</button>
+          <button type="button" class="gender-button">남자</button>
           <button type="button" class="gender-button">여자</button>
         </div>
       </div>
@@ -71,16 +71,16 @@
       <div class="price-range-box-line">
         <h4>원하시는 가격대를 설정해주세요.</h4>
         <div class="input-value-box">
-          <div class="output-left price-min" name="price_min">0원</div>
+          <div class="output-left" name="price_min">0원</div>
           <span>~</span>
-          <div class="output-right price-max" name="price_max">100000원</div>
+          <div class="output-right" name="price_max">100000원</div>
         </div>
         <div class="price-input-box">
           <div class="middle">
             <div class="multi-range-slider">
               <!-- 진짜 슬라이더 -->
-              <input type="range" class="input-left" min="0" max="100000" step="10000" value="0"/>
-              <input type="range" class="input-right" min="0" max="100000" step="10000" value="100000"/>
+              <input type="range" class="input-left price-min" min="0" max="100000" step="10000" value="0"/>
+              <input type="range" class="input-right price-max" min="0" max="100000" step="10000" value="100000"/>
 
               <!-- 커스텀 슬라이더 -->
               <div class="slider">
