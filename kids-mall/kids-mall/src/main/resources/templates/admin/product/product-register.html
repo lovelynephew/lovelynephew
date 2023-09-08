@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
     <link rel="stylesheet" href="/static/admin/css/product/product-register.css">
     <link rel="stylesheet" href="/static/admin/css/product/sidebar.css">
-    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
-    <script src="/static/texteditor/js/service/HuskyEZCreator.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <title>Admin 상품등록</title>
 </head>
 <body>
@@ -453,7 +453,7 @@
                                         상품 상세설명
                                     </th>
                                     <td>
-                                        
+                                        <textarea class="form-control" rows="20" name="ir1" id="ir1"></textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -463,6 +463,22 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+	    let oEditors = [];
+	
+	    nhn.husky.EZCreator.createInIFrame({
+	        oAppRef: oEditors,
+	        elPlaceHolder: "ir1",
+	        sSkinURI: "/static/smarteditor/SmartEditor2Skin.html",
+	        fCreator: "createSEditor2",
+		    htParams : { 
+			bUseVerticalResizer : false,  
+			bUseModeChanger : false 
+		    }
+	    })
+    </script>
     <script type="text/javascript" src="/static/admin/js/product/product-register.js"></script>
+
+
 </body>
 </html>

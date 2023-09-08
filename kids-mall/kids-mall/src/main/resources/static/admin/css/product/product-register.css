@@ -354,6 +354,8 @@
     border-radius: 3px;
 }
 
-
+.option textarea {
+	width: 990px;
+}
 
 /* 본문 메인 끝 */
