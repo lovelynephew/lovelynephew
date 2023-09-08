@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 public class Filter {
 	private int filter_code;
 	private int user_flag;
-	private String gender;
-	private String age;
+	private char gender;
+	private int age;
 	private String kid_style;
 	private int price_min;
 	private int price_max;

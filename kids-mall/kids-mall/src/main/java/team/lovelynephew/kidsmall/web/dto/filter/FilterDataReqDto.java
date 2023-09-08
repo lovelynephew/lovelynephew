@@ -9,8 +9,8 @@ import team.lovelynephew.kidsmall.domain.filter.Filter;
 @Data
 public class FilterDataReqDto {
 	private int userFlag;
-	private String gender;
-	private String age;
+	private char gender;
+	private int age;
 	private String kidStyle;
 	private int priceMin;
 	private int priceMax;

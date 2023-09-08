@@ -81,8 +81,8 @@ const completeButton = document.querySelector(".complete-button");
 const priceMinInput = document.querySelector(".price-min");
 const priceMaxInput = document.querySelector(".price-max");
 
-let gender = [];
-let age = [];
+let gender = null;
+let age = null;
 let kidStyle = [];
 
 styleButtons.forEach((button, index) => {
@@ -91,17 +91,57 @@ styleButtons.forEach((button, index) => {
     };
 });
 
-ageRangeButtons.forEach((button, index) => {
-    button.onclick = () => {
-        ageRangeButtons[index].classList.toggle("active-color");
-    };
-});
+// ageRangeButtons.forEach((button, index) => {
+//     button.onclick = () => {
+//         ageRangeButtons[index].classList.toggle("active-color");
+//     };
+// });
+// genderButtons.forEach((button, index) => {
+//     button.onclick = () => {
+//         genderButtons[index].classList.toggle("active-color");
+//     };
+// });
 
-genderButtons.forEach((button, index) => {
-    button.onclick = () => {
-        genderButtons[index].classList.toggle("active-color");
-    };
-});
+let genderCheck = null;
+let ageCheck = null;
+
+for(let i = 0; i < genderButtons.length; i++) {
+    genderButtons[i].onclick = () => {
+        if(genderCheck == null) {
+            genderCheck = i;
+            genderButtons[genderCheck].classList.toggle("active-color");
+            console.log("genderCheck == null ? 체크하기");
+        }else {
+            if(genderCheck != i) {
+                alert("성별은 복수 선택이 불가능합니다.");
+                console.log("성별은 복수선택 불가능합니다.");
+            } else {
+                genderButtons[genderCheck].classList.toggle("active-color");
+                genderCheck = null;
+                console.log("genderCheck == i 체크 헤제");            
+            }
+        }
+    }
+}
+
+for(let i = 0; i < ageRangeButtons.length; i++) {
+    ageRangeButtons[i].onclick = () => {
+        if(ageCheck == null) {
+            ageCheck = i;
+            ageRangeButtons[ageCheck].classList.toggle("active-color");
+            console.log("agecheck == null ? 체크하기");
+        }else {
+            if(ageCheck != i) {
+                alert("나이는 복수 선택이 불가능합니다.");
+                console.log("나이는 복수선택 불가능합니다.");
+            } else {
+                ageRangeButtons[ageCheck].classList.toggle("active-color");
+                ageCheck = null;
+                console.log("agecheck == i 체크 헤제");            
+            }
+        }
+    }
+}
 
 const unsetCheckbox = document.querySelector(".free-price input[type=checkbox]");
 
@@ -124,8 +164,8 @@ completeButton.onclick = () => {
     // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
     const data = {
         user_flag: null,
-        gender: gender.join(","),
-        age: age.join(","),
+        gender: gender,
+        age: age,
         kid_style: kidStyle.join(","),
         price_min: priceMinInput.value,
         price_max: priceMaxInput.value
@@ -136,7 +176,9 @@ completeButton.onclick = () => {
         async: false,
         type: "post",
         url: "/api/v1/search/filter",
-        data: data,
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+		processData: false,
         dataType: "json",
         success: (response) => {
             console.log(response.data);
@@ -150,8 +192,8 @@ completeButton.onclick = () => {
 };
 
 function setData() {
-    gender = [];
-    age = [];
+    gender = null;
+    age = null;
     kidStyle = [];
 
     styleButtons.forEach((button, index) => {
@@ -162,13 +204,13 @@ function setData() {
 
     ageRangeButtons.forEach((button, index) => {
         if (button.classList.contains("active-color")) {
-            age.push(button.textContent);
+            age = button.textContent.charAt(0);
         }
     });
 
     genderButtons.forEach((button, index) => {
         if (button.classList.contains("active-color")) {
-            gender.push(button.textContent);
+            gender = button.textContent.charAt(0);
         }
     });
 }

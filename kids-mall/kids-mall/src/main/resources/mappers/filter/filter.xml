@@ -16,8 +16,8 @@
 		#{gender},
 		#{age},
 		#{kid_style},
-	    11111,
-	    1111,
+	    #{price_min},
+	    #{price_max},
 		now(),
 		now()
 		)

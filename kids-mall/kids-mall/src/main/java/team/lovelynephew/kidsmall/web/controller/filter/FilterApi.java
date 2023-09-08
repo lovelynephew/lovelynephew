@@ -15,13 +15,13 @@ import team.lovelynephew.kidsmall.web.dto.filter.FilterDataReqDto;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/filter")
+@RequestMapping("/api/v1/search")
 public class FilterApi {
 	
 	private final FilterService filterService;
 	
-	@PostMapping("")
-	public ResponseEntity<CMRespDto<Boolean>> addFilter(@RequestBody FilterDataReqDto filterDataReqDto) {
+	@PostMapping("/filter")
+	public ResponseEntity<?> addFilter(@RequestBody FilterDataReqDto filterDataReqDto) {
 		boolean status = false;
 		log.info("컨트롤러 입장");
 		try {
@@ -32,6 +32,6 @@ public class FilterApi {
 			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "error", status));
 		}
 		
-		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", status));
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", filterDataReqDto));
 	}
 }
