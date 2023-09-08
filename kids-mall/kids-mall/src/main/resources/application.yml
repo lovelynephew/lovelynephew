@@ -23,7 +23,37 @@ spring:
     url: jdbc:mariadb://lovelynephewdb.cz997nixexiw.ap-northeast-2.rds.amazonaws.com:3306/lovelynephewdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
     username: admin
     password: 1q2w3e4r
+    
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+      enabled: true
 
 mybatis:
   mapper-locations:
-  - /mappers/**/*.xml 
+  - /mappers/**/*.xml
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIASYYAS7FQZYSX3D4X
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: donguk-bucket
+    stack:
+      auto: false
+      
+#cloud:
+#  aws:
+#    region:
+#      static: ap-northeast-2
+#    s3:
+#      bucket: lovelynephew-s3
+#    credentials:
+#      access-key: 
+#      secret-key: 
+#    stack:
+#      auto: false
