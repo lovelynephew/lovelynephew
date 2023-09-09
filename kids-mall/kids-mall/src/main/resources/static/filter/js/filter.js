@@ -78,8 +78,8 @@ const genderButtons = document.querySelectorAll(".gender-button");
 const ageRangeButtons = document.querySelectorAll(".age-range-button");
 const styleButtons = document.querySelectorAll(".style-button");
 const completeButton = document.querySelector(".complete-button");
-const priceMinInput = document.querySelector(".price-min");
-const priceMaxInput = document.querySelector(".price-max");
+const priceMinInput = document.querySelector(".input-left");
+const priceMaxInput = document.querySelector(".input-right");
 
 let gender = null;
 let age = null;
@@ -162,13 +162,14 @@ unsetCheckbox.onclick = () => {
 completeButton.onclick = () => {
     setData();
     // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
+    console.log(kidStyle.join(","));
     const data = {
         user_flag: null,
         gender: gender,
         age: age,
-        kid_style: kidStyle.join(","),
-        price_min: priceMinInput.value,
-        price_max: priceMaxInput.value
+        kidStyle: kidStyle.join(","),
+        priceMin: priceMinInput.value,
+        priceMax: priceMaxInput.value
     };
 
     // Ajax 요청 보내는 코드
@@ -182,6 +183,8 @@ completeButton.onclick = () => {
         dataType: "json",
         success: (response) => {
             console.log(response.data);
+            console.log(priceMinInput.value);
+            console.log(priceMaxInput.value);
             // Ajax 요청 성공 시 실행되는 코드
         },
         error: (error) => {
@@ -194,7 +197,7 @@ completeButton.onclick = () => {
 function setData() {
     gender = null;
     age = null;
-    kidStyle = [];
+    kidStyle = new Array();
 
     styleButtons.forEach((button, index) => {
         if (button.classList.contains("active-color")) {
