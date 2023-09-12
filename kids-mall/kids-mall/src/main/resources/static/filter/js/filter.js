@@ -183,15 +183,30 @@ completeButton.onclick = () => {
         dataType: "json",
         success: (response) => {
             console.log(response.data);
-            console.log(priceMinInput.value);
-            console.log(priceMaxInput.value);
-            // Ajax 요청 성공 시 실행되는 코드
+            alert("필터 등록 성공");
+            // console.log(priceMinInput.value);
+            // console.log(priceMaxInput.value);
+            
         },
         error: (error) => {
             console.log(error);
-            // Ajax 요청 오류 시 실행되는 코드
         }
     });
+
+    $.ajax({
+        async: false,
+        type: "get",
+        url: "/api/v1/search/product",
+        data: data,
+        dataType: "json",
+        success: (response) => {
+            console.log(response.data);
+            console.log("get완료");
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    })
 };
 
 function setData() {

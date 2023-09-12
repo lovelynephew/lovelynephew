@@ -22,4 +22,32 @@
 		now()
 		)
 	</insert>
+
+	<select id="getSearchProduct" 
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.filter.Filter">
+			SELECT
+		        pt.prd_name,
+		        pt.sub_category_code,
+		        pt.prd_regular_price,
+		        pt.prd_discount_price
+		    FROM
+		        product pt
+		    WHERE 1 = 1
+		    <if test='gender != null'>
+		        AND pt.prd_gender LIKE CONCAT('%', #{gender}, '%')
+		    </if>
+		    <if test='age != null'>
+		        AND pt.prd_age LIKE CONCAT('%', #{age}, '%')
+		    </if>
+		    <if test="kidStyle != null">
+		        AND prd_style = #{kidStyle}
+		    </if>
+		    <if test='priceMin != 0'>
+		        AND pt.prd_regular_price &gt; #{priceMin}
+		    </if>
+		    <if test='priceMax != 0'>
+		        AND pt.prd_regular_price &lt; #{priceMax}
+		    </if>
+	</select>
 </mapper>
