@@ -10,4 +10,6 @@ public class SearchProductRespDto {
 	private int subCategoryCode;
 	private int prdRegularPrice;
 	private int prdDiscountPrice;
+	private String prdStyle;
+	private int salesVolume;
 }

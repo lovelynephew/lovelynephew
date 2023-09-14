@@ -50,7 +50,7 @@ public class FilterServiceImpl implements FilterService {
 	    map.put("priceMax", filter.getPrice_max());
 	    
 	    log.info("redDto" + searchProductReqDto);
-		log.info("RespDto" + map.toString());
+		log.info("MapData" + map.toString());
 		
 		List<SearchProductRespDto> searchResults = new ArrayList<SearchProductRespDto>();
 

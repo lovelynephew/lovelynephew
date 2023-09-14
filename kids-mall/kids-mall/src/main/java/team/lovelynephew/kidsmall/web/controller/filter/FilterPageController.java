@@ -10,4 +10,9 @@ public class FilterPageController {
 	public String getFilter() {
 		return "search/filter";
 	}
+	
+	@GetMapping("/search/main")
+	public String getMain() {
+		return "/main/main";
+	}
 }

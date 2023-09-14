@@ -159,55 +159,44 @@ unsetCheckbox.onclick = () => {
     }
 };
 
-completeButton.onclick = () => {
-    setData();
-    // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
-    console.log(kidStyle.join(","));
-    const data = {
-        user_flag: null,
-        gender: gender,
-        age: age,
-        kidStyle: kidStyle.join(","),
-        priceMin: priceMinInput.value,
-        priceMax: priceMaxInput.value
+function submit() {
+    completeButton.onclick = () => {
+        setData();
+        // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
+        console.log(kidStyle.join(","));
+        const data = {
+            user_flag: null,
+            gender: gender,
+            age: age,
+            kidStyle: kidStyle.join(","),
+            priceMin: priceMinInput.value,
+            priceMax: priceMaxInput.value
+        };
+
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/api/v1/search/filter",
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            processData: false,
+            dataType: "json",
+            success: (response) => {
+                console.log(response.data);
+                alert("필터 등록 성공");
+                // console.log(priceMinInput.value);
+                // console.log(priceMaxInput.value);
+                location.href = "/search/main";
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
     };
+}
 
-    // Ajax 요청 보내는 코드
-    $.ajax({
-        async: false,
-        type: "post",
-        url: "/api/v1/search/filter",
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-		processData: false,
-        dataType: "json",
-        success: (response) => {
-            console.log(response.data);
-            alert("필터 등록 성공");
-            // console.log(priceMinInput.value);
-            // console.log(priceMaxInput.value);
-            
-        },
-        error: (error) => {
-            console.log(error);
-        }
-    });
+submit();
 
-    $.ajax({
-        async: false,
-        type: "get",
-        url: "/api/v1/search/product",
-        data: data,
-        dataType: "json",
-        success: (response) => {
-            console.log(response.data);
-            console.log("get완료");
-        },
-        error: (error) => {
-            console.log(error);
-        }
-    })
-};
 
 function setData() {
     gender = null;

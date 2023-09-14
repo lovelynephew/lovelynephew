@@ -7,7 +7,7 @@ import team.lovelynephew.kidsmall.domain.filter.Filter;
 public class SearchProductReqDto {
 	private String gender;
 	private String prdAge;
-	private String kidStyle;
+	private String prdStyle;
 	private int priceMin;
 	private int priceMax;
 	
@@ -15,7 +15,7 @@ public class SearchProductReqDto {
 		return Filter.builder()
 				.gender(gender)
 				.prd_age(prdAge)
-				.kid_style(kidStyle)
+				.kid_style(prdStyle)
 				.price_min(priceMin)
 				.price_max(priceMax)
 				.build();

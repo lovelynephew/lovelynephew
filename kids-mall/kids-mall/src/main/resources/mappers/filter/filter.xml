@@ -27,6 +27,8 @@
 			parameterType="hashmap"
 			resultType="team.lovelynephew.kidsmall.domain.filter.Filter">
 			SELECT
+				pt.prd_style,
+				pt.prd_sales_volume,
 		        pt.prd_name,
 		        pt.sub_category_code,
 		        pt.prd_regular_price,
@@ -40,9 +42,9 @@
 		    <if test='age != null'>
 		        AND pt.prd_age LIKE CONCAT('%', #{age}, '%')
 		    </if>
-		    <if test="kidStyle != null">
+<!-- 		    <if test="kidStyle != null">
 		        AND prd_style = #{kidStyle}
-		    </if>
+		    </if> -->
 		    <if test='priceMin != 0'>
 		        AND pt.prd_regular_price &gt; #{priceMin}
 		    </if>
