@@ -1,79 +1,3 @@
-// const genderButton = document.querySelectorAll(".gender-button");
-// const ageRangeButton = document.querySelectorAll(".age-range-button");
-// const styleButton = document.querySelectorAll(".style-button");
-// const completeButton = document.querySelector(".complete-button");
-// const priceRange = document.querySelectorAll(".price-range");
-
-
-// for(let i = 0; i < genderButton.length; i++) {
-//     genderButton[i].classList.toggle("active-color");
-// }
-
-// for(let i = 0; i < styleButton.length; i++) {
-//     styleButton[i].onclick = () => {
-//         styleButton[i].classList.toggle("active-color");
-//     }
-// }
-
-// for(let i = 0; i < ageRangeButton.length; i++) {
-//     ageRangeButton[i].onclick = () => {
-//         ageRangeButton[i].classList.toggle("active-color");
-//     }
-// }
-
-
-// let gender = null;
-// let age = new Array();
-// let kidStyle = new Array();
-
-// function setData() {
-//     const checkItems = document.querySelectorAll(".active-color");
-//     const priceMin = document.querySelector(".price-min").value;
-//     const priceMax = document.querySelector(".price-max").value;
-
-//     for(let i = 0; i < checkItems.length - 2; i++) {
-//         if(checkItems[i].classList.contains("gender-button")) {
-//             gender += checkItems[i].value;
-//         } else if(checkItems[i].classList.contains("age-range-button")) {
-//             age.push(checkItems[i].value);
-//         } else if(checkItems[i].classList.contains("style-button")) {
-//             kidStyle.push(checkItems[i].value);
-//         }
-//     }
-
-//     let data = {
-//         gender: gender,
-//         age: age,
-//         kid_style: kidStyle,
-//         price_min: priceMin,
-//         price_max: priceMax
-//     }
-// }
-
-// completeButton.onclick = () => {
-//     $.ajax({
-//         async: false,
-//         type: "post",
-//         url: "/api/v1/search/filter",
-//         data: {
-//             user_flag: null,
-//             gender: "남",
-//             age: "1",
-//             kid_style: "활발함",
-//             price_min: 1111,
-//             price_max: 11111
-//         },
-//         dataType: "json",
-//         success: (response) => {
-//             console.log(response.data);
-//         },
-//         error: (error) => {
-//             console.log(error);
-//         }
-//     })
-// }
-
-
 const genderButtons = document.querySelectorAll(".gender-button");
 const ageRangeButtons = document.querySelectorAll(".age-range-button");
 const styleButtons = document.querySelectorAll(".style-button");
@@ -90,17 +14,6 @@ styleButtons.forEach((button, index) => {
         styleButtons[index].classList.toggle("active-color");
     };
 });
-
-// ageRangeButtons.forEach((button, index) => {
-//     button.onclick = () => {
-//         ageRangeButtons[index].classList.toggle("active-color");
-//     };
-// });
-// genderButtons.forEach((button, index) => {
-//     button.onclick = () => {
-//         genderButtons[index].classList.toggle("active-color");
-//     };
-// });
 
 let genderCheck = null;
 let ageCheck = null;
@@ -159,43 +72,47 @@ unsetCheckbox.onclick = () => {
     }
 };
 
-function submit() {
-    completeButton.onclick = () => {
-        setData();
-        // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
-        console.log(kidStyle.join(","));
-        const data = {
-            user_flag: null,
-            gender: gender,
-            age: age,
-            kidStyle: kidStyle.join(","),
-            priceMin: priceMinInput.value,
-            priceMax: priceMaxInput.value
-        };
+// function submit() {
+//     completeButton.onclick = () => {
+//         setData();
+//         // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
+//         console.log(kidStyle.join(","));
+//         const data = {
+//             user_flag: null,
+//             gender: gender,
+//             age: age,
+//             kidStyle: kidStyle.join(","),
+//             priceMin: priceMinInput.value,
+//             priceMax: priceMaxInput.value
+//         };
 
-        $.ajax({
-            async: false,
-            type: "post",
-            url: "/api/v1/search/filter",
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            processData: false,
-            dataType: "json",
-            success: (response) => {
-                console.log(response.data);
-                alert("필터 등록 성공");
-                // console.log(priceMinInput.value);
-                // console.log(priceMaxInput.value);
-                location.href = "/search/main";
-            },
-            error: (error) => {
-                console.log(error);
-            }
-        });
-    };
+//         $.ajax({
+//             async: false,
+//             type: "post",
+//             url: "/api/v1/search/filter",
+//             data: JSON.stringify(data),
+//             contentType: 'application/json; charset=utf-8',
+//             processData: false,
+//             dataType: "json",
+//             success: (response) => {
+//                 console.log(response.data);
+//                 alert("필터 등록 성공");
+//                 // console.log(priceMinInput.value);
+//                 // console.log(priceMaxInput.value);
+//                 location.href = "/search/main";
+//             },
+//             error: (error) => {
+//                 console.log(error);
+//             }
+//         });
+//     };
+// }
+
+// submit();
+
+completeButton.onclick = () => {
+    submit();
 }
-
-submit();
 
 
 function setData() {
