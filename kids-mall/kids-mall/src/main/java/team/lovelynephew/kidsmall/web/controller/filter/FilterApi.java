@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,7 @@ public class FilterApi {
 	
 	@PostMapping("/filter")
 	public ResponseEntity<?> addFilter(@RequestBody FilterDataReqDto filterDataReqDto) {
+		log.info("filterReqDto" + filterDataReqDto);
 		boolean status = false;
 		log.info("컨트롤러 입장");
 		try {
@@ -49,9 +51,9 @@ public class FilterApi {
 	
 	@GetMapping("/product")
 	public ResponseEntity<?> getSearchProducts(SearchProductReqDto searchProductReqDto) {
+		log.info("첫 reqDto" + searchProductReqDto);
 		List<SearchProductRespDto> searchProductRespDto = new ArrayList<SearchProductRespDto>();
 		searchProductRespDto = filterService.getSearchProductList(searchProductReqDto);
-		log.info("redDto" + searchProductReqDto);
 		log.info("RespDto" + searchProductRespDto);
 
 		
@@ -63,7 +65,8 @@ public class FilterApi {
 //			map.put(i, searchProductRespDto.get(i));
 //		}
 		
-		log.info("data: " + searchProductRespDto);
+		log.info("\ndata: " + searchProductRespDto);
+		log.info("\ndata size: " + searchProductRespDto.size());
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", searchProductRespDto));
 	}

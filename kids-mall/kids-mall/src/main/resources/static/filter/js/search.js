@@ -27,17 +27,16 @@ load();
 function load() {
     const data = {
         gender: filterData.gender,
-        prdAge: filterData.age,
-        prdStyle: filterData.kidStyle,
+        prdAge: filterData.prdAge,
+        prdStyle: filterData.prdStyle,
         priceMin: filterData.priceMin,
         priceMax: filterData.priceMax
     }
-    
 
     $.ajax({
         async: false,
         type: "get",
-        // data: JSON.stringify(data),
+        data: data,
         url: `/api/v1/search/product`,
         dataType: "json",
         success: (response) => {
