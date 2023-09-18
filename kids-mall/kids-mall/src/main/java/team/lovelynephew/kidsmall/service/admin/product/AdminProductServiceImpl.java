@@ -8,15 +8,19 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.admin.product.ItemCategory;
 import team.lovelynephew.kidsmall.domain.admin.product.ItemCategoryRepository;
+import team.lovelynephew.kidsmall.domain.admin.product.ProductRepository;
 import team.lovelynephew.kidsmall.web.dto.admin.product.AdItemListRespDto;
+import team.lovelynephew.kidsmall.web.dto.admin.product.AdProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.admin.product.AdProductReqDto;
 
 @Service
 @RequiredArgsConstructor
 public class AdminProductServiceImpl implements AdminProductService {
 
 	private final ItemCategoryRepository itemCategoryRepository;
+	private final ProductRepository productRepository;
 	
-	// 아이템 리스트 가져오기
+	// 아이템 카테고리 리스트 가져오기
 	@Override
 	public List<AdItemListRespDto> getItemList(int itemCode) throws Exception {
 
@@ -32,5 +36,20 @@ public class AdminProductServiceImpl implements AdminProductService {
 		});
 		return adItemListRespDtos;
 	}
+	
+	@Override
+	public boolean addProduct(AdProductReqDto adProductReqDto) throws Exception {
+		return productRepository.addProduct(adProductReqDto.toProductEntity()) > 0;
+	}
+	
+	@Override
+	public List<AdProductListRespDto> getProductList(String searchValue) throws Exception {
+		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
+		productRepository.getProductList(searchValue).forEach(product -> {
+			list.add(product.toProductListDto());
+		});
+		return list;
+	}
+	
 
 }
