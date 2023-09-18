@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/admin/css/admin-style.css">
-    <link rel="stylesheet" href="/static/admin/css/admin-order-refund.css">
+    <link rel="stylesheet" href="/static/admin/css/order/admin-order-refund.css">
     <title>Admin 환불 관리</title>
 </head>
 <body>
@@ -23,19 +23,19 @@
                                 <ul class="menu">
                                     <li class="selected">
                                         <img src="/static/images/jpg/free-icon-home-1946436.png" alt="">
-                                        <a href="">홈</a>
+                                        <a href="/admin/home">홈</a>
                                     </li>
                                     <li class="haschild">
                                         <img src="/static/images/jpg/icons8-bag-50 (1).png" alt="">
-                                        <a href="">주문</a>
+                                        <a href="/admin/order/main">주문</a>
                                     </li>
                                     <li class="haschild">
                                         <img src="/static/images/jpg/admintoy2.png" alt="">
-                                        <a href="">상품</a>
+                                        <a href="/admin/product/main">상품</a>
                                     </li>
                                     <li class="haschild">
                                         <img src="/static/images/jpg/free-icon-user-456212.png" alt="">
-                                        <a href="">고객</a>
+                                        <a href="/admin/client/main">고객</a>
                                     </li>
                                     <li class="haschild">
                                         <img src="/static/images/jpg/free-icon-notepad-318530.png" alt="">
@@ -58,78 +58,68 @@
                                 <div class="sublist">
                                     <ul>
                                         <li class="selected">
-                                            <a href="">
+                                            <a href="/admin/order/main">
                                                 <span>주문 대시보드</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/order/list">
                                                 <span>전체 주문 조회</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/payment/list">
                                                 <span>입금전 관리</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/order/shipped/begin">
                                                 <span>배송 준비중 관리</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/order/shipped/standby">
                                                 <span>배송 대기 관리</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/order/shipped/end">
                                                 <span>배송 중 관리</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/admin/order/shipped/complete">
                                                 <span>배송 완료 조회</span>
                                             </a>
                                         </li>
-                                        <li class="haschild">
-                                            <a href="">
+                                        <li class="show-list">
+											<button class="btn-show" type="button" style="background-color: #2d3a58;">
                                                 <span>취소/교환/반품/환불</span>
-                                            </a>
-                                            <ul class="sublist-list">
+                                            </button>
+                                            <ul class="show-list-ul" style="display: none;">
                                                 <li>
-                                                    <a href="">
+                                                    <a href="/admin/order/payment/cancel">
                                                         <span>입금전 취소 관리</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a href="/admin/order/cancel">
                                                         <span>취소 관리</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a href="/admin/order/change">
                                                         <span>교환 관리</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a href="/admin/order/return">
                                                         <span>반품 관리</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="">
+                                                    <a href="/admin/order/refund">
                                                         <span>환불 관리</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="">
-                                                        <span>카드 취소 조회</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="">
-                                                        <span>관리자 환불 관리</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -392,5 +382,6 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="/static/admin/js/order/order-sidebar.js"></script>
 </body>
 </html>
