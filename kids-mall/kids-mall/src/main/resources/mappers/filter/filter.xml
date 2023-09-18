@@ -51,5 +51,7 @@
 		    <if test='priceMax != 0'>
 		        AND pt.prd_regular_price &lt; #{priceMax}
 		    </if>
+		    ORDER BY 
+		    	prd_sales_volume DESC
 	</select>
 </mapper>
