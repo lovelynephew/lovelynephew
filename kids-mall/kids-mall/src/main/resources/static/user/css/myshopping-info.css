@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /*하이라이트 표시를 투명하게 설정*/
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    color: #242729;
+}
+
+button {
+    color: #242729;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+    text-indent: 1;
+}
+
+a, button, input, label, select {
+    background-color: transparent;
+}
+
+
+a, button, input, optgroup, select, figure, textarea {
+    font-family: inherit;
+    margin: 0;
+    border: none;
+}
+
+a:link, a:active, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.head-nav {
+    height: 52px;
+    background-color: #fff;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+svg {
+    width: 32;
+    height: 32;
+    fill: none;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+.div-mypage1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    flex: 2;
+}
+
+.div-mypage2 {
+    font-weight: 700;
+    color: #242729;
+}
+
+.div-mypage0 {
+    text-align: right;
+    flex: 1;
+}
+
+.div-cart {
+    text-align: right;
+    flex: 1;
+}
+
+.div-cart>*:nth-last-of-type(1) {
+    margin-right: 0;
+}
+
+.a-cart {
+    display: flex;
+    margin: 0 0 0 auto;
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    margin: 0px auto;
+}
+
+div { display: block; }
+.divbtn-back { flex: 1;}
+
+.btn-back { /*헤더 뒤로가기 버튼(고정)*/
+    display: flex;
+    padding-right: 8px;
+}
+
+.img-act {
+    width: 20px;
+    height: 20px;
+}
+
+.div-cartnum {
+    padding: 5px;
+    position: absolute;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #FA6EE3;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    top: -2px;
+    right: -2px;
+}
+
+main {
+    display: block;
+}
+
+.main-mypage {
+    margin: auto;
+    padding: 52px 0 48px;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 48px);
+    background-color: #fff;
+    max-width: 600px;
+}
+
+.main-div1 {
+    text-align: center;
+    padding: 24px 24px 34px;
+    background: #fff;
+}
+
+.main-div2 {
+    margin: 0 0 4px;
+    color: #242729;
+    text-align: center;
+
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.main-div3 {
+    margin: 0 0 18px;
+    color: #4f5558;
+    /* font-family: ; 폰트 설정 필요함 */
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+
+
+.btn-myinfo {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 6px 12px;
+    min-height: 32px;
+    min-width: 48px;
+    background: #242729;
+    color: #fff;
+}
+
+.body_13 {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.body_15 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.body_17 {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+/*회색 라인 아래부터*/
+
+.gray-line {
+    width: 100%;
+    height: 8px;
+    background-color: #F5F6F8;
+}
+
+.btn-mypage {
+    padding: 0 24px;
+    display: block;
+    width: 100%;
+    height: 56px;
+    background: #fff;
+}
+
+.div-mypage4 {
+    height: 100%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.div-mypage5 {
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.img-myshopinfo {
+    width: 32px;
+    height: 32px;
+    fill: none;
+}
+
+.span-name1 {
+    margin-left: 16px;
+    /* font-family: ; 폰트 지정하면 넣기*/
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #242729;
+}
+
+.span-name2 {
+    margin-left: 12px;
+    /* font-family: ; 폰트 지정하면 넣기*/
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #242729;
+}
+
+.span-name3 {
+    margin-left: 19px;
+    /* font-family: ; 폰트 지정하면 넣기*/
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #242729;
+}
+
+.mypage-privacy {
+    padding: 0 24px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    background: #fff;
+}
+
+.privacy {
+    color: #242729;
+}
