@@ -4,30 +4,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.filter.CorsFilter;
-
-import lombok.RequiredArgsConstructor;
-
-@Configuration
-@RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	private final CorsFilter corsFilter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import team.lovelynephew.kidsmall.config.auth.AuthFailureHandler;
-import team.lovelynephew.kidsmall.service.user.PrincipalDetailsService;
 
-//상속받은거 말고 우리가 만든걸로 쓰겠다.
 @EnableWebSecurity
-@Configuration //컨테이너 생성해줌
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	private final PrincipalDetailsService principalDetailsService = null;
+	private final CorsFilter corsFilter = null;
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -43,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.disable();
 		
 		http.addFilter(corsFilter);
-	}
 		http.authorizeRequests()
 //			.antMatchers("/main/user/**") //사용자면 들어가는 페이지
 //			.access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") //사용자 또는 관리자가 들어갈 수 있는 페이지
