@@ -5,6 +5,7 @@ import team.lovelynephew.kidsmall.domain.filter.Filter;
 
 @Data
 public class SearchProductReqDto {
+	private int categoryCode;
 	private String gender;
 	private String prdAge;
 	private String prdStyle;
@@ -13,6 +14,7 @@ public class SearchProductReqDto {
 	
 	public Filter searchDataToEntity() {
 		return Filter.builder()
+				.category_code(categoryCode)
 				.gender(gender)
 				.prd_age(prdAge)
 				.kid_style(prdStyle)

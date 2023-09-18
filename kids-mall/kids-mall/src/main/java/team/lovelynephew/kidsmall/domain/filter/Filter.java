@@ -15,6 +15,7 @@ import team.lovelynephew.kidsmall.web.dto.filter.SearchProductRespDto;
 public class Filter {
 	private int filter_code;
 	private int user_flag;
+	private String filter_name;
 	private String gender;
 	private int age;
 	private String prd_age;
@@ -24,7 +25,7 @@ public class Filter {
 	
 	
 	private String prd_name;
-	private int sub_category_code;
+	private int category_code;
 	private int prd_regular_price;
 	private int prd_discount_price;
 	private String prd_style;
@@ -38,7 +39,7 @@ public class Filter {
 				.prdStyle(prd_style)
 				.salesVolume(prd_sales_volume)
 				.prdName(prd_name)
-				.subCategoryCode(sub_category_code)
+				.subCategoryCode(category_code)
 				.prdRegularPrice(prd_regular_price)
 				.prdDiscountPrice(prd_discount_price)
 				.build();

@@ -46,6 +46,7 @@ public class FilterServiceImpl implements FilterService {
 	public List<SearchProductRespDto> getSearchProductList(SearchProductReqDto searchProductReqDto) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Filter filter = searchProductReqDto.searchDataToEntity();
+		map.put("categoryCode", filter.getCategory_code());
 		map.put("gender", filter.getGender());
 	    map.put("age", filter.getPrd_age());
 	    map.put("kidStyle", filter.getKid_style());
