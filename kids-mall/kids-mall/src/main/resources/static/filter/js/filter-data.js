@@ -20,8 +20,6 @@ function submit() {
         priceMax: priceMaxInput.value
     }
 
-
-    // let respData = null;
     $.ajax({
         async: false,
         type: "post",
