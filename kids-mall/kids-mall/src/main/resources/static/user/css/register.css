@@ -43,6 +43,22 @@ div { display: block; }
     padding-right: 8px;
 }
 
+.check-btn {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-align: center;
+    justify-self: center;
+    padding: 10px 16px;
+    min-height: 42px;
+    min-width: 68px;
+    background: rgb(245, 246, 248);
+    color: #292c2e;
+    flex-shrink: 0;
+}
+
 main {
     margin: auto;
     padding-top: 52px;
@@ -90,6 +106,26 @@ a:link, a:active, a:visited {
     justify-content: center;
     margin: 8px 0px 0px;
 }
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    box-sizing: content-box;
+    overflow: visible;
+}
+
+.bar {
+    width: 1px;
+    height: 13px;
+    margin: auto 8px 3px;
+    background-color: rgb(210, 213, 214);
+    border: none;
+}
+
 form {
     display: block;
     margin-top: 0em;
@@ -128,13 +164,25 @@ button, input {
     color: rgb(79, 85, 88);
 }
 
-.la-divlog {
+.la-divid {
     display: inline-block;
-    color: rgb(184, 191, 194);
+    
+}
+
+.la-divlog {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.label-login {
+    display: inline-block;
+    margin: 0px 0px 4px 8px;
+    color: rgb(79, 85, 88);
 }
 
 .span-log {
-    background-color: rgb(255, 255, 255);
+	background: rgb(255, 255, 255);
     border: 2px solid rgb(232, 233, 235);
     box-sizing: border-box;
     border-radius: 8px;
@@ -143,6 +191,9 @@ button, input {
     align-items: center;
     padding: 0px 16px;
     height: 48px;
+    margin: 0px 8px 0px 0px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
     font-size: 15px;
     line-height: 18px;
 }
@@ -151,7 +202,7 @@ button, input {
     border: 2px solid rgb(210, 213, 214);
 }
 
-.input-userid, .input-password {
+.userId, .userPwd1, .userPwd2, .userName, .userPhone, .userEmail {
     caret-color: rgb(250, 110, 227);
     width: 100%;
     height: 100%;

@@ -24,13 +24,13 @@
 		<main class="main">
 			<div class="main-div">
 				<h1>아이디로 로그인하기</h1>
-				<form>
+				<form method="post" action="/login">
 					<div class="div-in">
 						<label class="body_13 label-login">
 							<div class="body_13 la-divlog">아이디</div>
-						</labbody_13 el>
+						</label>
 						<span class="body_15 span-log">
-							<input type="text" placeholder="아이디" required class="userid">
+							<input name="username" type="text" placeholder="아이디" required class="userid">
 						</span>
 					</div>
 					<div class="div-in">
@@ -38,10 +38,10 @@
 							<div class="body_13 la-divlog">비밀번호</div>
 						</label>
 						<span class="body_15 span-log">
-							<input placeholder="비밀번호" type="password" required autocomplete="current-password" class="password" value="">
+							<input placeholder="비밀번호" name="password" type="password" required autocomplete="current-password" class="userPwd1" value="">
 						</span>
 					</div>
-					<button onclick="alertBox" type="submit" class="body_15 btn-login">로그인</button>
+					<button type="submit" class="body_15 btn-login">로그인</button>
 					<div class="find-log">
 						<a class="body_13 a-log" href="/find-id">아이디 찾기</a>
 						<hr class="bar">
@@ -50,7 +50,7 @@
 				</form>
 				<div class="div-nonreg">
 					<span>계정이 없으신가요?</span>
-					<a class="register" href="#">회원가입</a>
+					<a class="register" href="/register">회원가입</a>
 				</div>
 			</div>
 		</main>
@@ -61,12 +61,6 @@
 			찜(하트 아이콘)
 			내정보
 		</footer>
-
-		<script>
-			function alertBox() {
-				alert("로그인 되었습니다.");
-			}
-		</script>
-
+		
 </body>
 </html>
