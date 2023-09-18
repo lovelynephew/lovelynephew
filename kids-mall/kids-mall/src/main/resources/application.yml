@@ -52,4 +52,3 @@ cloud:
 #      secret-key: 
 #    stack:
 #      auto: false
-  - /mappers/**/*.xml
