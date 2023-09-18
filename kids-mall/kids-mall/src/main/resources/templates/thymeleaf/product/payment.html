@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/resources/static/product/css/payment.css" />
+    
+<title>결제하기</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    /****************************************************************/
+    /* m_Completepayment  설명                                      */
+    /****************************************************************/
+    /* 인증완료시 재귀 함수                                         */
+    /* 해당 함수명은 절대 변경하면 안됩니다.                        */
+    /* 해당 함수의 위치는 payplus.js 보다먼저 선언되어여 합니다.    */
+    /* Web 방식의 경우 리턴 값이 form 으로 넘어옴                   */
+    /****************************************************************/
+    function m_Completepayment( FormOrJson, closeEvent ) 
+    {
+        var frm = document.order_info; 
+     
+        /********************************************************************/
+        /* FormOrJson은 가맹점 임의 활용 금지                               */
+        /* frm 값에 FormOrJson 값이 설정 됨 frm 값으로 활용 하셔야 됩니다.  */
+        /* FormOrJson 값을 활용 하시려면 기술지원팀으로 문의바랍니다.       */
+        /********************************************************************/
+        GetField( frm, FormOrJson ); 
+
+        
+        if( frm.res_cd.value == "0000" )
+        {
+          
+            alert("결제 승인 요청 전,\n\n반드시 결제창에서 고객님이 결제 인증 완료 후\n\n리턴 받은 ordr_chk 와 업체 측 주문정보를\n\n다시 한번 검증 후 결제 승인 요청하시기 바랍니다."); //업체 연동 시 필수 확인 사항.
+            /*
+                                가맹점 리턴값 처리 영역
+            */
+            
+            
+            frm.submit(); 
+        }
+        else
+        {
+            alert( "[" + frm.res_cd.value + "] " + frm.res_msg.value );
+            
+            closeEvent();
+        }
+    }
+</script>
+
+<script src="/static/product/js/payment.js"></script>
+<!-- 
+    결제창 호출 JS 
+    개발 : https://testspay.kcp.co.kr/plugin/kcp_spay_hub.js  
+    운영 : https://spay.kcp.co.kr/plugin/kcp_spay_hub.js  
+-->
+<script type="text/javascript" src="https://testspay.kcp.co.kr/plugin/kcp_spay_hub.js"></script> 
+<script type="text/javascript" >
+    // 
+    /* 표준웹 실행 */
+    function jsf__pay( form )
+    { 
+    	form.pay_method.value="001000000000"; //무통장
+        try
+        {
+           
+            KCP_Pay_Execute_Web( form );
+
+
+        }
+        catch (e)
+        {
+            /* IE 에서 결제 정상종료시 throw로 스크립트 종료 */ 
+        }
+    }  
+    
+    
+    // 주문번호 생성 예제
+    /* function init_orderid()
+    { 
+        var today = new Date();
+        var year  = today.getFullYear();
+        var month = today.getMonth()+ 1;
+        var date  = today.getDate();
+        var time  = today.getTime();
+
+        if(parseInt(month) < 10)
+        {
+            month = "0" + month;
+        }
+
+        var vOrderID = year + "" + month + "" + date + "" + time;
+
+        document.forms[0].ordr_idxx.value = vOrderID;
+    }    */
+</script>
+
+
+<!-- method="post" action="https://stg-spl.kcp.co.kr/gw/enc/v1/payment" -->
+<body>
+    <form name="order_info" method="post" action="/webapp/WEB-INF/kcp_api_page.jsp" >
+
+    <div class="payment_wrapper01">
+        <div class="payment_wrapper02">
+            <div class="payment_wrapper03">
+                <div class="payment_wrapper04">
+                <nav class="payment_top_wrapper01">
+                    <div class="payment_top_wrapper02">
+                        <span><</span>
+                    </div>
+                    <div class="payment_top_wrapper03">
+                        <div class="payment_top_text">
+                            <span>결제</span>
+                        </div>
+                    </div>
+                </nav>
+                <div class="payment_content_wrapper01">
+                    <div class="payment_content_wrapper02">
+                        <div class="payment_delivery_address_wrapper01">
+                            <section class="payment_delivery_address_wrapper02">
+                                <div class="payment_delivery_address_top_wrapper01">
+                                    <div class="payment_delivery_address_top_wrapper02">
+                                        <div class="payment_delivery_address_top_wrapper03">
+                                            <button type="button" class="payment_delivery_address_top_btn01">
+                                                <span>기본</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="payment_delivery_address_top_wrapper03">
+                                        <button type="button" class="payment_delivery_address_top_btn02">
+                                            <span>배송지 목록</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="payment_delivery_address_mid_wrapper01">
+                                    <div class="payment_delivery_address_mid_wrapper02">
+                                        <div class="payment_delivery_title">집
+                                            <span>기본 배송지</span>
+                                        </div>
+                                    </div>
+                                    <div class="payment_delivery_address_mid_wrapper03">
+                                        <div class="payment_delivery_phone" style="display: flex; ">
+                                            <!-- <input type="text" name="buyr_name" value="홍길동" size="6" maxlength="15" />
+                                            <input type="text" name="buyr_tel1" value="02-0000-0000" /> -->
+                                        </div>
+                                        부산 부산진구 시민공원로 30(부암동, 부산진구청)
+                                        ,6층
+                                        [47186]
+                                    </div>
+                                </div>
+                                <div class="payment_delivery_address_mid_wrapper04">
+                                    <label class="payment_delivery_Req_wrapper01">
+                                        <select class="payment_delivery_Req_wrapper02">
+                                            <option>배송메모를 선택해주세요</option>
+                                            <option value="문 앞에 놔주세요.">문 앞에 놔주세요.</option>
+                                            <option value="택배함에 놔주세요.">택배함에 놔주세요.</option>
+                                            <option value="경비실에 맡겨주세요.">경비실에 맡겨주세요.</option>
+                                            <option value="기타">기타</option>
+                                        </select>
+                                    </label>
+                                    <div class="payment_delivery_address_mid_wrapper05">
+                                        <label class="payment_delivery_Req_wrapper03">
+                                            <textarea class="payment_delivery_req_text" placeholder="배송메모를 입력해주세요"></textarea>
+                                            <div class="payment_req_textByte">
+                                                <div>0/50</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+<!-- 주문내역 -->
+                        <div class="payment_prd_wrapper01">
+                            <div class="payment_prd_wrapper02">
+                                <div class="payment_prd_wrapper03">
+                                    <div class="payment_prd_wrapper04">
+                                        <button type="button" class="payment_prd_open_btn">
+                                            <span class="payment_prd_open_btn_text_wrapper01">
+                                                <div class="payment_prd_open_btn_text_wrapper02">
+                                                    주문상품
+                                                </div>
+                                            </span>
+                                        </button>
+                                        <div class="payment_prd_amount_wrapper">
+                                            <span class="payment_prd_amount">1개</span>
+                                            <div class="payment_prd_amount_icon"> ^ </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="payment_personal_prd_wrapper01">
+                                    <section class="payment_personal_prd_wrapper02">
+                                        <header class="payment_personal_prd_wrapper03">
+                                            <div class="payment_personal_prd_top_wrapper01">
+                                                <div class="payment_personal_prd_brd_name">
+                                                    스파오
+                                                </div>
+                                            </div>
+                                            <div class="shoppring_fee">
+                                                <span class="shopping_fee_text">배송비</span>
+                                                <span class="shopping_fee_price"><span>3,000원</span></span>
+                                            </div>
+                                        </header>
+                                        <div class="payment_prd_info_wrapper01">
+                                            <div class="payment_prd_info_wrapper02"> 
+                                                <div class="payment_prd_info_wrapper03">
+                                                    <figure>
+                                                        <img class="payment_prd_info_img" src="https://cf.product-image.s.zigzag.kr/original/d/2023/8/25/25938_202308251727060762_56489.gif?width=400&height=400&quality=80&format=webp" alt="">
+                                                    </figure>
+                                                    <div class="payment_prd_info_wrapper04">
+                                                        <h4 class="payment_prd_name">
+                                                            <!-- <input type="text" name="good_name" value="[당일출고][단독]크롭 윈드 브레이커_SPJJD23601" size="100" /> -->
+                                                        </h4>
+                                                        <div class="payment_prd_wrapper05">
+                                                            <span class="payment_prd_op_wrapper01">
+                                                                <span>
+                                                                    [76]LIGHT PURPLE/L [005]
+                                                                </span>
+                                                                1개
+                                                                <span></span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="payment_prd_regular_price">49,900 <span>원</span></span>
+                                                        <div class="payment_prd_dis_price_wrapper01">
+                                                            <div class="payment_prd_dis_price_wrapper02">
+                                                                <span class="payment_prd_text">Z할인가</span>
+                                                                <span class="payment_prd_dis_price">44,910 <span>원</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+<!--할인적용  -->
+                    <section class="payment_dis_apply_wrapper01">
+                        <header class="payment_dis_apply_wrapper02">
+                            <div class="payment_dis_apply_wrapper03">
+                                <div class="payment_dis_apply_text">할인적용</div>
+                            </div>
+                        </header>
+                        <div class="payment_dis_apply_wrapper04">
+                            <div class="payment_dis_apply_wrapper05">
+                                <div class="payment_coupon_text">쿠폰</div>
+                                <div class="payment_coupon_disprice">
+                                    <span>0 <span>원</span></span>
+                                </div>
+                            </div>
+                            <div class="payment_dis_apply_point_wrapper01">
+                                <div class="payment_dis_apply_point_wrapper02">
+                                    <div class="payment_dis_apply_point_wrapper03">
+                                        <span class="payment_dis_point_text">포인트</span>
+                                    </div>
+                                    <div class="payment_dis_apply_point_wrapper04">
+                                        <div class="payment_dis_apply_point_box">
+                                            <!-- <input type="tel" value="0"> -->
+                                            <div></div>
+                                        </div>
+                                        <div class="payment_text_P">P</div>
+                                        <button class="payment_dis_apply_btn" type="button">
+                                            <span>전액사용</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment_hold_point_wrapper">
+                                <div></div>
+                                <div class="payment_hold_point_text">
+                                    보유 포인트 : 0P
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+<!--결제 내역  -->
+                    <section class="payment_total_info_wrapper01">
+                       <header class="payment_total_info_wrapper02">
+                            <div class = "payment_total_info_text01">
+                                <div>결제 내역</div>
+                            </div>
+                       </header>
+                       <div  class="payment_total_info_wrapper03">
+                            <div class="payment_total_info_wrapper04">
+
+                                <div class="payment_total_info_prd_price_warp">
+                                    <div class="payment_total_info_prd_price_text">상품 금액</div>
+                                    <div>
+                                        <span class="payment_total_info_prd_price">
+                                            44,910 <span>원</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="payment_total_info_prd_deliPrice_warp">
+                                    <div class="payment_total_info_prd_deliPrice_text">배송비 </div>
+                                    <div class="payment_total_info_prd_delivery_price">
+                                        <span>3,000 <span>원</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="payment_total_info_prd_disiPrice_warp">
+                                    <div class="payment_total_info_prd_disPrice_text" >할인 금액</div>
+                                    <div class="payment_total_info_prd_dis_price">
+                                        <span>(-)0 <span>원</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="untitle01">
+                                    <div class="untitle02"></div>
+                                </div>
+
+                                <div class="payment_total_info_totalPrice_wrap">
+                                    <div class="payment_totalPrice_text">총 결제 금액</div>
+                                    <div >
+                                        <span class="payment_totalPrice">
+                                            <!-- <input type="text" name="good_mny" value="44910" maxlength="9" />
+                                             -->
+                                            <span>원</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </section>
+<!-- 결제방식 -->
+                    <section class="payment_method_wrap01">
+                        <header class="payment_method_wrap02">
+                            <div class="payment_method_text">
+                                <div>결제방식</div>
+                            </div>
+                        </header>
+                        <div class="payment_method_wrap03">
+                            <div class="payment_method_wrap04">
+                                <div class="payment_method_wrap05">
+                                    <div class="payment_method_wrap06">
+                                        <div class="payment_method01">
+                                            <label class="payment_method_label" for="">
+                                                <input type="radio" id="radio-2-8" class="ipt-radio-1" name="pay_method" value="111000000000" />
+                                                <span>신용/체크카드/카카오페이</span>
+                                            </label>
+                                        </div>
+                                        <div class="payment_method02">
+                                            <label class="payment_method_label" for="">
+                                                <input type="radio" id="radio-2-5" class="ipt-radio-1" name="pay_method" value="000010000000" />
+                                                <span>휴대폰</span>
+                                            </label>
+                                        </div>
+                                        <div class="payment_method03">
+                                            <label class="payment_method_label" for="">
+                                                <input type="radio" id="radio-2-3" class="ipt-radio-1" name="pay_method" value="001000000000" />
+                                                <span>무통장</span>
+                                            </label>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment_method_save">
+                                <label class="payment_method_save_2" for="">
+                                    <input type="checkbox">
+                                    <span>이 결제 수단을 다음에도 사용</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+<!-- 포인트 혜택 -->
+                    <section class="payment_point_info_wrap01">
+                        <header class="payment_point_info_wrap02">
+                            <div class="payment_point_info_wrap03">
+                                <div>포인트 혜택</div>
+                            </div>
+                            <span>최대 300P</span>
+                        </header>
+                        <div class="payment_point_info_wrap04">
+                            <div class="payment_point_info_wrap05">
+                               <div class="payment_point_info_text" >리뷰작성</div>
+                               <div class="payment_point_info_text2">
+                                <span>최대 300P</span>
+                               </div>
+                            </div>
+                        </div>
+                    </section>
+<!-- 주문내용 확인 및 결제 동의-->
+                    <section class="payment_agreement_wrap01">
+                        <div class="payment_agreement_wrap02">
+                            <div class="payment_agreement_wrap03">
+                                <div class="payment_agreement_btn_wrap">
+                                    <button type="button" class="payment_agreement_btn">
+                                        <span>
+                                            <div>
+                                                <label for="">
+                                                    <input type="checkbox">
+                                                    <span>주문내용 확인 및 결제 동의</span>
+                                                </label>
+                                            </div>
+                                        </span>
+                                    </button>
+                                    <span>^</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="height: 1px;
+                                background: rgb(245, 246, 248);"></div>
+                            </div>
+                            <div class="payment_agreement_wrap04">
+
+                                <div class="payment_agreement_info01_wrap01">
+                                    <div class="payment_agreement_info01_wrap02">
+                                        <label class="payment_agreement_info01_label" for="">
+                                            <input type="checkbox">
+                                            <span>V</span>
+                                            <span>개인정보 제3자 정보 제공 동의</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment_agreement_info01_wrap03">
+                                        <span>보기</span>
+                                        <div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="payment_agreement_info02_wrap01">
+                                    <div class="payment_agreement_info02_wrap02">
+                                        <label class="payment_agreement_info02_label" for="">
+                                            <input type="checkbox">
+                                            <span>v</span>
+                                            <span>결제대행 서비스 이용약관 동의</span>
+                                        </label>
+                                    </div>
+                                    <div class="payment_agreement_info02_wrap03">
+                                        <span>보기</span>
+                                        <div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+<!-- 결제하기 -->
+
+
+<!-- 주문정보 세팅 -->
+    <!-- 주문번호(ordr_idxx) -->
+    <input type="text" name="ordr_idxx" value="TEST12345" maxlength="40"> 
+    <!-- 상품명(good_name) -->
+    <input type="text" name="good_name" value="운동화" >
+    <!--결제금액(good_mny) - ※ 필수 : 값 설정시 ,(콤마)를 제외한 숫자만 입력하여 주십시오. -->
+    <input type="text" name="good_mny" value="1004" maxlength="9" >
+    <!-- 주문자명(buyr_name) -->
+    <input type="text" name="buyr_name" value="홍길동" >
+    <!-- 주문자 연락처2(buyr_tel2) -->
+    <input type="text" name="buyr_tel2" value="010-0000-0000" >
+    <!-- 주문자 E-mail(buyr_mail) -->
+    <input type="text" name="buyr_mail" value="test@test.co.kr" >
+    <!-- 무통장 -->
+    <input type="text" name="pay_method" value="" >
+    <!-- 쇼핑몰에서 관리하는 회원 ID -->
+    <input type="text" name="shop_user_id" value="miso112">
+<!-- 가맹점 정보 설정-->
+    <input type="hidden" name="site_cd" value="T0000" >
+    <input type="hidden" name="site_name" value="TEST SITE" >
+<!-- 인증데이터 처리-->
+    <input type="hidden" name="res_cd"          value="">
+    <input type="hidden" name="res_msg"         value="">
+    <input type="hidden" name="enc_info"        value="">
+    <input type="hidden" name="enc_data"        value="">
+    <input type="hidden" name="ret_pay_method"  value="">
+    <input type="hidden" name="tran_cd"         value="">
+    <input type="hidden" name="use_pay_method"  value="">
+   <!-- 주문정보 검증 관련 정보 : 표준웹 에서 설정하는 정보입니다 -->
+     <input type="hidden" name="ordr_chk"        value=""/>
+     <!--  현금영수증 관련 정보 : 표준웹 에서 설정하는 정보입니다 -->
+     <input type="hidden" name="cash_yn"         value=""/>
+     <input type="hidden" name="cash_tr_code"    value=""/>
+     <input type="hidden" name="cash_id_info"    value=""/>
+   
+    <input type="hidden" name="currency" value="410">
+
+<!--  -->
+                    <section class="payment_pay_btn_wrap01">
+                        <button type="button" class="pay_btn">
+                            <a href="#none" onclick="jsf__pay(document.order_info);" class="btn-type-2 pc-wd-3">결제요청</a>
+                            <!-- <span >결제하기</span> -->
+                        </button>
+                    </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
