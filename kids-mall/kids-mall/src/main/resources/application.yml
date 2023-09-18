@@ -37,8 +37,8 @@ mybatis:
 cloud:
   aws:
     credentials:
-      access-key: 
-      secret-key: 
+      access-key: AKIASYYAS7FQZYSX3D4X
+      secret-key: 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
     region:
       static: ap-northeast-2
     s3:
