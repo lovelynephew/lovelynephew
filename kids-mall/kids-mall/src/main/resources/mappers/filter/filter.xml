@@ -13,6 +13,7 @@
 		values(
 		0,
 		#{user_flag},
+		#{filter_name},
 		#{gender},
 		#{age},
 		#{kid_style},
@@ -36,6 +37,9 @@
 		    FROM
 		        product pt
 		    WHERE 1 = 1
+		    <if test='catagoryCode != null'>
+		        AND pt.sub_category_code == #{categoryCode};
+		    </if>
 		    <if test='gender != null'>
 		        AND pt.prd_gender LIKE CONCAT('%', #{gender}, '%')
 		    </if>

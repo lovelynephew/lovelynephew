@@ -46,6 +46,7 @@ public class FilterServiceImpl implements FilterService {
 	public List<SearchProductRespDto> getSearchProductList(SearchProductReqDto searchProductReqDto) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Filter filter = searchProductReqDto.searchDataToEntity();
+		map.put("categoryCode", filter.getCategory_code());
 		map.put("gender", filter.getGender());
 	    map.put("age", filter.getPrd_age());
 	    map.put("kidStyle", filter.getKid_style());
@@ -132,7 +133,7 @@ public class FilterServiceImpl implements FilterService {
 		            String[] arr = searchProductReqDto.getPrdStyle().split(", ");
 		            String respDtoT = null;
 		            String respStyle = searchProductRespDto.get(i).getPrdStyle();
-		            log.info("RespDto.get(" + i + ")번째: " + respStyle);
+//		            log.info("RespDto.get(" + i + ")번째: " + respStyle);
 		            
 		            for (int j = 0; j < arr.length; j++) {
 		                if (respStyle.contains(arr[j])) {
@@ -144,18 +145,18 @@ public class FilterServiceImpl implements FilterService {
 		                }
 		            }
 		            
-		            log.info("\n원래 값: " + respStyle + "\n" + i + "번째 인덱스: " + respDtoT);
+//		            log.info("\n원래 값: " + respStyle + "\n" + i + "번째 인덱스: " + respDtoT);
 		            searchProductRespDto.get(i).setPrdStyle(respDtoT);
-		            log.info("respStyle 전체: " + respStyle + ", 작업완료 리스트 " + i + "번째: " + searchProductRespDto.get(i));
+//		            log.info("respStyle 전체: " + respStyle + ", 작업완료 리스트 " + i + "번째: " + searchProductRespDto.get(i));
 		        }
 		    }
 		}
 
 		// 상품 리스트를 성향 개수에 따라 정렬
 		Collections.sort(searchProductRespDto, Comparator.comparing(dto -> -dto.getPrdStyle().split(", ").length));
-		for (int i = 0; i < searchProductRespDto.size(); i++) {
-		    log.info("\n" + searchProductRespDto.get(i).getPrdStyle() + "\n");
-		}
+//		for (int i = 0; i < searchProductRespDto.size(); i++) {
+//		    log.info("\n" + searchProductRespDto.get(i).getPrdStyle() + "\n");
+//		}
 //
 //		// 판매량 순으로 정렬
 //		Map<Integer, List<SearchProductRespDto>> groupedByStyleCount = searchProductRespDto.stream()

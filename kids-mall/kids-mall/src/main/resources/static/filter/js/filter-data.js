@@ -20,8 +20,6 @@ function submit() {
         priceMax: priceMaxInput.value
     }
 
-
-    // let respData = null;
     $.ajax({
         async: false,
         type: "post",
@@ -37,10 +35,10 @@ function submit() {
             // console.log(priceMinInput.value);
             // console.log(priceMaxInput.value);
             // 데이터를 처리한 후, 쿼리 문자열을 생성
-            const queryString = `?gender=${data.gender}&age=${data.age}&kidStyle=${data.kidStyle}&priceMin=${data.priceMin}&priceMax=${data.priceMax}`;
+            const queryString = `?gender=${data.gender}&prdAge=${data.age}&prdStyle=${data.kidStyle}&priceMin=${data.priceMin}&priceMax=${data.priceMax}`;
 
             // 현재 페이지의 URL에 쿼리 문자열을 추가하여 다른 페이지로 이동
-            window.location.href = "/search/main" + encodeURI(queryString);
+            window.location.href = "/search/product" + encodeURI(queryString);
         },
         error: (error) => {
             console.log(error);
