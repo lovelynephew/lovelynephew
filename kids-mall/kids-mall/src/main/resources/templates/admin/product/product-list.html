@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/admin/css/product/product-list.css">
     <link rel="stylesheet" href="/static/admin/css/product/sidebar.css">
     <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -296,35 +297,7 @@
                             </tbody>
                         </table>
                         <table>
-                            <tbody>
-                                <tr class="product-table-main">
-                                    <!-- <td colspan="19">검색된 주문내역이 없습니다.</td> -->
-                                    <td class="product-check">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="no">1</td>
-                                    <td class="product-type">기본상품</td>
-                                    <td class="product-code">
-                                        <a href="">P000000I</a>
-                                    </td>
-                                    <td class="product-name">
-                                        <img src="//img.echosting.cafe24.com/thumb/44x44.gif" width="44" height="44" alt="">
-                                        <a href="">샘플상품 1</a>
-                                    </td>
-                                    <td class="product-price">5,000</td>
-                                    <td class="sale-price">5,000</td>
-                                    <td>
-                                        <span>0개</span>
-                                    </td>
-                                    <td class="order-address">
-                                        <input type="text" class="order-address-input">
-                                        <div class="order-address-atag">
-                                            <a href=""><span>SMS발송</span></a>
-                                            <a href=""><span>SNS공유</span></a>
-                                            <a href=""><span>주소복사</span></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tbody class="load-prolist">
                             </tbody>
                         </table>
                     </div>
@@ -335,5 +308,6 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="/static/admin/js/product/product-list.js"></script>
 </body>
 </html>
