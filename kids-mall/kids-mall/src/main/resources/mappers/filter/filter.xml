@@ -38,7 +38,7 @@
 		        product pt
 		    WHERE 1 = 1
 		    <if test='catagoryCode != null'>
-		        AND pt.sub_category_code == #{categoryCode};
+		        AND pt.sub_category_code == #{categoryCode}
 		    </if>
 		    <if test='gender != null'>
 		        AND pt.prd_gender LIKE CONCAT('%', #{gender}, '%')
@@ -49,12 +49,20 @@
 <!-- 		    <if test="kidStyle != null">
 		        AND prd_style = #{kidStyle}
 		    </if> -->
-		    <if test='priceMin != 0'>
-		        AND pt.prd_regular_price &gt; #{priceMin}
+		    <if test="priceMin > 0">
+		    	AND (
+			        (pt.prd_discount_price IS NOT NULL AND pt.prd_discount_price &gt; #{priceMin})
+			        OR
+			        (pt.prd_discount_price IS NULL AND pt.prd_regular_price &gt; #{priceMin})
+			    )
 		    </if>
-		    <if test='priceMax != 0'>
-		        AND pt.prd_regular_price &lt; #{priceMax}
-		    </if>
+		    <if test="priceMax > 0">
+			    AND (
+			        (pt.prd_discount_price IS NOT NULL AND pt.prd_discount_price &lt; #{priceMax})
+			        OR
+			        (pt.prd_discount_price IS NULL AND pt.prd_regular_price &lt; #{priceMax})
+			    )
+			</if>
 		    ORDER BY 
 		    	prd_sales_volume DESC
 	</select>

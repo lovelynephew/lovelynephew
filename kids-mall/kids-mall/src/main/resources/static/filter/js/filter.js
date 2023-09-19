@@ -5,15 +5,22 @@ const completeButton = document.querySelector(".complete-button");
 const priceMinInput = document.querySelector(".input-left");
 const priceMaxInput = document.querySelector(".input-right");
 
+const skipButton = document.querySelector(".skip-button");
+
+
+
 let gender = null;
 let age = null;
 let kidStyle = [];
 
+
+// 성향 버튼 클릭시 클릭한 버튼[index]에 색을 변경해준다.
 styleButtons.forEach((button, index) => {
     button.onclick = () => {
         styleButtons[index].classList.toggle("active-color");
     };
 });
+
 
 let genderCheck = null;
 let ageCheck = null;
@@ -28,6 +35,9 @@ for(let i = 0; i < genderButtons.length; i++) {
             if(genderCheck != i) {
                 alert("성별은 복수 선택이 불가능합니다.");
                 console.log("성별은 복수선택 불가능합니다.");
+                genderButtons[genderCheck].classList.toggle("active-color");
+                genderCheck = i;
+                genderButtons[genderCheck].classList.toggle("active-color");
             } else {
                 genderButtons[genderCheck].classList.toggle("active-color");
                 genderCheck = null;
@@ -47,6 +57,9 @@ for(let i = 0; i < ageRangeButtons.length; i++) {
             if(ageCheck != i) {
                 alert("나이는 복수 선택이 불가능합니다.");
                 console.log("나이는 복수선택 불가능합니다.");
+                ageRangeButtons[ageCheck].classList.toggle("active-color");
+                ageCheck = i;
+                ageRangeButtons[ageCheck].classList.toggle("active-color");
             } else {
                 ageRangeButtons[ageCheck].classList.toggle("active-color");
                 ageCheck = null;
@@ -75,8 +88,6 @@ unsetCheckbox.onclick = () => {
 function submit() {
     completeButton.onclick = () => {
         setData();
-        // 여기서 선택 정보를 서버로 보내는 Ajax 요청을 수행할 수 있습니다.
-        console.log(kidStyle.join(","));
 
         const data = {
             userFlag: null,
@@ -102,11 +113,7 @@ function submit() {
                 saveDataToSessionStorage(data);
                 // console.log(priceMinInput.value);
                 // console.log(priceMaxInput.value);
-                // 데이터를 처리한 후, 쿼리 문자열을 생성
-                const queryString = `?gender=${data.gender}&prdAge=${data.age}&prdStyle=${data.kidStyle}&priceMin=${data.priceMin}&priceMax=${data.priceMax}`;
-
-                // 현재 페이지의 URL에 쿼리 문자열을 추가하여 다른 페이지로 이동
-                window.location.href = "/search/product" + encodeURI(queryString);
+                location.href = "/search/product";
             },
             error: (error) => {
                 console.log(error);
@@ -115,16 +122,21 @@ function submit() {
     }
 }
 
+// 다음에 할게요 버튼 클릭시 메인페이지로 이동
+skipButton.onclick = () => {
+    location.href = "/search/product";
+}
+
 function saveDataToSessionStorage(data) {
     // 데이터를 JSON 문자열로 변환하여 sessionStorage에 저장
-    sessionStorage.setItem('cachedData', JSON.stringify(data));
+    sessionStorage.setItem('filterData', JSON.stringify(data));
 }
 
 function loadDataFromSessionStorage() {
     // sessionStorage에서 데이터를 가져와서 JSON으로 파싱
-    const cachedData = sessionStorage.getItem('cachedData');
-    if (cachedData) {
-        return JSON.parse(cachedData);
+    const filterData = sessionStorage.getItem('filterData');
+    if (filterData) {
+        return JSON.parse(filterData);
     }
     return null; // 데이터가 없으면 null 반환
 }
