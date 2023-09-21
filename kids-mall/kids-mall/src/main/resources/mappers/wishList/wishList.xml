@@ -16,8 +16,8 @@
 		
 	values(
 	0,
-	${user_id},
-	${prd_code},
+	#{user_id},
+	#{prd_code},
 	now()
 	)
   

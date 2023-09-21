@@ -11,16 +11,13 @@ import team.lovelynephew.kidsmall.web.dto.wishList.wishListReqDto;
 @RequiredArgsConstructor
 public class wishListServiceImpl implements WishListService {
 
-	private final WishListRepository wishListRepository;
+	private final WishListRepository repository;
 	
 	@Override
 	public boolean wishList(wishListReqDto wishListReqDto) throws Exception {
-		WishList wishListEntity = wishListReqDto.wishListtoEntity();
 		
 		
-		int wishListResult = wishListRepository.wishList(wishListEntity);
-		
-		return  wishListResult>0;
+		return repository.wishList(wishListReqDto.wishListtoEntity())>0;
 	}
 
 }

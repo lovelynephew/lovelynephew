@@ -1,7 +1,9 @@
 package team.lovelynephew.kidsmall.web.dto.wishList;
 
+import lombok.Data;
 import team.lovelynephew.kidsmall.domain.wishList.WishList;
 
+@Data
 public class wishListReqDto {
 
 	private String userId;

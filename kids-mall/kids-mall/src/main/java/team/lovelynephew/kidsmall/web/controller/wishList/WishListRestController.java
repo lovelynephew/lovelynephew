@@ -17,16 +17,16 @@ public class WishListRestController {
 	private final WishListService wishListService;
 	
 	@PostMapping("/wishList")
-	public ResponseEntity<?> wishList (@RequestBody wishListReqDto wiListReqDto) {
-		System.out.println("위시리스트 컨트롤러");
-		boolean wishListResult = false;
+	public ResponseEntity<?> wishList (@RequestBody wishListReqDto dto) {
+		
+		boolean status = false;
 		try {
-			wishListResult =  wishListService.wishList(wiListReqDto);
+			status =  wishListService.wishList(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.ok().body(new CMRespDto<>(-1,"상품 찜하기 실패" , wishListResult));
+			return ResponseEntity.ok().body(new CMRespDto<>(-1,"상품 찜하기 실패" , status));
 		}
-		return ResponseEntity.ok().body(new CMRespDto<>(1,"상품 찜하기 성공" , wishListResult));
+		return ResponseEntity.ok().body(new CMRespDto<>(1,"상품 찜하기 성공" , status));
 	}
 	
 	
