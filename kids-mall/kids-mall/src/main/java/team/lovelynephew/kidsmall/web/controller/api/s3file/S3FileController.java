@@ -19,6 +19,7 @@ public class S3FileController {
 	
     @PostMapping("file/profile")
     public String uploadProfileImage(@RequestParam("image")MultipartFile multipartFile) throws IOException {
+    	System.out.println(multipartFile);
         System.out.println("test");
         return s3UploadService.uploadProfile(multipartFile);
     }

@@ -372,8 +372,10 @@
 	cursor: pointer;  
 }
 
-
-
-
-
 /* 본문 메인 끝 */
+
+
+.btn-che {
+	cursor: pointer;
+}
+

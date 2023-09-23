@@ -32,23 +32,11 @@ mybatis:
 cloud:
   aws:
     credentials:
-      access-key: AKIASYYAS7FQZYSX3D4X
-      secret-key: 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
+      access-key: AKIAVMHO2DOBZ436BBVI
+      secret-key: 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
     region:
       static: ap-northeast-2
     s3:
-      bucket: donguk-bucket
+      bucket: lovelynephew-s3
     stack:
       auto: false
-      
-#cloud:
-#  aws:
-#    region:
-#      static: ap-northeast-2
-#    s3:
-#      bucket: lovelynephew-s3
-#    credentials:
-#      access-key: 
-#      secret-key: 
-#    stack:
-#      auto: false

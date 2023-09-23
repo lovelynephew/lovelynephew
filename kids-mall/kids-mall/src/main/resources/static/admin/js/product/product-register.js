@@ -21,6 +21,29 @@ let checkAgeFlag = false;
 let checkStyleFlag = false;
 let checkPriceFlag = false;
 
+/* 에디터 가져오기 */
+let oEditors = [];
+
+nhn.husky.EZCreator.createInIFrame({
+    oAppRef: oEditors,
+    elPlaceHolder: "ir1",
+    sSkinURI: "/static/smarteditor/SmartEditor2Skin.html",
+    fCreator: "createSEditor2",
+    htParams : { 
+	bUseVerticalResizer : false,  
+	bUseModeChanger : false 
+    }
+})
+/* 에디터 가져오기 */
+
+
+
+
+
+
+
+
+
 /* 상품분류 선택 */
 const mainSelect = document.querySelector(".main-select");
 const subSelect = document.querySelector(".sub-select");
@@ -108,30 +131,60 @@ discountBtn.onclick = () => {
 }
 
 /* 상세 이미지 첨부 */
-
 const imageInput = document.getElementById('imageInput');
 const imagePreview = document.getElementById('imagePreview');
 const uploadedImage = document.getElementById('uploadedImage');
 
 imageInput.addEventListener('change', function () {
+	console.log("이미지"+imageInput.value.substring(12));
     const file = imageInput.files[0];
-
     if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            uploadedImage.src = e.target.result;
+        compressImage(file).then((compressedBlob) => {
+            uploadedImage.src = URL.createObjectURL(compressedBlob);
             uploadedImage.style.display = 'block';
-        };
-
-        reader.readAsDataURL(file);
+        });
     } else {
         uploadedImage.src = '';
         uploadedImage.style.display = 'none';
     }
 });
 
+// 이미지 압축
+function compressImage(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const maxWidth = 800; // 원하는 최대 너비 설정
+                const maxHeight = 600; // 원하는 최대 높이 설정
 
+                let width = img.width;
+                let height = img.height;
+
+                if (width > maxWidth || height > maxHeight) {
+                    const ratio = Math.min(maxWidth / width, maxHeight / height);
+                    width = width * ratio;
+                    height = height * ratio;
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, 'image/jpeg', 0.7); // 이미지 포맷 및 압축 품질 설정
+            };
+        };
+    });
+}
+
+/* 상세 이미지 끝 */
 
 btnRegis.onclick = () => {
 	checkRegis();
@@ -230,8 +283,37 @@ function checkRegis() {
 
 
 
-
-
+const btnChe = document.querySelector(".btn-che");
+btnChe.onclick = () => {
+    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+    const testareaValue = document.querySelector("#ir1").value;
+    const mainImage = document.querySelector("#uploadedImage");
+    
+	console.log(testareaValue);
+	console.log(mainImage.value);
+	console.log(mainImage.src);
+	console.log(mainImage.src.substring(27));
+	
+	let createForm = document.getElementById("fileload");
+	let formData = new FormData(createForm);
+	formData.append("image", imageInput.value.substring(12));
+	
+	$.ajax({
+		async: false,
+		type: "post",
+		url: "/file/profile",
+        enctype: "multipart/form-data",
+        contentType: false,
+        processData: false,
+	    data: formData,
+	    success: (response) => {
+			console.log("hihi");
+		},
+		error: (error) => {
+			console.log(error);
+		}
+	})
+}
 
 
 

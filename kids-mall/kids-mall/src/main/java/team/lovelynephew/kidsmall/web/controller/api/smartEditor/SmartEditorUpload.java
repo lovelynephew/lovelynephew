@@ -24,7 +24,6 @@ public class SmartEditorUpload {
 		try {
 			//파일정보
 			String sFileInfo = "";
-			System.out.println(sFileInfo);
 			//파일명을 받는다 - 일반 원본파일명
 			String sFilename = request.getHeader("file-name");
 			//파일 확장자
@@ -86,7 +85,7 @@ public class SmartEditorUpload {
                 sFileInfo += "&bNewLine=true";
                 // img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
                 sFileInfo += "&sFileName=" + sFilename;
-                sFileInfo += "&sFileURL=" + "upload/" + sRealFileNm;
+                sFileInfo += "&sFileURL=" + "../upload/" + sRealFileNm;
 				PrintWriter printWriter = response.getWriter();
 				printWriter.print(sFileInfo);
 			}	

@@ -87,7 +87,7 @@
                     <h1>상품 등록</h1>
                 </div>
             </div>
-          	<form enctype="multipart/form-data">
+          	<form enctype="multipart/form-data" id="fileload">
 	            <div class="section">
 	                <div class="section-toggle-bar">
 	                    <h2>표시 설정</h2>
@@ -354,7 +354,7 @@
 	                                                        <strong>대표</strong>
 	                                                        이미지
 	                                                    </span>
-	                                                    <input type="file" id="imageInput" name="file" multiple="multiple" accept=".jpg, .png, .jpeg, .git, .pdf">
+	                                                    <input type="file" id="imageInput" name="image" multiple="multiple" accept=".jpg, .png, .jpeg, .git, .pdf">
                                                         <div class="image-preview" id="imagePreview">
 												            <img id="uploadedImage" src="" alt="">
 												        </div>
@@ -379,25 +379,13 @@
 	            <div class="btn-section">
 	            	<button type="button" class="btn-regis">등록하기</button>
 	            	<button type="button" class="btn-cancel">취소하기</button>
+	            	<button type="button" class="btn-che">확인용</button>
 	            </div>
            	</form>
 
         </div>
     </div>
-    <script type="text/javascript">
-	    let oEditors = [];
-	
-	    nhn.husky.EZCreator.createInIFrame({
-	        oAppRef: oEditors,
-	        elPlaceHolder: "ir1",
-	        sSkinURI: "/static/smarteditor/SmartEditor2Skin.html",
-	        fCreator: "createSEditor2",
-		    htParams : { 
-			bUseVerticalResizer : false,  
-			bUseModeChanger : false 
-		    }
-	    })
-    </script>
+
     <script type="text/javascript" src="/static/admin/js/product/product-register.js"></script>
 
 
