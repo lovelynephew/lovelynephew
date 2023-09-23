@@ -248,11 +248,11 @@
 
 
 .section-button {
-    min-height: 46px;
+    /* min-height: 46px; */
     padding: 8px;
-    border: 1px solid #d9dadc;
-    background-color: #fff;
-
+    border-top: 1px solid #d9dadc;
+    /* background-color: #fff; */
+    text-align: right;
     margin: 0;
 }
 
@@ -300,6 +300,17 @@
     background-color: #fff;
     height: 28px;
     line-height: 28px;
+}
+
+.section-list table tbody td .notice-content {
+    width: 100%;
+    max-width: 100%;
+    height: 28px;
+    padding: 0 8px;
+    border: 1px solid #d6dae1;
+    border-radius: 3px;
+    line-height: 28px;
+    outline: 0 none;
 }
 
 .section-list table tbody td a {

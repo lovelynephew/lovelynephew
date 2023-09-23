@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="team.lovelynephew.kidsmall.domain.admin.NoticeListRepository">
+  	<insert id="save" parameterType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
+  		INSERT INTO 
+  		board_notice 
+  		VALUES 
+  		(
+  		0, 
+  		#{notice_id}, 
+  		#{notice_subject}, 
+  		#{notice_writer}, 
+  		#{notice_content}, 
+  		now(),
+  		now()
+  		)
+  	</insert>
+  </mapper>

@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    max-width: 600px;
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    margin: 0 auto;
+
+    background-color: rgb(247, 214, 94);
+
+    text-align: center;
+    line-height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 89px;
+    height: 30px;
+
+    line-height: 30px;
+}
+
+header h3 {
+    color: rgb(63, 122, 241);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    border: 1px solid #dddddd;
+    color: #777777;
+    background-color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+.main-container {
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    margin: 0 auto;
+}
+
+.access-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+
+    position: relative;
+    top: -10px;
+}
+
+.signup-link {
+    margin-left: 10px;
+    position: relative;
+}
+
+.signup-link::before {
+    display: block;
+    content: '';
+    height: 8px;
+    border: 1px solid #bababa;
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    left: -5px;
+}
+
+.gender-box-line {
+    width: 100%;
+    text-align: center;
+}
+
+.gender-box-line h4 {
+    margin-bottom: 20px;
+}
+
+.gender-button-box {
+    width: 100%;
+}
+
+.gender-button {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+
+    width: 150px;
+    height: 30px;
+
+    font-size: 14px; 
+}
+
+.active-color {
+    color: white;
+    /* background-color: rgba(136, 28, 208, 0.734); */
+    background-color: #1e399c;
+}
+
+.set-age-box {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.set-age-box h4 {
+    margin-bottom: 20px;
+}
+
+.age-range-box:nth-last-child(1) {
+    margin-top: 10px;
+}
+
+.age-range-button {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+
+    margin-bottom: 10px;
+
+    width: 100px;
+    height: 30px;
+}
+
+.age-range-button:nth-child(n+2) {
+    margin-left: 15px;
+}
+
+.age-range-button:nth-last-child(1) {
+    width: 120px;
+}
+
+.style-choose-box {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.style-choose-box h4 {
+    margin-bottom: 20px;
+}
+
+.style-choose-box section:nth-child(n+2) {
+    margin-top: 10px;
+}
+
+.style-button {
+    border-radius: 30px;
+
+    width: 90px;
+    height: 30px;
+}
+
+.style-button:nth-child(n+2) {
+    margin-left: 5px;
+}
+
+.price-range-box-line {
+    margin-top: 30px;
+}
+
+.price-range-box-line h4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.price-input-box {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.price-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 490px;
+
+    margin-bottom: 10px;
+}
+
+li {
+    position: relative;
+    font-size: 12px;
+}
+
+ul li::before {
+    content: "";
+    width: 1px;
+    height: 5px;
+    background-color: rgb(204, 204, 204);
+    position: absolute;
+    top: -7px;
+    left: 77%;
+    transform: translateX(-50%);
+}
+
+.free-price {
+    width: 100%;
+    text-align: end;
+}
+
+.free-price label {
+    font-size: 14px;
+}
+
+.submit-button {
+    margin-top: 30px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setting-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    margin-top: 20px;
+}
+
+.setting-button button {
+    width: 120px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.complete-button {
+    margin-left: 10px;
+
+    background-color: #1e399c;
+    color: white;
+}

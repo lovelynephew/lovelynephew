@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* --------------- 공통 css ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+ul li {
+    list-style: none;
+}
+body {
+    height: auto;
+    font-family: 'Noto Sans KR', sans-serif;    
+}
+.container-wrap {
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fff;
+    max-width: 600px;
+    min-height: 100%;
+    
+}
+.content-wrap {
+    min-height: 100%;
+    /* padding-bottom: 100px; */
+    /* position: relative; */
+}
+/* --------------- 공통 css 끝 ---------------- */
+/* --------------- header ---------------- */
+.header {
+    width: 560px;
+    display: flex;
+    padding: 20px 20px 5px 20px;
+    margin: 0 auto;
+    /* margin-bottom: 10px; */
+    justify-content: space-between;
+    background-color: #fff;
+    position: fixed; 
+    z-index: 3;
+}
+.header .header-logo a {
+    font-size: 25px;
+    white-space: nowrap;
+    text-overflow:  ellipsis;
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.header .header-logo img {
+    max-width: 200px;
+    max-height: 30px;
+}
+.search {
+    position: relative;
+    display: inline-block;
+}
+.search .search-word {
+    width: 300px;
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+.search .search-word::-webkit-input-placeholder {
+    color: #65737e;
+ }
+ .search .search-word:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;  
+ }
+ .search .search-word::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;  
+ }
+ .search .search-word:-ms-input-placeholder {  
+    color: #65737e;  
+ }
+ .search .search-img img {
+    top: 2px;
+    left: 10px;
+    position: absolute;
+    z-index: 1;
+    width: 25px;
+    height: auto;
+ }
+ .div-cartnum {
+    padding: 5px;
+    position: absolute;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #FA6EE3;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    top: -2px;
+    right: -2px;
+}
+.svg-bagimg {
+    color: #121314;
+    /* margin: 0 0 0 auto; */
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+.div-cart {
+    text-align: right;
+    flex: 1;
+}
+
+.div-cart>*:nth-last-of-type(1) {
+    margin-right: 0;
+}
+
+.a-cart {
+    display: flex;
+    /* margin: 0 0 0 auto; */
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+.content-wrap {
+    /* margin-top: 10px; */
+    padding-top: 70px;
+}
+.content-title h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+hr {
+    border: 1px solid #323232;
+    margin-bottom: 20px;
+}
+.benner {
+    width: 560px;
+    height: auto;
+    
+}
+/* --------------- header 끝 ---------------- */
+
+/* -------------- conent write --------------- */
+.write-btn {
+        
+    float: right;
+    margin: 0 20px 5px 0;
+}
+.write-btn img {
+    width: 15px;
+    margin-right: 5px;
+}
+
+
+/* --------------- footer ---------------- */
+.bottom-btn {
+    border: 3px solid #e7e7e7;
+    border-radius: 10px;
+    border-bottom: none;
+    margin-top: 50px;
+    padding-top: 5px;
+}
+.bottom-btn ul {
+    
+    display: flex; 
+    justify-content: space-between; /* 각 요소 사이에 공간을 균등하게 배분 */
+    padding: 0;
+}
+
+.bottom-btn li {
+    flex: 1; /* 남은 공간을 균등하게 분배 */
+    text-align: center;
+}
+.bottom-btn ul li > a .menu-bar {
+    width: 20px;
+    margin-top: 5px;
+}
+.bottom-btn ul li > a > p {
+    /* margin-top: 10px; */
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #9a9898;
+    background-color: #fff;
+}
+.footer-wrap {
+    width: 560px;
+    bottom: 0;
+}
+footer {
+    /* position: relative; */
+    /* width: 100%; */
+    /* height: 100px; */
+    padding: 30px 20px;
+
+    background-color: #f99b20;
+}
+.footer-subject a {
+    font-size: 25px;
+    white-space: nowrap;
+    text-overflow:  ellipsis;
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.footer-subject img {
+    max-width: 200px;
+    max-height: 30px;
+}
+.footer-content > a {
+    font-size: 12px;
+    color: #5a5a5a;
+}
+.footer-content > .one {
+    margin-left: 10px;
+}
+.footer-info > .title {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.info-list {
+    display: flex;
+    line-height: 1.8;
+    font-size: 13px;
+    flex-wrap: wrap;
+    font-weight: 400;
+    word-break: keep-all;   
+}
+.title {
+    font-weight: 700;
+}
+.filed {
+    font-weight: 600;
+}
+.footer-cs {
+    margin: 40px 0 0 0;
+}
+.footer-cs .title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 2;
+}
+.footer-cs .footer-txt01 {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.footer-cs .footer-txt01 > strong {
+    font-weight: 600;
+}
+.pdr {
+    padding-right: 10px;
+}
+.footer-cs .footer-txt02 {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.footer-cs .footer-txt02 > strong {
+    font-weight: 600;
+    display: block;
+}
+.footer-bank {
+    margin: 30px 0 0 0;
+}
+.bank-info {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 2;
+}
+.footer-bank .bank-info > strong {
+    font-weight: 600;
+}
+.footer-info .footer-bank .footer-txt02 {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+footer .footer-02 {
+    padding-top: 40px;
+    margin-top:  40px;
+    flex-direction: column-reverse;
+    word-break: keep-all;
+    border-top:  1px solid #5a5a5a;
+}
+footer .footer-02 .footer-copyright {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5a5a5a;
+    line-height: 1.6;
+}
+footer .footer-02 .footer-sns .title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+footer .footer-02 .footer-sns {
+    display: flex;
+    margin-bottom:  30px;
+    align-items: center ;
+}
+footer .footer-02 .footer-sns a {
+    margin-left: 10px;
+    font-size: 0;
+    display: block;
+    padding: 0 6px;
+}
+footer .footer-02 .footer-sns a img {
+    height: 20px;
+}
+footer .footer-02 .footer-sns a .icon {
+display: block;
+}
+.filed, .value {
+    margin-right: 5px;
+}
+/* --------------- footer 끝 ---------------- */

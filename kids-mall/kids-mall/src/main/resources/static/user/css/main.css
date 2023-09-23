@@ -37,7 +37,6 @@
 .sale-box {
     display: flex;
     font-size: 13px;
-    
 }
 .sale {
    margin-right: 5px;
@@ -56,14 +55,14 @@
     margin: 0 5px 0 5px;
 }
 .recommend-img img {
-    width: 170px;
-    height: 200px;
+    width: 160px;
+    height: 190px;
     border: 2px solid rgba(154, 152, 152, 0.1);
     border-radius: 10px;
 }
 .recommend .explain {
     font-size: 13px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 .recommend .price {
     margin-top: 8px;
