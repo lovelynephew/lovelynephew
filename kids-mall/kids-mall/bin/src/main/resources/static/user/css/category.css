@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+ul li {
+    list-style: none;
+}
+body {
+    height: auto;
+    font-family: 'Noto Sans KR', sans-serif;    
+}
+.container-wrap {
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fff;
+    max-width: 600px;
+    min-height: 100%;
+}
+.content-wrap {
+    min-height: 100%;
+    /* padding-bottom: 100px; */
+    /* position: relative; */
+}
+.header {
+    width: 560px;
+    display: flex;
+    padding: 20px 20px 5px 20px;
+    margin: 0 auto;
+    /* margin-bottom: 10px; */
+    justify-content: space-between;
+    background-color: #fff;
+    position: fixed; 
+    z-index: 3;
+}
+.header-img img {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+}
+.header-img .search {
+    margin-right: 10px;
+}
+.content-wrap {
+    /* margin-top: 10px; */
+    padding-top: 70px;
+}
+section {
+    display: flex;
+    /* background-color: #FFB701; */
+}
+.section-left {
+    flex-basis: 20%;
+    background-color: #f99b20;
+    margin: 0 0 0 20px;
+    padding: 10px;
+    /* box-shadow: 0 0 2px 1.6px #c7c7c7; */
+    height: calc(100vh - 85px);     
+    color: #4a4a4a;
+}
+.product {
+    height: 90px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.section-right {
+    flex-basis: 80%;
+    background-color: #fff;
+    margin: 0 20px 0 10px;
+    padding: 10px;
+    /* box-shadow: 0 0 2px 1.6px #c7c7c7; */
+}
+.product-title {
+    display: flex;
+    justify-content: space-between;
+}
+.product-title img {
+    width: 13px;
+    height: 13px;
+    margin: 10px 0 30px 0; 
+}
+.product1 p {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #404040;
+    margin-bottom: 30px;
+}
+.product2 p,
+.product3 p,
+.product4 p,
+.product5 p {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #404040;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.toys{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.toys .toy {
+    width: 190px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.toys .toy a {
+    color: #8d8d8d;
+    font-size: 14px;
+    font-weight: 700;
+}
+.toy img {
+    margin-top: 2px;
+    width: 18px;
+    height: 15px;
+    
+}
+.bottom-btn {
+    margin-top: 0 !important;
+}

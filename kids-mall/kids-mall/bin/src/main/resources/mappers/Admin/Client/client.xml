@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.client.ClientRepository">
+
+	<select id="getUserList" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.admin.client.Client">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd1,
+		user_name,
+		user_phone,
+		user_email,
+		email_check,
+		sms_check,
+		user_birth,
+		user_insertdate,
+		user_updatedate
+	FROM
+		register
+	ORDER BY
+		user_code DESC;
+	</select>
+</mapper>

@@ -1,0 +1,349 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+.buy_modal_wrapper01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.buy_modal_wrapper02 {
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    z-index: 100;
+    width: 100%;
+    max-width: 600px;
+    height: 560px;
+    max-height: calc(100vh - 16px);
+    border-radius: 8px 8px 0px 0px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-50%, 0px);
+    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+.buy_modal_wrapper03 {
+    overflow-y: auto;
+    height: 350px;
+    padding: 0px 16px 0px;
+    margin-top: 20px;
+}
+
+.buy_modal_option_wrapper {
+    position:relative;
+    display: flex;
+    -webkit-box-align: center;
+    padding: 0px 16px;
+    border: 2px solid rgb(232, 233, 235);
+    margin-bottom: 8px;
+    cursor: pointer;
+    height: 46px;
+
+    font-weight: 600;
+    color: rgb(36, 39, 41);
+    font-size: 15px;
+    line-height: 18px;
+
+    max-width: 600px;
+}
+
+.buy_modal_option_wrapper select {
+    border: none;
+    max-width: 600px;
+    cursor: pointer;
+}
+
+.buy_modal_option_wrapper_text {
+    position:relative;
+    -webkit-box-align: center;
+    padding: 0px 16px;
+    border: 2px solid rgb(232, 233, 235);
+    margin-bottom: 8px;
+    cursor: pointer;
+    height: 140px;
+
+    font-weight: 600;
+    color: rgb(36, 39, 41);
+    font-size: 15px;
+    line-height: 18px;
+
+    max-width: 600px;
+}
+
+.option_text01, .option_text02 {
+    font-weight: 400;
+    color: rgb(36, 39, 41);
+    font-size: 14px;
+    line-height: 18px;
+
+    /* display: flex; */
+    align-items: center;
+    margin-top: 12px;
+}
+
+.option_text02 {
+    margin-top: 3px;
+
+}
+
+.option_text02 {
+    align-items: flex-end;
+}
+
+.option_text02 select {
+    border: none;
+    max-width: 600px;
+    cursor: pointer;
+    width: 532px;
+    margin-bottom: 10px;
+}
+
+.option_text02 input {
+    width: 520px;
+    height: 40px;
+}
+
+.buy_modal_option_textByte{
+    display: flex;
+    font-size: 13px;
+}
+
+
+
+/* 상품 다 골랬을때 */
+.prd_option_choice_wrapper01 {
+    margin: 0px 0px 20px;
+}
+
+.prd_option_choice_wrapper02 {
+    position: relative;
+    margin: 0px 0px 8px;
+    padding: 16px 16px 8px;
+    border-radius: 8px;
+    background: rgb(250, 250, 251);
+    animation: 0.2s ease-in-out 0s 1 normal none running animation-ipvkhy;
+}
+
+.prd_option_choice_wrapper03{
+    width: calc(100% - 24px);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 0px 10px;
+}
+
+.personal_prd_option {
+    font-weight: 500;
+    word-break: break-all;
+    letter-spacing: normal;
+    color: rgb(36, 39, 41);
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.personal_prd_option_cancle_btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.personal_prd_option_change_amount_wrapper {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 4px;
+}
+
+.personal_prd_option_change_amount_btn {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 96px;
+    height: 32px;
+}
+
+.personal_prd_option_change_amount_btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.personal_prd_option_amount {
+    margin: 0px 4px;
+}
+
+.personal_prd_option_total_price {
+    font-weight: 700;
+    display: inline-flex;
+    word-break: break-all;
+    color: rgb(79, 85, 88);
+    letter-spacing: 0px;
+}
+
+
+/* 상픔금액 배송금액 */
+.static_wrapper {
+    position: relative;
+    padding: 0px 16px;
+    
+    border-top: 1px solid rgb(245, 246, 248);
+}
+
+.static_total_price {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 47px;
+    padding: 0px 16px;
+}
+
+.static_total_price_text {
+    font-weight: 500;
+    color: rgb(161, 169, 173);
+    ont-size: 15px;
+    line-height: 18px;
+}
+
+.static_total_price_num {
+    font-weight: 700;
+    display: inline-flex;
+    word-break: break-all;
+    color: #242729;
+    font-size: 20px;
+    line-height: 24px;
+}
+.static_dis_price {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    margin: 0px 16px 16px;
+    position: relative;
+}
+
+.static_dis_price strong {
+    font-weight: 500;
+    color: rgb(250, 110, 227);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 6px 0px 0px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.static_dis_price span {
+    font-weight: 700;
+    display: inline-flex;
+    word-break: break-all;
+    color: rgb(250, 110, 227);
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.static_delivery_price {
+    display: flex;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 22px;
+    position: relative;
+    margin: 0px 16px;
+}
+
+.personal_delivery_price {
+    color: rgb(161, 169, 173);
+    font-weight: 500px;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.static_delivery_price div {
+    display: flex;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+
+
+/* 장바구니 바로구매 */
+.cart_buy_btn_wrapper {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    column-gap: 7px;
+    height: 72px;
+    margin: 0px 16px;
+}
+
+.cart_btn {
+    max-width: 100%;
+    width: 100%;
+    height: 50px;
+    border-width: 1px;
+    background: none;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 2px solid rgb(250, 110, 227);
+    color: rgb(250, 110, 227);
+    height: 48px;
+    border-radius: 24px;
+}
+
+.cart_btn span, .now_buy_btn span {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.now_buy_btn {
+    max-width: 100%;
+    width: 100%;
+    height: 50px;
+    border-width: 1px;
+    background: none rgb(250, 110, 227);
+    border: 0px;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+}

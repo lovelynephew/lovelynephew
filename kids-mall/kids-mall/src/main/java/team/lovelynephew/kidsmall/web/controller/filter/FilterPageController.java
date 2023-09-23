@@ -11,7 +11,7 @@ public class FilterPageController {
 		return "search/filter";
 	}
 	
-	@GetMapping("/search/product")
+	@GetMapping({"/", "/main"})
 	public String getMain() {
 		return "/main/main";
 	}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.filter.FilterRepository">
+	<insert id="save" parameterType="team.lovelynephew.kidsmall.domain.filter.Filter"
+					  useGeneratedKeys="true"
+					  keyProperty="filter_code">
+		insert into
+			filter_mst
+		values(
+		0,
+		#{user_flag},
+		#{filter_name},
+		#{gender},
+		#{age},
+		#{kid_style},
+	    #{price_min},
+	    #{price_max},
+		now(),
+		now()
+		)
+	</insert>
+
+	<select id="getSearchProduct" 
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.filter.Filter">
+			SELECT
+				pt.prd_style,
+				pt.prd_sales_volume,
+		        pt.prd_name,
+		        pt.sub_category_code,
+		        pt.prd_regular_price,
+		        pt.prd_discount_price
+		    FROM
+		        product pt
+		    WHERE 1 = 1
+		    <if test='catagoryCode != null'>
+		        AND pt.sub_category_code == #{categoryCode};
+		    </if>
+		    <if test='gender != null'>
+		        AND pt.prd_gender LIKE CONCAT('%', #{gender}, '%')
+		    </if>
+		    <if test='age != null'>
+		        AND pt.prd_age LIKE CONCAT('%', #{age}, '%')
+		    </if>
+<!-- 		    <if test="kidStyle != null">
+		        AND prd_style = #{kidStyle}
+		    </if> -->
+		    <if test='priceMin != 0'>
+		        AND pt.prd_regular_price &gt; #{priceMin}
+		    </if>
+		    <if test='priceMax != 0'>
+		        AND pt.prd_regular_price &lt; #{priceMax}
+		    </if>
+		    ORDER BY 
+		    	prd_sales_volume DESC
+	</select>
+</mapper>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/product/css/buy_modal.css">
+    <title>구매하기 모달창</title>
+</head>
+<body>
+    <button class="btn-open-popup">모달창 버튼 </button>
+    <div class="buy_modal_wrapper01">
+        <div class="buy_modal_wrapper02">
+            
+            <div class="buy_modal_wrapper03">
+
+                <div class="buy_modal_option_wrapper">
+                    <select name="character" id="character" style="width: 600px;">
+                        <option value="캐릭터 선택">캐릭터 선택</option>
+                        <option value="캐치핑">캐치핑</option>
+                        <option value="쿠로미">쿠로미</option>
+                        <option value="아기상어">아기상어</option>
+                        <option value="뽀로로">뽀로로</option>
+                        <option value="피카츄">피카츄</option>
+                    </select>
+                </div>
+    
+                <div class="buy_modal_option_wrapper">
+                    <select name="wrapping" id="wrapping" style="width: 600px;">
+                        <option value="포장지 선택">포장지 선택</option>
+                        <option value="뽀로로하늘">뽀로로 하늘</option>
+                        <option value="딸기하트핑크">딸기하트 핑크</option>
+                        <option value="샤이닝스타실버">샤이닝 스타 실버</option>
+                    </select>
+                </div>
+    
+                <div class="buy_modal_option_wrapper" >
+                    <select name="gas" id="gas" style="width: 600px;">
+                        <option value="공기선택">공기 선택</option>
+                        <option value="헬륨형">헬륨형</option>
+                        <option value="일반공기">일반 공기</option>
+                    </select>
+                </div>
+    
+                <div class="buy_modal_option_wrapper_text">
+                    <div class="option_text01">
+                        레터링 문구 ( 포장 주문 선택시 작성) [선택]
+                    </div>
+                    
+                    <div class="option_text02">
+                        <select name="lettering" id="lettering" tyle="width: 600px;">
+                            <option value="레터링없음">레터링 없음</option>
+                            <option value="레터링 선택">레터링 있음(아래 박스에 기재)</option>
+                        </select>
+
+                        <input type="text">
+                        <span class="buy_modal_option_textByte">
+                            (
+                            <strong>0</strong>
+                            /50)
+                        </span>
+                    </div>
+                </div>
+    
+               
+<!-- 상품 다 골랐을때-->
+                <div class="prd_option_choice_wrapper01">
+                    <!-- 제품 한덩이 -->
+                    <div class="prd_option_choice_wrapper02">
+                        <div class="prd_option_choice_wrapper03">
+                            <p class="personal_prd_option">쿠로미/뽀로로하늘/헬륨/레터링 있음</p>
+                        </div>
+                        <button class="personal_prd_option_cancle_btn">X</button>
+                        <div class="personal_prd_option_change_amount_wrapper">
+                            <div class="personal_prd_option_change_amount_btn">
+                            <button>-</button>
+                            <div class="personal_prd_option_amount"><span>1</span></div>
+                            <button>+</button>
+                            </div>
+                            <div class="personal_prd_option_total_price"><span>12,000원</span></div>
+                        </div>
+                    </div>
+                    <!-- 제품 한덩이 -->
+                    <div class="prd_option_choice_wrapper02">
+                        <div class="prd_option_choice_wrapper03">
+                            <p class="personal_prd_option">쿠로미/뽀로로하늘/헬륨/레터링 있음</p>
+                        </div>
+                        <button class="personal_prd_option_cancle_btn">X</button>
+                        <div class="personal_prd_option_change_amount_wrapper">
+                            <div class="personal_prd_option_change_amount_btn">
+                            <button>-</button>
+                            <div class="personal_prd_option_amount"><span>1</span></div>
+                            <button>+</button>
+                            </div>
+                            <div class="personal_prd_option_total_price"><span>12,000원</span></div>
+                        </div>
+                    </div>
+                    <!-- 제품 한덩이 -->
+                    <div class="prd_option_choice_wrapper02">
+                        <div class="prd_option_choice_wrapper03">
+                            <p class="personal_prd_option">쿠로미/뽀로로하늘/헬륨/레터링 있음</p>
+                        </div>
+                        <button class="personal_prd_option_cancle_btn">X</button>
+                        <div class="personal_prd_option_change_amount_wrapper">
+                            <div class="personal_prd_option_change_amount_btn">
+                            <button>-</button>
+                            <div class="personal_prd_option_amount"><span>1</span></div>
+                            <button>+</button>
+                            </div>
+                            <div class="personal_prd_option_total_price"><span>12,000원</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+
+
+        <div>
+<!-- 상품금액 배송금액   -->
+            <div class="static_wrapper" >
+                <div class="static_total_price">
+                    <span class="static_total_price_text">3개의 상품 금액</span>
+                    <span class="static_total_price_num">36,000
+                    <span>원</span>
+                    </span>
+                </div>
+                <div class="static_dis_price">
+                    <strong>할인가</strong>
+                    <span class="personal_dis_price">36,000
+                    <span>원</span>
+                    </span>
+                </div>
+                <div class="static_delivery_price">
+                    <span class="personal_delivery_price">배송비</span>
+                    <div>3,000원</div>
+                </div>
+            </div>
+
+<!-- 장바구니 바로구매 -->
+            <div class="cart_buy_btn_wrapper">
+                <button class="cart_btn"><span>장바구니</span></button>
+                <button class="now_buy_btn"><span>바로구매</span></button>
+            </div>
+
+        </div>
+            
+            
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        const buyModal = document.querySelector('.buy_modal_wrapper01');
+        const btnOpenPopup = document.querySelector('.btn-open-popup');
+  
+        btnOpenPopup.addEventListener('click', () => {
+            buyModal.style.display = 'block';
+        });
+      </script>
+</body>
+</html>

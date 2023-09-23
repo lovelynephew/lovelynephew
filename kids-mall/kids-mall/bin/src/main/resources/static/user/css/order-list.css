@@ -1,0 +1,105 @@
+@charset "UTF-8";
+.category-wrap {
+    /* margin: 5px 20px 5px 20px; */
+    display: inline-block;
+    margin: 0 auto;
+    /* justify-content: space-between; */
+    font-size: 15px;
+    color: #a1a1a1;
+}
+.category-wrap .all {
+    margin: 5px 5px 10px 20px;
+}
+.category-wrap .delivery, 
+.category-wrap .delivery-complete{
+    margin: 5px 5px 10px 5px;
+}
+.category-wrap .cancel {
+    margin: 5px 0 10px 5px;
+}
+.content-wrap hr {
+    border: 2px solid #f99b20;
+}
+.btn-option {
+    font-size: 13px;
+    border-radius: 24px;
+    white-space: pre;
+    /* display: inline-flex; */
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-align: center;
+    justify-self: center;
+    /* padding: 5px 10px; */
+    height: 35px;
+    background: rgb(245, 246, 248);
+    color: #737373;
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;    
+}  
+button:hover {
+    border: 2px solid #f99b20;
+    color: #f99b20;
+}
+.order-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+.section-title-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 5px 20px;
+    border-bottom: 1px solid #a1a1a1;
+}
+.order-item {
+    width: 100%;
+    padding: 0 20px 5px 20px;
+    border-bottom: 4px solid #ebebeb;
+    margin-bottom: 10px;
+}
+.order-item-header {
+    height: 25px;
+    align-items: center;
+    font-size: 13px;
+}
+.order-item-header .item-header {
+    align-items: center;
+    -webkit-box-align: center;
+    margin-top: 5px;
+}
+.order-item-body {
+    display: flex;
+}
+.order-item-body .order-img {
+    width: 80px;
+    border-radius: 15px;
+}
+.order-product-wrap {
+    align-items: center;
+    margin: 15px 0 15px 0;
+}
+.order-product {
+    margin-left: 10px;
+}
+.order-product .product-name,
+.order-product .product-option {
+    font-size: 13px;
+}
+.order-product .product-sale {
+    font-size: 12px;
+    color: #d64d1b;
+    font-weight: 500;
+}
+.order-product .product-option span {
+    color: #737373;
+    font-weight: 400;
+}
