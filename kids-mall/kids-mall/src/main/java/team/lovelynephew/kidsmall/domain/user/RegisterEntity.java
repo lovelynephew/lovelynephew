@@ -17,14 +17,15 @@ import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
 public class RegisterEntity {
 	private int user_code;
 	private String user_id;
-	private String user_pwd1;
-	private String user_pwd2;
-	private String user_newpwd;
+	private String oauth2_id;
+	private String user_pwd;
+	private String user_address;
+	private String user_detailaddress;
 	private String user_name;
 	private String user_phone;
 	private String user_email;
 	private String user_gender;
-	private String user_region;
+	private int user_region;
 	private String user_roles;
 	private String email_check;
 	private String sms_check;
@@ -33,7 +34,7 @@ public class RegisterEntity {
 	private LocalDateTime user_inertdate; //가입날짜
 	private LocalDateTime user_updatedate; //수정날짜
 	private String user_birth; //생년월일
-	private String user_refundaccount;
+	private String user_refundaccount; //환불계좌
 	
 	
 

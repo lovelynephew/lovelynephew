@@ -23,9 +23,7 @@ public class MypageController {
 	
 	//회원정보수정
 	@GetMapping("/mypage/edit-mypage")
-	public String editMypage(Model model, @AuthenticationPrincipal PrinipalDetails prinipalDetails) {
-		
-		model.addAttribute("edit", prinipalDetails);
+	public String editMypage() {
 		
 		return "mypage/edit-mypage";
 	}
