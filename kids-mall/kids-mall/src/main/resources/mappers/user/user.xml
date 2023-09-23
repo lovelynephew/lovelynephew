@@ -10,8 +10,9 @@
 	VALUES (
 		0,
 		#{user_id},
-		#{user_pwd1},
-		#{user_pwd2},
+		#{user_pwd},
+		null,
+		null,
 		null,
 		#{user_name},
 		#{user_phone},
@@ -34,8 +35,7 @@
 	SELECT
 		user_code,
 		user_id,
-		user_pwd1,
-		user_pwd2,
+		user_pwd,
 		user_name,
 		user_phone,
 		user_email
@@ -44,6 +44,21 @@
 	WHERE
 		user_id = #{userId}
 	</select>
+	
+	<update id="updateUser" parameterType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	UPDATE
+		register
+	SET
+		user_pwd = #{user_pwd},
+		user_address = #{user_address},
+		user_email = #{user_email},
+		email_check = #{email_check},
+		sms_check = #{sms_check},
+		user_updatedate = NOW(),
+		user_birth = #{user_birth},
+		user_refundaccount = #{user_refundaccount}
+		
+	</update>
 	
 	
 	

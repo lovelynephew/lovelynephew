@@ -59,6 +59,22 @@ div { display: block; }
     flex-shrink: 0;
 }
 
+.certification-btn {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-align: center;
+    justify-self: center;
+    padding: 10px 16px;
+    min-height: 42px;
+    min-width: 68px;
+    background: rgb(245, 246, 248);
+    color: #292c2e;
+    flex-shrink: 0;
+}
+
 main {
     margin: auto;
     padding-top: 52px;
@@ -139,6 +155,7 @@ input, textarea, input[type='text'] {
     appearance: none;
 }
 
+
 button, input {
     font-family: inherit;
     margin: 0;
@@ -202,7 +219,7 @@ button, input {
     border: 2px solid rgb(210, 213, 214);
 }
 
-.userId, .userPwd1, .userPwd2, .userName, .userPhone, .userEmail {
+.userId, .userPwd, .userName, .userPhone, .userEmail {
     caret-color: rgb(250, 110, 227);
     width: 100%;
     height: 100%;
@@ -261,3 +278,17 @@ button, input {
     color: #242729;
 }
 
+.input {
+  position: relative;
+}
+
+.input .eyes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 2px;
+  height: 30px;
+  font-size: 22px;
+  cursor: pointer;
+}

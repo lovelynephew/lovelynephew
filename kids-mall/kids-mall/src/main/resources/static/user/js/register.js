@@ -42,65 +42,22 @@ function frmCheckId(flag) {
 }
 
 /*회원가입*/
-function frmCheck() {
-	
-    let userId = document.querySelector(".userId");
-    let userPwd1 = document.querySelector(".userPwd1");
-    let userPwd2 = document.querySelector(".userPwd2");
-    let userName = document.querySelector(".userName");
-    let userPhone = document.querySelector(".userPhone");
-    let userEmail = document.querySelector(".userEmail");
 
-    if (!userId.value) {
-        alert("아이디를 입력해 주세요.");
-        userId.focus();
-        return false;
-    }
+const signupBtn = document.querySelector("#btn-signup");
+const inputData = document.querySelectorAll(".input_wrap input");
 
-    if (!userPwd1.value) {
-        alert("비밀번호를 입력해 주세요.");
-        userPwd1.focus();
-        return false;
-    }
+signupBtn.onclick = () => {
+	checkPassword();
 
-    if (!userPwd2.value) {
-        alert("비밀번호 확인을 입력해 주세요.");
-        userPwd2.focus();
-        return false;
-    }
-
-    if (userPwd1.value != userPwd2.value) {
-        alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-        userPwd2.focus();
-        return false;
-    }
-
-    if (!userName.value) {
-        alert("이름을 입력해 주세요.");
-        userName.focus();
-        return false;
-    }
-
-    if (!userPhone.value) {
-        alert("휴대전화를 입력해 주세요.");
-        userPhone.focus();
-        return false;
-    }
-
-    if (!userEmail.value) {
-        alert("이메일을 입력해 주세요.");
-        userEmail.focus();
-        return false;
-    }
 
     let obj = {
-        "userId": userId.value,
-        "userPwd1": userPwd1.value,
-        "userPwd2": userPwd2.value,
-        "userName": userName.value,
-        "userPhone": userPhone.value,
-        "userEmail": userEmail.value,
-        "checkBtnuserId" : checkBtnuserId
+        userId: inputData[0].value,
+        userPwd: inputData[1].value,
+        userName: inputData[4].value,
+        userPhone: inputData[5].value,
+        userEmail: inputData[6].value,
+        "checkBtnuserId" : checkBtnuserId,
+        passwordCheckFlag : passwordBool.value
     };
 
     $.ajax({
@@ -121,7 +78,56 @@ function frmCheck() {
 			   }else {
 				   console.log("요청실패");
 				   console.log(error);
+				   alert("회원가입 실패");
 			   }
 		}
     });
 }
+
+/*비밀번호 중복 확인*/
+const userpwd = document.querySelector("#userpwd");
+const chkUserpwd = document.querySelector("#chk-userpwd");
+const passwordBool = document.querySelector(".password-bool");
+
+function checkPassword() {
+	let pass1 = userpwd.value;
+	let pass2 = chkUserpwd.value;
+	if(pass1 != pass2) {
+		passwordBool.value = false;
+	} else {
+		passwordBool.value = true;
+	}
+	
+}
+
+/*비밀번호 숨기기*/
+
+$(document).ready(function(){
+    $('.main i').on('click',function(){
+        $('input').toggleClass('active');
+        if($('input').hasClass('active')){
+            $(this).attr('class',"fa-solid fa-eye-slash")
+            .prev('input').attr('type',"password");
+        }else{
+            $(this).attr('class',"fa-solid fa-eye")
+            .prev('input').attr('type','text');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

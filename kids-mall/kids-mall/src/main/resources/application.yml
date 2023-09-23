@@ -10,6 +10,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
     
+
 spring:
   mvc:
     static-path-pattern: /static/**

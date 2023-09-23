@@ -33,14 +33,15 @@ public class PrinipalDetails implements UserDetails, OAuth2User{
 		return null;
 	}
 
-	@Override
-	public String getPassword() {
-		return registerEntity.getUser_pwd1();
-	}
 
 	@Override
 	public String getUsername() {
 		return registerEntity.getUser_id();
+	}
+	
+	@Override
+	public String getPassword() {
+		return registerEntity.getUser_pwd();
 	}
 
 	@Override
@@ -70,6 +71,8 @@ public class PrinipalDetails implements UserDetails, OAuth2User{
 	public String getName() {
 		return registerEntity.getUser_name();
 	}
+
+
 	
 
 }
