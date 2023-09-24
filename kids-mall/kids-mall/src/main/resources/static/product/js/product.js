@@ -15,14 +15,6 @@
     });
 
 
-//구매하기 모달 창 띄우기
-const buyBtn= document.querySelector(".buy_bar_buy");
-const buyModal = document.querySelector(".buy_modal_wrapper01");
-
-buyBtn.addEventListener('click', () => {
-    buyModal.style.display = 'block';
-});
-
 
 //하트 누름 
 const wishIcon = document.querySelector(".buy_bar_heart");
@@ -60,3 +52,18 @@ wishIcon.onclick = () => {
 
     })
 }
+
+
+//구매하기 모달 창 띄우기
+const forModal = document.querySelector(".for_modal");
+const buyBtn= document.querySelector(".buy_bar_buy");
+const buyModal = document.querySelector(".buy_modal_wrapper01");
+
+buyBtn.addEventListener('click', () => {
+    console.log("버튼 누름");
+    console.log(buyModal);
+
+    forModal.innerHTML += buyModal;
+  
+});
+
