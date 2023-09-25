@@ -1,16 +1,40 @@
 
-
 /* 전체 리스트 불러오기 */
 let searchValue = "";
-loadItemListRequest(searchValue);
-function loadItemListRequest(searchValue) {
 
+/** 검색 페이지 */
+let nowPage = 2;
+
+/** 전체 페이지 수 */
+let totalPage = 0;
+// 페이지 개수 초기화(들어올 때 한번만 페이지개수를 정한다.)
+let call = 0;
+loadItemListRequest(nowPage, searchValue);
+
+// 페이지 버튼 요소를 선택합니다.
+const pageButtons = document.querySelectorAll(".pages");
+
+
+// 각 페이지 버튼에 대한 클릭 이벤트 리스너를 등록합니다.
+pageButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        console.log("클릭");
+        console.log(index);
+        const getPage = index + 1;
+        loadItemListRequest(getPage, null);
+    });
+});
+
+
+
+function loadItemListRequest(nowPage, searchValue) {
     $.ajax({
         async: false,
         type: "get",
         url: "/admin/product/itemlist",
         data: {
-            "searchValue": searchValue
+            "searchValue": searchValue,
+            "page": nowPage
         },
         dataType: "json",
         success: (response) => {
@@ -21,10 +45,28 @@ function loadItemListRequest(searchValue) {
             console.log(error);
         }
     });
+    
 }
 
+function totalCnt(total) {
+    totalPage = total % 5 == 0 ? total / 5 : Math.floor(total / 5) + 1;
+}
+
+function paging(data) {
+    const page = document.querySelector(".page");
+    totalCnt(data[0].totalCount);
+    
+    page.innerHTML = "";
+
+    for(let i = 1; i <= totalPage; i++) {    
+        page.innerHTML += `<strong class="pages">${i}</strong>`;
+    }
+}
 function loadProductList(data) {
+    
 	const loadProlist = document.querySelector(".load-prolist");
+    loadProlist.innerHTML = "";
+    
 	if(data != null) {
 		for(let i = 0; i < data.length; i++) {
 			console.log("hi");
@@ -65,6 +107,9 @@ function loadProductList(data) {
 	        </tr>
 		`
 	}
+    if(call == 0) {
+        paging(data);
+    }
 
-
+    call++;
 }

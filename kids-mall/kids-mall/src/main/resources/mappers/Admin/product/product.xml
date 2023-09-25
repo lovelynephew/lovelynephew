@@ -24,7 +24,7 @@
 	)
 	</insert>
 	
-	<select id="getProductList" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	<select id="getProductList" parameterType="hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
 	SELECT
 		prd_code,
 		sub_category_code,
@@ -37,9 +37,24 @@
 		prd_discount_price,
 		prd_brif_explain,
 		prd_detail_explain,
-		prd_inventory
+		prd_inventory,
+		(select
+			count(*)
+		from
+			product) as total_count,
+					
+		(select
+        	count(*)
+        from
+        	product
+        where
+        	prd_inventory != 0
+    	) as sale_count
 	FROM
 		product
+	<if test="page != 0">
+		limit #{index}, 5;
+	</if>
 	</select>
 
 </mapper>

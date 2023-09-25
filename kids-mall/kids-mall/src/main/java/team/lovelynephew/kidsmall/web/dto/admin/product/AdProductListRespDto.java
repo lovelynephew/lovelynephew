@@ -18,4 +18,6 @@ public class AdProductListRespDto {
 	private String prdBrifExplain;
 	private String prdDetailExplain;
 	private int prdInventory;
+	private int totalCount;
+	private int saleCount;
 }

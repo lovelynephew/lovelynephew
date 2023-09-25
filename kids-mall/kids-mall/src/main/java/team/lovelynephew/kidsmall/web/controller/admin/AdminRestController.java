@@ -65,11 +65,11 @@ public class AdminRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", list));
 	}
 	
-	@GetMapping("product/itemlist")
-	public ResponseEntity<?> loadProductList(@RequestParam String searchValue) {
+	@GetMapping("/product/itemlist")
+	public ResponseEntity<?> loadProductList(@RequestParam int page, @RequestParam String searchValue) {
 		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
 		try {
-			list = adminProductService.getProductList(searchValue);
+			list = adminProductService.getProductList(page, searchValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", list));
