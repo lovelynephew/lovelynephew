@@ -25,6 +25,9 @@ spring:
       max-file-size: 128MB
       max-request-size: 128MB
       enabled: true
+      
+  main:
+    allow-bean-definition-overriding: true
 
 mybatis:
   mapper-locations:
@@ -41,3 +44,7 @@ cloud:
       bucket: lovelynephew-s3
     stack:
       auto: false
+      
+#app:
+#  firebase-configuration-file: ../serviceAccountKey.json
+#  firebase-bucket: lovelynephew-mall.appspot.com
