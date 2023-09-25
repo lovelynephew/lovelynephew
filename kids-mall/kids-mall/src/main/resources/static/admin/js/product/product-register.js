@@ -136,7 +136,6 @@ const imagePreview = document.getElementById('imagePreview');
 const uploadedImage = document.getElementById('uploadedImage');
 
 imageInput.addEventListener('change', function () {
-	console.log("이미지"+imageInput.value.substring(12));
     const file = imageInput.files[0];
     if (file) {
         compressImage(file).then((compressedBlob) => {
@@ -290,15 +289,16 @@ btnChe.onclick = () => {
     const mainImage = document.querySelector("#uploadedImage");
     
 	console.log(testareaValue);
-	console.log(mainImage.value);
-	console.log(mainImage.src);
-	console.log(mainImage.src.substring(27));
+	console.log(testareaValue.indexOf("/",16));
+	console.log(testareaValue.indexOf("src"))
+
 	
 	let createForm = document.getElementById("fileload");
 	let formData = new FormData(createForm);
 	formData.append("image", imageInput.value.substring(12));
 	
-	$.ajax({
+	uploadFile();
+/*	$.ajax({
 		async: false,
 		type: "post",
 		url: "/file/profile",
@@ -312,14 +312,68 @@ btnChe.onclick = () => {
 		error: (error) => {
 			console.log(error);
 		}
-	})
+	})*/
 }
 
 
+/* 이미지 업로드 테스트 */
+// Firebase 구성 정보
+const firebaseConfig = {
+    apiKey: "AIzaSyAPsAzJCTA81bjauZv_kgXusJOZvTIoyvA",
+    authDomain: "lovelynephew-mall.firebaseapp.com",
+    projectId: "lovelynephew-mall",
+    storageBucket: "lovelynephew-mall.appspot.com",
+    messagingSenderId: "558240524548",
+    appId: "1:558240524548:web:bdc51659657ed87dbe0851",
+    measurementId: "G-JGNY6C0KCC"
+};
 
+// Firebase 초기화
+firebase.initializeApp(firebaseConfig);
 
+// Firebase Storage 참조 얻기
+const storage = firebase.storage();
 
+// 파일 업로드 함수
+function uploadFile() {
+    const fileInput = document.getElementById('imageInput');
+    const file = fileInput.files[0];
 
+    if (file) {
+        // UUID 생성
+        const uuid = uuidv4();
+        
+        function uuidv4() {
+		  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+		    return v.toString(16);
+		  });
+		}
+
+        // 파일 이름을 UUID로 설정
+        const fileName = uuid + '_' + file.name;
+
+        const storageRef = storage.ref('uploads/' + fileName);
+        const uploadTask = storageRef.put(file);
+
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                // 업로드 진행 상태 확인 가능
+            },
+            (error) => {
+                console.error("업로드 에러:", error);
+            },
+            () => {
+                // 업로드 완료 시 다운로드 URL 얻기
+                uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                    console.log("파일 다운로드 URL:", downloadURL);
+                });
+            }
+        );
+    } else {
+        console.error("파일을 선택하세요.");
+    }
+}
 
 
 
