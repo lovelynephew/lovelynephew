@@ -67,3 +67,23 @@ buyBtn.addEventListener('click', () => {
   
 });
 
+//상품정보 더보기 
+document.addEventListener('DOMContentLoaded', function(){
+    const morePrdInfo = document.querySelector(".prd_detail_wrapper02");
+    const moreprdInfoBtn = document.getElementById("moreprdInfoBtn");
+    
+    let isInfoVisible = false;
+   
+    moreprdInfoBtn.addEventListener('click', function() {
+        if (!isInfoVisible) {
+           morePrdInfo.style.height='auto'; // 정보를 펼침
+           moreprdInfoBtn.querySelector('span').textContent = '상품정보 숨기기 ∧';
+        } else {
+            morePrdInfo.style.height='1600px'; // 정보를 숨김
+            moreprdInfoBtn.querySelector('span').textContent = '상품정보 더 보기 ∨';
+        }
+        
+        isInfoVisible = !isInfoVisible; // 상태를 토글
+    });
+})
+
