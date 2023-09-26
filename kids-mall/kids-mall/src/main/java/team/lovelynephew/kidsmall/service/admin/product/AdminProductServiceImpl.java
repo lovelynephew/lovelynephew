@@ -1,7 +1,9 @@
 package team.lovelynephew.kidsmall.service.admin.product;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -43,11 +45,20 @@ public class AdminProductServiceImpl implements AdminProductService {
 	}
 	
 	@Override
-	public List<AdProductListRespDto> getProductList(String searchValue) throws Exception {
+	public List<AdProductListRespDto> getProductList(int page, String searchValue) throws Exception {
+		System.out.println("page: " + page);
 		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
-		productRepository.getProductList(searchValue).forEach(product -> {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int index = (page - 1) * 5;
+		map.put("index", page == 0 ? 0 : index);
+		map.put("search_value", searchValue == null ? "" : searchValue);
+		System.out.println("index: " + index);
+		
+		productRepository.getProductList(map).forEach(product -> {
 			list.add(product.toProductListDto());
 		});
+		
+		System.out.println(list);
 		return list;
 	}
 	

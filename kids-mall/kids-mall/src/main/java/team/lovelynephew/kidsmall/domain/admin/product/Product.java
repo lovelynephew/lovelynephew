@@ -27,6 +27,8 @@ public class Product {
 	private String prd_detail_explain;
 	private int prd_inventory;
 	private int prd_sales_volume;
+	private int total_count;
+	private int sale_count;
 	
 	public AdProductListRespDto toProductListDto() {
 		return AdProductListRespDto.builder()
@@ -42,6 +44,8 @@ public class Product {
 				.prdBrifExplain(prd_brif_explain)
 				.prdDetailExplain(prd_detail_explain)
 				.prdInventory(prd_inventory)
+				.totalCount(total_count)
+				.saleCount(sale_count)
 				.build();
 	}
 	

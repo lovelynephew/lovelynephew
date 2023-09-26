@@ -11,5 +11,5 @@ public interface AdminProductService {
 	
 	public boolean addProduct(AdProductReqDto adProductReqDto) throws Exception;
 	
-	public List<AdProductListRespDto> getProductList(String searchValue) throws Exception;
+	public List<AdProductListRespDto> getProductList(int page, String searchValue) throws Exception;
 }
