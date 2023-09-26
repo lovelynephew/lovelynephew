@@ -1,6 +1,7 @@
 
 
-let session = loadDataFromSessionStorage(); // 세션 스토리지에 등록되어 있는 검색조건 설정값
+/**세션 스토리지에 등록되어 있는 검색조건 설정값 */
+let session = loadDataFromSessionStorage();
 
 
 console.log(session);
