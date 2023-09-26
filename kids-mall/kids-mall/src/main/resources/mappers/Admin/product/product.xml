@@ -24,7 +24,10 @@
 	)
 	</insert>
 	
-	<select id="getProductList" parameterType="hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	<select id="getProductList" 
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.product.Product"
+			>
 	SELECT
 		prd_code,
 		sub_category_code,

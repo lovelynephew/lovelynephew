@@ -21,24 +21,27 @@ if (session != null) {
         const recommendBox = document.querySelector(".inner-product .recommend-box:nth-last-child(1)");
 
 
-        if(productList[i].prdDiscountPrice == null) {
+        if(productList[i].prdDiscountPrice == 0) {
             recommendBox.innerHTML += ` 
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="../../static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
                                                 <p class="explain">${productList[i].prdName}</p>
                                                 <p class="price">${productList[i].prdRegularPrice}원</p>
                                             </div>
                                         </div>
             `;
         }else {
-            // let discountRate = ((`${productList[i].prdRegularPrice}`) - (`${productList[i].prdDiscountPrice}`) / (`${productList[i].prdRegularPrice}`));
-            recommendBox.innerHTML += ` 
+            // 할인율 계산(원가 - 할인적용한 가격 / 원가 * 100)
+            let discountRate = ((`${productList[i].prdRegularPrice}` - `${productList[i].prdDiscountPrice}`) / `${productList[i].prdRegularPrice}`) * 100;
+            // 할인율을 반올림
+            const roundedDiscountRate = Math.round(discountRate);
+            recommendBox.innerHTML += `
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="../../static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
                                                 <div class="sale-box">
-                                                    <div class="sale">${discountRate}%</div>
+                                                    <div class="sale">${roundedDiscountRate}%</div>
                                                     <p class="sale-price">${productList[i].prdRegularPrice}원</p>
                                                 </div>
                                                 <p class="explain">${productList[i].prdName}</p>

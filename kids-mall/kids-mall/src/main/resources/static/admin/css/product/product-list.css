@@ -438,6 +438,8 @@
     font-size: 14px;
     color: #fff;
     background-color: #3971ff;
+
+    cursor: pointer;
 }
 
 /* 본문 메인 끝 */
