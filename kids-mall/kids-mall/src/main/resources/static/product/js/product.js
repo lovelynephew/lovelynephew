@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let isInfoVisible = false;
    
     moreprdInfoBtn.addEventListener('click', function() {
+        
         if (!isInfoVisible) {
            morePrdInfo.style.height='auto'; // 정보를 펼침
            moreprdInfoBtn.querySelector('span').textContent = '상품정보 숨기기 ∧';
