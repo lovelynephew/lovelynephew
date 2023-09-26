@@ -10,4 +10,6 @@ public interface ProductRepository {
 	public int addProduct(Product product) throws Exception;
 	
 	public List<Product> getProductList(String searchValue) throws Exception;
+	
+	public List<Product> getProductsList(int categoryCode) throws Exception;
 }

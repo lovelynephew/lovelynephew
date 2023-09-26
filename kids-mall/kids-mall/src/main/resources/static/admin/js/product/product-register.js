@@ -10,9 +10,15 @@ const ageHidden = document.querySelector(".age-hidden");
 const styleCategory = document.querySelectorAll("#style-category");
 const styleCategoryInput = document.querySelectorAll("#style-category input");
 const styleHidden = document.querySelector(".style-hidden");
+const productInfoBrifExplain = document.querySelector(".product-info-brif-explain");
+const stockCount = document.querySelector(".stock-count");
+const checkDiscount = document.querySelector(".check-discount");
+const hiddenImageUrl = document.querySelector(".hidden-image");
 
 const btnRegis = document.querySelector(".btn-regis");
 const btnCancel = document.querySelector(".btn-cancel");
+
+let getDownloadURL = null;
 
 /* 필요한 flag 확인 */
 let checkCategoryFlag = false;
@@ -35,14 +41,6 @@ nhn.husky.EZCreator.createInIFrame({
     }
 })
 /* 에디터 가져오기 */
-
-
-
-
-
-
-
-
 
 /* 상품분류 선택 */
 const mainSelect = document.querySelector(".main-select");
@@ -71,7 +69,7 @@ function getItems(data) {
 	for(let i = 0; i < data.length; i++) {
 		let suboption = document.createElement("option");
 		suboption.text = data[i].itemSubName;
-		suboption.value = data[i].itemSubCode;
+		suboption.value = data[i].itemCode;
 
 		subSelect.options.add(suboption);
 	}
@@ -122,10 +120,16 @@ discountBtn.onclick = () => {
 	const discountInputVal = document.querySelector(".discount-input input");
 	if(discountContentSel.value == "1") {
 		totalPrice.value = regularPrice.value;
+		checkDiscount.value = 0;
+		console.log(checkDiscount.value);
 	} else if(discountContentSel.value == "2") {
-		totalPrice.value -= (regularPrice.value * discountInputVal.value / 100);
+		totalPrice.value = regularPrice.value - (regularPrice.value * discountInputVal.value / 100);
+		checkDiscount.value = discountInputVal.value;
+		console.log(checkDiscount.value);
 	} else if(discountContentSel.value == "3") {
 		totalPrice.value = regularPrice.value - discountInputVal.value;
+		checkDiscount.value =Math.floor(100 - (totalPrice.value / regularPrice.value * 100));
+		console.log(Math.floor(checkDiscount.value));
 	}
 	checkPriceFlag = true;
 }
@@ -141,6 +145,7 @@ imageInput.addEventListener('change', function () {
         compressImage(file).then((compressedBlob) => {
             uploadedImage.src = URL.createObjectURL(compressedBlob);
             uploadedImage.style.display = 'block';
+            uploadFile();
         });
     } else {
         uploadedImage.src = '';
@@ -185,56 +190,7 @@ function compressImage(file) {
 
 /* 상세 이미지 끝 */
 
-btnRegis.onclick = () => {
-	checkRegis();
-	
-	let regisData = {
-		subCategoryCode: subItemCode,
-		prdName: productInfoName.value,
-		prdMaker: productInfoMaker.value,
-		prdGender: genderHidden.value.slice(0,-1),
-		prdAge: ageHidden.value.slice(0,-1),
-		prdStyle: styleHidden.value.slice(0,-1),
-		prdRegularPrice: regularPrice.value,
-		prdDiscountPrice: totalPrice.value,
-		prdBrifExplain: null,
-		prdDetailExplain: null,
-		prdInventory: 0,
-		"checkCategoryFlag": checkCategoryFlag,
-		"checkGenderFlag": checkGenderFlag,
-		"checkAgeFlag": checkAgeFlag,
-		"checkStyleFlag": checkStyleFlag,
-		"checkPriceFlag": checkPriceFlag
-	}
-	console.log(regisData);
-	
-	$.ajax({
-		async: false,
-		type: "post",
-		url: "/admin/product/register",
-		contentType: "application/json",
-		data: JSON.stringify(regisData),
-		dataType: "json",
-		success: (response) => {
-			if(response.data) {
-				alert("상품 등록 성공");
-				/*location.replace("/admin/product/main");*/
-			}
-		},
-		error: (error) => {
-			if(error.status == 400) {
-				   alert(JSON.stringify(error.responseJSON.data))
-			   }else {
-				   console.log("요청실패");
-				   console.log(error);
-			   }
-		}
-	})
-	
-	
-	
-	
-}
+
 
 function checkRegis() {	
 	
@@ -268,9 +224,9 @@ function checkRegis() {
 	styleHidden.value = null;	
 	for(let i = 0; i < styleCategory.length; i++) {
 		if(styleCategoryInput[i].checked == true) {
-			checkGenderFlag = true;
+			checkStyleFlag = true;
 			styleHidden.value += styleCategoryInput[i].value;
-			styleHidden.value += ",";			
+			styleHidden.value += ",";
 		}
 	}
 	console.log("성향모음"+styleHidden.value.slice(0,-1));	
@@ -282,38 +238,7 @@ function checkRegis() {
 
 
 
-const btnChe = document.querySelector(".btn-che");
-btnChe.onclick = () => {
-    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-    const testareaValue = document.querySelector("#ir1").value;
-    const mainImage = document.querySelector("#uploadedImage");
-    
-	console.log(testareaValue);
-	console.log(testareaValue.indexOf("/",16));
-	console.log(testareaValue.indexOf("src"))
 
-	
-	let createForm = document.getElementById("fileload");
-	let formData = new FormData(createForm);
-	formData.append("image", imageInput.value.substring(12));
-	
-	uploadFile();
-/*	$.ajax({
-		async: false,
-		type: "post",
-		url: "/file/profile",
-        enctype: "multipart/form-data",
-        contentType: false,
-        processData: false,
-	    data: formData,
-	    success: (response) => {
-			console.log("hihi");
-		},
-		error: (error) => {
-			console.log(error);
-		}
-	})*/
-}
 
 
 /* 이미지 업로드 테스트 */
@@ -367,12 +292,15 @@ function uploadFile() {
                 // 업로드 완료 시 다운로드 URL 얻기
                 uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
                     console.log("파일 다운로드 URL:", downloadURL);
+                    hiddenImageUrl.value = downloadURL;
+                    console.log(hiddenImageUrl.value);
                 });
             }
         );
     } else {
         console.error("파일을 선택하세요.");
     }
+
 }
 
 
@@ -380,4 +308,73 @@ function uploadFile() {
 
 
 
+btnRegis.onclick = () => {
+	oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+	const testareaValue = document.querySelector("#ir1").value;
+	checkRegis();
+	uploadFile();
+	
+	let regisData = {
+		subCategoryCode: subItemCode,
+		prdName: productInfoName.value,
+		prdMaker: productInfoMaker.value,
+		prdGender: genderHidden.value.slice(0,-1),
+		prdAge: ageHidden.value.slice(0,-1),
+		prdStyle: styleHidden.value.slice(0,-1),
+		prdRegularPrice: regularPrice.value,
+		prdDiscountPrice: totalPrice.value,
+		prdDiscountPercentage: checkDiscount.value,
+		prdMainImage: hiddenImageUrl.value,
+		prdBrifExplain: productInfoBrifExplain.value,
+		prdDetailExplain: testareaValue,
+		prdInventory: stockCount.value,
+		prdSalesVolume: stockCount.value,
+		"checkCategoryFlag": checkCategoryFlag,
+		"checkGenderFlag": checkGenderFlag,
+		"checkAgeFlag": checkAgeFlag,
+		"checkStyleFlag": checkStyleFlag,
+		"checkPriceFlag": checkPriceFlag
+	}
+	console.log(regisData);
+	
+	$.ajax({
+		async: false,
+		type: "post",
+		url: "/admin/product/register",
+		contentType: "application/json",
+		data: JSON.stringify(regisData),
+		dataType: "json",
+		success: (response) => {
+			if(response.data) {
+				alert("상품 등록 성공");
+				/*location.replace("/admin/product/main");*/
+			}
+		},
+		error: (error) => {
+			if(error.status == 400) {
+				   alert(JSON.stringify(error.responseJSON.data))
+			   }else {
+				   console.log("요청실패");
+				   console.log(error);
+			   }
+		}
+	})
+	
+	
+	
+	
+}
 
+
+/*const btnChe = document.querySelector(".btn-che");
+btnChe.onclick = () => {
+	oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+	const testareaValue = document.querySelector("#ir1").value;
+	let regisData = {
+		prdMainImage: hiddenImageUrl.value,
+		prdDetailExplain: testareaValue,
+
+	}
+	console.log(regisData);
+	
+}*/

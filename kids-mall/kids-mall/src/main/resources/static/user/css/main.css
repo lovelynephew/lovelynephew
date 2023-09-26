@@ -20,6 +20,8 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
+    
+    cursor: pointer;
 }
 .catagory-btn .menu-btn img {
     width: 25px;
@@ -31,8 +33,9 @@
 }
 .recommend-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 .sale-box {
     display: flex;
@@ -62,10 +65,13 @@
 }
 .recommend .explain {
     font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     /* text-align: justify; */
 }
 .recommend .price {
-    margin-top: 8px;
+    margin: 8px 0 8px 0;
     font-size: 15px;
     font-weight: bolder;
 }

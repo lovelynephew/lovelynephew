@@ -16,5 +16,18 @@
 	WHERE
 		item_major_code = #{itemCode}
 	</select>
+	
+	<select id="getProductCategory" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Category">
+	SELECT
+		sm.sub_category_code,
+		sm.sub_category_name,
+		sm.parent_category_code,
+		pm.parent_category_name
+	FROM
+		sub_category sm
+		LEFT OUTER JOIN parent_category pm ON(sm.parent_category_code = pm.parent_category_code)
+	WHERE
+		sub_category_code = #{categoryCode}
+	</select>
 
 </mapper>

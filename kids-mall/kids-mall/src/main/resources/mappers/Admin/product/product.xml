@@ -18,9 +18,12 @@
 		#{prd_style},
 		#{prd_regular_price},
 		#{prd_discount_price},
+		#{prd_discount_percentage},
+		#{prd_main_image},
 		#{prd_brif_explain},
 		#{prd_detail_explain},
-		#{prd_inventory}
+		#{prd_inventory},
+		#{prd_sales_volume}
 	)
 	</insert>
 	
@@ -40,6 +43,30 @@
 		prd_inventory
 	FROM
 		product
+	</select>
+	
+	<select id="getProductsList" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		prd_code,
+		sub_category_code,
+		prd_name,
+		prd_maker,
+		prd_gender,
+		prd_age,
+		prd_style,
+		prd_regular_price,
+		prd_discount_price,
+		prd_brif_explain,
+		prd_detail_explain,
+		prd_inventory,
+		prd_sales_volume,
+		prd_main_image
+	FROM
+		product
+	WHERE
+		sub_category_code = #{categoryCode}
+	ORDER BY
+		prd_code DESC;
 	</select>
 
 </mapper>

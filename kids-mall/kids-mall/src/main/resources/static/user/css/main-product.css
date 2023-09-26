@@ -1,8 +1,9 @@
 @charset "UTF-8";
+
 .category-wrap {
-    margin: 5px 20px 5px 20px;
+    margin: 5px 0px 5px 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 15px;
     color: #a1a1a1;
 }
@@ -11,4 +12,9 @@
 }
 .content-wrap .category-detail {
     margin-top: 30px;
+}
+
+.recommend {
+	width: calc(33.333% - 12px);
+	height: 
 }
