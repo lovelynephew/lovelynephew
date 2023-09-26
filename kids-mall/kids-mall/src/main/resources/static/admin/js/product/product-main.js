@@ -6,6 +6,8 @@ const outProdCnt2 = document.querySelector(".out-prod-cnt2");
 
 loadItemCntRequest();
 
+
+//** 상품 개수 타입별로 넣어주기(전체, 판매중, 품절(품절), 삭제(현재 미구현)) */
 function getItemCnt(data) {
     allProdCnt.innerHTML = "";
     allProdCnt.innerHTML = data[0].totalCount;
@@ -29,8 +31,8 @@ function loadItemCntRequest() {
         type: "get",
         url: "/admin/product/itemlist",
         data: {
-            "searchValue": null,
-            "page": 0
+            "page": 0,
+            "searchValue": null
         },
         dataType: "json",
         success: (response) => {

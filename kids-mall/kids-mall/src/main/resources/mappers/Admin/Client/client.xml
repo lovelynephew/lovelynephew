@@ -5,11 +5,14 @@
   
 <mapper namespace="team.lovelynephew.kidsmall.domain.admin.client.ClientRepository">
 
-	<select id="getUserList" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.admin.client.Client">
+	<select id="getUserList"
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.client.Client"
+			>
 	SELECT
 		user_code,
 		user_id,
-		user_pwd1,
+		user_pwd,
 		user_name,
 		user_phone,
 		user_email,
@@ -17,10 +20,26 @@
 		sms_check,
 		user_birth,
 		user_insertdate,
-		user_updatedate
+		user_updatedate,
+		(select
+			count(*)
+		from
+			register) as total_count,
+			
+		(select
+			count(*)
+		from
+			register
+		where
+			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 5 MONTH) AND NOW()
+		) as new_user_count
 	FROM
 		register
 	ORDER BY
-		user_code DESC;
+		user_code DESC
+	<if test='page != 0'>
+		limit #{index}, 5
+	</if>
 	</select>
+
 </mapper>

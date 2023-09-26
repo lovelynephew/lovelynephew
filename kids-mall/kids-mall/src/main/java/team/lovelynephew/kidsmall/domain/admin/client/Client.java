@@ -1,5 +1,6 @@
 package team.lovelynephew.kidsmall.domain.admin.client;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -21,9 +22,11 @@ public class Client {
 	private String user_email;
 	private String eamil_check;
 	private String sms_check;
-	private LocalDateTime user_insertdate;
-	private LocalDateTime user_updatedate;
+	private LocalDate user_insertdate;
+	private LocalDate user_updatedate;
 	private String user_birth;
+	private int total_count;
+	private int new_user_count;
 	
 	public AdClientListRespDto toClientResDto() {
 		return AdClientListRespDto.builder()
@@ -38,6 +41,8 @@ public class Client {
 				.userBirth(user_birth)
 				.user_insertdate(user_insertdate)
 				.user_updatedate(user_updatedate)
+				.totalCount(total_count)
+				.newUserCount(new_user_count)
 				.build();
 	}
 }

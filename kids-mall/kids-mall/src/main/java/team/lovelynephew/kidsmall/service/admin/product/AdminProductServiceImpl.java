@@ -50,6 +50,8 @@ public class AdminProductServiceImpl implements AdminProductService {
 		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
 		Map<String, Object> map = new HashMap<String, Object>();
 		int index = (page - 1) * 5;
+		
+		map.put("page", page);
 		map.put("index", page == 0 ? 0 : index);
 		map.put("search_value", searchValue == null ? "" : searchValue);
 		System.out.println("index: " + index);
