@@ -32,19 +32,3 @@ spring:
 mybatis:
   mapper-locations:
   - /mappers/**/*.xml
-
-cloud:
-  aws:
-    credentials:
-      access-key: AKIAVMHO2DOBZ436BBVI
-      secret-key: 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
-    region:
-      static: ap-northeast-2
-    s3:
-      bucket: lovelynephew-s3
-    stack:
-      auto: false
-      
-#app:
-#  firebase-configuration-file: ../serviceAccountKey.json
-#  firebase-bucket: lovelynephew-mall.appspot.com
