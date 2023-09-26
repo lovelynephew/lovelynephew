@@ -1,5 +1,6 @@
 package team.lovelynephew.kidsmall.web.dto.admin.client;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.Builder;
@@ -17,7 +18,8 @@ public class AdClientListRespDto {
 	private String emailCheck;
 	private String smsCheck;
 	private String userBirth;
-	private LocalDateTime user_insertdate;
-	private LocalDateTime user_updatedate;
-	
+	private LocalDate user_insertdate;
+	private LocalDate user_updatedate;
+	private int totalCount;
+	private int newUserCount;	
 }

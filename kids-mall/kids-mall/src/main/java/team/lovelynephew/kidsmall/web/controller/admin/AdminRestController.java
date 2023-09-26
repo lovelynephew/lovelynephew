@@ -54,10 +54,10 @@ public class AdminRestController {
 	}
 	
 	@GetMapping("/client/userlist")
-	public ResponseEntity<?> loadUserList(@RequestParam String searchValue) {
+	public ResponseEntity<?> loadUserList(@RequestParam int page, @RequestParam String searchValue) {
 		List<AdClientListRespDto> list = new ArrayList<AdClientListRespDto>();
 		try {
-			list = adminClientService.getUserList(searchValue);
+			list = adminClientService.getUserList(page, searchValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", list));
