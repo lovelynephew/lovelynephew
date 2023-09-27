@@ -40,7 +40,6 @@ public class RegisterRestController {
 	@ValidCheck
 	@PostMapping("/register")
 	public ResponseEntity<?> saveRegister(@RequestBody @Valid RegisterDto registerDto, BindingResult bindingResult) {
-//		System.out.println(registerDto);
 		
 		boolean status = false;
 		try {
@@ -68,7 +67,7 @@ public class RegisterRestController {
 	}
 	
 	@ValidCheck
-	@PutMapping("/mypage/edit-mypage/{userId}")
+	@PutMapping("/mypage/edit-mypage/{userCode}")
 	public ResponseEntity<?> updateUser(@RequestBody @Valid EditUserReqDto editUserReqDto, BindingResult bindingResult) {
 		boolean status = false;
 		
@@ -83,6 +82,7 @@ public class RegisterRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "UPDATE SUCCESS", status));
 		
 	}
+	
 	
 	@GetMapping("/register/principal")
 	public ResponseEntity<?> getPrinipal(@AuthenticationPrincipal PrinipalDetails prinipalDetails) {

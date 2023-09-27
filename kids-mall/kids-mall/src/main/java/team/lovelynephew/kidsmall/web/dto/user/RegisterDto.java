@@ -34,13 +34,14 @@ public class RegisterDto {
 	private String userGender;
 	private int userRegion;
 	private String userRoles;
-	private String emailCheck;
 	private String smsCheck;
+	private String emailCheck;
 	private int signout; //회원탈퇴
 	private String signoutReason;
 	private LocalDateTime userInertdate; //가입날짜
 	private LocalDateTime userUpdatedate; //수정날짜
 	private String userBirth; //생년월일
+	private String userBank; //은행
 	private String userRefundaccount; //환불계좌
 	
 	/*true 가 아니면 메세지가 뜨도록 함*/
