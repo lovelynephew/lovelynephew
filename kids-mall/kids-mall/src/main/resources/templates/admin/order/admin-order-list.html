@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/admin/css/admin-style.css">
     <link rel="stylesheet" href="/static/admin/css/order/admin-order-list.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Admin Order List</title>
 </head>
 <body>
@@ -490,7 +491,7 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th style="width: 24px;">
+                                        <th style="width: 32px;">
                                             <input type="checkbox">
                                         </th>
                                         <th style="width: 50px;">No</th>
@@ -505,8 +506,8 @@
                                         <th style="width: 60px;">결제상태</th>
                                         <th style="width: 45px;">미배송</th>
                                         <th style="width: 45px;">매송중</th>
-                                        <th style="width: 60px;">배송완료</th>
-                                        <th style="width: 60px;">구매확정</th>
+                                        <th style="width: 70px;">배송완료</th>
+                                        <th style="width: 70px;">구매확정</th>
                                         <th style="width: 45px;">취소</th>
                                         <th style="width: 45px;">교환</th>
                                         <th style="width: 45px;">반품</th>
@@ -516,19 +517,22 @@
                                 </tbody>
                             </table>
                             <table>
-                                <tbody>
+                                <tbody class="order-data-list">
                                     <tr>
                                         <td colspan="19">검색된 주문내역이 없습니다.</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="page"> 1 </div>
+                        <div class="page">
+                            <strong class="pages">1</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript" src="/static/admin/js/order/order-sidebar.js"></script>
+    <script src="/static/admin/js/order/order-list.js"></script>
 </body>
 </html>
