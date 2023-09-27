@@ -35,10 +35,12 @@
 		) as new_user_count
 	FROM
 		register
+	WHERE
+		user_roles LIKE 'ROLE_USER'
 	ORDER BY
 		user_code DESC
 	<if test='page != 0'>
-		limit #{index}, 5
+		limit #{index}, 10
 	</if>
 	</select>
 

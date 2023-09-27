@@ -22,7 +22,7 @@ public class AdminOrderServiceImpl implements AdminOrderService{
 		List<AdOrderListRespDto> list = new ArrayList<AdOrderListRespDto>();
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		int index = (page - 1) * 5;
+		int index = (page - 1) * 10;
 		map.put("page", page);
 		map.put("index", page == 0 ? 0 : index);
 		map.put("search_value", searchValue == null ? "" : searchValue);

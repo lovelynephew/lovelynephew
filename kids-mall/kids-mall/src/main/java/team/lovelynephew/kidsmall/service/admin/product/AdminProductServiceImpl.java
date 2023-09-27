@@ -49,7 +49,7 @@ public class AdminProductServiceImpl implements AdminProductService {
 		System.out.println("page: " + page);
 		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
 		Map<String, Object> map = new HashMap<String, Object>();
-		int index = (page - 1) * 5;
+		int index = (page - 1) * 10;
 		
 		map.put("page", page);
 		map.put("index", page == 0 ? 0 : index);

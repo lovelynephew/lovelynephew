@@ -76,7 +76,7 @@
 			WHERE
 				rs.user_roles LIKE 'ROLE_USER'
 			<if test="page != 0">
-				limit #{index}, 5
+				limit #{index}, 10
 			</if>
 	</select>
 </mapper>

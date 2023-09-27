@@ -116,17 +116,18 @@ function loadUserList(data) {
     call++;
 }
 
-
 //데이터 개수에 따른 페이지 개수
 function totalCnt(total) {
-    totalPage = total % 5 == 0 ? total / 5 : Math.floor(total / 5) + 1;
+    //**한페이지 데이터 개수 */
+    let pageCount = 10
+    totalPage = total % pageCount == 0 ? total / pageCount : Math.floor(total / pageCount) + 1;
+    console.log("totalPage: " + totalPage);
 }
-
 
 //데이터 개수에 맞는 페이지 버튼 넣기
 function paging(data) {
     const page = document.querySelector(".page");
-    totalCnt(data[0].totalCount);
+    totalCnt(data[0].newUserCount);
     
     page.innerHTML = "";
 
