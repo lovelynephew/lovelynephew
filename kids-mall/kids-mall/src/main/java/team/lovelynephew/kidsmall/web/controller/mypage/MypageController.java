@@ -14,6 +14,7 @@ public class MypageController {
 	public String getMypage() {
 		return "mypage/mypage";
 	}
+
 	
 	//내정보
 	@GetMapping("/mypage/profile")
@@ -87,6 +88,13 @@ public class MypageController {
 	@GetMapping("/mypage/point")
 	public String getMyPoint() {
 		return "mypage/point";
+	}
+	
+	
+	//장바구니
+	@GetMapping("/cart")
+	public String getCart() {
+		return "mypage/cart";
 	}
 	
 	

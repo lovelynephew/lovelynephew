@@ -11,12 +11,16 @@ const smsFalse = document.querySelector("#sms-false");
 const emailTrue = document.querySelector("#email-true");
 const emailFalse = document.querySelector("#email-false");
 const editBirth = document.querySelector("#edit-birth");
+const editBank = document.querySelector("#userbank");
 const editRefundaccount = document.querySelector("#edit-refundaccount");
+const bankList = document.querySelector("#banklist");
 
 const inputData = document.querySelectorAll(".container input");
 
-const smstype = document.querySelectorAll(".smstype");
-const emailtype = document.querySelectorAll(".emailtype");
+const smstype = document.querySelector(".smstype");
+const emailtype = document.querySelector(".emailtype");
+const smsRadio = document.querySelectorAll("#smsRadio");
+const emailRadio = document.querySelectorAll("#emailRadio");
 
 getUser();
 console.log(getUser());
@@ -29,54 +33,71 @@ function loadUserInfo() {
 	editDetailAddress.value = getUser().user_detailaddress;
 	editPhone.value = getUser().user_phone;
 	editEmail.value = getUser().user_email;
+	smstype.value = getUser().sms_check;
+	emailtype.value = getUser().email_check;
 	editBirth.value = getUser().user_birth;
+	editBank.value = getUser().user_bank;
 	editRefundaccount.value = getUser().user_refundaccount;
 	
-	if(getUser().sms_true == "수신함") {
-		smsTrue.checked = true;
-		smstype.value = "수신함";
-		
-	}else if(getUser().sms_false == "수신안함"){
-		smsFalse.checked = true;
-		smstype.value = "수신안함";
-		
-	}
-		
-	if(getUser().email_true == "수신함") {
-		emailTrue.checked = true;
-		emailtype.value = "수신함";
-		
-	}else if(getUser().email_false == "수신안함"){
-		smsFalse.checked = true;
-		emailtype.value = "수신안함";
-		
-	}
 }
-	
+
+$(document).ready(function(){
+    // SMS 라디오 버튼 선택 값 확인
+    var smsInputValue = $("input:radio[name='option1']:checked").val();
+    // 이메일 라디오 버튼 선택 값 확인
+    var emailInputValue = $("input:radio[name='option2']:checked").val();
+
+    // SMS 라디오 버튼 선택 값에 따라 smstype 설정
+    if (getUser().sms_check === "수신함") {
+        smstype.value = "수신함";
+    } else if (getUser().sms_check === "수신안함") {
+        smstype.value = "수신안함";
+    }
+
+    // 이메일 라디오 버튼 선택 값에 따라 emailtype 설정
+    if (getUser().email_check === "수신함") {
+        emailtype.value = "수신함";
+    } else if (getUser().email_check === "수신안함") {
+        emailtype.value = "수신안함";
+    }
+})
+
+
+
+/*환불계좌 선택*/
+let seluserBank = 1;
+
+bankList.onclick = () => {
+	seluserBank = bankList.value;
+	console.log(seluserBank);
+}
+
+
+
+/* 회원정보 수정 저장*/
+
 const btnSave = document.querySelector(".btn-save");
+
 btnSave.onclick = () => {
 	
-	checkPassword();
-	userId = getUser().user_id;
+	userCode = getUser().user_code;
 	let editData = {
-		userId: getUser().userid,
-		userpwd: editPassword.value,
+		userCode: getUser().user_code,
 		userAddress: editAddress.value,
 		userDetailaddress: editDetailAddress.value,
 		userPhone: editPhone.value,
-		userEmail: inputData[8].value,
+		userEmail: editEmail.value,
 		smstype: smstype.value,
 		emailtype: emailtype.value,
 		userBirth: editBirth.value,
-		editRefundaccount: editRefundaccount.value,
-		passwordCheckFlag: passwordBool.value
-		
+		userBank: seluserBank,
+		userRefundaccount: editRefundaccount.value
 	}
 	
 	$.ajax({
 		async: false,
 		type: "put",
-		url: `/mypage/edit-mypage/${userId}`,
+		url: `/mypage/edit-mypage/${userCode}`,
 		contentType: "application/json",
 		data: JSON.stringify(editData),
 		dataType: "json",
@@ -96,27 +117,9 @@ btnSave.onclick = () => {
 		}
 		
 	})
+
+console.log(editRefundaccount.value);
 }
-
-
-/*비밀번호 중복 확인*/
-const passwordBool = document.querySelector(".password-bool");
-
-function checkPassword() {
-	let pass1 = editPassword.value;
-	let pass2 = editChkPassword.value;
-	if(pass1 != pass2) {
-		passwordBool.value = false;
-	} else {
-		passwordBool.value = true;
-	}
-	
-}
-
-
-
-
-
 
 
 

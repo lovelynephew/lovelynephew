@@ -5,12 +5,13 @@
 <title>조카바보 - 마이페이지</title>
 <link rel="stylesheet" href="/static/user/css/mypage.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
 		<nav class="head-nav">
 			<div class="divbtn-back">
-				<button type="button" class="btn-back">
+				<button type="button" class="btn-back" onclick="location.href='/main'">
 					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
 						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
 					</svg>
@@ -32,11 +33,7 @@
 	<div class="container">
 		<main class="main-mypage">
 			<div class="main-div1">
-				<div class="main-div2">
-					김연경
-				</div>
-				<div class="main-div3">kyk9725@naver.com</div>
-				<button class="body_13 btn-myinfo" onclick="location.href='/mypage/profile'">내 정보</button>
+				
 			</div>
 			<div class="gray-line"></div>
 			<button class="btn-mypage" onclick="location.href='/mypage/myshopping-info'">
@@ -100,5 +97,8 @@
 			<div class="gray-line"></div>
 		</main>
 	</div>
+	
+	<script type="text/javascript" src="/static/user/js/principal.js"></script>
+	<script type="text/javascript" src="/static/user/js/mypage.js"></script>
 </body>
 </html>
