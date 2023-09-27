@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/admin/css/admin-style.css">
     <link rel="stylesheet" href="/static/admin/css/order/admin-order.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Admin Order</title>
 </head>
 <body>
@@ -194,28 +195,28 @@
                                         <th>바로가기</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="simple-data">
                                     <tr>
                                         <th>총 주문 금액 (건수)</th>
                                         <td>
                                             <a href="">
-                                                <strong class="txt-today">0</strong>
+                                                <strong class="txt-today today-sale-price">0</strong>
                                             </a>
                                             원
                                             <span>
                                                 (
-                                                <a href="">0</a>
+                                                <a href="" class="today-sale-count">0</a>
                                                 건)
                                             </span>
                                         </td>
                                         <td>
                                             <a href="">
-                                                <strong class="txt-month">0</strong>
+                                                <strong class="txt-month month-sale-price">0</strong>
                                             </a>
                                             원
                                             <span>
                                                 (
-                                                <a href="">0</a>
+                                                <a href="" class="month-sale-count">0</a>
                                                 건)
                                             </span>
                                         </td>
@@ -229,23 +230,23 @@
                                         <th>총 실 결제금액 (건수)</th>
                                         <td>
                                             <a href="">
-                                                <strong class="txt-today">0</strong>
+                                                <strong class="txt-today today-sale-price">0</strong>
                                             </a>
                                             원
                                             <span>
                                                 (
-                                                <a href="">0</a>
+                                                <a href="" class="today-sale-count">0</a>
                                                 건)
                                             </span>
                                         </td>
                                         <td>
                                             <a href="">
-                                                <strong class="txt-month">0</strong>
+                                                <strong class="txt-month month-sale-price">0</strong>
                                             </a>
                                             원
                                             <span>
                                                 (
-                                                <a href="">0</a>
+                                                <a href="" class="month-sale-count">0</a>
                                                 건)
                                             </span>
                                         </td>
@@ -460,5 +461,6 @@
         </div>
     </div>
     <script type="text/javascript" src="/static/admin/js/order/order-sidebar.js"></script>
+    <script type="text/javascript" src="/static/admin/js/order/order-main.js"></script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.order.OrderRepository">
+	<select id="getOrderList" 
+			parameterType="java.util.HashMap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.order.Order"
+			>
+			SELECT
+				om.order_code,
+				rs.user_code,
+				rs.user_id,
+				rs.user_name,
+				rs.user_roles,
+				prd.prd_code,
+				prd.prd_name,
+				om.event_code,
+				om.payment_status,
+				om.order_status,
+				om.cs_status,
+				om.payment_method,
+				om.payment_amount,
+				om.create_date,
+				
+				(select
+					count(*)
+				from
+					order_mst) as total_count
+					
+				<if test='page == 0'>			
+				,	(select
+						SUM(payment_amount) 
+					from
+						order_mst) as total_price,
+					
+						
+					(select
+						count(*)
+					from
+						order_mst
+					where
+						DATE_FORMAT(create_date, "%Y-%m-%d") = CURDATE()
+					) as today_sale_count,
+					
+					(select
+						sum(payment_amount)
+					from
+						order_mst
+					where
+						DATE_FORMAT(create_date, "%Y-%m-%d") = CURDATE()
+					) as today_sale_price,
+					
+					(select
+						count(*)
+					from
+						order_mst
+					where
+						create_date between date_format(now(), '%Y-%m-01') and date_format(now(), '%Y-%m-%d')
+					) as this_month_sale_count,
+					
+					(select
+						sum(payment_amount)
+					from
+						order_mst
+					where
+						create_date between date_format(now(), '%Y-%m-01') and date_format(now(), '%Y-%m-%d')
+					) as this_month_sale_price
+				</if>
+			FROM
+				order_mst om
+				LEFT OUTER JOIN product prd ON(prd.prd_code = om.prd_code)
+				LEFT OUTER JOIN register rs ON(rs.user_code = om.user_code)
+			WHERE
+				rs.user_roles LIKE 'ROLE_USER'
+			<if test="page != 0">
+				limit #{index}, 10
+			</if>
+	</select>
+</mapper>

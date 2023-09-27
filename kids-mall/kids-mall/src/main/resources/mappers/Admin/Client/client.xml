@@ -31,14 +31,16 @@
 		from
 			register
 		where
-			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 5 MONTH) AND NOW()
+			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 3 MONTH) AND NOW()
 		) as new_user_count
 	FROM
 		register
+	WHERE
+		user_roles LIKE 'ROLE_USER'
 	ORDER BY
 		user_code DESC
 	<if test='page != 0'>
-		limit #{index}, 5
+		limit #{index}, 10
 	</if>
 	</select>
 

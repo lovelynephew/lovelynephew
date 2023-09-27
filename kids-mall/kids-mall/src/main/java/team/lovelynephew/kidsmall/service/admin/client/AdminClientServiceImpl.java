@@ -23,7 +23,7 @@ public class AdminClientServiceImpl implements AdminClientService {
 		List<AdClientListRespDto> list = new ArrayList<AdClientListRespDto>();
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		int index = (page - 1) * 5;
+		int index = (page - 1) * 10;
 		map.put("page", page);
 		map.put("index", page != 0 ? index : 0);
 		map.put("search_value", searchValue == null ? "" : searchValue);
