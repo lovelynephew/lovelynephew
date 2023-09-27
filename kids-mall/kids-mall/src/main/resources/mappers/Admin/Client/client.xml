@@ -31,7 +31,7 @@
 		from
 			register
 		where
-			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 5 MONTH) AND NOW()
+			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 3 MONTH) AND NOW()
 		) as new_user_count
 	FROM
 		register

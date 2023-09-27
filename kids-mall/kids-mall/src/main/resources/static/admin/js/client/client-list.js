@@ -51,7 +51,7 @@ pageButtons.forEach((button, index) => {
 			console.log("클릭");
 			console.log(index);
 			nowPage = getPage;
-			loadUserListRequest(getPage, null);
+			loadUserListRequest(getPage, searchValue);
 		}
     };
 });

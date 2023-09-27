@@ -28,7 +28,7 @@ pageButtons.forEach((button, index) => {
 			console.log("클릭");
 			console.log(index);
 			nowPage = getPage;
-			loadUserListRequest(getPage, null);
+			loadItemListRequest(getPage, searchValue);
 		}
     };
 });
@@ -39,8 +39,8 @@ function loadItemListRequest(nowPage, searchValue) {
         type: "get",
         url: "/admin/product/itemlist",
         data: {
-            "searchValue": searchValue,
-            "page": nowPage
+            "page": nowPage,
+            "searchValue": searchValue
         },
         dataType: "json",
         success: (response) => {
