@@ -4,9 +4,7 @@ let noticeSubject = document.querySelector(".notice-subject");
 let noticeWriter = document.querySelector(".notice-writer");
 let noticeContent = document.querySelector(".notice-content");
 
-
-/*console.log("hi");*/
-
+/*공지사항 글쓰기*/
 noticeBtn.onclick = () => {
 	
 	let noticelist = {
@@ -20,11 +18,10 @@ noticeBtn.onclick = () => {
 	addNotice(noticelist);
 }
 
-
 function addNotice(noticelist) {
 	$.ajax ({
 		type: "post",
-		url: "/admin/noticelist/addnotice",
+		url: "/admin/notice/noticelist/addnotice",
 		contentType: "application/json",
 		data: JSON.stringify(noticelist),
 		async: false,
@@ -32,7 +29,7 @@ function addNotice(noticelist) {
 		success: function(response) {
 			if(response.data) {
 				alert("작성완료");
-				location.replace("/notice/list");
+				location.replace("/notice/noticelist");
 			}
 		},
         error: function(error) {
@@ -45,3 +42,4 @@ function addNotice(noticelist) {
 		}
 	})
 }
+

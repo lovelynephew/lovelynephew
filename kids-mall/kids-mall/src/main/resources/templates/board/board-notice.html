@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,6 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
 <link rel="stylesheet" href="../../static/user/css/board-notice.css">
-
 <body>
 	<div class="container-wrap">
 		<div class="container">
@@ -42,48 +41,53 @@
 						<h3>공지사항</h3>
 					</div>
 					<hr />
-
-					<table>
-						<thead>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th>조회</th>
-						</thead>
-						<tbody>
-							<tr class="notice-row">
-								<td class="num">3</td>
-								<td class="subject">
-									<a href="#" style="color:#555555; text-align: left;">알립니다.</a>
-								</td>
-								<td>김****</td>
-								<td>2023-08-31 03:47:00</td>
-								<td>1</td>
-							</tr>
-							<tr class="notice-row">
-								<td class="num">2</td>
-								<td class="subject">
-									<a href="#" style="color:#555555; text-align: left;">홈페이지 새단장 안내</a>
-								</td>
-								<td>김****</td>
-								<td>2023-08-31 03:47:00</td>
-								<td>1</td>
-							</tr>
-							<tr class="notice-row">
-								<td class="num">1</td>
-								<td class="subject">
-									<a href="#" style="color:#555555; text-align: left;">몰 오픈을 축하합니다.</a>
-								</td>
-								<td>김****</td>
-								<td>2023-08-31 03:47:00</td>
-								<td>1</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="board-list">
+						<table>
+							<colgroup>
+	                            <col class="num">
+	                            <col class="subject">
+	                            <col class="writer">
+	                            <col class="update">
+	                        </colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>	
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="notice-row">
+									<td class="num notice-num"></td>
+									<td class="subject notice-subject">
+										<a href="#" style="color:#555555;"></a>
+									</td>
+									<td class="notice-writer"></td>
+									<td class="notice-update"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="board-list-pager">
+					<div class="list-page">
+					   <ul>
+							<li class="button-left">
+								<button type="button"><</button>
+							</li>
+						</ul>
+						<ul class="list-page-details">
+							
+						</ul>    
+						<ul class="list-page-right-button">
+							<li class="button-right">
+								<button type="button">></button>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-
 			<div class="bottom-btn">
 				<ul>
 					<li>
@@ -247,5 +251,5 @@
 		</div>
 	</div>
 </body>
-
+<script type="text/javascript" src="/static/admin/js/board/noticeList.js"></script>
 </html>

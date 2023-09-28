@@ -1,5 +1,3 @@
-
-
 /* 전체 리스트 불러오기 */
 let searchValue = "";
 loadItemListRequest(searchValue);

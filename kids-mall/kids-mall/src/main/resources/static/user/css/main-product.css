@@ -12,3 +12,19 @@
 .content-wrap .category-detail {
     margin-top: 30px;
 }
+.category-detail-table-wrap tr{
+/* .category-detail-table-wrap td { */
+    border-top: 1px solid rgba(195, 195, 195, 0.3);
+    border-collapse: collapse;
+}
+.category-detail-table-wrap table {
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    height: 80px;
+    border-collapse: collapse;
+    text-align: center;
+}
+.category-detail-table-wrap td {
+    width: calc(100% / 3);
+}

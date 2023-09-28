@@ -6,16 +6,44 @@
   <mapper namespace="team.lovelynephew.kidsmall.domain.admin.NoticeListRepository">
   	<insert id="save" parameterType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
   		INSERT INTO 
-  		board_notice 
+  			board_notice 
   		VALUES 
-  		(
-  		0, 
-  		#{notice_id}, 
-  		#{notice_subject}, 
-  		#{notice_writer}, 
-  		#{notice_content}, 
-  		now(),
-  		now()
-  		)
+	  		(
+	  		0, 
+	  		#{notice_id}, 
+	  		#{notice_subject}, 
+	  		#{notice_writer}, 
+	  		#{notice_content}, 
+	  		now(),
+	  		now()
+  		);
   	</insert>
+  	<select id="getNoticeList" parameterType="hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
+  		SELECT
+			bn.notice_num,
+			bn.notice_subject,
+			bn.notice_writer,
+			bn.notice_content,
+			
+			tc.total_count,
+			
+			bn.notice_regdate,
+			bn.notice_update
+		FROM
+			board_notice bn
+			LEFT OUTER JOIN (SELECT
+								count(*) AS total_count
+							from
+								board_notice) tc ON(1=1)
+		ORDER by
+			notice_num DESC
+		limit
+			#{totalPage}, #{count};
+  	</select>
+  	<select id="getNotice" parameterType="hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
+  		SELECT
+  			*
+  		FROM
+  			board_notice;
+  	</select>
   </mapper>
