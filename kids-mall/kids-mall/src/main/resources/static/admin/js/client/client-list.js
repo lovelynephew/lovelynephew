@@ -28,33 +28,101 @@ showList[1].onclick = () => {
 
 /* 전체 리스트 불러오기 */
 let searchValue = "";
+
 /** 검색 페이지 */
 let nowPage = 1;
+
 /** 전체 페이지 수 */
 let totalPage = 0;
+
 /**페이지 개수 초기화(들어올 때 한번만 페이지개수를 정한다.) */
 let call = 0;
+
 /**클릭한 페이지 버튼 number */
-let getPage = 0;
+let getPage = 1;
+
+let type = 0;
+
+// 한 화면에 보여질 페이지 그룹 크기
+let pageSize = 5;
+
+// 현재 페이지 그룹의 시작과 끝 계산
+let startPage = Math.floor((nowPage - 1) / pageSize) * pageSize + 1;
+let endPage = startPage + pageSize - 1;
+
 
 loadUserListRequest(nowPage, searchValue);
+
+
+
+
+const firstButton = document.querySelector(".first-page");
+const preButton = document.querySelector(".pre-page");
+
+const nextButton = document.querySelector(".next-page");
+const lastButton = document.querySelector(".last-page");
 
 // 페이지 버튼 요소를 선택합니다.
 const pageButtons = document.querySelectorAll(".pages");
 
-// 각 페이지 버튼에 대한 클릭 이벤트.
-pageButtons.forEach((button, index) => {
-    button.onclick = () => {
-		getPage = index + 1;
-		// 클릭한 페이지 index와 현재 페이지가 다를 경우에만 동작
-		if(getPage != nowPage) {
-			console.log("클릭");
-			console.log(index);
-			nowPage = getPage;
-			loadUserListRequest(getPage, searchValue);
-		}
-    };
-});
+preButton.onclick = () => {
+    console.log("이전 버튼 클릭");
+    type = 0;
+    getPage = nowPage - 1;
+    if (nowPage > 1) {
+        if (startPage > getPage) {
+            startPage = startPage - pageSize;
+            endPage = startPage + pageSize - 1;
+            type = 1;
+            loadUserListRequest(getPage, searchValue);
+
+        }else {
+            loadUserListRequest(getPage, searchValue);
+        }
+        nowPage = getPage;
+    }
+}
+
+nextButton.onclick = () => {
+    console.log("다음 버튼 클릭");
+    getPage = nowPage + 1;
+    type = 0;
+    if (nowPage < totalPage) {
+        if (getPage > endPage) {
+            type = 2;
+            loadUserListRequest(getPage, searchValue);
+            startPage = Math.floor((getPage - 1) / pageSize) * pageSize + 1;
+            endPage = startPage + pageSize - 1;
+        }else {
+            loadUserListRequest(getPage, searchValue);
+        }
+        nowPage = getPage;
+    }
+}
+
+firstButton.onclick = () => {
+    type = 0; // 타입 초기화
+    getPage = 1; // 첫 번째 페이지로 이동
+    startPage = 1; // 시작 페이지도 첫 번째 페이지로 설정
+    endPage = startPage + pageSize - 1; // 끝 페이지 업데이트
+    
+    loadUserListRequest(getPage, searchValue);
+    nowPage == getPage;
+}
+
+lastButton.onclick = () => {
+    getPage = totalPage;
+    if(nowPage < totalPage) {
+        type = 4;
+        startPage = Math.floor((getPage - 1) / pageSize) * pageSize + 1;
+        endPage = totalPage;
+        loadUserListRequest(getPage, searchValue);
+        
+        console.log("lastButton클릭: " + startPage);
+        console.log(endPage);
+    }
+    nowPage = getPage;
+}
 
 function loadUserListRequest(nowPage, searchValue) {
 
@@ -108,50 +176,88 @@ function loadUserList(data) {
 		`
 	}
 
-	//**처음 페이지 로딩 시에만 호출 */
-	if(call == 0) {
+	//처음 페이지 로딩 시에만 호출
+    if(call == 0 || type == 0) {
+        call = 0;
+        paging(data);
+    }else if(type != 0) {      
         paging(data);
     }
 
+    console.log("call: " + call);
     call++;
+
+    // 페이지 버튼 요소를 선택합니다.
+    const pageButtons = document.querySelectorAll(".pages");
+
+    // 각 페이지 버튼에 대한 클릭 이벤트.
+    pageButtons.forEach((button, index) => {
+        button.onclick = () => {
+            getPage = startPage + index;
+            console.log("page getPage: " + getPage);
+            // 클릭한 페이지 index와 현재 페이지가 다를 경우에만 동작
+            if(getPage != nowPage) {
+                type = 0;
+                console.log("클릭");
+                console.log(index);
+                loadUserListRequest(getPage, searchValue);
+            }
+        };
+    });
+    nowPage = getPage;
 }
+
 
 //데이터 개수에 따른 페이지 개수
 function totalCnt(total) {
     //**한페이지 데이터 개수 */
-    let pageCount = 10
+    let pageCount = 10;
     totalPage = total % pageCount == 0 ? total / pageCount : Math.floor(total / pageCount) + 1;
     console.log("totalPage: " + totalPage);
+    console.log("total: " + total);
 }
 
 //데이터 개수에 맞는 페이지 버튼 넣기
 function paging(data) {
-    const page = document.querySelector(".page");
-    totalCnt(data[0].newUserCount);
-    
+    const page = document.querySelector(".page-number");
+    totalCnt(data[0].totalCount);
+    console.log("paging totalPage: " + totalPage);
+
     page.innerHTML = "";
 
-    for(let i = 1; i <= totalPage; i++) {    
-        page.innerHTML += `<strong class="pages">${i}</strong>`;
+    console.log("타입 이전");
+    console.log("type: " + type);
+    
+    for(let i = startPage; i <= endPage && i <= totalPage; i++) {
+        let prePage = (getPage - pageSize) + i;
+        let nextPage = i + pageSize;
+        let iPage = 
+        console.log("startPage: " + startPage);
+        if(call == 0) {
+            page.innerHTML += `<strong class="pages">${i}</strong>`;
+            console.log("첫 페이지 등록")
+
+        // 이전 버튼 클릭 시 이벤트
+        }else if(type == 1 && getPage != 1) {
+            page.innerHTML += `<strong class="pages">${prePage}</strong>`;
+            console.log("prePage: " + prePage);
+            
+        }else if(type == 2 && nextPage <= totalPage) {
+            page.innerHTML += `<strong class="pages">${nextPage}</strong>`;
+            console.log("nextPage: " + nextPage);
+            
+        }else if(type === 4 && nowPage < endPage) {
+            page.innerHTML += `<strong class="pages">${i}</strong>`;
+            console.log("i: " + i);
+        }
     }
+
+    
+    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 숫자 쉼표 찍기
+function priceToString(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 

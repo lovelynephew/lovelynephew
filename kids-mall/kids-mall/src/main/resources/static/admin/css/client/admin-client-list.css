@@ -559,4 +559,8 @@
     cursor: pointer;
 }
 
+.page-number {
+    display: flex;
+}
+
 /* 본문 메인 끝 */

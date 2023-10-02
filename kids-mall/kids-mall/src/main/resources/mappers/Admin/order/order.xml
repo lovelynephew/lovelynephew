@@ -73,8 +73,6 @@
 				order_mst om
 				LEFT OUTER JOIN product prd ON(prd.prd_code = om.prd_code)
 				LEFT OUTER JOIN register rs ON(rs.user_code = om.user_code)
-			WHERE
-				rs.user_roles LIKE 'ROLE_USER'
 			<if test="page != 0">
 				limit #{index}, 10
 			</if>
