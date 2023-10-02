@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import team.lovelynephew.kidsmall.web.dto.user.BankListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
 
 @NoArgsConstructor //파라미터가 없는 기본생성자 생성
@@ -27,15 +28,14 @@ public class RegisterEntity {
 	private String user_gender;
 	private int user_region;
 	private String user_roles;
-	private String email_check;
 	private String sms_check;
+	private String email_check;
 	private int signout; //회원탈퇴
 	private String signout_reason;
 	private LocalDateTime user_inertdate; //가입날짜
 	private LocalDateTime user_updatedate; //수정날짜
 	private String user_birth; //생년월일
+	private String user_bank; //은행
 	private String user_refundaccount; //환불계좌
-	
-	
 
 }

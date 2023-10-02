@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.service.admin.client.AdminClientService;
+import team.lovelynephew.kidsmall.service.admin.order.AdminOrderService;
 import team.lovelynephew.kidsmall.service.admin.product.AdminProductService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.admin.client.AdClientListRespDto;
+import team.lovelynephew.kidsmall.web.dto.admin.order.AdOrderListRespDto;
 import team.lovelynephew.kidsmall.web.dto.admin.product.AdItemListRespDto;
 import team.lovelynephew.kidsmall.web.dto.admin.product.AdProductListRespDto;
 import team.lovelynephew.kidsmall.web.dto.admin.product.AdProductReqDto;
@@ -28,6 +30,7 @@ public class AdminRestController {
 	
 	private final AdminProductService adminProductService;
 	private final AdminClientService adminClientService;
+	private final AdminOrderService adminOrderService;
 
 	@GetMapping("/product/register/{itemCode}")
 	public ResponseEntity<?> getItem(@PathVariable int itemCode) {
@@ -54,10 +57,10 @@ public class AdminRestController {
 	}
 	
 	@GetMapping("/client/userlist")
-	public ResponseEntity<?> loadUserList(@RequestParam String searchValue) {
+	public ResponseEntity<?> loadUserList(@RequestParam int page, @RequestParam String searchValue) {
 		List<AdClientListRespDto> list = new ArrayList<AdClientListRespDto>();
 		try {
-			list = adminClientService.getUserList(searchValue);
+			list = adminClientService.getUserList(page, searchValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", list));
@@ -65,14 +68,27 @@ public class AdminRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", list));
 	}
 	
-	@GetMapping("product/itemlist")
-	public ResponseEntity<?> loadProductList(@RequestParam String searchValue) {
+	@GetMapping("/product/itemlist")
+	public ResponseEntity<?> loadProductList(@RequestParam int page, @RequestParam String searchValue) {
 		List<AdProductListRespDto> list = new ArrayList<AdProductListRespDto>();
 		try {
-			list = adminProductService.getProductList(searchValue);
+			list = adminProductService.getProductList(page, searchValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", list));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", list));
+	}
+	
+	@GetMapping("/order/datalist")
+	public ResponseEntity<?> loadOrderList(@RequestParam int page, @RequestParam String searchValue) {
+		List<AdOrderListRespDto> list = new ArrayList<AdOrderListRespDto>();
+		try {
+			list = adminOrderService.getOrderList(page, searchValue);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "success", list));
+	
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", list));
 	}

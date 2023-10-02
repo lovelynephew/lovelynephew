@@ -25,19 +25,10 @@ spring:
       max-file-size: 128MB
       max-request-size: 128MB
       enabled: true
+      
+  main:
+    allow-bean-definition-overriding: true
 
 mybatis:
   mapper-locations:
   - /mappers/**/*.xml
-
-cloud:
-  aws:
-    credentials:
-      access-key: AKIAVMHO2DOBZ436BBVI
-      secret-key: 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
-    region:
-      static: ap-northeast-2
-    s3:
-      bucket: lovelynephew-s3
-    stack:
-      auto: false

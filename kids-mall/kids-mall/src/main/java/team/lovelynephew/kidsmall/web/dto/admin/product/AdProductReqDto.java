@@ -13,9 +13,12 @@ public class AdProductReqDto {
 	private String prdStyle;
 	private int prdRegularPrice;
 	private int prdDiscountPrice;
+	private int prdDiscountPercentage;
+	private String prdMainImage;
 	private String prdBrifExplain;
 	private String prdDetailExplain;
 	private int prdInventory;
+	private int prdSalesVolume;
 	private boolean checkCategoryFlag;
 	private boolean checkGenderFlag;
 	private boolean checkAgeFlag;
@@ -32,9 +35,12 @@ public class AdProductReqDto {
 				.prd_style(prdStyle)
 				.prd_regular_price(prdRegularPrice)
 				.prd_discount_price(prdDiscountPrice)
+				.prd_discount_percentage(prdDiscountPercentage)
+				.prd_main_image(prdMainImage)
 				.prd_brif_explain(prdBrifExplain)
 				.prd_detail_explain(prdDetailExplain)
 				.prd_inventory(prdInventory)
+				.prd_sales_volume(prdSalesVolume)
 				.build();
 	}
 }

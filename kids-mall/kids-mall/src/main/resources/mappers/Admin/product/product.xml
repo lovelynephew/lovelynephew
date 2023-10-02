@@ -18,13 +18,19 @@
 		#{prd_style},
 		#{prd_regular_price},
 		#{prd_discount_price},
+		#{prd_discount_percentage},
+		#{prd_main_image},
 		#{prd_brif_explain},
 		#{prd_detail_explain},
-		#{prd_inventory}
+		#{prd_inventory},
+		#{prd_sales_volume}
 	)
 	</insert>
 	
-	<select id="getProductList" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	<select id="getProductList" 
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.product.Product"
+			>
 	SELECT
 		prd_code,
 		sub_category_code,
@@ -37,9 +43,48 @@
 		prd_discount_price,
 		prd_brif_explain,
 		prd_detail_explain,
-		prd_inventory
+		prd_inventory,
+		(select
+			count(*)
+		from
+			product) as total_count,
+					
+		(select
+        	count(*)
+        from
+        	product
+        where
+        	prd_inventory != 0
+    	) as sale_count
 	FROM
 		product
+	<if test="page != 0">
+		limit #{index}, 10;
+	</if>
+	</select>
+	
+	<select id="getProductsList" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		prd_code,
+		sub_category_code,
+		prd_name,
+		prd_maker,
+		prd_gender,
+		prd_age,
+		prd_style,
+		prd_regular_price,
+		prd_discount_price,
+		prd_brif_explain,
+		prd_detail_explain,
+		prd_inventory,
+		prd_sales_volume,
+		prd_main_image
+	FROM
+		product
+	WHERE
+		sub_category_code = #{categoryCode}
+	ORDER BY
+		prd_code DESC;
 	</select>
 
 </mapper>

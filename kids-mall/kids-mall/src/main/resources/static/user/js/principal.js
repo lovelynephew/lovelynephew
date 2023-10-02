@@ -18,44 +18,9 @@ function getPrincipal() {
 }
 
 
-function loadHeader(user) {
-	const navMenu = document.querySelector(".nav-menu");
-	
-	if(user == null) {
-		navMenu.innerHTML = `
-		<ul>
-	        <li class="nav-login">
-	            <a href="/login">
-	                로그인
-	            </a>
-	        </li>
-	    </ul>
-		`
-	} else {
-		navMenu.innerHTML = `
-		<ul>
-	        <li class="nav-mypage">
-	            <a href="/mypage">
-	                마이페이지
-	            </a>
-	        </li>
-	        <li class="nav-logout">
-	            <a href="/logout">
-	                로그아웃
-	            </a>
-	        </li>
-	    </ul>
-		`
-	}
-}
-
-
 let user = getPrincipal();
-loadHeader(user);
 
 function getUser() {
-	
-	console.log(user);
 	return user;
 	
 }

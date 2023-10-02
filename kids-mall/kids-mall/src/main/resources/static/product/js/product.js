@@ -15,14 +15,6 @@
     });
 
 
-//구매하기 모달 창 띄우기
-const buyBtn= document.querySelector(".buy_bar_buy");
-const buyModal = document.querySelector(".buy_modal_wrapper01");
-
-buyBtn.addEventListener('click', () => {
-    buyModal.style.display = 'block';
-});
-
 
 //하트 누름 
 const wishIcon = document.querySelector(".buy_bar_heart");
@@ -60,3 +52,39 @@ wishIcon.onclick = () => {
 
     })
 }
+
+
+//구매하기 모달 창 띄우기
+const forModal = document.querySelector(".for_modal");
+const buyBtn= document.querySelector(".buy_bar_buy");
+const buyModal = document.querySelector(".buy_modal_wrapper01");
+
+buyBtn.addEventListener('click', () => {
+    console.log("버튼 누름");
+    console.log(buyModal);
+
+    forModal.innerHTML += buyModal;
+  
+});
+
+//상품정보 더보기 
+document.addEventListener('DOMContentLoaded', function(){
+    const morePrdInfo = document.querySelector(".prd_detail_wrapper02");
+    const moreprdInfoBtn = document.getElementById("moreprdInfoBtn");
+    
+    let isInfoVisible = false;
+   
+    moreprdInfoBtn.addEventListener('click', function() {
+        
+        if (!isInfoVisible) {
+           morePrdInfo.style.height='auto'; // 정보를 펼침
+           moreprdInfoBtn.querySelector('span').textContent = '상품정보 숨기기 ∧';
+        } else {
+            morePrdInfo.style.height='1600px'; // 정보를 숨김
+            moreprdInfoBtn.querySelector('span').textContent = '상품정보 더 보기 ∨';
+        }
+        
+        isInfoVisible = !isInfoVisible; // 상태를 토글
+    });
+})
+

@@ -16,9 +16,11 @@ import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
 public class EditUserReqDto {
 
 	private int userCode;
-	@NotBlank
+	private String userId;
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\\d~!@#$%^&*()+|=]{5,16}$", message = "영문자, 숫자, 특수문자를 모두 포함하여 6자 이상 17자 이하 입력만 가능 합니다.")
 	private String userPwd;
+	private String userAddress;
+	private String userDetailaddress;
 	private String userName;
 	private String userPhone;
 	@NotBlank
@@ -27,25 +29,30 @@ public class EditUserReqDto {
 	private String userGender;
 	private int userRegion;
 	private String userRoles;
-	private String emailCheck;
 	private String smsCheck;
+	private String emailCheck;
 	private int signout; //회원탈퇴
 	private String signoutReason;
 	private LocalDateTime userInertdate; //가입날짜
 	private LocalDateTime userUpdatedate; //수정날짜
 	private String userBirth; //생년월일
+	private String userBank; //은행
 	private String userRefundaccount; //환불계좌
-	
-	/*true 가 아니면 메세지가 뜨도록 함*/
-	@AssertTrue(message = "비밀번호가 일치하지 않습니다.")
-	private boolean passwordCheckFlag;
 
 	public RegisterEntity editToEntity() {
 		return RegisterEntity.builder()
-				.user_pwd(new BCryptPasswordEncoder().encode(userPwd))
+				.user_code(userCode)
+				.user_id(userId)
 				.user_name(userName)
+				.user_address(userAddress)
+				.user_detailaddress(userDetailaddress)
 				.user_phone(userPhone)
 				.user_email(userEmail)
+				.sms_check(smsCheck)
+				.email_check(emailCheck)
+				.user_birth(userBirth)
+				.user_bank(userBank)
+				.user_refundaccount(userRefundaccount)
 				.build();
 	}
 }

@@ -1,9 +1,14 @@
 package team.lovelynephew.kidsmall.service.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
 import team.lovelynephew.kidsmall.domain.user.RegisterRepository;
+import team.lovelynephew.kidsmall.web.dto.user.BankListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
@@ -14,7 +19,6 @@ public class RegisterServiceImpl implements RegisterService {
 	private final RegisterRepository registerRepository;
 	
 	
-
 	//아이디 중복확인
 	@Override
 	public boolean userIdCheck(IdCheckDto idCheckDto) throws Exception {

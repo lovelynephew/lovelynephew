@@ -12,22 +12,23 @@
 		#{user_id},
 		#{user_pwd},
 		null,
-		null,
-		null,
+		#{user_address},
+		#{user_detailaddress},
 		#{user_name},
 		#{user_phone},
 		#{user_email},
 		null,
 		null,
 		null,
-		null,
-		null,
+		#{sms_check},
+		#{email_check},
 		null,
 		null,
 		NOW(),
 		NOW(),
-		null,
-		null
+		#{user_birth},
+		#{user_bank},
+		#{user_refundaccount}
 	 );
 	</insert>
 	
@@ -36,9 +37,20 @@
 		user_code,
 		user_id,
 		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
 		user_name,
 		user_phone,
-		user_email
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
 	FROM
 		register
 	WHERE
@@ -49,15 +61,18 @@
 	UPDATE
 		register
 	SET
-		user_pwd = #{user_pwd},
 		user_address = #{user_address},
+		user_detailaddress = #{user_detailaddress},
+		user_phone = #{user_phone},
 		user_email = #{user_email},
-		email_check = #{email_check},
 		sms_check = #{sms_check},
+		email_check = #{email_check},
 		user_updatedate = NOW(),
 		user_birth = #{user_birth},
+		user_bank = #{user_bank},
 		user_refundaccount = #{user_refundaccount}
-		
+	WHERE
+		user_code = #{user_code}
 	</update>
 	
 	

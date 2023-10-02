@@ -433,11 +433,13 @@
     width: 24px;
     height: 24px;
     line-height: 24px;
-    margin: 0px;
+    margin: 0px 2px;
     text-align: center;
     font-size: 14px;
     color: #fff;
     background-color: #3971ff;
+
+    cursor: pointer;
 }
 
 /* 본문 메인 끝 */
