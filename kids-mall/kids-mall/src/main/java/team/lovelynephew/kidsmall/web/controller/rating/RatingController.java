@@ -20,12 +20,24 @@ public class RatingController {
 		double rating = 0;
 		
 		try {
-			rating = (double) ratingService.rating(prdCode);
+			rating = ratingService.rating(prdCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "Get Rating Failed", rating)); 
 
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Get Rating Success", rating)); 
+	}
+	
+	@GetMapping("/reviewAmount")
+	public ResponseEntity<?> reviewAmount (@RequestParam int prdCode) {
+		int reviewAmount = 0;
+		try {
+			reviewAmount =ratingService.reviewAmount(prdCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "Get review Amount Failed", reviewAmount)); 
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "Get review Amount Success", reviewAmount)); 
 	}
 }

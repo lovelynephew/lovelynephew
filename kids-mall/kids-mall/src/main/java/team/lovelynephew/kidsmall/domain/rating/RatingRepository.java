@@ -8,5 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RatingRepository {
 	
 	public List<Integer> rating(int prdCode) throws Exception;
+	
+	public int reviewAmount(int prdCode) throws Exception;
 
 }

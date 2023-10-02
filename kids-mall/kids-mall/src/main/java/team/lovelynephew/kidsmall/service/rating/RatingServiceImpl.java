@@ -18,10 +18,14 @@ public class RatingServiceImpl implements RatingService {
 	public double rating(int prdCode) throws Exception {
 		List<Integer> ratings = ratingRepository.rating(prdCode);
 		
-		
 		int sum = ratings.stream().mapToInt(Integer::intValue).sum();
 		
 		return (double)sum/ratings.size();
+	}
+
+	@Override
+	public int reviewAmount(int prdCode) throws Exception {
+		return ratingRepository.reviewAmount(prdCode);
 	}
 
 }
