@@ -8,7 +8,7 @@ public class PageController {
 
 	@GetMapping({"/", "/main"})
 	public String getMain() {
-		return "main/main";
+		return "main/index";
 	}
 	
 	@GetMapping("/category")

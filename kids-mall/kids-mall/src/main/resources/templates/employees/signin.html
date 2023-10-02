@@ -24,7 +24,7 @@
 		<main class="main">
 			<div class="main-div">
 				<h1>아이디로 로그인하기</h1>
-				<form method="post" action="/login">
+				<form method="post" action="/signin">
 					<div class="div-in">
 						<label class="body_13 label-login">
 							<div class="body_13 la-divlog">아이디</div>
@@ -43,7 +43,7 @@
 					</div>
 					<button type="submit" class="body_15 btn-login">로그인</button>
 					<div class="find-log">
-						<a class="body_13 a-log" href="/find-id">아이디 찾기</a>
+						<a class="body_13 a-log" href="/find-id/2">아이디 찾기</a>
 						<hr class="bar">
 						<a class="body_13 a-log" href="/find-password">비밀번호 찾기</a>
 					</div>
@@ -74,7 +74,8 @@
 				</div>	
 				<div class="div-nonreg">
 					<span>계정이 없으신가요?</span>
-					<a class="register" href="/register">회원가입</a>
+					<!-- 여기 수정 /find-id/1-->
+					<a class="register" href="register">회원가입</a>
 				</div>
 			</div>
 		</main>

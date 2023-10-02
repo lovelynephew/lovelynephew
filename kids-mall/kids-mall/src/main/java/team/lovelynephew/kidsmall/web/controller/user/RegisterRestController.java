@@ -1,27 +1,22 @@
 package team.lovelynephew.kidsmall.web.controller.user;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
 import team.lovelynephew.kidsmall.handler.aop.annotation.ValidCheck;
+import team.lovelynephew.kidsmall.service.user.MailService;
 import team.lovelynephew.kidsmall.service.user.PrincipalDetailsService;
 import team.lovelynephew.kidsmall.service.user.PrinipalDetails;
 import team.lovelynephew.kidsmall.service.user.RegisterService;
@@ -29,6 +24,7 @@ import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
+import team.lovelynephew.kidsmall.web.dto.user.SendMailDto;
 
 
 @RestController
@@ -37,6 +33,8 @@ public class RegisterRestController {
 	
 	private final RegisterService registerService;
 	private final PrincipalDetailsService principalDetailsService;
+    private final MailService mailService;
+	
 	@ValidCheck
 	@PostMapping("/register")
 	public ResponseEntity<?> saveRegister(@RequestBody @Valid RegisterDto registerDto, BindingResult bindingResult) {
@@ -94,11 +92,35 @@ public class RegisterRestController {
 		return ResponseEntity.ok(new CMRespDto<>(1, "success to load", prinipalDetails.getRegisterEntity()));
 	}
 	
-	
-	
-	
-	
 
+
+    @PostMapping("/email/register")
+    public ResponseEntity<?> sendEmail(@RequestBody SendMailDto sendMailDto) throws Exception {
+
+        mailService.sendRegisterEmail(sendMailDto);
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "메일 전송 성공", true));
+    }
+	
+    @PostMapping("/email/password")
+    public ResponseEntity<?> sendPasswordEmail(@RequestBody SendMailDto sendMailDto) throws Exception {
+
+        mailService.sendPasswordEmail(sendMailDto);
+
+        return ResponseEntity.ok(new CMRespDto<>(1, "메일 전송 성공", true));
+    }
+	
+	@GetMapping("/finduser/userphone")
+	public ResponseEntity<?> getUserByPhone(@RequestParam String userPhone) {
+		RegisterEntity registerEntity = null;
+		try {
+			registerEntity = registerService.getUserByUserPhone(userPhone);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", registerEntity));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", registerEntity));
+	}
 	
 	
 	

@@ -8,5 +8,20 @@
     "name": "spring.servlet.multipart.filename-encoding",
     "type": "java.lang.String",
     "description": "A description for 'spring.servlet.multipart.filename-encoding'"
+  },
+  {
+    "name": "coolsms.api.key",
+    "type": "java.lang.String",
+    "description": "A description for 'coolsms.api.key'"
+  },
+  {
+    "name": "coolsms.api.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'coolsms.api.secret'"
+  },
+  {
+    "name": "coolsms.api.url",
+    "type": "java.lang.String",
+    "description": "A description for 'coolsms.api.url'"
   }
 ]}

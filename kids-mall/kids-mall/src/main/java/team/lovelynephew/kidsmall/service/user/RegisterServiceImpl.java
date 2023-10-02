@@ -39,4 +39,9 @@ public class RegisterServiceImpl implements RegisterService {
 		return registerRepository.updateUser(editUserReqDto.editToEntity()) > 0;
 	}
 
+	@Override
+	public RegisterEntity getUserByUserPhone(String userPhone) throws Exception {
+		return registerRepository.findUserByPhone(userPhone);
+	}
+
 }

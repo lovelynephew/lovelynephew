@@ -68,8 +68,9 @@ signupBtn.onclick = () => {
         data: JSON.stringify(obj),
         success: (response) => {
 			if(response.data) {
+				emailSend();
 				alert("회원가입성공");
-				location.replace("/login");
+				location.replace("/signin");
 			}
 		},
 		error: (error) => {
@@ -116,9 +117,28 @@ $(document).ready(function(){
 });
 
 
+/* 이메일 보내기 */
 
+function emailSend() {
+    let params = {
+        "email": inputData[6].value
+    }
 
-
+    $.ajax({
+        async: false,
+        type: "post",
+        url: "/email/register",
+        contentType: "application/json",
+        data: JSON.stringify(params),
+        dataType: "json",
+        success: (response) => {
+            location.replace("/main");
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    });
+}
 
 
 

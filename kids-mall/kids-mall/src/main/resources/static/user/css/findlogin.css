@@ -198,3 +198,20 @@ button, input {
     font-size: 15px;
     line-height: 18px;
 }
+
+.changebutton {
+	border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    justify-content: center;
+    padding: 14px 24px;
+    min-height: 50px;
+    min-width: 74px;
+    background-color: #FFD1DA;
+    color: #fff;
+    margin: 2px 0px 28px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+}

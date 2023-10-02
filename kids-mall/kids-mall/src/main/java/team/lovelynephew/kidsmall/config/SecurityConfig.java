@@ -13,12 +13,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import team.lovelynephew.kidsmall.config.auth.AuthFailureHandler;
+import team.lovelynephew.kidsmall.service.user.PrincipalOauth2UserService;
 
 @EnableWebSecurity
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private final CorsFilter corsFilter;
+	private final PrincipalOauth2UserService principalOauth2UserService;
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -34,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.disable();
 		
 		http.addFilter(corsFilter);
+		
 		http.authorizeRequests()
 //			.antMatchers("/main/user/**") //사용자면 들어가는 페이지
 //			.access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") //사용자 또는 관리자가 들어갈 수 있는 페이지
@@ -42,23 +45,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.antMatchers("/admin/**")
 //			.hasRole("ADMIN")
 		
-			.antMatchers("/", "mypage")
+			.antMatchers("/", "mypage", "main")
 			.authenticated()
 			
 			.anyRequest()
 			.permitAll()
 			.and()
 			.formLogin()
-			.loginPage("/login")
-			.loginProcessingUrl("/login")
+			.loginPage("/signin")
+			.loginProcessingUrl("/signin")
 			.failureHandler(new AuthFailureHandler())
+			
+			.and()
+			.oauth2Login()
+			.userInfoEndpoint()
+			.userService(principalOauth2UserService)
+			.and()
 			  
-			.defaultSuccessUrl("/main")
+			.defaultSuccessUrl("/")
 			  
 			.and()
 			.logout()
 			.logoutUrl("/logout")
-			.logoutSuccessUrl("/login");
+			.logoutSuccessUrl("/signin");
 		
 	}
 	
