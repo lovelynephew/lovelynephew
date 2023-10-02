@@ -1,7 +1,5 @@
 package team.lovelynephew.kidsmall.web.dto.admin.board;
 
-import java.time.LocalDateTime;
-
 import lombok.Data;
 import team.lovelynephew.kidsmall.domain.admin.board.NoticeList;
 
@@ -11,6 +9,7 @@ public class CreateNoticeReqDto {
 	private String noticeSubject;
 	private String noticeWriter;
 	private String noticeContent;
+	private int noticeCount;
 	
 	public NoticeList toEntity() {
 		return NoticeList.builder()
@@ -18,6 +17,7 @@ public class CreateNoticeReqDto {
 				.notice_subject(noticeSubject)
 				.notice_content(noticeContent)
 				.notice_writer(noticeWriter)
+				.notice_count(noticeCount)
 				.build();
 				
 	}

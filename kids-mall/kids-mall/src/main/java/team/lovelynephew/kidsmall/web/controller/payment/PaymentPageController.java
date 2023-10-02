@@ -12,6 +12,11 @@ public class PaymentPageController {
 		return "thymeleaf/product/payment";
 	}
 	
+	@PostMapping("/payment/submit")
+	public String submit() {
+		return "kcp_api_page";
+	}
+	
 
 
 	

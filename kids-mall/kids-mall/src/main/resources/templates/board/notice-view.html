@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판 보기</title>
+    <title>공지사항 보기</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
@@ -34,24 +34,26 @@
                         <h3>공지사항</h3>
                     </div>
                     <hr />
-                    <div class="notice-title">
+                    <div class="notice-view-subject">
                         몰 오픈을 축하합니다.
                     </div>
                     
                     <div class="update">
-                        <div class="notice-writer">E****</div>
-                        <span class="update-date">2023-05-06</span>
-                        <ul class="viewnum">조회 11</ul>
+                        <div class="notice-view-writer">E****</div>
+                        <span class="notice-view-update">2023-05-06</span>
                     </div>
-                    <div class="detail">
-                        몰 오픈을 축하합니다.
+                    <div class="notice-view-content">
+                        <p>
+                            몰 오픈을 축하합니다.
+                        </p>
                     </div>
                     
                     <div class="write-btn">
-                        <button class="write">목록</button>
+						<a href="/notice/noticelist">
+							<button class="write">목록</button>	
+						</a>
+                        
                     </div>
-                    
-                    
                 </div>
             </div>
 
@@ -259,4 +261,5 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="/static/admin/js/board/noticeView.js"></script>
 </html>
