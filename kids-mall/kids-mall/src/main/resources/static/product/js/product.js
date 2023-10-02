@@ -88,3 +88,54 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 })
 
+//메인별점과 리뷰개수s
+$.ajax({
+    type: "GET",
+    url: "/rating",
+    data: {
+        "prdCode" : 1
+    },
+    success: (response) => {
+        console.log("rating:" +response.data);
+        let rating = response.data;
+        document.getElementById("review_score").innerHTML = rating;
+        if(rating>4.4) {
+            document.getElementById("star1").innerHTML = "⭐️";
+            document.getElementById("star2").innerHTML = "⭐️";
+            document.getElementById("star3").innerHTML = "⭐️";
+            document.getElementById("star4").innerHTML = "⭐️";
+            document.getElementById("star5").innerHTML = "⭐️";
+        }else if(rating>3.4){
+            document.getElementById("star1").innerHTML = "⭐️";
+            document.getElementById("star2").innerHTML = "⭐️";
+            document.getElementById("star3").innerHTML = "⭐️";
+            document.getElementById("star4").innerHTML = "⭐️";
+        }
+        else if(rating>2.4){
+            document.getElementById("star1").innerHTML = "⭐️";
+            document.getElementById("star2").innerHTML = "⭐️";
+            document.getElementById("star3").innerHTML = "⭐️";
+        }
+        else if(rating>1.4){
+            document.getElementById("star1").innerHTML = "⭐️";
+            document.getElementById("star2").innerHTML = "⭐️";
+        }else if(rating>0.4){
+            document.getElementById("star1").innerHTML = "⭐️";
+        }else {
+
+        }
+    },
+    error: (error) => {
+        if(error.status == 400) {//서버가 요청을 이해하지 못함 
+            alert(JSON.stringify(error.responseJSON.data));
+        }else {
+            console.log("요청실패");
+            console.log(error);
+        }
+    }
+});
+
+
+
+
+

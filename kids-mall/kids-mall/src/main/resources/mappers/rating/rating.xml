@@ -5,10 +5,10 @@
   
   <mapper namespace="team.lovelynephew.kidsmall.domain.rating.RatingRepository">
   
-  <select id="rating" parameterType="Integer" resultType="java.lang.Integer">
+  <select id="rating" parameterType="Integer" resultType="Integer">
 	  SELECT rating
 	  FROM board_review br
-	  WHERE br.prd_code = 1;
+	  WHERE br.prd_code = #{prdCode};
   </select>
   
   </mapper>

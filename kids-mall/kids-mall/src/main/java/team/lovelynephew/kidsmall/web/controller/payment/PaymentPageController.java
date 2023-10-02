@@ -12,6 +12,11 @@ public class PaymentPageController {
 		return "thymeleaf/product/payment";
 	}
 	
+	@GetMapping("/product")
+	public String product (){
+		return "product/product";
+	}
+	
 
 
 	
