@@ -2,7 +2,7 @@ package team.lovelynephew.kidsmall.web.controller.rating;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -16,9 +16,8 @@ public class RatingController {
 	private final RatingService ratingService;
 	
 	@GetMapping("/rating")
-	public ResponseEntity<?> getRating(@RequestBody int prdCode) {
-		System.out.println("1212");
-		int rating = 0;
+	public ResponseEntity<?> getRating(@RequestParam int prdCode) {
+		double rating = 0;
 		
 		try {
 			rating = ratingService.rating(prdCode);
@@ -28,5 +27,17 @@ public class RatingController {
 
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Get Rating Success", rating)); 
+	}
+	
+	@GetMapping("/reviewAmount")
+	public ResponseEntity<?> reviewAmount (@RequestParam int prdCode) {
+		int reviewAmount = 0;
+		try {
+			reviewAmount =ratingService.reviewAmount(prdCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "Get review Amount Failed", reviewAmount)); 
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "Get review Amount Success", reviewAmount)); 
 	}
 }

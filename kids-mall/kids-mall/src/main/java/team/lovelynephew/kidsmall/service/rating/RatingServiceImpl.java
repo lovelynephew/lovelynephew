@@ -15,16 +15,17 @@ public class RatingServiceImpl implements RatingService {
 	private final RatingRepository ratingRepository ;
 	
 	@Override
-	public int rating(int prdCode) throws Exception {
+	public double rating(int prdCode) throws Exception {
 		List<Integer> ratings = ratingRepository.rating(prdCode);
 		
-		int sum = 0;
+		int sum = ratings.stream().mapToInt(Integer::intValue).sum();
 		
-		ratings.forEach(rating -> {
-			System.out.println(rating);
-		});
-		
-		return 0;
+		return (double)sum/ratings.size();
+	}
+
+	@Override
+	public int reviewAmount(int prdCode) throws Exception {
+		return ratingRepository.reviewAmount(prdCode);
 	}
 
 }

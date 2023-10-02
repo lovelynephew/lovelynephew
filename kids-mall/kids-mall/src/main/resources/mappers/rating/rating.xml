@@ -8,7 +8,13 @@
   <select id="rating" parameterType="Integer" resultType="java.lang.Integer">
 	  SELECT rating
 	  FROM board_review br
-	  WHERE br.prd_code = 1;
+	  WHERE br.prd_code = #{prdCode};
+  </select>
+  
+  <select id="reviewAmount" parameterType="Integer" resultType="Integer">
+	  SELECT COUNT(review_num)
+      FROM board_review br
+	  WHERE br.prd_code = #{prdCode};
   </select>
   
   </mapper>
