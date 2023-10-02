@@ -5,10 +5,12 @@
     display: flex;
     justify-content: space-around;
     font-size: 15px;
+    font-weight: 300;
     color: #a1a1a1;
 }
 .content-wrap hr {
     border: 2px solid #f99b20;
+    margin-bottom: 0px !important;
 }
 .content-wrap .category-detail {
     margin-top: 30px;
@@ -24,7 +26,8 @@
 }
 .category-detail-table-wrap table {
     border-top: 1px solid #ccc;
-    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
     width: 100%;
     height: 80px;
     border-collapse: collapse;
@@ -32,4 +35,17 @@
 }
 .category-detail-table-wrap td {
     width: calc(100% / 3);
+}
+.product-arrange {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 10px 20px;
+}
+select {
+    margin: 0 5px 0 0; 
+    font-size: 12px;
+    border-radius: 30px;
+    width: 100px;
+    height: 30px; 
+    padding-left: 3px;
+    border: 1px solid #c3c3c3;
 }
