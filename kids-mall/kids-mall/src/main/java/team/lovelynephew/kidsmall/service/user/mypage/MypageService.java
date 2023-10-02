@@ -6,4 +6,5 @@ public interface MypageService {
 	//배송지 등록
 	public boolean address(ShippingAddressDto shippingAddressDto) throws Exception;
 
+	public boolean updataAddress(ShippingAddressDto shippingAddressDto) throws Exception;
 }

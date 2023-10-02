@@ -7,4 +7,5 @@ public interface MypageRepogitory {
 
 	public int addrsave(MypageEntity entity) throws Exception;
 
+	public int updateAddress(MypageEntity mypageEntity) throws Exception;
 }
