@@ -16,5 +16,7 @@ public interface RegisterRepository {
 	
 	public List<RegisterEntity> getBankList(int userCode) throws Exception;
 	
-
+	public RegisterEntity findUserByEmail(String email) throws Exception;
+	
+	public RegisterEntity findUserByPhone(String userPhone) throws Exception;
 }

@@ -60,7 +60,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		} else if(provider.equalsIgnoreCase("Google")) {
 			response = attributes;
 			id = (String)response.get("sub");
-			return getGoogle(provider, id, response, profile);
+			return getGoogle(provider, id, response);
 		} else {
 			throw new OAuth2AuthenticationException("DATABASE ERROR!");
 		}
@@ -85,7 +85,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		
 		if(registerEntity == null) {
 			
-			String birthDay = (String)response.get("birthDay");
+			String birthDay = (String)response.get("birthday");
 			birthDay = birthDay.replaceAll("-", "");
 			
 			String gen = (String)response.get("gender");
@@ -103,7 +103,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.user_phone((String)response.get("mobile"))
 					.user_email((String)response.get("email"))
 					.user_gender(gen)
-					.user_region(1)
 					.user_roles("ROLE_USER")
 					.user_birth((String)response.get("birthyear") + birthDay)
 					.build();
@@ -170,8 +169,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 	}
 	
 	//구글 로그인
-	private RegisterEntity getGoogle(String provider, String id, Map<String, Object> response,
-			Map<String, Object> profile) {
+	private RegisterEntity getGoogle(String provider, String id, Map<String, Object> response) {
 
 		RegisterEntity registerEntity = null;
 		String oauth2_id = null;
@@ -191,6 +189,8 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.oauth2_id(oauth2_id)
 					.user_pwd(new BCryptPasswordEncoder().encode(id))
 					.user_name((String)response.get("name"))
+					.user_phone("010-0000-0000")
+					.user_email((String)response.get("email"))
 					.user_roles("ROLE_USER")
 					.build();
 

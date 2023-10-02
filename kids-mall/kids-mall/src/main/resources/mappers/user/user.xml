@@ -10,6 +10,7 @@
 	VALUES (
 		0,
 		#{user_id},
+		#{oauth2_id},
 		#{user_pwd},
 		null,
 		#{user_address},
@@ -17,9 +18,9 @@
 		#{user_name},
 		#{user_phone},
 		#{user_email},
+		#{user_gender},
 		null,
-		null,
-		null,
+		#{user_roles},
 		#{sms_check},
 		#{email_check},
 		null,
@@ -57,6 +58,32 @@
 		user_id = #{userId}
 	</select>
 	
+	<select id="findOAuth2ByUsername" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		oauth2_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		oauth2_id = #{oauth2_id}
+	</select>
+	
 	<update id="updateUser" parameterType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
 	UPDATE
 		register
@@ -75,6 +102,54 @@
 		user_code = #{user_code}
 	</update>
 	
+	<select id="findUserByEmail" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		user_email = #{email}
+	</select>
 	
+	<select id="findUserByPhone" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		user_phone = #{userPhone}
+	</select>
 	
 </mapper>

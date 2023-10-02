@@ -94,6 +94,17 @@
 		    <artifactId>firebase-admin</artifactId>
 		    <version>8.1.0</version>
 		</dependency>
+		<!-- email -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<!-- coolsms -->
+		<dependency>
+		    <groupId>net.nurigo</groupId>
+		    <artifactId>sdk</artifactId>
+		    <version>4.3.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

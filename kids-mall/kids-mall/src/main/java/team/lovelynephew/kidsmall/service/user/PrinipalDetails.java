@@ -15,12 +15,16 @@ public class PrinipalDetails implements UserDetails, OAuth2User{
 	
 	private static final long serialVersionUID = 1L;
 	
+	
 	private RegisterEntity registerEntity;
 	private Map<String, Object> attributes;
+	
+	
 	
 	public PrinipalDetails(RegisterEntity registerEntity) {
 		this.registerEntity = registerEntity;
 	}
+	
 	
 	public PrinipalDetails(RegisterEntity registerEntity, Map<String, Object> attributes) {
 		this.registerEntity = registerEntity;
