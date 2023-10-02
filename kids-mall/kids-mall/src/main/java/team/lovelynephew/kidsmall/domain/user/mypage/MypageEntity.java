@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MypageEntity {
 	private int addr_code; //주소코드
-	private String user_id;
+	private int user_code;
 	private String addr_name; //주소명
 	private String addr_zip_code; //우편번호
 	private String addr_detail; //상세주소

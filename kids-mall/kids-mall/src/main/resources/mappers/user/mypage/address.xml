@@ -9,7 +9,7 @@
 		shipping_address
 	VALUES (
 		0,
-		#{user_id},
+		#{user_code},
 		#{addr_name},
 		#{addr_zip_code},
 		#{addr_detail},
@@ -23,7 +23,7 @@
 	<select id="findUseraddress" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
 	SELECT
 		addr_code,
-		user_id,
+		user_code,
 		addr_name,
 		addr_zip_code,
 		addr_detail,
@@ -38,7 +38,7 @@
 	</select>
 	
 	
-	<update id="updateAddr" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+	<!-- <update id="updateAddr" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
 	UPDATE
 		shipping_address
 	SET
@@ -54,8 +54,28 @@
 		user_refundaccount = #{user_refundaccount}
 	WHERE
 		user_code = #{user_code}
-	</update>
+	</update> -->
 	
+	<update id="updateAddress" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+		update
+			shipping_address sa,
+			register rs
+		set
+			sa.addr_zip_code = #{addr_zip_code},
+			sa.addr_name = #{addr_name},
+			sa.addr_detail = #{addr_detail},
+			sa.addr_tel = #{addr_tel},
+			sa.addr_emergentel = #{addr_emergentel},
+			sa.addr_require = #{addr_require},
+			sa.addr_def = #{addr_def}
+			
+			<if test='addr_def != "F"'>
+				,rs.user_address = #{addr_zip_code},
+				rs.user_detailaddress = #{addr_detail}
+			</if>
+		where
+			rs.user_code = #{user_code}
+	</update>
 	
 	
 </mapper>

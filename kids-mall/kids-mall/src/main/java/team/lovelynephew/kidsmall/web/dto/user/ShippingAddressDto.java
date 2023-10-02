@@ -6,7 +6,7 @@ import team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity;
 @Data
 public class ShippingAddressDto {
 	private int addrCode; //주소코드
-	private String userId;
+	private int userCode;
 	private String addrName; //주소명
 	private String addrZipCode; //우편번호
 	private String addrDetail; //상세주소
@@ -17,15 +17,28 @@ public class ShippingAddressDto {
 	
 	public MypageEntity toEntity() {
 		return MypageEntity.builder()
-				.user_id(userId)
-				.addr_name(addrName)
+				.user_code(userCode)
 				.addr_zip_code(addrZipCode)
+				.addr_name(addrName)
 				.addr_detail(addrDetail)
 				.addr_tel(addrTel)
 				.addr_require(addrRequire)
 				.addr_def(addrDef)
 				.build();
 	}
-				
-				
+	
+	public MypageEntity updatedataToEntity() {
+		return MypageEntity.builder()
+				.user_code(userCode)
+				.addr_zip_code(addrZipCode)
+				.addr_name(addrName)
+				.addr_detail(addrDetail)
+				.addr_tel(addrTel)
+				.addr_emergentel(addrEmergentel)
+				.addr_require(addrRequire)
+				.addr_def(addrDef)
+				.build();
 	}
+				
+				
+}
