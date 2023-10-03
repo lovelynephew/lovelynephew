@@ -29,6 +29,24 @@ public class MypageController {
 		return "mypage/edit-mypage";
 	}
 	
+	//작성 가능한 리뷰
+	@GetMapping("/mypage/reviewable")
+	public String reviewAble() {
+		return "mypage/reviewable";
+	}
+	
+	//작성한 리뷰
+	@GetMapping("/mypage/review-list")
+	public String myReview() {
+		return "mypage/review-list";
+	}
+	
+	//리뷰 작성페이지
+	@GetMapping("/mypage/reviewable-write")
+	public String reviewWrite() {
+		return "mypage/reviewable-write";
+	}
+	
 	//나의 쇼핑 정보
 	@GetMapping("/mypage/myshopping-info")
 	public String myshopping() {
@@ -78,8 +96,8 @@ public class MypageController {
 		return "mypage/mywishlist";
 	}
 	
-	//나의 게시글
-	@GetMapping("/mypage/activity/myboard-list")
+	//리뷰
+	@GetMapping("/mypage/review")
 	public String myBoardlist() {
 		return "mypage/myboard-list";
 	}

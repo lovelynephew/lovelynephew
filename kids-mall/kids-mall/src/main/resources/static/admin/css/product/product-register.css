@@ -305,11 +305,6 @@
     font-weight: bold;
 }
 
-.txt-color strong {
-    color: #3971ff;
-    vertical-align: bottom;
-}
-
 .image-preview {
     border: 2px dashed #ccc;
     padding: 20px;
