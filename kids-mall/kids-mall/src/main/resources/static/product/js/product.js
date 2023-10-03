@@ -199,3 +199,56 @@ error: (error) => {
 });
 
 
+//best상품 띄우기
+const bestPrdUl = document.querySelector(".best_prd_ul");
+$.ajax({
+    type: "GET",
+    url: "/bestPrd",
+    data: {
+        "catecory" : 3
+    },
+    success: (response) => {
+
+       for(let i = 0; i<response.data.length; i++) {
+        bestPrdUl.innerHTML += `
+        <li class="best_prd_li"> 
+            <div class="best_prd_img_wrapper01">
+                <picture class="best_prd_img_wrapper02">
+                    <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
+                </picture>
+                <button class="best_prd_img_heart">
+                    <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
+                </button>
+            </div>
+            <div id="bestPrd_num">${i+1}</div>
+            <div>
+                <div id="bestPrd_brand">
+                   ${response.data[i].prdMaker}
+                </div>
+                <div id="bestPrd_name">
+                    ${response.data[i].prdName}
+                </div>
+                <div>
+                    <span id="bestPrd_discountRate">${response.data[i].prdDiscountPercentage}%</span>
+                    <span id="bestPrd_disPrice">${response.data[0].prdDiscountPrice}</span>
+                </div>
+                <div>
+                    <span>★</span>
+                    <span id="bestPrd_rating">4.9</span>
+                    <span id="bestPrd_riviewAmount"> (12)</span>
+                </div>
+            </div>
+        </li> `
+
+       }
+
+    },
+    error: (error) => {
+        if(error.status == 400) {//서버가 요청을 이해하지 못함 
+            alert(JSON.stringify(error.responseJSON.data));
+        }else {
+            console.log("요청실패");
+            console.log(error);
+        }
+    }
+});
