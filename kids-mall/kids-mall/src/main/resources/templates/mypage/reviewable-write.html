@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/reviewWrite/css/filter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <title>조카바보 - 리뷰 작성페이지</title>
+</head>
+
+<body>
+  <main>
+    <div class="main-container">
+      <div class="pdp_simple_review">
+          <img class="productimg1" src="/static/images/jpg/bearT-shirt.jpg" alt="레터링 풍선 포장 여아 곰돌이 반팔티셔츠">
+        <div class="review_stars">
+            <button class="review_starsicon" value="1" data-text="나쁨"><i class="fa-regular fa-star"></i></button>
+            <button class="review_starsicon" value="2" data-text="별로"><i class="fa-regular fa-star"></i></button>
+            <button class="review_starsicon" value="3" data-text="보통"><i class="fa-regular fa-star"></i></button>
+            <button class="review_starsicon" value="4" data-text="좋음"><i class="fa-regular fa-star"></i></button>
+            <button class="review_starsicon" value="5" data-text="최고"><i class="fa-regular fa-star"></i></button>
+        </div>
+        
+        <!-- <span>별로에요</span>
+        <span>보통이에요</span>
+        <span>좋아요</span>
+        <span>최고에요</span> -->
+      </div>
+      <div class="size-box-line">
+        <h4>사이즈는 어때요?</h4>
+        <div class="size-button-box">
+          <button type="button" class="size-button">작게 나왔어요</button>
+          <button type="button" class="size-button">딱 맞아요</button>
+          <button type="button" class="size-button">크게 나왔어요</button>
+        </div>
+      </div>
+      <div class="color-age-box">
+        <h4>색감은 어떤가요?</h4>
+        <div class="color-range-box">
+          <button type="button" class="color-range-button">어두워요</button>
+          <button type="button" class="color-range-button">화면과 같아요</button>
+          <button type="button" class="color-range-button">밝아요</button>
+        </div>
+      </div>
+      <div class="style-choose-box">
+        <h4>마감은 어떤가요?</h4>
+        <div">
+          <button type="button" class="style-button">별로에요</button>
+          <button type="button" class="style-button">괜찮아요</button>
+          <button type="button" class="style-button">아주 좋아요</button>
+        <div">
+      </div>
+      <div class="style-choose-box">
+        <div class="board-write">
+          <tr>
+            <h4>상세한 후기를 작성해 주세요.</h4>
+            <div class="review-detail">
+              <label class="review-detail-label">
+                  <textarea class="review-detail-text" placeholder="구매하신 아이템의 후기(사이즈, 착용감 등)를 20자 이상 남겨주시면 다른 구매자들에게도 도움이 됩니다."></textarea>
+                  <div class="review-detail-textByte">
+                      <div>0 / 최소 20자</div>
+                  </div>
+              </label>
+            </div>
+          </tr>
+        </div>
+      </div>
+      <div class="style-choose-box-write">
+        <div class="board-write1">
+          <tr>
+            <td>
+                <div class="img-register-box-write">
+                    <ul>
+                        <li>
+                            <h4 class="txt-color">사진을 올려주세요.</h4>
+                            <input type="hidden" class="hidden-image">
+                              <div class="upload-box">
+                                <div id="drop-file" class="drag-file">
+                                  <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image">
+                                  <p class="message">Drag files to upload</p>
+                                </div>
+                              </div>
+                              <label class="file-label" for="chooseFile">Choose File</label>
+                              <input class="file" id="chooseFile" type="file" multiple>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+          </tr>
+        </div>
+      </div>
+      
+      <div class="setting-button"> 
+          <button type="button" class="complete-button" id="btn-signup">작성 완료</button>
+      </div>
+    </div>
+  </main>
+  <script src="/static/reviewWrite/js/filter.js"></script>
+</body>
+
+</html>

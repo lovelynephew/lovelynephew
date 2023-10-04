@@ -5,7 +5,7 @@
   
   <mapper namespace="team.lovelynephew.kidsmall.domain.wishList.WishListRepository">
   
-  <insert id="wishList" parameterType="team.lovelynephew.kidsmall.domain.wishList">
+  <insert id="wishList" parameterType="team.lovelynephew.kidsmall.domain.wishList.WishList">
 	insert into
 		wishlist
 		(

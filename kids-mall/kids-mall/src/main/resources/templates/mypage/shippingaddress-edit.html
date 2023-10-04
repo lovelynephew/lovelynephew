@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조카바보 - 배송 주소록 수정페이지</title>
+<link rel="stylesheet" href="/static/user/css/ShippingAddress-edit.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <header>
+		<nav class="head-nav">
+			<div class="divbtn-back">
+				<button type="button" class="btn-back">
+					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+					</svg>
+				</button>
+			</div>
+			<div class="div-add1">
+				<div class="body_17 div-add2">배송지 수정</div>
+			</div>
+			<div class="div-add3"></div>
+		</nav>
+	</header>
+	
+		<main class="main-edit">
+			<form>
+				<table>
+					<div class="container">
+						<div class="div-add4">
+							<p class="p-add1">이름</p>
+							<div class="div-add6">
+								<input type="text" class="input-add1 input-username" value="최연호">
+							</div>
+						</div>
+						<div class="div-add4">
+							<p class="p-add1">주소</p>
+							<div class="div-add6">
+								<input type="text" class="input-add3 address-number" placeholder="47551">
+								<button class="btn-add2">
+									<p class="p-add2">우편번호 검색</p>
+								</button>
+							</div>
+						</div>
+						<div class="div-add4">
+							<p class="p-add1">상세주소</p>
+							<div class="div-add6">
+								<input type="text" class="input-add1 detail-address" value="부산광역시 연제구 반송로 60 임대형 사무실 4호">
+							</div>
+						</div>
+						<div class="div-add4">
+							<p class="p-add1">휴대폰 번호</p>
+							<div class="div-add6">
+								<input type="tel" class="input-add2 phone-number" value="010-3300-4698">
+							</div>
+						</div>
+						<div class="div-add4">
+							<p class="p-add1">비상연락처</p>
+							<div class="div-add6">
+								<input type="tel" class="input-add2 second-phone" value="010-3300-4698">
+							</div>
+						</div>
+						<div class="div-add4">
+							<p class="p-add1">배송 메세지</p>
+							<div class="div-add6">
+								<input type="text" class="input-add2 send-msg" value="문 앞에 놔둬주세요.">
+								<button class=".btn-add3">
+									<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" alt="오른쪽 화살표 아이콘" class="svg-edit2">
+										<path class="path-add1" fill-rule="evenodd" clip-rule="evenodd" d="M7.86 12.837a1.155 1.155 0 0 1 0-1.674l6.545-6.316a1.259 1.259 0 0 1 1.736 0c.479.462.479 1.212 0 1.675L10.462 12l5.678 5.478c.479.463.479 1.213 0 1.675a1.26 1.26 0 0 1-1.736 0l-6.546-6.316Z" fill="rgb(158, 158, 158)"></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<div class="div-add4">
+							<div class="div-add6">
+								<input type="checkbox" name="option1" class="input-add4 default-address" value="T">
+								<label class="label-add1">기본 배송지로 설정</label>
+							</div>
+						</div>
+						
+						<div class="div-add7">
+							<p class="p-add3">등록된 배송지를 삭제하시겠어요?</p>
+							<button class="btn-add4 delete-button">삭제</button>
+						</div>
+					</div>
+				</table>
+			</form>
+		</main>
+		<button class="btn-save">저장하기</button>
+		
+		<script src="/static/user/js/principal.js"></script>
+		<script src="/static/user/js/update-address.js"></script>
+</body>
+</html>

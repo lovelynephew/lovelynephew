@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.product.ProductRepository">
+
+	<insert id="addProduct" parameterType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	INSERT INTO
+		product
+	VALUES(
+		0,
+		#{sub_category_code},
+		#{prd_name},
+		#{prd_maker},
+		#{prd_gender},
+		#{prd_age},
+		#{prd_style},
+		#{prd_regular_price},
+		#{prd_discount_price},
+		#{prd_brif_explain},
+		#{prd_detail_explain},
+		#{prd_inventory}
+	)
+	</insert>
+	
+	<select id="getProductList" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		prd_code,
+		sub_category_code,
+		prd_name,
+		prd_maker,
+		prd_gender,
+		prd_age,
+		prd_style,
+		prd_regular_price,
+		prd_discount_price,
+		prd_brif_explain,
+		prd_detail_explain,
+		prd_inventory
+	FROM
+		product
+	</select>
+
+</mapper>

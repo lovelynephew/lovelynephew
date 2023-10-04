@@ -5,12 +5,13 @@
 <title>조카바보 - 마이페이지</title>
 <link rel="stylesheet" href="/static/user/css/mypage.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
 		<nav class="head-nav">
 			<div class="divbtn-back">
-				<button type="button" class="btn-back">
+				<button type="button" class="btn-back" onclick="location.href='/main'">
 					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
 						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
 					</svg>
@@ -32,14 +33,10 @@
 	<div class="container">
 		<main class="main-mypage">
 			<div class="main-div1">
-				<div class="main-div2">
-					김연경
-				</div>
-				<div class="main-div3">kyk9725@naver.com</div>
-				<button class="body_13 btn-myinfo">내 정보</button>
+				
 			</div>
 			<div class="gray-line"></div>
-			<button class="btn-mypage" href="/myshop-info">
+			<button class="btn-mypage" onclick="location.href='/mypage/myshopping-info'">
 				<div class="div-mypage4">
 					<div class="div-mypage5">
 						<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-c3d4a5fb-1 ixGplp">
@@ -57,7 +54,7 @@
 					</div>
 				</div>
 			</button>
-			<button class="btn-mypage" href="/myshop-list">
+			<button class="btn-mypage" onclick="location.href='/mypage/activity'">
 				<div class="div-mypage4">
 					<div class="div-mypage5">
 						<svg width="29" height="29" fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg-shopinfo">
@@ -74,7 +71,22 @@
 					</div>
 				</div>
 			</button>
-			<button class="btn-mypage" href="/myshop-point">
+			<button class="btn-mypage" onclick="location.href='/mypage/reviewable'">
+                <div class="div-mypage4">
+                    <div class="div-mypage5">
+                        <img class="img-act" src="/static/images/jpg/free-icon-speech-bubble-3413883.png">
+                        <span class="span-name">
+                            리뷰
+                        </span>
+                    </div>
+                    <div class="div-mypage5">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-3asouo e170kbym0">
+                            <path stroke="currentColor" d="m12 7 9 9-9 9"></path>
+                        </svg>
+                    </div>
+                </div>
+            </button>
+			<button class="btn-mypage" onclick="location.href='/mypage/point'">
 				<div class="div-mypage4">
 					<div class="div-mypage5">
 						<svg width="32" height="32" fill="none" viewBox="0 0 32 32" class="css-1x0xddi e170kbym0">
@@ -100,5 +112,8 @@
 			<div class="gray-line"></div>
 		</main>
 	</div>
+	
+	<script type="text/javascript" src="/static/user/js/principal.js"></script>
+	<script type="text/javascript" src="/static/user/js/mypage.js"></script>
 </body>
 </html>

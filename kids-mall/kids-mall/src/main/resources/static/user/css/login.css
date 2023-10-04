@@ -182,7 +182,7 @@ button, input {
     border: 2px solid rgb(210, 213, 214);
 }
 
-.userid, .password {
+.userid, .userPwd1 {
     caret-color: rgb(250, 110, 227);
     width: 100%;
     height: 100%;
@@ -231,3 +231,32 @@ button, input {
     color: #242729;
 }
 
+/*sns 로그인 부분*/
+.p-snslogin {
+    text-align: center;
+}
+
+.div-snslogin {
+    text-align: center; /* 가운데 정렬을 위해 텍스트 정렬 설정 */
+    margin-top: 20px; /* 상단 여백을 조절하여 가운데 정렬 위치 조정 가능 */
+}
+
+.div-snslogin h4 {
+    font-weight: 400;
+    text-align: center;
+    color: #4f5558;
+    font-size: 13px;
+}
+
+.btn-snslogin {
+    font-size: 14px;
+    margin-top: 5px;
+    border-color: #ddd;
+    color: #333;
+    display: inline-block;
+    padding: 0px 24px;
+    height: 48px;
+    text-align: center;
+    font-weight: 400;
+    text-decoration: none;
+}

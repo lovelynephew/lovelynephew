@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.MypageRepogitory">
+	<insert id="addrsave" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+	INSERT INTO
+		shipping_address
+	VALUES (
+		0,
+		#{user_code},
+		#{addr_name},
+		#{addr_zip_code},
+		#{addr_detail},
+		#{addr_tel},
+		#{addr_emergentel},
+		#{addr_require},
+		#{addr_def}
+	 );
+	</insert>
+	
+	<select id="findUseraddress" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+	SELECT
+		addr_code,
+		user_code,
+		addr_name,
+		addr_zip_code,
+		addr_detail,
+		addr_tel,
+		addr_emergentel,
+		addr_require,
+		addr_def
+	FROM
+		shipping_address
+	WHERE
+		addr_code = #{addrCode}
+	</select>
+	
+	
+	<!-- <update id="updateAddr" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+	UPDATE
+		shipping_address
+	SET
+		user_address = #{user_address},
+		user_detailaddress = #{user_detailaddress},
+		user_phone = #{user_phone},
+		user_email = #{user_email},
+		sms_check = #{sms_check},
+		email_check = #{email_check},
+		user_updatedate = NOW(),
+		user_birth = #{user_birth},
+		user_bank = #{user_bank},
+		user_refundaccount = #{user_refundaccount}
+	WHERE
+		user_code = #{user_code}
+	</update> -->
+	
+	<update id="updateAddress" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+		update
+			shipping_address sa,
+			register rs
+		set
+			sa.addr_zip_code = #{addr_zip_code},
+			sa.addr_name = #{addr_name},
+			sa.addr_detail = #{addr_detail},
+			sa.addr_tel = #{addr_tel},
+			sa.addr_emergentel = #{addr_emergentel},
+			sa.addr_require = #{addr_require},
+			sa.addr_def = #{addr_def}
+			
+			<if test='addr_def != "F"'>
+				,rs.user_address = #{addr_zip_code},
+				rs.user_detailaddress = #{addr_detail}
+			</if>
+		where
+			rs.user_code = #{user_code}
+	</update>
+	
+	
+</mapper>

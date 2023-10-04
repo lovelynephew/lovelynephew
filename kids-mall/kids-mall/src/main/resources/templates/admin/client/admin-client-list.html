@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/admin-style.css">
+    <link rel="stylesheet" href="/static/admin/css/client/admin-client-list.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Admin 회원정보 조회</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="sidebar">
+                <div class="logo">
+                    <a href="">
+                        <h1>조카바보</h1>
+                    </a>
+                </div>
+                <div class="sidearea">
+                    <div class="menulistbar">
+                        <div class="menulistbox">
+                            <div class="menulistbox-containter">
+                                <ul class="menu">
+                                    <li class="selected">
+                                        <img src="/static/images/jpg/free-icon-home-1946436.png" alt="">
+                                        <a href="/admin/home">홈</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/icons8-bag-50 (1).png" alt="">
+                                        <a href="">주문</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/admintoy2.png" alt="">
+                                        <a href="/admin/product/main">상품</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-user-456212.png" alt="">
+                                        <a href="/admin/client/main">고객</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-notepad-318530.png" alt="">
+                                        <a href="">게시판</a>
+                                    </li>
+                                    <li class="haschild">
+                                        <img src="/static/images/jpg/free-icon-graph-2567943.png" alt="">
+                                        <a href="">통계</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submenulistbar">
+                        <div class="submenulistbox">
+                            <div class="submenulistbox-containter">
+                                <div class="subtitle">
+                                    <span>고객</span>
+                                </div>
+                                <div class="sublist">
+                                    <ul>
+                                        <li class="">
+                                            <a href="/admin/client/main">
+                                                <span>고객 대시보드</span>
+                                            </a>
+                                        </li>
+                                        <li class="show-list">
+                                            <button type="button" style="background-color: #2d3a58;">
+                                                <span>회원 조회</span>
+                                            </button>
+                                            <ul class="show-list-ul" style="display: none;">
+                                                <li class="selected">
+                                                    <a href="/admin/client/list">
+                                                        <span>회원정보조회</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin/client/order/list">
+                                                        <span>주문회원조회</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="show-list">
+                                            <button type="button" style="background-color: #2d3a58;">
+                                                <span>회원 관리</span>
+                                            </button>
+                                            <ul class="show-list-ul" style="display: none;">
+                                                <li>
+                                                    <a href="/admin/client/out">
+                                                        <span>회원 탈퇴 관리</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="headarea">
+                    <div class="headarea-title">
+                        <h1>회원 정보 조회</h1>
+                    </div>
+                </div>
+                <div class="option-area">
+                    <div class="option">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        개인정보
+                                    </th>
+                                    <td colspan="3">
+                                        <div class="mainsearch">
+                                            <div class="keywordsearch">
+                                                <select name="" id="">
+                                                    <option value="">이름</option>
+                                                    <option value="">아이디</option>
+                                                    <option value="">이메일</option>
+                                                    <option value="">전화번호</option>
+                                                    <option value="">주소</option>
+                                                </select>
+                                                <input type="text" class="keywordsearch-input">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        가입일/생일
+                                    </th>
+                                    <td colspan="3">
+                                        <div>
+                                            <select name="date_type" style="width: 100px;">
+                                                <option value="1">가입일</option>
+                                                <option value="2">생일</option>
+                                            </select>
+                                        </div>
+                                        <div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>나이</th>
+                                    <td colspan="3">
+                                        <input type="text" class="age-text">
+                                        <span>세 ~</span>
+                                        <input type="text" class="age-text">
+                                        <span>세</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>성별</th>
+                                    <td colspan="3">
+                                        <label class="option-label">
+                                            <input type="radio" name="gender" class="option-check">
+                                            전체
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="gender" class="option-check">
+                                            남자
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="gender" class="option-check">
+                                            여자
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>주문상품</th>
+                                    <td colspan="3">
+                                        <input type="text" class="product">
+                                        <a href="" class="product-btn">
+                                            상품검색
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="option division" style="display: block;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>SMS수신</th>
+                                    <td colspan="3">
+                                        <label class="option-label">
+                                            <input type="radio" name="sms" class="option-check">
+                                            전체
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="sms" class="option-check">
+                                            수신허용
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="sms" class="option-check">
+                                            수신안함
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>이메일수신</th>
+                                    <td colspan="3">
+                                        <label class="option-label">
+                                            <input type="radio" name="email" class="option-check">
+                                            전체
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="email" class="option-check">
+                                            수신허용
+                                        </label>
+                                        <label class="option-label">
+                                            <input type="radio" name="email" class="option-check">
+                                            수신안함
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>휴대전화</th>
+                                    <td colspan="3">
+                                        <input type="text" class="phone-text">
+                                        <span class="phone-info">예) 010-1234-1234("-"포함)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        거주지역
+                                    </th>
+                                    <td colspan="3">
+                                        <select name="date_type" style="width: 90px;">
+                                            <option value="region_00">전체</option>
+                                            <option value="region_01">경기</option>
+                                            <option value="region_02">서울</option>
+                                            <option value="region_03">인천</option>
+                                            <option value="region_04">강원</option>
+                                            <option value="region_05">충남</option>
+                                            <option value="region_06">충북</option>
+                                            <option value="region_07">대전</option>
+                                            <option value="region_08">경북</option>
+                                            <option value="region_09">경남</option>
+                                            <option value="region_10">대구</option>
+                                            <option value="region_11">부산</option>
+                                            <option value="region_12">울산</option>
+                                            <option value="region_13">전북</option>
+                                            <option value="region_14">전남</option>
+                                            <option value="region_15">광주</option>
+                                            <option value="region_16">세종</option>
+                                            <option value="region_17">제주</option>
+                                            <option value="region_18">해외</option>
+                                        </select>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="option-toggle">
+                        <div class="option-toggle-main">
+                            <span>
+                                <button>
+                                    상세검색 열기
+                                </button>
+                                <img src="/static/images/jpg/arrow_down.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="option-btn">
+                        <button type="button">
+                            <span>검색</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-content">
+                        <div class="section-title">
+                            <h2>회원 목록</h2>
+                        </div>
+                        <div class="section-header">
+                            <div class="header-left">
+                                <p>
+                                    [ 총회원수 
+                                    <strong> 0 </strong>
+                                    명] 검색결과
+                                    <strong>0</strong>
+                                    건
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-button">
+                            <a href="">탈퇴/삭제</a>
+                        </div>
+                        <div class="section-list">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 24px;">
+                                            <input type="checkbox">
+                                        </th>
+                                        <th style="width: 50px;">No</th>
+                                        <th style="width: 120px;">등록일</th>
+                                        <th style="width: 120px;">이름</th>
+                                        <th style="width: 100px;">아이디</th>
+                                        <th style="width: 100px;">휴대전화</th>
+                                        <th style="width: 70px;">성별</th>
+                                        <th style="width: 70px;">지역</th>
+                                        <th style="width: 40px;">메모</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody class="load_userlist">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <strong class="first-page">&lt;&lt;</strong>
+                            <strong class="pre-page">&lt;</strong>
+                            <div class="page-number">
+                                <strong class="pages">1</strong>
+                            </div>
+                            <strong class="next-page">&gt;</strong>
+                            <strong class="last-page">&gt;&gt;</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/admin/js/client/client-list.js"></script>
+</body>
+</html>

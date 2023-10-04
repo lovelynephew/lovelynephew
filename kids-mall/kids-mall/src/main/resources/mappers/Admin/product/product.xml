@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.product.ProductRepository">
+
+	<insert id="addProduct" parameterType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	INSERT INTO
+		product
+	VALUES(
+		0,
+		#{sub_category_code},
+		#{prd_name},
+		#{prd_maker},
+		#{prd_gender},
+		#{prd_age},
+		#{prd_style},
+		#{prd_regular_price},
+		#{prd_discount_price},
+		#{prd_discount_percentage},
+		#{prd_main_image},
+		#{prd_brif_explain},
+		#{prd_detail_explain},
+		#{prd_inventory},
+		#{prd_sales_volume}
+	)
+	</insert>
+	
+	<select id="getProductList" 
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.product.Product"
+			>
+	SELECT
+		prd_code,
+		sub_category_code,
+		prd_name,
+		prd_maker,
+		prd_gender,
+		prd_age,
+		prd_style,
+		prd_regular_price,
+		prd_discount_price,
+		prd_brif_explain,
+		prd_detail_explain,
+		prd_inventory,
+		(select
+			count(*)
+		from
+			product) as total_count,
+					
+		(select
+        	count(*)
+        from
+        	product
+        where
+        	prd_inventory != 0
+    	) as sale_count
+	FROM
+		product
+	<if test="page != 0">
+		limit #{index}, 10;
+	</if>
+	</select>
+	
+	<select id="getProductsList" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		prd_code,
+		sub_category_code,
+		prd_name,
+		prd_maker,
+		prd_gender,
+		prd_age,
+		prd_style,
+		prd_regular_price,
+		prd_discount_price,
+		prd_brif_explain,
+		prd_detail_explain,
+		prd_inventory,
+		prd_sales_volume,
+		prd_main_image
+	FROM
+		product
+	WHERE
+		sub_category_code = #{categoryCode}
+	ORDER BY
+		prd_code DESC;
+	</select>
+	
+	<select id="getProductsListAll" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		pm.prd_code,
+		sm.parent_category_code,
+		pm.sub_category_code,
+		pm.prd_name,
+		pm.prd_maker,
+		pm.prd_gender,
+		pm.prd_age,
+		pm.prd_style,
+		pm.prd_regular_price,
+		pm.prd_discount_price,
+		pm.prd_brif_explain,
+		pm.prd_detail_explain,
+		pm.prd_inventory,
+		pm.prd_sales_volume,
+		pm.prd_main_image
+	FROM
+		product pm
+		LEFT OUTER JOIN sub_category sm ON (pm.sub_category_code = sm.sub_category_code)
+	WHERE
+		sm.parent_category_code = #{parentCode}
+	ORDER BY
+		prd_code DESC;
+	</select>
+
+</mapper>

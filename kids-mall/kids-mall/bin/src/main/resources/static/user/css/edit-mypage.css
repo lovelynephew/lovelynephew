@@ -1,0 +1,403 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /*하이라이트 표시를 투명하게 설정*/
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    color: #242729;
+}
+
+button {
+    color: #242729;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+    text-indent: 1;
+}
+
+a, button, input, label, select {
+    background-color: transparent;
+}
+
+input, textarea {
+    user-select: text;
+}
+
+
+a, button, input, optgroup, select, figure, textarea {
+    font-family: inherit;
+    margin: 0;
+    border: none;
+}
+
+a:link, a:active, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.head-nav {
+    height: 52px;
+    background-color: #fff;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+svg {
+    fill: none;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+.svg-edit1 {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translate(0px, -50%);
+}
+
+.svg-edit2 {
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    margin: 0px auto;
+}
+
+/* button */
+
+.btn-back { /*헤더 뒤로가기 버튼(고정)*/
+    display: flex;
+    padding-right: 8px;
+}
+
+.btn-edit1 {
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin: 0px;
+    min-height: 48px;
+    border: none;
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 0px 40ox 0px 12px;
+}
+
+.btn-edit2 {
+    width: 100px;
+    height: 45px;
+    border: 1px solid rgb(204, 204, 204);
+    position: static;
+    font-size: 13px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    font-weight: 400;
+    
+}
+
+.btn-edit3 {
+    position: absolute;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.btn-edit4 {
+    color: #9e9e9e;
+    letter-spacing: -.2px;
+    line-height: 16px;
+}
+
+.btn-save {
+    border-radius: 24px;
+    display: block;
+    align-items: center;
+    -webkit-box-pack: center;
+    padding: 6px 12px;
+    background: #242729;
+    color: #fff;
+    padding: 6px 12px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+main {
+    display: block;
+}
+
+
+.body_13 {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.body_15 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.body_17 {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+/* div */
+div { display: block; }
+.divbtn-back { flex: 1;}
+
+.div-edit1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    flex: 2;
+}
+
+.div-edit2 {
+    font-weight: 700;
+    color: #242729;
+}
+
+.div-edit3 {
+    text-align: right;
+    flex: 1;
+}
+
+.div-edit4 {
+    margin-top: 26px;
+}
+
+.div-edit5 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.div-edit6 {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+.div-edit7 {
+    position: absolute;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.div-edit8 {
+    font-weight: 500;
+    color: #242729;
+    margin: 100px 0 50px 0;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    flex: 2;
+}
+
+.div-edit9 {
+    margin-top: 26px;
+}
+
+.div-edit10 {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+.div-edit11 {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 7px;
+}
+
+/* p */
+.p-edit1 {
+    margin-bottom: 4px;
+    margin-left: 12px;
+    font-size: 13px;
+
+    font-weight: 400;
+    letter-spacing: -.2px;
+    line-height: 16px;
+    color: #9e9e9e;
+    margin: 0;
+}
+
+.p-edit2 {
+    margin-bottom: 4px;
+    margin-left: 12px;
+    font-size: 13px;
+
+    font-weight: 400;
+    letter-spacing: -.2px;
+    line-height: 16px;
+    margin: 20px;
+    white-space: nowrap;
+}
+
+.p-edit3 {
+    color: #9e9e9e;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -.2px;
+    line-height: 16px;
+}
+
+
+/* input */
+input[type="radio"] {
+    position: relative;
+    opacity: 1;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    background-size: 18px 18px;
+    outline: 0;
+}
+
+.input-edit1 {
+    display: flex;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 14px 12px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #000;
+    border-bottom: 1px solid rgb(162, 160, 160);
+}
+
+.input-edit2 {
+    display: flex;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 14px 12px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #000;
+    border-bottom: 1px solid rgb(162, 160, 160);
+    background-color: #fff;
+}
+
+.input-edit3 {
+    display: flex;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 14px 12px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #000;
+    border-bottom: 1px solid rgb(162, 160, 160);
+    background-color: #fff;
+}
+
+.input-edit4 {
+    display: flex;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 14px 12px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #000;
+    border-bottom: 1px solid rgb(162, 160, 160);
+}
+
+/* label */
+.label-edit1 {
+    line-height: 32px;
+    margin: 0 15px 0 10px;
+}
+
+rect {
+    x: 3.028;
+    y: 3.844;
+    width: 8.012;
+    height: 10.459;
+    rx: 1.559;
+    stroke: rgb(158, 158, 158);
+    stroke-width: 0.96;
+}
+

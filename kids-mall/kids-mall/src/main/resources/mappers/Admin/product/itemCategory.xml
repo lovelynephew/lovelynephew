@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.product.ItemCategoryRepository">
+	<select id="getItemCategory" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.ItemCategory">
+	SELECT
+		item_code,
+		item_major_code,
+		item_major_name,
+		item_sub_code,
+		item_sub_name
+	FROM
+		item_category
+	WHERE
+		item_major_code = #{itemCode}
+	</select>
+	
+	<select id="getProductCategory" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Category">
+	SELECT
+		sm.sub_category_code,
+		sm.sub_category_name,
+		sm.parent_category_code,
+		pm.parent_category_name
+	FROM
+		sub_category sm
+		LEFT OUTER JOIN parent_category pm ON(sm.parent_category_code = pm.parent_category_code)
+	WHERE
+		sub_category_code = #{categoryCode}
+	</select>
+
+</mapper>

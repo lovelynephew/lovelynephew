@@ -1,0 +1,307 @@
+.content-wrap {
+    margin-top: 10px;
+}
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+hr {
+    /* border: 1px solid #323232; */
+}
+th {
+    height: 29px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-bottom: 0;
+    /* border: none; */
+    padding: 10px 20px 10px 20px;
+    font-weight: 400;
+    background-color: #e5e5e5;
+    font-size: 13px;
+}
+td {
+    font-size: 12px;
+    padding: 0 20px;
+}
+table {
+    width: 100%;
+    /* border: 1px solid #323232; */
+    border-collapse: collapse;
+    text-align: center;
+}
+table tr {
+    height: 30px;
+}
+.product-img a img {
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: none;
+    vertical-align: top;
+}
+td {
+    padding: 15px 10px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 29px;
+}
+table td .left {
+    text-align: left;
+}    
+.subject {
+    text-align: left;
+}
+.selbox-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selbox {
+    margin-top: 30px;
+    
+}
+select {
+    margin: 0 3px 0 0; 
+    font-size: 12px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px; 
+    padding-left: 3px;
+}
+input {
+    width: 150px;
+    height: 30px;
+    border-radius: 24px;
+    font-size: 12px;
+    padding-left: 5px;
+    border: 1px solid #555555;
+}
+.find-review {
+    font-size: 13px;
+    border-radius: 24px;
+    /* white-space: pre; */
+    /* display: inline-flex; */
+    /* -webkit-box-align: center; */
+    align-items: center;
+    /* -webkit-box-align: center; */
+    justify-self: center;
+    /* padding: 5px 10px; */
+    height: 35px;
+    width: 55px;
+    background: rgb(245, 246, 248);
+    color: #737373
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.benner img {
+    width: 560px;
+    height: 300px;
+}
+.catagory-btn {
+    margin: 20px 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.menu-btn button {
+    width: 55px;
+    background-color: transparent;
+    border: 3px solid #f99b20;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.catagory-btn .menu-btn img {
+    width: 25px;
+}
+.menu p {
+    font-size: 12px;
+    font-weight:bold;
+    color: #9a9898;
+}
+.recommend-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.productbox .product-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.recommend-img img {
+    width: 170px;
+    height: 200px;
+    border: 2px solid rgba(154, 152, 152, 0.1);
+    border-radius: 10px;
+}
+.recommend .explain {
+    font-size: 13px;
+}
+.recommend .price {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.box1, .box2 {
+    margin: 20px 20px 50px 20px;
+}
+
+.recommend-heartbtn {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    left: 180px;
+    top: 320px;
+}
+
+.img-heart  {
+    position: relative;
+    width: 25px;
+    height: auto;
+    top: -110px;
+    left: 130px;
+}
+
+
+.main-header {
+    position: relative;
+    height: 45px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    border-bottom: 1px solid;
+
+}
+
+.reviewable {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    height: 45px;
+    width: 49%;
+    text-align: center;
+    font-size: 16px;
+    border-width: 1px 1px 2px;
+    padding-top: 10px;
+    border-color: rgb(215, 215, 215);
+}
+
+.review-list {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    height: 45px;
+    width: 49%;
+    text-align: center;
+    font-size: 16px;
+    border-width: 1px 1px 2px;
+    padding-top: 10px;
+    border-color: #d7d7d7;
+    border-left : 1px solid #000000;
+    font-weight: bold;
+}
+
+
+.productbox3 {
+    padding: 12px 0px 8px;
+    position: relative;
+    display: flex;
+}
+
+.product-ul1 {
+    width: 240px;
+    flex: 1 1 0%;
+    min-width: 1px;
+}
+
+.product-li1 {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid#ddd;
+}
+
+.productbox3-1 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-right: 12px;
+    background-color: rgb(232, 233, 235);
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.productimg1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    cursor: default;
+}
+
+.productbox3-2 {
+    display: inline-block;
+    width: 430px;
+    margin: 5px 10px 0px;
+    vertical-align: top;
+    position: relative;
+}
+
+.productbox3-2-1 {
+    font-size: 14px;
+    color: #111;
+    overflow: hidden;
+    font-weight: bold;
+    line-height: 17px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.productbox3-2-2 {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: normal;
+    color: #111;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.productbox3-2-3 {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #888;
+    line-height: 15px;
+    letter-spacing: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.productbox3-3 {
+    cursor: pointer;
+}

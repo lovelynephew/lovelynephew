@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.RegisterRepository">
+	<insert id="save" parameterType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	INSERT INTO
+		register
+	VALUES (
+		0,
+		#{user_id},
+		#{oauth2_id},
+		#{user_pwd},
+		null,
+		#{user_address},
+		#{user_detailaddress},
+		#{user_name},
+		#{user_phone},
+		#{user_email},
+		#{user_gender},
+		null,
+		#{user_roles},
+		#{sms_check},
+		#{email_check},
+		null,
+		null,
+		NOW(),
+		NOW(),
+		#{user_birth},
+		#{user_bank},
+		#{user_refundaccount}
+	 );
+	</insert>
+	
+	<select id="findUserByUsername" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		user_id = #{userId}
+	</select>
+	
+	<select id="findOAuth2ByUsername" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		oauth2_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		oauth2_id = #{oauth2_id}
+	</select>
+	
+	<update id="updateUser" parameterType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	UPDATE
+		register
+	SET
+		user_address = #{user_address},
+		user_detailaddress = #{user_detailaddress},
+		user_phone = #{user_phone},
+		user_email = #{user_email},
+		sms_check = #{sms_check},
+		email_check = #{email_check},
+		user_updatedate = NOW(),
+		user_birth = #{user_birth},
+		user_bank = #{user_bank},
+		user_refundaccount = #{user_refundaccount}
+	WHERE
+		user_code = #{user_code}
+	</update>
+	
+	<select id="findUserByEmail" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		user_email = #{email}
+	</select>
+	
+	<select id="findUserByPhone" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_newpwd,
+		user_address,
+		user_detailaddress,
+		user_name,
+		user_phone,
+		user_email,
+		user_gender,
+		user_region,
+		user_roles,
+		sms_check,
+		email_check,
+		user_birth,
+		user_bank,
+		user_refundaccount
+	FROM
+		register
+	WHERE
+		user_phone = #{userPhone}
+	</select>
+	
+	<update id="updateUserPassword" parameterType="team.lovelynephew.kidsmall.domain.user.RegisterEntity">
+		UPDATE
+			register
+		SET
+			user_pwd = #{user_pwd}
+		WHERE
+			user_id = #{user_id};
+	</update>
+	
+</mapper>

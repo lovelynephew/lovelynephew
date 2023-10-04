@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>공지사항</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="../../static/user/css/common.css">
+<link rel="stylesheet" href="../../static/user/css/board-notice.css">
+<body>
+	<div class="container-wrap">
+		<div class="container">
+			<div class="header">
+				<div class="header-logo">
+					<a href="/">
+						<img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg"
+							alt="조카바보"
+							data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
+					</a>
+				</div>
+				<div class="search">
+					<span class="search-img"><img src="../../static/images/svg/icons8-search (1).svg" alt=""></span>
+					<input type="text" class="search-word" placeholder="검색어를 입력하세요.">
+				</div>
+				<a href="/cart" class="a-cart">
+					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
+						<path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z">
+						</path>
+						<path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
+					</svg>
+					<div class="div-cartnum">1</div>
+				</a>
+			</div>
+			<div class="content-wrap">
+				<div class="table-wrap">
+					<div class="table-title">
+						<h3>공지사항</h3>
+					</div>
+					<hr />
+					<div class="board-list">
+						<table>
+							<colgroup>
+	                            <col class="num">
+	                            <col class="subject">
+	                            <col class="writer">
+	                            <col class="update">
+	                        </colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>	
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="notice-row">
+									<td class="num notice-num"></td>
+									<td class="subject notice-subject">
+										<a href="#" style="color:#555555;"></a>
+									</td>
+									<td class="notice-writer"></td>
+									<td class="notice-update"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="board-list-pager">
+					<div class="list-page">
+					   <ul>
+							<li class="button-left">
+								<button type="button"><</button>
+							</li>
+						</ul>
+						<ul class="list-page-details">
+							
+						</ul>    
+						<ul class="list-page-right-button">
+							<li class="button-right">
+								<button type="button">></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-btn">
+				<ul>
+					<li>
+						<a href="#">
+							<img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+							<p>카테고리</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+							<p>아이정보</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+							<p>홈</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img class="menu-bar"
+								src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+							<p>찜</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+							<p>나의정보</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer-wrap">
+				<footer>
+					<div class="footer-01">
+						<div class="footer-subject">
+							<p><strong>조카바보</strong></p>
+						</div>
+						<br>
+						<div class="footer-content">
+							<a href="#">회사소개</a>
+							<a href="#" class="one">이용약관</a>
+							<a href="#" class="one">개인정보처리방침</a>
+							<a href="#" class="one">이용안내</a>
+						</div>
+						<br><br>
+						<div class="footer-info">
+							<div class="title">
+								쇼핑몰 기본정보
+							</div>
+							<div class="info-list">
+								<div class="company-name">
+									<span class="filed">상호명</span>
+									<span class="value">디와프(DWAF)</span>
+								</div>
+								<div class="president-name">
+									<span class="filed">대표자명</span>
+									<span class="value">최연호</span>
+								</div>
+								<div class="address">
+									<span class="filed">사업장 주소</span>
+									<span class="value">47551 부산광역시 연제구 반송로 60 임대형 사무실 4호</span>
+								</div>
+								<div class="phone">
+									<span class="filed">대표전화</span>
+									<span class="value">070-3300-4698</span>
+								</div>
+								<div class="company-regno">
+									<span class="filed">사업자 등록번호</span>
+									<span class="value">171-31-001120</span>
+								</div>
+								<div class="network-regno">
+									<span class="filed">통신판매업 신고번호</span>
+									<span class="value">1683-7807-4446-5119[사업자정보확인]</span>
+								</div>
+								<div class="cpo-name">
+									<span class="filed">개인정보보호책임자</span>
+									<span class="value">010-3300-4698</span>
+								</div>
+							</div>
+							<div class="footer-cs">
+								<div class="title">
+									고객센터 정보
+								</div>
+								<div class="cs-list">
+									<div class="phone footer-txt01">
+										<strong>상담/주문전화</strong>
+										<span class="pdr10"></span>
+										<span>010-3300-4698</span>
+									</div>
+									<div class="email footer-txt02">
+										<strong>상담/주문 이메일</strong>
+										<span class="value">dusgh0624@naver.com</span>
+									</div>
+									<div class="runtime footer-txt02">
+										<strong>cs운영시간</strong>
+										<span>09:00-18:00</span>
+									</div>
+								</div>
+							</div>
+							<div class="footer-bank">
+								<div class="title">
+									결제정보
+								</div>
+								<div class="bank-info">
+									<strong>무통장 계좌정보</strong>
+								</div>
+								<div class="footer-txt02">
+									<ul>
+										<li>
+											<span class="bank-name">국민은행</span>
+											<span calss="pdr-10"></span>
+											<span class="accout-num">110801-04-289428</span>
+											<span calss="pdr-10"></span>
+											<span class="account-name">최연호(디와프)</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="footer-02">
+
+						<div class="footer-sns">
+							<div class="title">SNS</div>
+							<a href="https://instagram.com" target="_blank">
+								<img src="../../static/images/svg/icons8-instagram.svg" alt="instagram" width="20"
+									height="20" fill="none" viewBox="0 0 20 20 " class="icon" " instagram">
+							</a>
+							<a href="https://youtube.com" target="_blank">
+								<img src="../../static/images/svg/icons8-youtube-logo.svg" alt="youtube" width="28.94"
+									height="20.52" fill="none" viewBox="0 0 28.94 20.52" class="icon" " youtube">
+							</a>
+							<a href="https://facebook.com" target="_blank">
+								<img src="../../static/images/svg/icons8-facebook-f.svg" alt="facebook" width="18"
+									height="21.18" fill="none" viewBox="0 0 18 21.18" class="icon" " facebook">
+							</a>
+							<a href="https://pf.kakao.com" target="_blank">
+								<img src="../../static/images/svg/kakao.svg" alt="kakao" width="15" height="21.18"
+									fill="none" viewBox="0 0 15 21.18" class="icon" " kakao">
+							</a>
+							<a href="https://twitter.com" target="_blank">
+								<img src="../../static/images/svg/icons8-twitter.svg" alt="twitter" width="22.46"
+									height="18.25" fill="none" viewBox="0 0 22.46 18.25" class="icon" " twitter">
+							</a>
+							<a href="https://naver.com" target="_blank">
+								<img src="../../static/images/svg/naver-square-svgrepo-com.svg" alt="naver" width="20"
+									height="20" fill="none" viewBox="0 0 20 20" class="icon" " naver">
+							</a>
+						</div>
+						<div class="footer-copyright">
+							Copyright &copy; 조카바보, All Rights Reserved. Hosting by Cafe24 Corp.
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/static/admin/js/board/noticeList.js"></script>
+</html>

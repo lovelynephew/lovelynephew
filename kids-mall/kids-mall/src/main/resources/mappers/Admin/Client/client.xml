@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.admin.client.ClientRepository">
+
+	<select id="getUserList"
+			parameterType="hashmap"
+			resultType="team.lovelynephew.kidsmall.domain.admin.client.Client"
+			>
+	SELECT
+		user_code,
+		user_id,
+		user_pwd,
+		user_name,
+		user_phone,
+		user_email,
+		email_check,
+		sms_check,
+		user_birth,
+		user_insertdate,
+		user_updatedate,
+		(select
+			count(*)
+		from
+			register) as total_count,
+			
+		(select
+			count(*)
+		from
+			register
+		where
+			user_insertdate BETWEEN DATE_ADD(NOW(), INTERVAL - 3 MONTH) AND NOW()
+		) as new_user_count
+	FROM
+		register
+	WHERE
+		user_roles LIKE 'ROLE_USER'
+	ORDER BY
+		user_code DESC
+	<if test='page != 0'>
+		limit #{index}, 10
+	</if>
+	</select>
+
+</mapper>

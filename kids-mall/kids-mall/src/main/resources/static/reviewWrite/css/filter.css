@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    max-width: 600px;
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    margin: 0 auto;
+
+    background-color: rgb(247, 214, 94);
+
+    text-align: center;
+    line-height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 89px;
+    height: 30px;
+
+    line-height: 30px;
+}
+
+header h3 {
+    color: rgb(63, 122, 241);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    border: 1px solid #dddddd;
+    color: #777777;
+    background-color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+.main-container {
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.access-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+
+    position: relative;
+    top: -10px;
+}
+
+.signup-link {
+    margin-left: 10px;
+    position: relative;
+}
+
+.signup-link::before {
+    display: block;
+    content: '';
+    height: 8px;
+    border: 1px solid #bababa;
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    left: -5px;
+}
+
+.size-box-line {
+    width: 100%;
+    text-align: center;
+}
+
+.size-box-line h4 {
+    margin-bottom: 20px;
+}
+
+.size-box-line {
+    width: 100%;
+}
+
+.size-button {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+
+    width: 150px;
+    height: 38px;
+
+    font-size: 14px; 
+}
+
+.active-color {
+    color:#fa6ee3;
+    border-color: #fa6ee3;
+}
+
+.color-age-box {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.color-age-box h4 {
+    margin-bottom: 20px;
+}
+
+.color-range-button {
+    border-radius: 30px;
+
+    margin-bottom: 10px;
+
+    width: 100px;
+    height: 38px;
+}
+
+.age-range-button:nth-child(n+2) {
+    margin-left: 15px;
+}
+
+.age-range-button:nth-last-child(1) {
+    width: 120px;
+}
+
+
+.style-choose-box {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.board-write {
+    width: 100%;
+    text-align: center;
+}
+
+.style-choose-box h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.style-choose-box section:nth-child(n+2) {
+    margin-top: 10px;
+}
+
+.review-detail {
+    position: relative;
+    color: #242729;
+}
+
+.review-detail-label {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0px 0px;
+    padding: 12px;
+    width: 100%;
+    height: 122px;
+    border-radius: 8px;
+    border: 1px solid rgb(232, 233, 235);
+    background-color: transparent;
+    color: #242729;
+}
+
+.review-detail-text {
+    font-weight: 500;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    line-height: 1.35;
+    resize: none;
+    font-size: 15px;
+    overflow: auto;
+}
+
+.review-detail-textByte {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: end;
+    margin-top: 3px;
+    padding-top: 3px;
+    border-top: 1px solid rgb(245, 246, 248);
+    color: #ddd;
+}
+
+.style-button {
+    border-radius: 30px;
+
+    width: 90px;
+    height: 38px;
+}
+
+.style-button:nth-child(n+2) {
+    margin-left: 5px;
+}
+
+.style-choose-box-write {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.board-write1 {
+    width: 100%;
+    text-align: center;
+}
+
+.img-register-box{
+    display: flex;
+    width: 100%;
+}
+
+.img-register-box ul{
+    display: flex;
+}
+
+.img-register-box ul li{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 6px 0 0;
+    vertical-align: top;
+}
+
+.img-register-box h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.txt-color {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image-preview {
+    border: 2px dashed #ccc;
+    padding: 50px;
+    width: 50px;
+}
+
+
+#uploadedImage {
+    max-width: 300px;
+    max-height: 300px;
+    display: none;
+}
+
+.setting-button button {
+    width: 100%;
+    height: 40px;
+    border-radius: 24px;
+}
+
+.set-div {
+    align-items: center;
+}
+
+.complete-button {
+    background-color: #e3e3e3;
+    color: #fff;
+
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    justify-content: center;
+    padding: 14px 24px;
+    min-height: 50px;
+    min-width: 74px;
+    margin: 30px 0px 28px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.productbox {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;
+    background-color: rgb(232, 233, 235);
+    overflow: hidden;
+    border-radius: 5px;
+    float: left;
+}
+
+.productimg1 {
+    display: block;
+    object-fit: cover;
+    position: absolute;
+    
+    width: 70px;
+    height: 70px;
+    margin-right: 0px;
+    margin-left: 120px;
+    background-color: rgb(232, 233, 235);
+    overflow: hidden;
+    border-radius: 5px;
+    float: left;
+}
+
+.review_stars {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    
+}
+
+.fa-star {
+    font-size: 24px;
+}
+
+.review_starsicon {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    background-size: 30px 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+.upload-box {
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .upload-box .drag-file {
+    width: 450px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #dbdbdb;
+    margin-bottom: 30px;
+  }
+  .upload-box .drag-file.highlight {
+    border: 3px dashed red;
+  }
+  .upload-box .drag-file .image {
+    width: 50px;
+  }
+  .upload-box .drag-file .message {
+    margin-bottom: 0;
+  }
+  
+  .file-label {
+    margin-top: 30px;
+    background-color: #fff;
+    color: #fb85e5;
+    text-align: center;
+    padding: 10px 0;
+    width: 65%;
+    border-radius: 6px;
+    border: 1px solid #fb85e5;
+    cursor: pointer;
+  }
+  .file {
+    display: none;
+    
+  }
