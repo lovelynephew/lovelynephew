@@ -74,7 +74,7 @@
 				rs.user_detailaddress = #{addr_detail}
 			</if>
 		where
-			rs.user_code = #{user_code}
+			rs.user_code = #{user_code} and sa.addr_name = #{addr_name}
 	</update>
 	
 	
