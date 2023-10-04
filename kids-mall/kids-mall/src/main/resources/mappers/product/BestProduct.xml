@@ -6,14 +6,20 @@
   <mapper namespace="team.lovelynephew.kidsmall.domain.product.BestProductRepository">
   
   <select id="bestPrd" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.BestProduct">
-	SELECT prd_name,
-		   prd_maker,
-		   prd_regular_price,
-		   prd_discount_price,
-		   prd_discount_percentage
-	 FROM  product
-	WHERE  sub_category_code= #{catecory}
-	ORDER  BY prd_sales_volume desc;
+	SELECT
+	    prd_name,
+	    prd_maker,
+	    prd_regular_price,
+	    prd_discount_price,
+	    prd_discount_percentage,
+	    COALESCE((SELECT AVG(rating) FROM board_review WHERE prd_code = product.prd_code), 0) AS rating,
+	    (SELECT COUNT(review_num) FROM board_review br WHERE prd_code = product.prd_code) AS review_amount
+	FROM
+	    product
+	WHERE
+	    sub_category_code = #{catecory}
+	ORDER BY
+	    prd_sales_volume DESC;
   </select>
   
   

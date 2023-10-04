@@ -234,8 +234,8 @@ $.ajax({
                 </div>
                 <div>
                     <span>★</span>
-                    <span id="bestPrd_rating">4.9</span>
-                    <span id="bestPrd_riviewAmount"> (12)</span>
+                    <span id="bestPrd_rating">${response.data[i].rating}</span>
+                    <span id="bestPrd_riviewAmount"> (${response.data[i].reviewAmount})</span>
                 </div>
             </div>
         </li> `

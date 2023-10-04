@@ -17,6 +17,6 @@ public class BestProductRespDto {
 	private int prdDiscountPrice;
 	private int prdDiscountPercentage;
 	
-//	private int rating;
-//	private int reviewAmount;
+	private float rating;
+	private int reviewAmount;
 }

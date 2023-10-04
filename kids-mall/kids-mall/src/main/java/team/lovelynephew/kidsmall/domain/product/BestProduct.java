@@ -14,8 +14,8 @@ public class BestProduct {
 	private int prd_discount_price;
 	private int prd_discount_percentage;
 	
-//	private int rating;
-//	private int review_amount;
+	private float rating;
+	private int review_amount;
 	
 	public BestProductRespDto bestProductTODto(){
 		return BestProductRespDto.builder()
@@ -25,8 +25,8 @@ public class BestProduct {
 				.prdDiscountPrice(prd_discount_price)
 				.prdDiscountPercentage(prd_discount_percentage)
 				
-//				.rating(rating)
-//				.reviewAmount(review_amount)
+				.rating(rating)
+				.reviewAmount(review_amount)
 				.build();
 	}
 }
