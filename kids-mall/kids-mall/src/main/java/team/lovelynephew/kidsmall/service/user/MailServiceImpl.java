@@ -72,9 +72,7 @@ public class MailServiceImpl implements MailService {
     }
 
     private String passwordContent(String email) throws Exception {
-        System.out.println(email);
     	RegisterEntity registerEntity = registerRepository.findUserByEmail(email);
-    	System.out.println(registerEntity);
 
         String content = "<div>\n" +
                 "        <header style=\"width: 100%; height: 80px; font-size: 30px; display: flex; align-items: center;\">\n" +

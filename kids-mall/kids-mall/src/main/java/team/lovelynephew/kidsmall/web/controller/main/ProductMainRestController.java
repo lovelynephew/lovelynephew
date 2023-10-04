@@ -47,4 +47,18 @@ public class ProductMainRestController {
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", listRespDtos));
 	}
+	
+	@GetMapping("/product/main/product/listall/{parentCode}")
+	public ResponseEntity<?> getProductListAll(@PathVariable int parentCode) {
+		List<ProductListRespDto> listRespDtos = new ArrayList<ProductListRespDto>();
+		try {
+			listRespDtos = productService.getProductsListAll(parentCode);
+			System.out.println(listRespDtos);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", listRespDtos));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", listRespDtos));
+	}
 }

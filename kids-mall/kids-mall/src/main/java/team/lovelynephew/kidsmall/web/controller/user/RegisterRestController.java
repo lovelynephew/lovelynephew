@@ -25,6 +25,7 @@ import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
 import team.lovelynephew.kidsmall.web.dto.user.SendMailDto;
+import team.lovelynephew.kidsmall.web.dto.user.UpdateUserPwReqDto;
 
 
 @RestController
@@ -92,8 +93,6 @@ public class RegisterRestController {
 		return ResponseEntity.ok(new CMRespDto<>(1, "success to load", prinipalDetails.getRegisterEntity()));
 	}
 	
-
-
     @PostMapping("/email/register")
     public ResponseEntity<?> sendEmail(@RequestBody SendMailDto sendMailDto) throws Exception {
 
@@ -122,10 +121,40 @@ public class RegisterRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", registerEntity));
 	}
 	
+	@GetMapping("/finduser/userEmail")
+	public ResponseEntity<?> getUserByEmail(@RequestParam String userEmail) {
+		RegisterEntity registerEntity = null;
+		try {
+			registerEntity = registerService.getUserByUserEmail(userEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", registerEntity));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", registerEntity));
+	}
 	
+	@GetMapping("/finduser/userId")
+	public ResponseEntity<?> getUserById(@RequestParam String userId) {
+		RegisterEntity registerEntity = null;
+		try {
+			registerEntity = registerService.getUserByUserId(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", registerEntity));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", registerEntity));
+	}
 	
-	
-	
-	
+	@PutMapping("/modification/password")
+	public ResponseEntity<?> modifyUserPassword(UpdateUserPwReqDto updateUserPwReqDto) {
+		boolean status = false;
+		try {
+			status = registerService.updateUserPassword(updateUserPwReqDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", status));
+		}
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", status));
+	}
 	
 }

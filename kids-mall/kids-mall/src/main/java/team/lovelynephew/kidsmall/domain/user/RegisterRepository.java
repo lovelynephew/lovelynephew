@@ -14,6 +14,8 @@ public interface RegisterRepository {
 
 	public int updateUser(RegisterEntity registerEntity) throws Exception;
 	
+	public int updateUserPassword(RegisterEntity registerEntity) throws Exception;
+	
 	public List<RegisterEntity> getBankList(int userCode) throws Exception;
 	
 	public RegisterEntity findUserByEmail(String email) throws Exception;

@@ -57,7 +57,6 @@ function smsSend() {
 
 /* 휴대폰번호로 아이디 찾기 */
 function getUserId() {
-	let userPhone = null;
 	$.ajax({
 		async: false,
 		type:"get",
@@ -76,7 +75,7 @@ function getUserId() {
 				`
 			} else {
 				findUserId.innerHTML = `
-					<p>검색된 정보가 없습니다.</p>
+					<p>고객님은 조카바보 회원이 아닙니다.</p>
 				`
 			}
 		},
@@ -84,7 +83,6 @@ function getUserId() {
 			console.log(error);
 		}
 	});
-	return userPhone;
 }
 
 

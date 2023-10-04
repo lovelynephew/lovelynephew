@@ -39,4 +39,10 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 
+	@Override
+	public List<ProductListRespDto> getProductsListAll(int parentCode) throws Exception {
+		List<Product> products = productRepository.getProductsListAll(parentCode);
+		return createProductsListRespDtos(products);
+	}
+
 }

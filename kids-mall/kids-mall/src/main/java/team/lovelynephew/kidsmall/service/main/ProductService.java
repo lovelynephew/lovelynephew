@@ -10,4 +10,6 @@ public interface ProductService {
 	public ProductCategoryRespDto getProductCategoryList(int categoryCode) throws Exception;
 	
 	public List<ProductListRespDto> getProductsList(int categoryCode) throws Exception;
+	
+	public List<ProductListRespDto> getProductsListAll(int parentCode) throws Exception;
 }

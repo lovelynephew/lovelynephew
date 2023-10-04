@@ -86,5 +86,31 @@
 	ORDER BY
 		prd_code DESC;
 	</select>
+	
+	<select id="getProductsListAll" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	SELECT
+		pm.prd_code,
+		sm.parent_category_code,
+		pm.sub_category_code,
+		pm.prd_name,
+		pm.prd_maker,
+		pm.prd_gender,
+		pm.prd_age,
+		pm.prd_style,
+		pm.prd_regular_price,
+		pm.prd_discount_price,
+		pm.prd_brif_explain,
+		pm.prd_detail_explain,
+		pm.prd_inventory,
+		pm.prd_sales_volume,
+		pm.prd_main_image
+	FROM
+		product pm
+		LEFT OUTER JOIN sub_category sm ON (pm.sub_category_code = sm.sub_category_code)
+	WHERE
+		sm.parent_category_code = #{parentCode}
+	ORDER BY
+		prd_code DESC;
+	</select>
 
 </mapper>
