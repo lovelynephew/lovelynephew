@@ -84,21 +84,22 @@ function getData(data) {
 
     }
 }
-function dataChange(data) {
-    let orderStatus = null;
-    if(data.orderStatus == 1) {
-        orderStatus = "배송준비중";
-    } else if(data.orderStatus == 2) {
-        orderStatus = "배송보류";
-    } else if(data.orderStatus == 3) {
-        orderStatus = "배송대기";
-    } else if(data.orderStatus == 4) {
-        orderStatus = "배송중";
-    } else if(data.orderStatus == 5) {
-        orderStatus = "배송완료";
-    } else if(data.orderStatus == 6) {
-        orderStatus = "구매확정";
-    }
 
-    return orderStatus;
-}
+// function dataChange(data) {
+//     let orderStatus = null;
+//     if(data.orderStatus == 1) {
+//         orderStatus = "배송준비중";
+//     } else if(data.orderStatus == 2) {
+//         orderStatus = "배송보류";
+//     } else if(data.orderStatus == 3) {
+//         orderStatus = "배송대기";
+//     } else if(data.orderStatus == 4) {
+//         orderStatus = "배송중";
+//     } else if(data.orderStatus == 5) {
+//         orderStatus = "배송완료";
+//     } else if(data.orderStatus == 6) {
+//         orderStatus = "구매확정";
+//     }
+
+//     return orderStatus;
+// }

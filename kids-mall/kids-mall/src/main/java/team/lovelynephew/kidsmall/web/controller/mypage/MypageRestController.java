@@ -19,10 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 import team.lovelynephew.kidsmall.handler.aop.annotation.ValidCheck;
 import team.lovelynephew.kidsmall.service.user.PrincipalDetailsService;
 import team.lovelynephew.kidsmall.service.user.mypage.MypageService;
+import team.lovelynephew.kidsmall.service.user.mypage.board.MyBoardService;
 import team.lovelynephew.kidsmall.service.user.mypage.order.MyOrderService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
-import team.lovelynephew.kidsmall.web.dto.user.OrderListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.BoardListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
 
 @Slf4j
 @RestController
@@ -31,6 +33,7 @@ public class MypageRestController {
 	
 	private final MypageService mypageService;
 	private final MyOrderService myOrderService;
+	private final MyBoardService myBoardService;
 	private final PrincipalDetailsService principalDetailsService;
 	
 	//배송지 등록
@@ -79,4 +82,17 @@ public class MypageRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "주문 내역 조회 성공", list));
 	}
 
+	@GetMapping("/mypage/board/review/{userCode}")
+	public ResponseEntity<?> getBoardList(@PathVariable int userCode) {
+		List<BoardListRespDto> list = new ArrayList<BoardListRespDto>();
+		
+		try {
+			list = myBoardService.getBoardList(userCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "내 게시글 불러오기 실패", list));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "내 게시글 불러오기 성공", list));
+	}
 }

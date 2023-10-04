@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder;
 import team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository;
-import team.lovelynephew.kidsmall.web.dto.user.OrderListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
 
 @Service
 @RequiredArgsConstructor

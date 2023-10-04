@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import team.lovelynephew.kidsmall.web.dto.user.OrderListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
 
 @NoArgsConstructor
 @AllArgsConstructor
