@@ -1,9 +1,13 @@
 package team.lovelynephew.kidsmall.web.controller.mypage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 import team.lovelynephew.kidsmall.handler.aop.annotation.ValidCheck;
 import team.lovelynephew.kidsmall.service.user.PrincipalDetailsService;
 import team.lovelynephew.kidsmall.service.user.mypage.MypageService;
+import team.lovelynephew.kidsmall.service.user.mypage.order.MyOrderService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.OrderListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
 
 @Slf4j
@@ -24,6 +30,7 @@ import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
 public class MypageRestController {
 	
 	private final MypageService mypageService;
+	private final MyOrderService myOrderService;
 	private final PrincipalDetailsService principalDetailsService;
 	
 	//배송지 등록
@@ -55,6 +62,21 @@ public class MypageRestController {
 		}
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "배송지 수정 성공", status));
+	}
+	
+	@GetMapping("/mypage/order/history/{userCode}")
+	public ResponseEntity<?> getMyOrderHistory(@PathVariable int userCode) {
+		List<OrderListRespDto> list = new ArrayList<OrderListRespDto>();
+		
+		log.info("usercode: "+userCode);
+		try {
+			list = myOrderService.getMyOrderList(userCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "주문 내역 조회 실패", list));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "주문 내역 조회 성공", list));
 	}
 
 }

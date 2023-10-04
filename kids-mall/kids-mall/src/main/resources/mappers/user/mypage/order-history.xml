@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository">
+	<select id="getOrderList" 
+			parameterType="Integer" 
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
+			>
+		
+			SELECT
+				om.user_code,
+				om.order_code,
+				
+				pd.prd_code,
+				pd.prd_name,
+				pd.prd_main_image,
+				pd.prd_regular_price,
+				pd.prd_discount_percentage,
+				
+				om.payment_status,
+				om.order_status,
+				om.cs_status,
+				om.payment_amount,
+				om.create_date
+			from
+				order_mst om
+				LEFT OUTER JOIN product pd ON(pd.prd_code = om.prd_code)
+			where
+				om.user_code = #{userCode}
+			order by
+				order_code desc
+	</select>
+</mapper>
