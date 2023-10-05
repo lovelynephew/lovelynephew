@@ -20,4 +20,5 @@ public class ProductListRespDto {
 	private int prdInventory;
 	private int prdsalesVolume;
 	private String prdMainImage;
+	
 }

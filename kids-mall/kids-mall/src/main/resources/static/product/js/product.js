@@ -1,54 +1,253 @@
 
-//찜 하트 색상변경
-const heartButton = document.querySelector(".buy_bar_heart");
-const heartSvg = document.querySelector(".heart");
+load(1);
 
-let isRed = false; 
+//제품 띄우기
+function load(productCode) {
+    $.ajax({
+        type: "GET",
+        url: "/productInfo",
+        data: {
+            "prdCode": productCode
+        },
+        success: (response) => {
+            console.log("제품 띄우기 성공");
 
-heartButton.addEventListener("click", function () {
-    if (isRed) {
-        heartSvg.style.fill = "#a4a3a3"; 
-    } else {
-        heartSvg.style.fill = "#ff0000"; 
-    }
-    isRed = !isRed; 
-});
+            mainRating(productCode);
+            reviewAmount(productCode);
+            mainRating(productCode);
+            document.getElementById("product_main_img_id").src = response.data.prdMainImage;
+            document.getElementById("pdp_title_id").innerHTML = response.data.prdName;
+            document.getElementById("pdp_detail_explain_id").innerHTML = response.data.prdBrifExplain;
+            document.getElementById("pdp_price_discountLate_id").innerHTML = response.data.prdDiscountPercentage+"%";
+            document.getElementById("pdp_price_discount_price_id").innerHTML = response.data.prdDiscountPrice;
+            document.getElementById("pdp_price_regular_price_id").innerHTML = response.data.prdRegularPrice;
+            //document.getElementById("prd_detail_img_id").src=response.data.prdDetailExplain;
+            //document.getElementById.apply("reveiw_star_review_amount_id").innerHTML=0;
+        },  
+        error: (error) => {
+    
+        }
+    
+    });
+}
 
+//메인별점
+function mainRating(productCode) {
+    $.ajax({
+        type: "GET",
+        url: "/rating",
+        data: {
+            "prdCode" : productCode
+        },
+        success: (response) => {
+            let rating = response.data;
+            if (isNaN(rating) || !isFinite(rating)) {
+                rating = 0;
+            }
+            console.log("rating:" +response.data);
+        
+            document.getElementById("review_score").innerHTML = rating;
+            document.getElementById("middle_star_score").innerHTML = rating;
+           
+            if(rating>4.4) {
+                document.getElementById("top_star1").innerHTML = "⭐️";
+                document.getElementById("top_star2").innerHTML = "⭐️";
+                document.getElementById("top_star3").innerHTML = "⭐️";
+                document.getElementById("top_star4").innerHTML = "⭐️";
+                document.getElementById("top_star5").innerHTML = "⭐️";
+        
+                document.getElementById("middle_star1").innerHTML = "⭐️";
+                document.getElementById("middle_star2").innerHTML = "⭐️";
+                document.getElementById("middle_star3").innerHTML = "⭐️";
+                document.getElementById("middle_star4").innerHTML = "⭐️";
+                document.getElementById("middle_star5").innerHTML = "⭐️";
+        
+                document.getElementById("star1").innerHTML = "⭐️";
+                document.getElementById("star2").innerHTML = "⭐️";
+                document.getElementById("star3").innerHTML = "⭐️";
+                document.getElementById("star4").innerHTML = "⭐️";
+                document.getElementById("star5").innerHTML = "⭐️";
+        
+        
+            }else if(rating>3.4){
+                document.getElementById("top_star1").innerHTML = "⭐️";
+                document.getElementById("top_star2").innerHTML = "⭐️";
+                document.getElementById("top_star3").innerHTML = "⭐️";
+                document.getElementById("top_star4").innerHTML = "⭐️";
+        
+                document.getElementById("middle_star1").innerHTML = "⭐️";
+                document.getElementById("middle_star2").innerHTML = "⭐️";
+                document.getElementById("middle_star3").innerHTML = "⭐️";
+                document.getElementById("middle_star4").innerHTML = "⭐️";
+        
+                document.getElementById("star1").innerHTML = "⭐️";
+                document.getElementById("star2").innerHTML = "⭐️";
+                document.getElementById("star3").innerHTML = "⭐️";
+                document.getElementById("star4").innerHTML = "⭐️";
+            }
+            else if(rating>2.4){
+                document.getElementById("top_star1").innerHTML = "⭐️";
+                document.getElementById("top_star2").innerHTML = "⭐️";
+                document.getElementById("top_star3").innerHTML = "⭐️";
+        
+                document.getElementById("middle_star1").innerHTML = "⭐️";
+                document.getElementById("middle_star2").innerHTML = "⭐️";
+                document.getElementById("middle_star3").innerHTML = "⭐️";
+        
+                document.getElementById("star1").innerHTML = "⭐️";
+                document.getElementById("star2").innerHTML = "⭐️";
+                document.getElementById("star3").innerHTML = "⭐️";
+            }
+            else if(rating>1.4){
+                document.getElementById("top_star1").innerHTML = "⭐️";
+                document.getElementById("top_star2").innerHTML = "⭐️";
+        
+                document.getElementById("middle_star1").innerHTML = "⭐️";
+                document.getElementById("middle_star2").innerHTML = "⭐️";
+        
+                document.getElementById("star1").innerHTML = "⭐️";
+                document.getElementById("star2").innerHTML = "⭐️";
+            }else if(rating>0.4){
+                document.getElementById("top_star1").innerHTML = "⭐️";
+                
+                document.getElementById("middle_star1").innerHTML = "⭐️";
+        
+                document.getElementById("star1").innerHTML = "⭐️";
+            }else {
+        
+            }
+        },
+        error: (error) => {
+            if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                alert(JSON.stringify(error.responseJSON.data));
+            }else {
+                console.log("요청실패");
+                console.log(error);
+            }
+        }
+    });
+}
+
+
+//리뷰 개수
+function reviewAmount(productCode){
+    $.ajax({
+        type: "GET",
+        url: "/reviewAmount",
+        data: {
+            "prdCode" : productCode
+        },
+        success: (response) => {
+            console.log(response.data);
+            document.getElementById("review_amount_id").innerHTML="("+response.data+")";
+            document.getElementById("caption_review_id").innerHTML=""+response.data+"개의 리뷰 보기";
+            document.getElementById("review_preview_amount_id").innerHTML = response.data;
+            document.getElementById("review_amount_id").innerHTML = response.data;  
+        },
+        error: (error) => {
+            if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                alert(JSON.stringify(error.responseJSON.data));
+            }else {
+                console.log("요청실패");
+                console.log(error);
+            }
+        }
+    });
+}
+
+
+
+
+//best상품 띄우기
+function getBestPrd() {
+    const bestPrdUl = document.querySelector(".best_prd_ul");
+    $.ajax({
+        type: "GET",
+        url: "/bestPrd",
+        data: {
+            "catecory" : 3
+        },
+        success: (response) => {
+    
+           for(let i = 0; i<response.data.length; i++) {
+            bestPrdUl.innerHTML += `
+            <li class="best_prd_li"> 
+                <div class="best_prd_img_wrapper01">
+                    <picture class="best_prd_img_wrapper02">
+                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
+                    </picture>
+                    <button class="best_prd_img_heart">
+                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
+                    </button>
+                </div>
+                <div id="bestPrd_num">${i+1}</div>
+                <div>
+                    <div id="bestPrd_brand">
+                       ${response.data[i].prdMaker}
+                    </div>
+                    <div id="bestPrd_name">
+                        ${response.data[i].prdName}
+                    </div>
+                    <div>
+                        <span id="bestPrd_discountRate">${response.data[i].prdDiscountPercentage}%</span>
+                        <span id="bestPrd_disPrice">${response.data[0].prdDiscountPrice}</span>
+                    </div>
+                    <div>
+                        <span>★</span>
+                        <span id="bestPrd_rating">${response.data[i].rating}</span>
+                        <span id="bestPrd_riviewAmount"> (${response.data[i].reviewAmount})</span>
+                    </div>
+                </div>
+            </li> `
+    
+           }
+    
+        },
+        error: (error) => {
+            if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                alert(JSON.stringify(error.responseJSON.data));
+            }else {
+                console.log("요청실패");
+                console.log(error);
+            }
+        }
+    });
+}
 
 
 //하트 누름 
-const wishIcon = document.querySelector(".buy_bar_heart");
+function putHeard(likePrdCode){
+    const wishIcon = document.querySelector(".buy_bar_heart");
 
-wishIcon.onclick = () => {
-console.log("하트 버튼을 누른다. in js");
-let wishListData = {
-    userId: "test_USERID",
-    prdCode: 3
-}
-
-
-$.ajax({
-    async: false,
-    type: "post",
-    url: "/wishList",
-    contentType: "application/json",
-    data: JSON.stringify(wishListData),
-    dataType: "json",
-    success: (response) => {
-        console.log(response.data);
-    },
-    error: (error) => {
-        if(error.status == 400) {//서버가 요청을 이해하지 못함 
-            alert(JSON.stringify(error.responseJSON.data));
-        }else {
-            console.log("요청실패");
-            console.log(error);
-        }
+    wishIcon.onclick = () => {
+    console.log("하트 버튼을 누른다. in js");
+    let wishListData = {
+        userId: "test_USERID",
+        prdCode: 3
     }
-
-})
+    
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/wishList",
+            contentType: "application/json",
+            data: JSON.stringify(wishListData),
+            dataType: "json",
+            success: (response) => {
+                console.log(response.data);
+            },
+            error: (error) => {
+                if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                    alert(JSON.stringify(error.responseJSON.data));
+                }else {
+                    console.log("요청실패");
+                    console.log(error);
+                }
+            }
+        
+        })
+    }
 }
-
 
 //구매하기 모달 창 띄우기
 const forModal = document.querySelector(".for_modal");
@@ -84,171 +283,17 @@ moreprdInfoBtn.addEventListener('click', function() {
 });
 })
 
-//메인별점
-$.ajax({
-type: "GET",
-url: "/rating",
-data: {
-    "prdCode" : 1
-},
-success: (response) => {
-    console.log("rating:" +response.data);
-    let rating = response.data;
-    document.getElementById("review_score").innerHTML = rating;
-    document.getElementById("middle_star_score").innerHTML = rating;
-   
-    if(rating>4.4) {
-        document.getElementById("top_star1").innerHTML = "⭐️";
-        document.getElementById("top_star2").innerHTML = "⭐️";
-        document.getElementById("top_star3").innerHTML = "⭐️";
-        document.getElementById("top_star4").innerHTML = "⭐️";
-        document.getElementById("top_star5").innerHTML = "⭐️";
+//찜 하트 색상변경
+const heartButton = document.querySelector(".buy_bar_heart");
+const heartSvg = document.querySelector(".heart");
 
-        document.getElementById("middle_star1").innerHTML = "⭐️";
-        document.getElementById("middle_star2").innerHTML = "⭐️";
-        document.getElementById("middle_star3").innerHTML = "⭐️";
-        document.getElementById("middle_star4").innerHTML = "⭐️";
-        document.getElementById("middle_star5").innerHTML = "⭐️";
+let isRed = false; 
 
-        document.getElementById("star1").innerHTML = "⭐️";
-        document.getElementById("star2").innerHTML = "⭐️";
-        document.getElementById("star3").innerHTML = "⭐️";
-        document.getElementById("star4").innerHTML = "⭐️";
-        document.getElementById("star5").innerHTML = "⭐️";
-
-
-    }else if(rating>3.4){
-        document.getElementById("top_star1").innerHTML = "⭐️";
-        document.getElementById("top_star2").innerHTML = "⭐️";
-        document.getElementById("top_star3").innerHTML = "⭐️";
-        document.getElementById("top_star4").innerHTML = "⭐️";
-
-        document.getElementById("middle_star1").innerHTML = "⭐️";
-        document.getElementById("middle_star2").innerHTML = "⭐️";
-        document.getElementById("middle_star3").innerHTML = "⭐️";
-        document.getElementById("middle_star4").innerHTML = "⭐️";
-
-        document.getElementById("star1").innerHTML = "⭐️";
-        document.getElementById("star2").innerHTML = "⭐️";
-        document.getElementById("star3").innerHTML = "⭐️";
-        document.getElementById("star4").innerHTML = "⭐️";
+heartButton.addEventListener("click", function () {
+    if (isRed) {
+        heartSvg.style.fill = "#a4a3a3"; 
+    } else {
+        heartSvg.style.fill = "#ff0000"; 
     }
-    else if(rating>2.4){
-        document.getElementById("top_star1").innerHTML = "⭐️";
-        document.getElementById("top_star2").innerHTML = "⭐️";
-        document.getElementById("top_star3").innerHTML = "⭐️";
-
-        document.getElementById("middle_star1").innerHTML = "⭐️";
-        document.getElementById("middle_star2").innerHTML = "⭐️";
-        document.getElementById("middle_star3").innerHTML = "⭐️";
-
-        document.getElementById("star1").innerHTML = "⭐️";
-        document.getElementById("star2").innerHTML = "⭐️";
-        document.getElementById("star3").innerHTML = "⭐️";
-    }
-    else if(rating>1.4){
-        document.getElementById("top_star1").innerHTML = "⭐️";
-        document.getElementById("top_star2").innerHTML = "⭐️";
-
-        document.getElementById("middle_star1").innerHTML = "⭐️";
-        document.getElementById("middle_star2").innerHTML = "⭐️";
-
-        document.getElementById("star1").innerHTML = "⭐️";
-        document.getElementById("star2").innerHTML = "⭐️";
-    }else if(rating>0.4){
-        document.getElementById("top_star1").innerHTML = "⭐️";
-        
-        document.getElementById("middle_star1").innerHTML = "⭐️";
-
-        document.getElementById("star1").innerHTML = "⭐️";
-    }else {
-
-    }
-},
-error: (error) => {
-    if(error.status == 400) {//서버가 요청을 이해하지 못함 
-        alert(JSON.stringify(error.responseJSON.data));
-    }else {
-        console.log("요청실패");
-        console.log(error);
-    }
-}
-});
-
-//리뷰 개수
-$.ajax({
-type: "GET",
-url: "/reviewAmount",
-data: {
-    "prdCode" : 1
-},
-success: (response) => {
-    console.log(response.data);
-    document.getElementById("review_amount_id").innerHTML="("+response.data+")";
-    document.getElementById("caption_review_id").innerHTML=""+response.data+"개의 리뷰 보기";
-    document.getElementById("review_preview_amount_id").innerHTML = response.data;
-},
-error: (error) => {
-    if(error.status == 400) {//서버가 요청을 이해하지 못함 
-        alert(JSON.stringify(error.responseJSON.data));
-    }else {
-        console.log("요청실패");
-        console.log(error);
-    }
-}
-});
-
-
-//best상품 띄우기
-const bestPrdUl = document.querySelector(".best_prd_ul");
-$.ajax({
-    type: "GET",
-    url: "/bestPrd",
-    data: {
-        "catecory" : 3
-    },
-    success: (response) => {
-
-       for(let i = 0; i<response.data.length; i++) {
-        bestPrdUl.innerHTML += `
-        <li class="best_prd_li"> 
-            <div class="best_prd_img_wrapper01">
-                <picture class="best_prd_img_wrapper02">
-                    <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                </picture>
-                <button class="best_prd_img_heart">
-                    <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                </button>
-            </div>
-            <div id="bestPrd_num">${i+1}</div>
-            <div>
-                <div id="bestPrd_brand">
-                   ${response.data[i].prdMaker}
-                </div>
-                <div id="bestPrd_name">
-                    ${response.data[i].prdName}
-                </div>
-                <div>
-                    <span id="bestPrd_discountRate">${response.data[i].prdDiscountPercentage}%</span>
-                    <span id="bestPrd_disPrice">${response.data[0].prdDiscountPrice}</span>
-                </div>
-                <div>
-                    <span>★</span>
-                    <span id="bestPrd_rating">${response.data[i].rating}</span>
-                    <span id="bestPrd_riviewAmount"> (${response.data[i].reviewAmount})</span>
-                </div>
-            </div>
-        </li> `
-
-       }
-
-    },
-    error: (error) => {
-        if(error.status == 400) {//서버가 요청을 이해하지 못함 
-            alert(JSON.stringify(error.responseJSON.data));
-        }else {
-            console.log("요청실패");
-            console.log(error);
-        }
-    }
+    isRed = !isRed; 
 });

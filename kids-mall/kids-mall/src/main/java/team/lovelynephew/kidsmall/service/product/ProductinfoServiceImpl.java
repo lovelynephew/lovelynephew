@@ -14,7 +14,7 @@ public class ProductinfoServiceImpl implements ProductinfoService {
 	@Override
 	public ProductRespDto product(int prdCode) throws Exception {
 		
-		return repository.product(prdCode).productToEDto();
+		return repository.product(prdCode).productToDto();
 		
 	}
 

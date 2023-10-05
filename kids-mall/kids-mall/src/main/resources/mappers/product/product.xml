@@ -5,7 +5,7 @@
   
   <mapper namespace="team.lovelynephew.kidsmall.domain.product.ProductinfoRepository">
   
-  <select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Productinfo">
+  <select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Product">
 	SELECT *
 	FROM product
 	WHERE product.prd_code= #{prdCode};

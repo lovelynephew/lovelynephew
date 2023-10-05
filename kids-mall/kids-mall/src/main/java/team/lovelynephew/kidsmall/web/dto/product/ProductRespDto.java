@@ -27,5 +27,5 @@ public class ProductRespDto {
 	private int prdSalesVolume;
 	private String prdMainImage;
 	
-	private int prd_discount_percentage;
+	private int prdDiscountPercentage;
 }
