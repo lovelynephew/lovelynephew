@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MyOrderRepository {
 
 	public List<MyOrder> getOrderList(int userCode) throws Exception;
+	
+	public List<Cart> getCartItemList(int userCode) throws Exception;
 }

@@ -24,6 +24,7 @@ import team.lovelynephew.kidsmall.service.user.mypage.order.MyOrderService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.BoardListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.CartItemListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
 
 @Slf4j
@@ -95,4 +96,19 @@ public class MypageRestController {
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "내 게시글 불러오기 성공", list));
 	}
+	
+	@GetMapping("/mypage/cart/{userCode}")
+	public ResponseEntity<?> getCartItemList(@PathVariable int userCode) {
+		List<CartItemListRespDto> list = new ArrayList<CartItemListRespDto>();
+		
+		try {
+			list = myOrderService.getCartItemList(userCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "장바구니 가져오기 실패", list));			
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 가져오기 성공", list));
+	}
+	
 }

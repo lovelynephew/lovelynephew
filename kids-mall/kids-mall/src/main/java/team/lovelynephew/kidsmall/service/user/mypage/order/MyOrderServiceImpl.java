@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder;
 import team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.CartItemListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
 
 @Service
@@ -24,6 +25,17 @@ public class MyOrderServiceImpl implements MyOrderService{
 		
 		myOrderRepository.getOrderList(userCode).forEach(order -> {
 			list.add(order.orderHistoryToDto());		
+		});
+		
+		return list;
+	}
+
+	@Override
+	public List<CartItemListRespDto> getCartItemList(int userCode) throws Exception {
+		List<CartItemListRespDto> list = new ArrayList<CartItemListRespDto>();
+		
+		myOrderRepository.getCartItemList(userCode).forEach(cart -> {
+			list.add(cart.cartItemListToDto());		
 		});
 		
 		return list;
