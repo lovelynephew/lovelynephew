@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/static/product/css/product.css">
-    
+    <link rel="stylesheet" href="/static/product/css/product.css">
     <title>개별상품</title>
 </head>
 
+
 <body>
-    
     <div id="__next">
+       <div class="for_modal"></div>
         <div class="product_total_wrap">
             <div style="position: relative;">
                 <div class="product_main_img">
-                    <img src="https://ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/product/big/20230801/208a556b686fe9bed03bd3919632e3ed.jpg" alt="상품 대표사진">
+                    <img id="product_main_img_id" src="https://ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/product/big/20230801/208a556b686fe9bed03bd3919632e3ed.jpg" alt="상품 대표사진">
                     <button class="product_img_btn01"><</button>
                     <button class="product_img_btn02">></button>
                     <div class="product_img_seq">
@@ -32,34 +32,34 @@
             </div>
             
             <div class="pdp_title">
-                <h1>레터링 풍선 핑크퐁 아기상어 도둑 잡기 게임</h1>
+                <h1 id="pdp_title_id">레터링 풍선 핑크퐁 아기상어 도둑 잡기 게임</h1>
             </div>
             <div class="pdp_detail_explain">
-                <span>신나는 멜로디와 함께 핑크퐁 아기상어 도둑잡기를 해보아요</span>
+                <span id="pdp_detail_explain_id">신나는 멜로디와 함께 핑크퐁 아기상어 도둑잡기를 해보아요</span>
             </div>
             <div class="pdp_simple_review">
                 <div class="review_stars">
-                    <div>⭐️</div>
-                    <div>⭐️</div>
-                    <div>⭐️</div>
-                    <div>⭐️</div>
-                    <div>⭐️</div>
+                    <div id="top_star1"></div>
+                    <div id="top_star2"></div>
+                    <div id="top_star3"></div>
+                    <div id="top_star4"></div>
+                    <div id="top_star5"></div>
                 </div>
-               <span class="caption_review">10000개의 리뷰 보기</span>
+               <span class="caption_review" id="caption_review_id">10000개의 리뷰 보기</span>
             </div>
             
 
             <div class="pdp_price_wrap01">
                 <div class="pdp_price_wrap02">
                     <div class="pdp_price_wrap03">
-                        <span class="pdp_price_discountLate">15%</span>
+                        <span class="pdp_price_discountLate" id="pdp_price_discountLate_id">15%</span>
                         <span class="pdp_price_discount_price_wrap">
-                            <span class="pdp_price_discount_price">
+                            <span class="pdp_price_discount_price" id="pdp_price_discount_price_id" >
                                 30,600
                                 <span>원</span>
                             </span>
                         </span>
-                        <span class="pdp_price_regular_price">
+                        <span class="pdp_price_regular_price" id="pdp_price_regular_price_id">
                             36,000
                         </span>
                     </div>
@@ -120,7 +120,7 @@
             <div>
                 <div class="review_preview_wrapper">
                     <h4>리뷰
-                        <span class="review_preview_amount">10,000</span>
+                        <span class="review_preview_amount" id="review_preview_amount_id">10,000</span>
                     </h4> 
                     <button class="review_preview_btn">
                         전체보기>
@@ -129,14 +129,14 @@
 
                 <div class="review_preview_star_wrapper01">
                     <div class="review_preview_star_wrapper02">
-                        <div class="review_preview_star">⭐️</div>
-                        <div class="review_preview_star">⭐️</div>   
-                        <div class="review_preview_star">⭐️</div>   
-                        <div class="review_preview_star">⭐️</div>   
-                        <div class="review_preview_star">⭐️</div>      
+                        <div class="review_preview_star" id="middle_star1"></div>
+                        <div class="review_preview_star"  id="middle_star2"></div>   
+                        <div class="review_preview_star"  id="middle_star3"></div>   
+                        <div class="review_preview_star"  id="middle_star4"></div>   
+                        <div class="review_preview_star"  id="middle_star5"></div>      
                     </div>
                     <span class="review_preview_rate">
-                        <span class="review_preview_score">4.6</span>
+                        <span class="review_preview_score" id="review_score"></span>
                         /5
                     </span>
                 </div>
@@ -551,7 +551,7 @@
                                         <div class="prd_detail_wrapper05">
                                             <div>
                                                 <div class="prd_detail_wrapper06">
-                                                    <img class="prd_detail_img" 
+                                                    <img class="prd_detail_img" id="prd_detail_img_id"
                                                         src="https://ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/NNEditor/20230825/2023-0823-ECA1B0ECB9B4EBB094EBB3B420EC8381EC84B8ED8E98EC9DB4ECA780220281-129.png" alt="옵션 공통사진">
                                                 </div>
                                                 <div class="prd_detail_wrapper06">
@@ -598,7 +598,7 @@
                     </div>
 
                         <div class="prd_detail_close_wrapper01">
-                            <div class="prd_detail_close_wrapper02">
+                            <div class="prd_detail_close_wrapper02" id = "moreprdInfoBtn">
                                 <button class="prd_detail_close_btn"><span>상품정보 더 보기 ∨</span></button>
                             </div>
                         </div>
@@ -608,9 +608,9 @@
 <!--best 상품  -->
                 <div>
                     <section class="best_prd_wrapper">
-                        <h4>장난감 BEST</h4>
+                        <h4>같은 카테고리 BEST</h4>
                         <ul class="best_prd_ul">
-                            <li class="best_prd_li"> 
+                             <!-- <li class="best_prd_li"> 
                                 <div class="best_prd_img_wrapper01">
                                     <picture class="best_prd_img_wrapper02">
                                         <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
@@ -619,170 +619,26 @@
                                         <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
                                     </button>
                                 </div>
-                                <div>01</div>
+                                <div id="bestPrd_num">01</div>
                                 <div>
-                                    <div>
+                                    <div id="bestPrd_brand">
                                         어바웃톤
                                     </div>
-                                    <div>
+                                    <div id="bestPrd_name">
                                         비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
                                     </div>
                                     <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
+                                        <span id="bestPrd_discountRate">30%</span>
+                                        <span id="bestPrd_disPrice">12,600</span>
                                     </div>
                                     <div>
                                         <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
+                                        <span id="bestPrd_rating">4.9</span>
+                                        <span id="bestPrd_riviewAmount"> (12)</span>
                                     </div>
                                 </div>
-                            </li> 
+                            </li>   -->
 
-                            <li class="best_prd_li"> 
-                                <div class="best_prd_img_wrapper01">
-                                    <picture class="best_prd_img_wrapper02">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                                    </picture>
-                                    <button class="best_prd_img_heart">
-                                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                                    </button>
-                                </div>
-                                <div>01</div>
-                                <div>
-                                    <div>
-                                        어바웃톤
-                                    </div>
-                                    <div>
-                                        비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
-                                    </div>
-                                    <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
-                                    </div>
-                                    <div>
-                                        <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
-                                    </div>
-                                </div>
-                            </li> 
-
-                            <li class="best_prd_li"> 
-                                <div class="best_prd_img_wrapper01">
-                                    <picture class="best_prd_img_wrapper02">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                                    </picture>
-                                    <button class="best_prd_img_heart">
-                                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                                    </button>
-                                </div>
-                                <div>01</div>
-                                <div>
-                                    <div>
-                                        어바웃톤
-                                    </div>
-                                    <div>
-                                        비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
-                                    </div>
-                                    <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
-                                    </div>
-                                    <div>
-                                        <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
-                                    </div>
-                                </div>
-                            </li> 
-
-                            <li class="best_prd_li"> 
-                                <div class="best_prd_img_wrapper01">
-                                    <picture class="best_prd_img_wrapper02">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                                    </picture>
-                                    <button class="best_prd_img_heart">
-                                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                                    </button>
-                                </div>
-                                <div>01</div>
-                                <div>
-                                    <div>
-                                        어바웃톤
-                                    </div>
-                                    <div>
-                                        비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
-                                    </div>
-                                    <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
-                                    </div>
-                                    <div>
-                                        <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
-                                    </div>
-                                </div>
-                            </li> 
-
-                            <li class="best_prd_li"> 
-                                <div class="best_prd_img_wrapper01">
-                                    <picture class="best_prd_img_wrapper02">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                                    </picture>
-                                    <button class="best_prd_img_heart">
-                                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                                    </button>
-                                </div>
-                                <div>01</div>
-                                <div>
-                                    <div>
-                                        어바웃톤
-                                    </div>
-                                    <div>
-                                        비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
-                                    </div>
-                                    <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
-                                    </div>
-                                    <div>
-                                        <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
-                                    </div>
-                                </div>
-                            </li> 
-
-                            <li class="best_prd_li"> 
-                                <div class="best_prd_img_wrapper01">
-                                    <picture class="best_prd_img_wrapper02">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/d/2023/5/26/14365_202305261355360494_59466.gif?width=300&height=300&quality=80&format=jpeg" alt="베스트 메뉴 사진">
-                                    </picture>
-                                    <button class="best_prd_img_heart">
-                                        <img src="https://content.zigzag.kr/_icon/card/card_heart_bordered.png" alt="하트">
-                                    </button>
-                                </div>
-                                <div>01</div>
-                                <div>
-                                    <div>
-                                        어바웃톤
-                                    </div>
-                                    <div>
-                                        비건 라잇풀 선크림(듀이 선 에센스/톤업 선 스크린) 직진배송
-                                    </div>
-                                    <div>
-                                        <span>30%</span>
-                                        <span>12,600</span>
-                                    </div>
-                                    <div>
-                                        <span>★</span>
-                                        <span>4.9</span>
-                                        <span>(12)</span>
-                                    </div>
-                                </div>
-                            </li> 
                         </ul>
                     </section>
                 </div>
@@ -790,23 +646,23 @@
 <!--리뷰 -->
             <div class="review_title">
                 <h4>리뷰
-                    <span class="review_amount">10,000</span>
+                    <span class="review_amount" id="review_amount_id">10,000</span>
                 </h4>
             </div> 
 
             <div class="reveiw_star_wrapper01">
                 <div class="reveiw_star_wrapper02">
                     <div class="reveiw_star_wrapper03">
-                        <div class="reveiw_star">⭐️</div>
-                        <div class="reveiw_star">⭐️</div>
-                        <div class="reveiw_star">⭐️</div>
-                        <div class="reveiw_star">⭐️</div>
-                        <div class="reveiw_star">⭐️</div>
+                        <div class="reveiw_star" id="star1"></div>
+                        <div class="reveiw_star" id="star2"></div>
+                        <div class="reveiw_star" id="star3"></div>
+                        <div class="reveiw_star" id="star4"></div>
+                        <div class="reveiw_star" id="star5"></div>
                     </div>
                     <span class="reveiw_star_score_wrapper">
-                        <span class="reveiw_star_score">4.9</span>
+                        <span class="reveiw_star_score" id="middle_star_score">4.9</span>
                         / 5
-                        <span class="reveiw_star_review_amount">(
+                        <span class="reveiw_star_review_amount" id="reveiw_star_review_amount_id">(
                             10000
                         )
                         </span>
@@ -1127,11 +983,10 @@
     <div class="buy_bar_01">
         <div class="buy_bar_02">
             <div class="buy_bar_03">
-                <button class="buy_bar_heart" >
-                    <svg class="heart" id="heartSvg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                    <path id = "heartPath" d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"/></svg>
+                <button class="buy_bar_heart">
+                    <svg width="24" hight="24" class="heart" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
                 </button>
-                <button class="buy_bar_buy" onclick="">구매하기</button>
+                <button class="buy_bar_buy">구매하기</button>
             </div>
             <div class="buy_bar_dir_wrapper">
                 <button class="buy_bar_dir_btn" type="button" aria-label="맨 위로 가기">∧</button>
@@ -1145,12 +1000,8 @@
         </div>
     </div>
 
-
-
-
-            
-               
-<script src="/resources/static/product/js/product.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/static/product/js/product.js"></script>
 
 </body>
 </html>

@@ -21,7 +21,7 @@ function load(productCode) {
             document.getElementById("pdp_price_discountLate_id").innerHTML = response.data.prdDiscountPercentage+"%";
             document.getElementById("pdp_price_discount_price_id").innerHTML = response.data.prdDiscountPrice;
             document.getElementById("pdp_price_regular_price_id").innerHTML = response.data.prdRegularPrice;
-            //document.getElementById("prd_detail_img_id").src=response.data.prdDetailExplain;
+            document.getElementById("prd_detail_img_id").src=response.data.prdDetailExplain;
             //document.getElementById.apply("reveiw_star_review_amount_id").innerHTML=0;
         },  
         error: (error) => {

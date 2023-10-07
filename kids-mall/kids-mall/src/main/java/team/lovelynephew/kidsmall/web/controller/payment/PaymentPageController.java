@@ -3,6 +3,7 @@ package team.lovelynephew.kidsmall.web.controller.payment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PaymentPageController {
@@ -19,7 +20,7 @@ public class PaymentPageController {
 	
 	@GetMapping("/product")
 	public String product (){
-		return "product/product";
+		return "thymeleaf/product/product";
 	}
 	
 
