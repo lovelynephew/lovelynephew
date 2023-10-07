@@ -115,6 +115,9 @@ public class MypageController {
 		return "mypage/cart";
 	}
 	
-	
+	@GetMapping("/mypage/activity/myboard-list")
+	public String getBoard() {
+		return "mypage/myboard-list";
+	}
 
 }
