@@ -1059,7 +1059,8 @@
     line-height: 20px;
     color: rgb(36, 39, 41);
     word-break: break-all;
-    font-size: 14px;    
+    font-size: 14px;   
+    margin-bottom: 35px; 
 }
 
 .review_all_text span{

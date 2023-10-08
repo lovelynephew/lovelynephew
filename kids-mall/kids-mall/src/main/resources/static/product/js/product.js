@@ -10,11 +10,11 @@ function load(productCode) {
             "prdCode": productCode
         },
         success: (response) => {
-            console.log("제품 띄우기 성공");
-
             mainRating(productCode);
             reviewAmount(productCode);
             mainRating(productCode);
+            prdReviewAll(productCode);
+            prdReviewPic(productCode);
             document.getElementById("product_main_img_id").src = response.data.prdMainImage;
             document.getElementById("pdp_title_id").innerHTML = response.data.prdName;
             document.getElementById("pdp_detail_explain_id").innerHTML = response.data.prdBrifExplain;
@@ -25,9 +25,7 @@ function load(productCode) {
             //document.getElementById.apply("reveiw_star_review_amount_id").innerHTML=0;
         },  
         error: (error) => {
-    
         }
-    
     });
 }
 
@@ -143,6 +141,7 @@ function reviewAmount(productCode){
             document.getElementById("caption_review_id").innerHTML=""+response.data+"개의 리뷰 보기";
             document.getElementById("review_preview_amount_id").innerHTML = response.data;
             document.getElementById("review_amount_id").innerHTML = response.data;  
+            document.getElementById("reveiw_all_review_amount_id").innerHTML = response.data;
         },
         error: (error) => {
             if(error.status == 400) {//서버가 요청을 이해하지 못함 
@@ -297,3 +296,194 @@ heartButton.addEventListener("click", function () {
     }
     isRed = !isRed; 
 });
+
+//load(x)에 대한 리뷰정보를 3개만 들고오고 더 보기를 누르면 review-detail.html에 가기
+//사진 리뷰의 개수와, 사진 들어있는 리뷰만 들고오기 
+// 더보기 누르면 review_detaie.html에 똑같은 포맷에 뿌리기
+
+//리뷰불러오기
+function prdReviewAll(productCode) {
+    $.ajax({
+        type: "GET",
+        url: "/prdReviewAll",
+        data: {
+            "prdCode": productCode
+        },
+        success: (response) => {
+            let review_dom= document.getElementById("product_review_id");
+
+            for(let i =0; i<3; i++) {
+            if(response.data[i].option_lettering==null) {
+                    response.data[i].option_lettering="레터링안함";
+            }
+            if(response.data[i].optionChar==null) {
+                response.data[i].optionChar="캐릭터선택안함";
+            }
+            if(response.data[i].optionRapping==null) {
+                response.data[i].optionRapping="포장지선택안함";
+            }
+            if(response.data[i].optionGas==null) {
+                response.data[i].optionGas="가스선택안함";
+            }
+            }
+
+        for(let i = 0; i < 3; i++){
+            if(i==1) {
+                review_dom= document.getElementById("product_review_id");
+            }else if(i==2){
+                review_dom=document.getElementById("product_review_id2");
+            }else {
+                review_dom=document.getElementById("product_review_id3");
+            }
+            if(response.data[i].reviewPhoto==null){
+                review_dom.innerHTML +=`
+                <div class="review_all_feed_data_wrapper02">
+                <div class="review_all_feed_data_wrapper03">
+                    <span class="review_all_userId" >${response.data[i].userId}</span>
+                    <span class="review_all_date">${response.data[i].reviewUpdate}</span>
+                </div>
+                <div class="review_all_star_wrapper01">
+                    <div class="review_all_star_wrapper02">
+                        <div id="review01_id></div>
+                        <div id="review02_id></div>
+                        <div id="review03_id></div>
+                        <div id="review04_id></div>
+                        <div id="review05_id></div>
+                    </div>
+                </div>
+            </div>
+            <div class="review_all_img_wrapper01-2">
+                <div class="review_all_img_wrapper02">
+                    <div class="review_all_img_wrapper03">
+                        
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="review_all_option_wrapper">
+                    <div class="review_all_option">
+                        <span>선택 옵션</span>
+                        <div>${response.data[i].option_lettering} ${response.data[i].optionChar} ${response.data[i].optionRapping} ${response.data[i].optionGas}</div>
+                    </div>
+                </div>
+                <div class="review_all_text">
+                ${response.data[i].reviewContent}
+                </div>
+            </div>   
+            `
+                }else{
+                review_dom.innerHTML +=`
+                <div class="review_all_feed_data_wrapper02">
+                <div class="review_all_feed_data_wrapper03">
+                    <span class="review_all_userId" >${response.data[i].userId}</span>
+                    <span class="review_all_date">${response.data[i].reviewUpdate}</span>
+                </div>
+                <div class="review_all_star_wrapper01">
+                    <div class="review_all_star_wrapper02">
+                        <div>⭐️</div>
+                        <div>⭐️</div>
+                        <div>⭐️</div>
+                        <div>⭐️</div>
+                        <div>⭐️</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review_all_img_wrapper01-2">
+                <div class="review_all_img_wrapper02">
+                    <div class="review_all_img_wrapper03">
+                        <div class="review_all_img_wrapper04">
+                        <img src="${response.data[i].reviewPhoto}" alt="리뷰사진">
+                        </div>
+                           
+                        </div>
+                        
+                    </div>
+                    <div class="review_all_img_sqs_icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="review_all_option_wrapper">
+                    <div class="review_all_option">
+                        <span>선택 옵션</span>
+                        <div>${response.data[i].option_lettering} ${response.data[i].optionChar} ${response.data[i].optionRapping} ${response.data[i].optionGas}</div>
+                    </div>
+                </div>
+                <div class="review_all_text">
+                ${response.data[i].reviewContent}
+                </div>
+            </div>   
+            `}
+        }
+        error: (error) => {
+            if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                alert(JSON.stringify(error.responseJSON.data));
+            }else {
+                console.log("요청실패");
+                console.log(error);
+            }
+        }}
+    });
+}
+
+
+//사진리뷰
+function prdReviewPic (productCode) {
+    $.ajax({
+        type: "GET",
+        url: "/prdReviewPic",
+        data: {
+            "prdCode": productCode
+        },
+        success: (response) => {
+            document.getElementById("photo_review_amount_id").innerHTML = response.data[0].recordCount;
+            const photoReviewUlId = document.getElementById("photo_review_ul_id");
+           
+            if(response.data[0].recordCount<5){
+                for(let i=0; i<response.data.length; i++) {
+                    photoReviewUlId.innerHTML += `
+                    <a href="https://zigzag.kr/review/list/110939788?feedType=photo&top_id=29936007">
+                        <li class="photo_review_li">
+                            <img class="photo_review_img" src="${response.data[i].reviewPhoto}" alt="사진리뷰">
+                        </li>
+                    </a> 
+                    `; 
+                } 
+            }else {
+                for(let i=0; i<3; i++) {
+                    photoReviewUlId.innerHTML += `
+                    <a href="https://zigzag.kr/review/list/110939788?feedType=photo&top_id=29936007">
+                        <li class="photo_review_li">
+                            <img class="photo_review_img" src="${response.data[i].reviewPhoto}" alt="사진리뷰">
+                        </li>
+                    </a> 
+                    `; 
+                }
+                photoReviewUlId.innerHTML += `
+                    <a href="http://localhost:8888/pruductPicReview">
+                    <li class="photo_review_li">
+                        <img class="photo_review_img" src="${response.data[3].reviewPhoto}" alt="사진리뷰">
+                    
+                        <div class="photo_review_more_wrapper01">
+                            <div class="photo_review_more_wrapper02">
+                                +
+                                4
+                                <br>
+                                더 보기
+                            </div>
+                        </div>
+                    </li>
+                    </a>`
+
+            }
+
+        },  
+        error: (error) => {
+        }
+    });
+} 
