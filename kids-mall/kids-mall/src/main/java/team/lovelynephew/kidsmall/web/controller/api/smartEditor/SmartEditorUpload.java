@@ -73,7 +73,7 @@ public class SmartEditorUpload {
 				}
 				
 				String sRealFileNm = "";
-				sRealFileNm = UUID.randomUUID().toString() + "_" +sFilename;
+				sRealFileNm = UUID.randomUUID().toString() + "_" + "picture";
 				String rlFileNm = filePath + sRealFileNm;
 				
 				///////////////// 서버에 파일쓰기 ///////////////// 
@@ -117,7 +117,7 @@ public class SmartEditorUpload {
                 // 이미지 정보 출력
                 sFileInfo += "&bNewLine=true";
                 // img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
-                sFileInfo += "&sFileName=" + sFilename;
+                sFileInfo += "&sFileName=" + "picture";
 //                sFileInfo += "&sFileURL=" + "../upload/" + sRealFileNm;
                 sFileInfo += "&sFileURL=" + publicImageUrl;
 				PrintWriter printWriter = response.getWriter();

@@ -47,8 +47,6 @@
 		user_gender,
 		user_region,
 		user_roles,
-		sms_check,
-		email_check,
 		user_birth,
 		user_bank,
 		user_refundaccount
