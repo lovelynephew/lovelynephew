@@ -4,6 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository">
+
 	<select id="getOrderList" 
 			parameterType="Integer" 
 			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
@@ -17,6 +18,7 @@
 				pd.prd_name,
 				pd.prd_main_image,
 				pd.prd_regular_price,
+				pd.prd_discount_price,
 				pd.prd_discount_percentage,
 				
 				om.payment_status,
@@ -59,4 +61,56 @@
 			order by
 				cart_id desc
 	</select>
+	
+	<select id="getOrderDetailInfo" 
+			parameterType="Integer" 
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
+			>
+			SELECT
+				om.order_code,
+				rs.user_code,
+				rs.user_name,
+				rs.user_phone,
+				rs.user_detailaddress,
+				om.payment_method,
+				rs.user_bank,
+				
+				pt.prd_code,
+				pt.prd_name,
+				pt.prd_regular_price,
+				pt.prd_discount_price,
+				pt.prd_discount_percentage,
+				pt.prd_main_image,
+				pt.prd_brif_explain,
+				
+				om.payment_status,
+				om.order_status,
+				om.cs_status,
+				om.payment_amount,
+				om.create_date
+			from
+				order_mst om
+				LEFT OUTER JOIN product pt ON(pt.prd_code = om.prd_code)
+				LEFT OUTER JOIN register rs ON(rs.user_code = om.user_code)
+			WHERE om.order_code = #{orderCode};
+	</select>
+	
+	<select id="getPoint" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.Point">
+		select
+			p.user_code,
+			p.point_code,
+			p.point_value,
+			p.expiration_date,
+			p.point_type,
+			p.create_date
+		from
+			register rs
+			left outer join point p on(p.user_code = rs.user_code)
+		where
+			rs.user_code = #{userCode}
+		order by
+			point_code desc
+	</select>
+	
+	
 </mapper>

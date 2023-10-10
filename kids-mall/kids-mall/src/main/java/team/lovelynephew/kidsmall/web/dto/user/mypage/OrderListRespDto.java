@@ -16,6 +16,7 @@ public class OrderListRespDto {
 	private String prdMainImg;
 	
 	private int regularPrice; 			// 기본가
+	private int discountPrice;
 	private int discountPercentage; 	// 할인율
 	private int paymentAmount;			// 총 구매 가격
 	

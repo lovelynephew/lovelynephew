@@ -120,4 +120,8 @@ public class MypageController {
 		return "mypage/myboard-list";
 	}
 
+	@GetMapping("/mypage/myshopping-info/detail")
+	public String getOrderDetailInfo() {
+		return "mypage/order-detail-info";
+	}
 }

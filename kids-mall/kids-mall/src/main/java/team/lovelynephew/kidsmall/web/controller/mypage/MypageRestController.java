@@ -25,7 +25,9 @@ import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.BoardListRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.CartItemListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderDetailInfoRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.mypage.OrderListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.mypage.PointRespDto;
 
 @Slf4j
 @RestController
@@ -111,4 +113,30 @@ public class MypageRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 가져오기 성공", list));
 	}
 	
+	@GetMapping("/mypage/order/detail/{orderCode}")
+	public ResponseEntity<?> getOrderDetailInfo(@PathVariable int orderCode) {
+		OrderDetailInfoRespDto data = null;
+		try {
+			data = myOrderService.getOrderDetailInfo(orderCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "주문상세정보 가져오기 실패", data));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "주문상세정보 가져오기 성공", data));
+	}
+	
+	@GetMapping("/mypage/point/{userCode}")
+	public ResponseEntity<?> getPoint(@PathVariable int userCode) {
+		List<PointRespDto> point = new ArrayList<PointRespDto>();
+		
+		try {
+			point = myOrderService.getPoint(userCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "포인트 가져오기 실패", point));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "포인트 가져오기 성공", point));
+	}
 }

@@ -1,6 +1,8 @@
 
 load();
 
+
+
 function load() {
     // principal.js 에서 가져옴
     const userCode = getUser().user_code;
@@ -29,6 +31,7 @@ function getData(data) {
     const mainBox= document.querySelector(".main-box");
     
     mainBox.innerHTML = "";
+    let i = 0;
     for(let order of data) {
         let date = order.createDate.replaceAll("-", ".");
         let imgURL = null;
@@ -81,7 +84,15 @@ function getData(data) {
                     </div>
                 </section>
         `;
-
+        
+    }
+    const itemBody = document.querySelectorAll(".order-item-body");
+    for(let i = 0; i < itemBody.length; i++) {
+        itemBody[i].onclick = () => {
+            // const queryString = `?prdName=${order.prdName}&orderCode=${order.orderCode}&prdImg=${order.prdMainImg}&regularPrice=${order.regularPrice}&discountPrice=${order.discountPrice}&orderStatus=${orderStatus}&orderDate=${order.createDate}`;
+            const queryString = `?orderCode=${data[i].orderCode}`;
+            location.href = "/mypage/myshopping-info/detail" + encodeURI(queryString);
+        }
     }
 }
 
@@ -103,3 +114,14 @@ function getData(data) {
 
 //     return orderStatus;
 // }
+
+
+// const itemBody = document.querySelectorAll(".order-item-body");
+// //  `?gender=${data.gender}&age=${data.age}&kidStyle=${data.kidStyle}&priceMin=${data.priceMin}&priceMax=${data.priceMax}`;
+
+// itemBody.forEach((order, index) => {
+//     order[index].onclick = () => {
+//         const queryString = `?prdName=${order.prdName}`;
+//         location.href = "/mypage/myshopping-info/detail" + encodeURI(queryString);
+//     }
+// });
