@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository">
+
+	<select id="getOrderList" 
+			parameterType="Integer" 
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
+			>
+		
+			SELECT
+				om.user_code,
+				om.order_code,
+				
+				pd.prd_code,
+				pd.prd_name,
+				pd.prd_main_image,
+				pd.prd_regular_price,
+				pd.prd_discount_price,
+				pd.prd_discount_percentage,
+				
+				om.payment_status,
+				om.order_status,
+				om.cs_status,
+				om.payment_amount,
+				om.create_date
+			from
+				order_mst om
+				LEFT OUTER JOIN product pd ON(pd.prd_code = om.prd_code)
+			where
+				om.user_code = #{userCode}
+			order by
+				order_code desc
+	</select>
+	
+	<select id="getCartItemList" 
+			parameterType="Integer"
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.Cart"
+			>
+			
+			select
+				ct.cart_id,
+				rs.user_code,
+				
+				pt.prd_code,
+				pt.prd_name,
+				pt.prd_regular_price,
+				pt.prd_discount_price,
+				pt.prd_discount_percentage,
+				pt.prd_main_image,
+				
+				ct.cart_product_count
+			from
+				cart ct
+				left outer join register rs on(rs.user_code = ct.user_id)
+				left outer join product pt on(pt.prd_code = ct.prd_code)
+			where
+				rs.user_code = #{userCode}
+			order by
+				cart_id desc
+	</select>
+	
+	<select id="getOrderDetailInfo" 
+			parameterType="Integer" 
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
+			>
+			SELECT
+				om.order_code,
+				rs.user_code,
+				rs.user_name,
+				rs.user_phone,
+				rs.user_detailaddress,
+				om.payment_method,
+				rs.user_bank,
+				
+				pt.prd_code,
+				pt.prd_name,
+				pt.prd_regular_price,
+				pt.prd_discount_price,
+				pt.prd_discount_percentage,
+				pt.prd_main_image,
+				pt.prd_brif_explain,
+				
+				om.payment_status,
+				om.order_status,
+				om.cs_status,
+				om.payment_amount,
+				om.create_date
+			from
+				order_mst om
+				LEFT OUTER JOIN product pt ON(pt.prd_code = om.prd_code)
+				LEFT OUTER JOIN register rs ON(rs.user_code = om.user_code)
+			WHERE om.order_code = #{orderCode};
+	</select>
+	
+	<select id="getPoint" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.Point">
+		select
+			p.user_code,
+			p.point_code,
+			p.point_value,
+			p.expiration_date,
+			p.point_type,
+			p.create_date
+		from
+			register rs
+			left outer join point p on(p.user_code = rs.user_code)
+		where
+			rs.user_code = #{userCode}
+		order by
+			point_code desc
+	</select>
+	
+	
+</mapper>

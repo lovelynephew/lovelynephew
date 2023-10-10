@@ -7,7 +7,10 @@ let session = loadDataFromSessionStorage();
 console.log(session);
 
 let productList = new Array();
-load();
+
+if(session != null) {
+    load();
+}
 
 function load() {
 

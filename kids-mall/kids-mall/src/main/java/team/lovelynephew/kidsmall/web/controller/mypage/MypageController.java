@@ -115,6 +115,13 @@ public class MypageController {
 		return "mypage/cart";
 	}
 	
-	
+	@GetMapping("/mypage/activity/myboard-list")
+	public String getBoard() {
+		return "mypage/myboard-list";
+	}
 
+	@GetMapping("/mypage/myshopping-info/detail")
+	public String getOrderDetailInfo() {
+		return "mypage/order-detail-info";
+	}
 }

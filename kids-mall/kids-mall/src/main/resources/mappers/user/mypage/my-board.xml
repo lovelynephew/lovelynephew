@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.board.BoardRepository">
+
+	<select id="getMyBoardList" 
+			parameterType="Integer"
+			resultType="team.lovelynephew.kidsmall.domain.user.board.Board"
+			>
+	
+			select
+				rs.user_code,
+				rs.user_name,
+				
+				mb.board_subject,
+				mb.board_content,
+				mb.board_writedate,
+				mb.board_visit
+			from
+				my_board mb
+				left outer join register rs on(rs.user_code = mb.user_id)
+			where
+				rs.user_code = #{user_code}
+			order by
+				id desc
+	</select>
+
+</mapper>

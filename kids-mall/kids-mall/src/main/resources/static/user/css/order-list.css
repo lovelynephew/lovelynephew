@@ -78,6 +78,7 @@ button:hover {
 }
 .order-item-body {
     display: flex;
+    cursor: pointer;
 }
 .order-item-body .order-img {
     width: 80px;
