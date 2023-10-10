@@ -52,10 +52,12 @@ body {
     /* margin-top: 10px; */
     padding-top: 50px;
 }
+
 section {
     display: flex;
     /* background-color: #FFB701; */
 }
+
 .section-left {
     flex-basis: 20%;
     background-color: #f99b20;
@@ -64,7 +66,9 @@ section {
     /* box-shadow: 0 0 2px 1.6px #c7c7c7; */
     height: calc(100vh - 85px);     
     color: #4a4a4a;
+    margin-bottom: 30px;
 }
+
 .product {
     height: 90px;
     font-size: 15px;
@@ -75,22 +79,50 @@ section {
     background-color: #fff;
     margin: 0 20px 0 10px;
     padding: 10px;
+    margin-bottom: 30px;
     /* box-shadow: 0 0 2px 1.6px #c7c7c7; */
 }
 .product-title {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    width: 100%;
+    float: left;
+	vertical-align: middle;
+    cursor: pointer;
 }
+
+.product-title a {
+	display: inline-block;
+	width: 100%;
+}
+
+.product-title a p {
+	display: inline-block;
+}
+
 .product-title img {
+    float: right;
     width: 13px;
-    height: 13px;
-    margin: 10px 0 30px 0; 
+    height: 13px; 
+    margin-top: 5px;
+    margin-right: 10px;
 }
+
+.product-title:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.product1, .product2, .product3, .product4, .product5 {
+	margin-bottom: 20px;
+}
+
 .product1 p {
     font-size: 18px;
     font-weight: bolder;
     color: #404040;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .product2 p,
 .product3 p,
@@ -99,32 +131,42 @@ section {
     font-size: 16px;
     font-weight: bolder;
     color: #404040;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 .toys{
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     
 }
-.toys .toy {
+.toy {
+	display: inline-block;
     width: 190px;
     height: 40px;
-    display: flex;
-    justify-content: space-between;
+/*     display: flex;
+    justify-content: space-between; */
 }
 .toys .toy a {
+	float: left;
+	width: 100%;
     color: #8d8d8d;
     font-size: 14px;
     font-weight: 700;
 }
 .toy img {
-    margin-top: 2px;
+    float: right;
+    margin-top: 3px;
     width: 18px;
     height: 15px;
-    
+    margin-right: 5px;
 }
+
+.toy:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
 .bottom-btn {
     margin-top: 0 !important;
 }
