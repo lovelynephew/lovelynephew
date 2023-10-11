@@ -10,6 +10,6 @@ public interface NoticeListService {
 	public boolean createNoticeList(CreateNoticeReqDto createNoticeReqDto) throws Exception;
 	
 	public List<NoticeListRespDto> getNoticeList(int page, int contentCount) throws Exception;
-
+	
 	public GetNoticeRepDto getNotice(int noticeNum) throws Exception;
 }

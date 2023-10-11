@@ -52,15 +52,18 @@ public class NoticeListController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, page + "page lsit success to load", list));
 	}
 	
-	@GetMapping("/admin/notice/noticelist/{noticeNum}")
+	
+	@GetMapping("/admin/notice/noticelist/detail/{noticeNum}")
 	public ResponseEntity<?> getNotice(@PathVariable int noticeNum) {
 		GetNoticeRepDto getNoticeRepDto = null;
-		
+		System.out.println(noticeNum);
 		try {
 			getNoticeRepDto = noticeListService.getNotice(noticeNum);
+			System.out.println(getNoticeRepDto);
 			if(getNoticeRepDto == null) {
 				return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "DATABASE FAILED!", null));
 			}
+			System.out.println(getNoticeRepDto);
 		} catch (Exception e) {
 			
 			e.printStackTrace();

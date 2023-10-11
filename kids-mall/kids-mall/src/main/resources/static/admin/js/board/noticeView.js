@@ -1,5 +1,6 @@
 let noticeNum = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-load("/admin/notice/noticelist/");
+load("/admin/notice/noticelist/detail/");
+console.log(noticeNum);
 
 function load(adress) {
 	$.ajax({
@@ -7,8 +8,11 @@ function load(adress) {
 		type: "get",
 		url: adress + noticeNum,
 		dataType: "json",
+		
 		success: function(response) {
+			console.log(response.data);
 			getNotice(response.data);
+			
 		},
 		error: function(error) {
 			console.log(error);
@@ -19,15 +23,23 @@ function load(adress) {
 
 function getNotice(notice) {
 	const noticeVeiwSubject = document.querySelector(".notice-view-subject");
-	const noticeViewWriter = doccument.querySelector(".notice-view-writer");
-	const noticeViewUpdate = doucment.querySelector(".notice-view-update");
-	const noticeViewContent = document.querySelector("notice-view-content");
+	const noticeViewWriter = document.querySelector(".notice-view-writer");
+	const noticeViewUpdate = document.querySelector(".notice-view-update");
+	const noticeViewContent = document.querySelector(".notice-view-content");
 	
 	noticeNum = notice.noticeNum;
-	noticeVeiwSubject.innerHTML = notice.noticeSubject;
-	noticeViewWriter.innerHTMl = notice.noticeWriter;
-	noticeViewUpdate.innerHTML = notice.noticeUpdate;
-	noticeViewContent.innerHTML = `<p>
-                            ${notice.noticeContent}
+	
+	noticeVeiwSubject.innerHTML = `<p>
+                            `+ notice.noticeSubject +`
+                            </br>
+                        </p>`;
+	noticeViewWriter.innerHTML = `<p>
+                            `+ notice.noticeWriter +`
+                        </p>`;
+	noticeViewUpdate.innerHTML = `<p>
+                            `+ notice.noticeUpdate +`
+                        </p>`;
+	noticeViewContent.innerHTML = `<p style="height=300px;" >
+                            `+ notice.noticeContent +`
                         </p>`;
 }

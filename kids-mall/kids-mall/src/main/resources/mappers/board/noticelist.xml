@@ -40,10 +40,17 @@
 		limit
 			#{totalPage}, #{count};
   	</select>
-  	<select id="getNotice" parameterType="hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
+  	<select id="getNotice" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.admin.board.NoticeList">
   		SELECT
-  			*
+  			notice_num,
+  			notice_subject,
+  			notice_writer,
+  			notice_content,
+  			notice_regdate,
+  			notice_update
   		FROM
-  			board_notice;
+  			board_notice 
+		WHERE 
+			notice_num = #{noticeNum};
   	</select>
   </mapper>
