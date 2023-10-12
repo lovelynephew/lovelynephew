@@ -98,12 +98,13 @@ function getNoticeList(data) {
 		if(page > 1) {
 			codeCode = content.totalCount + r -((page-1)*10);
 		}
-	
+		
+
 		const listContent = `
 			<tr class="notice-row">
 				<td>${codeCode}</td>
 				<td>
-					<a href="/noticelist/detail/">${content.noticeSubject}</a>
+					<a href="/notice/noticelist/detail/${content.noticeNum}">${content.noticeSubject}</a>
 				</td>
 				<td>${content.noticeWriter}</td>
 				<td>${content.noticeUpdate}</td>

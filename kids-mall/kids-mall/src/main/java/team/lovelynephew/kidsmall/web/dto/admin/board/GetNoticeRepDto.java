@@ -12,7 +12,7 @@ public class GetNoticeRepDto {
 	private String noticeSubject;
 	private String noticeWriter;
 	private String noticeContent;
-	private LocalDateTime noticeRegdate;
+	private String noticeRegdate;
 	private String noticeUpdate;
 	
 

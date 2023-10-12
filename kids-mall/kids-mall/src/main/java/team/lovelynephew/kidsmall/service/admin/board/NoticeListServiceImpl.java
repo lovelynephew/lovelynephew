@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.admin.NoticeListRepository;
@@ -53,23 +54,20 @@ public class NoticeListServiceImpl implements NoticeListService{
 	public GetNoticeRepDto getNotice(int noticeNum) throws Exception {
 		GetNoticeRepDto getNoticeRepDto = null;
 		
-		Map<String, Object> reqMap = new HashMap<String, Object>();
-		reqMap.put("notice_num", noticeNum);
 
-		List<NoticeList> noticeLists = noticeListRepository.getNotice(reqMap);
+		NoticeList noticeLists = noticeListRepository.getNotice(noticeNum);
 		
-		NoticeList firstNotice = noticeLists.get(0);
 		getNoticeRepDto = GetNoticeRepDto.builder()
-				.noticeNum(firstNotice.getNotice_num())
-				.noticeSubject(firstNotice.getNotice_subject())
-				.noticeWriter(firstNotice.getNotice_writer())
-				.noticeContent(firstNotice.getNotice_content())
-				.noticeUpdate(firstNotice.getNotice_update().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+				.noticeNum(noticeLists.getNotice_num())
+				.noticeSubject(noticeLists.getNotice_subject())
+				.noticeWriter(noticeLists.getNotice_writer())
+				.noticeContent(noticeLists.getNotice_content())
+				.noticeUpdate(noticeLists.getNotice_update().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))		
 				.build();
 	
 		return getNoticeRepDto;
 	}
-	
+
 
 
 }

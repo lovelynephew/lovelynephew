@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 보기</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/static/user/css/common.css">
+	<link rel="stylesheet" href="/static/user/css/board-view.css">
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../static/user/css/common.css">
-<link rel="stylesheet" href="../../static/user/css/board-view.css">
 <body>
     <div class="container-wrap">
         <div class="container">
@@ -34,20 +35,24 @@
                         <h3>공지사항</h3>
                     </div>
                     <hr />
-                    <div class="notice-view-subject">
-                        몰 오픈을 축하합니다.
+                    <div class="notice-view" style="padding-right: 10px; padding-left: 10px;">
+                        <div class="notice-view-subject" style="margin-bottom: 5px; font-size: 16px;">
+                            <p>
+                                몰 오픈을 축하합니다.
+                            </p>
+                        </div>
+                        <div class="update">
+                            <div class="notice-view-writer">
+                                <span>관리자&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="notice-view-update">
+                                <p> 2023.10.06</p>
+                            </div>
+                        </div>
+                        <div class="notice-view-content" style="height: 300px; padding-top: 10px; font-size: 14px;">
+                            <p>몰 오픈을 축하합니다~</p>
+                        </div>
                     </div>
-                    
-                    <div class="update">
-                        <div class="notice-view-writer">E****</div>
-                        <span class="notice-view-update">2023-05-06</span>
-                    </div>
-                    <div class="notice-view-content">
-                        <p>
-                            몰 오픈을 축하합니다.
-                        </p>
-                    </div>
-                    
                     <div class="write-btn">
 						<a href="/notice/noticelist">
 							<button class="write">목록</button>	
@@ -61,31 +66,31 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-menu-2976215.png" alt="">
                             <p>카테고리</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-baby-4397453.png" alt="">
                             <p>아이정보</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
                             <p>찜</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>

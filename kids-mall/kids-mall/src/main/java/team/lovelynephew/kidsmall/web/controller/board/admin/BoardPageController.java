@@ -18,6 +18,11 @@ public class BoardPageController {
 	public String noticeWrite() {
 		return "admin/noticeboard/admin-notice-write";
 	}
+	//관리자 공지사항 게시물 삭제 페이지
+	@GetMapping("/notice/delete")
+	public String noticeDelete() {
+		return "admin/noticeboard/board-delete";
+	}
 	//상품후기- 상품리스트페이지
 	@GetMapping("/review/product")
 	public String getReviewProduct() {
@@ -28,4 +33,5 @@ public class BoardPageController {
 	public String getReview() {
 		return "admin/noticeboard/admin-product-review-list";
 	}
+	
 }
