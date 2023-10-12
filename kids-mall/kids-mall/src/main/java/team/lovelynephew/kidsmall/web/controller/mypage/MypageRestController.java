@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -138,5 +139,19 @@ public class MypageRestController {
 		}
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "포인트 가져오기 성공", point));
+	}
+	
+	@GetMapping("/mypage/shipping-address/{userCode}")
+	public ResponseEntity<?> getSaveAddress(@PathVariable int userCode, @RequestParam int addrCode) {
+		List<ShippingAddressDto> list = new ArrayList<ShippingAddressDto>();
+
+		try {
+			list = mypageService.getAddressList(userCode, addrCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "배송지 주소 가져오기 실패", list));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "배송지 주소 가져오기 성공", list));
 	}
 }

@@ -37,44 +37,55 @@
 		addr_code = #{addrCode}
 	</select>
 	
-	
-	<!-- <update id="updateAddr" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
-	UPDATE
-		shipping_address
-	SET
-		user_address = #{user_address},
-		user_detailaddress = #{user_detailaddress},
-		user_phone = #{user_phone},
-		user_email = #{user_email},
-		sms_check = #{sms_check},
-		email_check = #{email_check},
-		user_updatedate = NOW(),
-		user_birth = #{user_birth},
-		user_bank = #{user_bank},
-		user_refundaccount = #{user_refundaccount}
-	WHERE
-		user_code = #{user_code}
-	</update> -->
+	<select id="getSaveAddrList" 
+			parameterType="Integer" 
+			resultType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity"
+			>
+			SELECT
+				sa.addr_code,
+				rs.user_code,
+				rs.user_name,
+				sa.addr_name,
+				sa.addr_zip_code,
+				sa.road_address,
+				sa.addr_detail,
+				sa.addr_tel,
+				sa.addr_emergentel,
+				sa.addr_require,
+				sa.addr_def
+			FROM
+				shipping_address sa
+				left outer join register rs on(rs.user_code = sa.user_code)
+			WHERE
+				rs.user_code = #{userCode}
+				<if test="addrCode != 0">
+					and addr_code = #{addrCode}
+				</if>
+	</select>
 	
 	<update id="updateAddress" parameterType="team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity">
+		<if test='addr_def != "F"'>
+			UPDATE 
+				shipping_address sa
+		    SET 
+		    	sa.addr_def = 'F'
+		    WHERE 
+		    	sa.user_code = #{user_code};
+		</if>
+		
 		update
-			shipping_address sa,
-			register rs
+			shipping_address sa
 		set
-			sa.addr_zip_code = #{addr_zip_code},
 			sa.addr_name = #{addr_name},
+			sa.addr_zip_code = #{addr_zip_code},
+			sa.road_address = #{road_address},
 			sa.addr_detail = #{addr_detail},
 			sa.addr_tel = #{addr_tel},
 			sa.addr_emergentel = #{addr_emergentel},
 			sa.addr_require = #{addr_require},
 			sa.addr_def = #{addr_def}
-			
-			<if test='addr_def != "F"'>
-				,rs.user_address = #{addr_zip_code},
-				rs.user_detailaddress = #{addr_detail}
-			</if>
 		where
-			rs.user_code = #{user_code} and sa.addr_name = #{addr_name}
+			sa.addr_code = #{addr_code}
 	</update>
 	
 	
