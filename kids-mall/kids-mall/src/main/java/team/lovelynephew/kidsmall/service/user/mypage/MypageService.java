@@ -10,5 +10,8 @@ public interface MypageService {
 	
 	public List<ShippingAddressDto> getAddressList(int userCode, int addrCode) throws Exception;
 
+	//배송지 수정
 	public boolean updataAddress(ShippingAddressDto shippingAddressDto) throws Exception;
+	
+	
 }

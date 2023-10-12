@@ -22,10 +22,11 @@ public class ShippingAddressDto {
 	public MypageEntity toEntity() {
 		return MypageEntity.builder()
 				.user_code(userCode)
-				.addr_zip_code(addrZipCode)
 				.addr_name(addrName)
+				.addr_zip_code(addrZipCode)
 				.addr_detail(addrDetail)
 				.addr_tel(addrTel)
+				.addr_emergentel(addrEmergentel)
 				.addr_require(addrRequire)
 				.addr_def(addrDef)
 				.build();

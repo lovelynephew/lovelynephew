@@ -98,8 +98,14 @@ public class MypageController {
 	
 	//리뷰
 	@GetMapping("/mypage/review")
-	public String myBoardlist() {
+	public String myReviewlist() {
 		return "mypage/myboard-list";
+	}
+	
+	//리뷰 상세페이지
+	@GetMapping("/mypage/review-detail")
+	public String reviewDetail() {
+		return "mypage/review-detail";
 	}
 	
 	//포인트

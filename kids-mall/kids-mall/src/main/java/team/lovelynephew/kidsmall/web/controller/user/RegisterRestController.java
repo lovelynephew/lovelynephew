@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,7 @@ public class RegisterRestController {
 	private final PrincipalDetailsService principalDetailsService;
     private final MailService mailService;
 	
+    //회원가입
 	@ValidCheck
 	@PostMapping("/register")
 	public ResponseEntity<?> saveRegister(@RequestBody @Valid RegisterDto registerDto, BindingResult bindingResult) {
@@ -50,6 +52,8 @@ public class RegisterRestController {
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "회원가입 성공", status));
 	}
+	
+	//아이디 중복체크
 	@ValidCheck
 	@GetMapping("/register/idCheck")
 	public ResponseEntity<?> userIdCheck(@Valid IdCheckDto idCheckDto, BindingResult bindingResult) {
@@ -65,18 +69,21 @@ public class RegisterRestController {
 			return ResponseEntity.ok().body(new CMRespDto<>(1, "회원가입 가능여부", status));
 	}
 	
+	//회원정보 수정
 	@ValidCheck
 	@PutMapping("/mypage/edit-mypage/{userCode}")
 	public ResponseEntity<?> updateUser(@RequestBody @Valid EditUserReqDto editUserReqDto, BindingResult bindingResult) {
 		boolean status = false;
-		
+		System.out.println(editUserReqDto);
 		try {
 			status = registerService.updateUser(editUserReqDto);
-			System.out.println(editUserReqDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "UPDATE FAILED", status));
+		
+			
 		}
+		
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "UPDATE SUCCESS", status));
 		

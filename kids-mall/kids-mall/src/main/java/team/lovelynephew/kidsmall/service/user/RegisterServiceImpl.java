@@ -37,6 +37,7 @@ public class RegisterServiceImpl implements RegisterService {
 	//회원정보수정
 	@Override
 	public boolean updateUser(EditUserReqDto editUserReqDto) throws Exception {
+		System.out.println(editUserReqDto);
 		return registerRepository.updateUser(editUserReqDto.editToEntity()) > 0;
 	}
 

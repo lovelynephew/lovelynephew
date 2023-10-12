@@ -1,26 +1,43 @@
 /*배송지 등록*/
 
-const btnSave = document.querySelector("#btn-save");
-const inputData = document.querySelectorAll(".input_wrap input");
+const btnSave = document.querySelector("#btnsave");
+const dataInput = document.querySelectorAll(".input_wrap input");
+const addrName = document.querySelector("#addr-name");
+const addrZip = document.querySelector("#addr-zip");
+const addrDetail = document.querySelector("#addr-detail");
+const addrTel1 = document.querySelector("#addr-tel1");
+const addrTel2 = document.querySelector("#addr-tel2");
+const addrMessage = document.querySelector("#addr-message");
+const addrDef = document.querySelector("#addr-def");
+
+let checkAddrFlag = false;
+
 
 btnSave.onclick = () => {
+	
+	if (addrDef.checked) {
+		addrDef.value = "T";
+	} else {
+		addrDef.value = "F";
+	}
 
-    let obj = {
-        addrName: inputData[0].value,
-        addrZipCode: inputData[1].value,
-        addrDetail: inputData[2].value,
-        addrTel: inputData[3].value,
-        addrEmergentel: inputData[4].value,
-        addrRequire: inputData[5].value,
-        addrDef: inputData[6].value
+    let addrData = {
+        addrName: addrName.value,
+        addrZipCode: addrZip.value,
+        addrDetail: addrDetail.value,
+        addrTel: addrTel1.value,
+        addrEmergentel: addrTel2.value,
+        addrRequire: addrMessage.value,
+        addrDef: addrDef.value
     };
 
     $.ajax({
+		async: false,
         type: "post",
         url: "/mypage/myshopping-info/shippingaddress-registration",
         contentType: "application/json",
         dataType: "json",
-        data: JSON.stringify(obj),
+        data: JSON.stringify(addrData),
         success: (response) => {
 			if(response.data) {
 				alert("배송지 등록 성공");
@@ -33,12 +50,11 @@ btnSave.onclick = () => {
 			   }else {
 				   console.log("요청실패");
 				   console.log(error);
-				   alert("회원가입 실패");
+				   alert("배송지 등록 실패");
 			   }
 		}
     });
 }
-
 
 
 

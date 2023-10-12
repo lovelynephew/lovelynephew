@@ -19,6 +19,7 @@ public class EditUserReqDto {
 	private String userId;
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\\d~!@#$%^&*()+|=]{5,16}$", message = "영문자, 숫자, 특수문자를 모두 포함하여 6자 이상 17자 이하 입력만 가능 합니다.")
 	private String userPwd;
+	private String userPostcode;
 	private String userAddress;
 	private String userDetailaddress;
 	private String userName;
@@ -29,8 +30,7 @@ public class EditUserReqDto {
 	private String userGender;
 	private int userRegion;
 	private String userRoles;
-	private String smsCheck;
-	private String emailCheck;
+	private String userRecive;
 	private int signout; //회원탈퇴
 	private String signoutReason;
 	private LocalDateTime userInertdate; //가입날짜
@@ -44,12 +44,12 @@ public class EditUserReqDto {
 				.user_code(userCode)
 				.user_id(userId)
 				.user_name(userName)
+				.user_postcode(userPostcode)
 				.user_address(userAddress)
 				.user_detailaddress(userDetailaddress)
 				.user_phone(userPhone)
 				.user_email(userEmail)
-				.sms_check(smsCheck)
-				.email_check(emailCheck)
+				.user_recive(userRecive)
 				.user_birth(userBirth)
 				.user_bank(userBank)
 				.user_refundaccount(userRefundaccount)
