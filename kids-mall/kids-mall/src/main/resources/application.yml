@@ -57,16 +57,21 @@ spring:
             token-uri: https://kauth.kakao.com/oauth/token
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
+            
+
+    
   mvc:
     static-path-pattern: /static/**
-    view:
-      prefix: /WEB-INF/ #JSP 파일이 위치할 기본 위치 설정
-      suffix: .jsp
-  thymeleaf:
-    cache: false
-    prefix: classpath:/templates/
-    suffix: .html
-    view-names: thymeleaf/*
+#    view:
+#      prefix: /WEB-INF/ #JSP 파일이 위치할 기본 위치 설정
+#      suffix: .jsp
+#
+#  thymeleaf:
+#    cache: false
+#    prefix: classpath:templates/*
+#    suffix: .html
+#    view-names: thymeleaf/*
+
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://lovelynephewdb.cz997nixexiw.ap-northeast-2.rds.amazonaws.com:3306/lovelynephewdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
