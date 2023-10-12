@@ -1,5 +1,6 @@
 const userName = document.querySelector(".input-username");
 const addressNumber = document.querySelector(".address-number");
+const roadAddress = document.querySelector(".road-address");
 const detailAddress = document.querySelector(".detail-address");
 const phoneNumber = document.querySelector(".phone-number");
 const secondPhone = document.querySelector(".second-phone");
@@ -8,21 +9,60 @@ const defAddress = document.querySelector(".default-address");
 
 const deleteButton = document.querySelector(".delete-button");
 
-
 const saveButton = document.querySelector(".btn-save");
 
+const userCode = getUser().user_code;
 
-setData();
+load();
 
-function setData() {
-	userName.value = getUser().user_name;
-	addressNumber.value = getUser().user_address;
-	detailAddress.value = getUser().user_detailaddress;
-	phoneNumber.value = getUser().user_phone;
+function load() {
+	
+	const lastIndex = location.search.lastIndexOf("?");
+	const addrCode = location.search.substring(lastIndex + 1);
+
+    console.log(addrCode);
+
+    $.ajax({
+		async: false,
+		type: "get",
+		url: `/mypage/shipping-address/${userCode}?` + `${addrCode}`,
+		dataType: "json",
+		success: (response) => {
+			console.log(response.data);
+            setData(response.data);
+		},
+		error: (error) => {
+			if(error.status == 400) {
+				alert(JSON.stringify(error.responseJSON.data));
+			}else {
+				console.log("요청실패");
+				console.log(error);
+			}
+		}
+	})
+}
+
+function setData(data) {
+	userName.value = data[0].addrName;
+	addressNumber.value = data[0].addrZipCode;
+    roadAddress.value = data[0].roadAddress;
+	detailAddress.value = data[0].addrDetail;
+	phoneNumber.value = data[0].addrTel;
+    secondPhone.value = data[0].addrEmergentel;
+    sendMessage.value = data[0].addrRequire;
+	
+	if (defAddress.checked) {
+		defAddress.checked = true;
+	} else {
+		defAddress.checked = false;
+	}
 }
 
 
 saveButton.onclick = () => {
+
+	const lastIndex = location.search.lastIndexOf("=");
+	const addrCode = location.search.substring(lastIndex + 1);
 
 	if (defAddress.checked) {
 		defAddress.value = "T";
@@ -31,9 +71,11 @@ saveButton.onclick = () => {
 	}
 
 	const data = {
-		userCode: getUser().user_code,
+		addrCode: addrCode,
+		userCode: userCode,
 		addrName: userName.value,
 		addrZipCode: addressNumber.value,
+        roadAddress: roadAddress.value,
 		addrDetail: detailAddress.value,
 		addrTel: phoneNumber.value,
 		addrEmergentel: secondPhone.value,
@@ -57,6 +99,7 @@ saveButton.onclick = () => {
 		error: (error) => {
 			if(error.status == 400) {
 				alert(JSON.stringify(error.responseJSON.data))
+				console.log(error);
 			}else {
 				console.log("요청실패");
 				console.log(error);
@@ -116,12 +159,3 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
-
-
-
-
-
-
-
-
-

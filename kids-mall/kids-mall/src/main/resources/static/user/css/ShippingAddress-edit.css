@@ -309,6 +309,10 @@ input[type="checkbox"] {
     background-color: #fff;
 }
 
+.sample6_postcode {
+    width: 100%;
+}
+
 .input-add3 {
     display: flex;
     width: 100%;

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/static/user/css/ShippingAddress-edit.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
     <header>
@@ -35,18 +36,22 @@
 							</div>
 						</div>
 						<div class="div-add4">
-							<p class="p-add1">주소</p>
-							<div class="div-add6">
-								<input type="text" class="input-add3 address-number" placeholder="47551">
-								<button class="btn-add2">
-									<p class="p-add2">우편번호 검색</p>
-								</button>
+							<p class="p-add1">우편번호</p>
+							<div class="div-add6 div-edit6">
+								<input type="text" id="sample6_postcode" class="input-add3 address-number" placeholder="47551">
+								<input type="button" class="p-add2 btn-add2" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></input>
 							</div>
 						</div>
-						<div class="div-add4">
-							<p class="p-add1">상세주소</p>
-							<div class="div-add6">
-								<input type="text" class="input-add1 detail-address" value="부산광역시 연제구 반송로 60 임대형 사무실 4호">
+						<div class="div-edit4">
+							<p class="p-edit1">주소</p>
+							<div class="div-edit6">
+								<input type="text" id="sample6_address" class="input-add3 road-address" placeholder="주소"><br>
+							</div>
+						</div>
+						<div class="div-edit4">
+							<p class="p-edit1">상세주소</p>
+							<div class="div-edit6">
+								<input type="text" id="sample6_detailAddress" class="input-add3 detail-address" placeholder="상세주소">
 							</div>
 						</div>
 						<div class="div-add4">

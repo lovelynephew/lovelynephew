@@ -1,5 +1,8 @@
 package team.lovelynephew.kidsmall.service.user.mypage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +31,17 @@ public class MypageServiceImpl implements MypageService {
 		
 		log.info("status: " + status);
 		return status != 0;
+	}
+
+	@Override
+	public List<ShippingAddressDto> getAddressList(int userCode, int addrCode) throws Exception {
+		List<ShippingAddressDto> list = new ArrayList<ShippingAddressDto>();
+		
+		mypageRepogitory.getSaveAddrList(userCode, addrCode).forEach(address -> {
+			list.add(address.myAddressToDto());
+		});
+		
+		return list;
 	}
 	
 	
