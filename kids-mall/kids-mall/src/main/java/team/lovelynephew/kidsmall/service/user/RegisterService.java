@@ -17,4 +17,6 @@ public interface RegisterService {
 
 	//휴대폰으로가져오기
 	public RegisterEntity getUserByUserPhone(String userPhone) throws Exception;
+	
+	
 }

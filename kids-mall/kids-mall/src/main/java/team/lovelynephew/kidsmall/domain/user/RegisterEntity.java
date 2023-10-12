@@ -20,6 +20,7 @@ public class RegisterEntity {
 	private String user_id;
 	private String oauth2_id;
 	private String user_pwd;
+	private String user_postcode;
 	private String user_address;
 	private String user_detailaddress;
 	private String user_name;
@@ -28,8 +29,7 @@ public class RegisterEntity {
 	private String user_gender;
 	private int user_region;
 	private String user_roles;
-	private String sms_check;
-	private String email_check;
+	private String user_recive;
 	private int signout; //회원탈퇴
 	private String signout_reason;
 	private LocalDateTime user_inertdate; //가입날짜

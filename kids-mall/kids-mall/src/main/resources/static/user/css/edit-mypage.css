@@ -305,7 +305,7 @@ div { display: block; }
 
 
 /* input */
-input[type="radio"] {
+input[type="checkbox"] {
     position: relative;
     opacity: 1;
     width: 18px;
@@ -401,3 +401,28 @@ rect {
     stroke-width: 0.96;
 }
 
+.find-btn {
+    margin-bottom: 4px;
+    margin-left: 12px;
+    font-size: 13px;
+
+    font-weight: 400;
+    letter-spacing: -.2px;
+    line-height: 16px;
+    margin: 20px;
+    white-space: nowrap;
+    
+    width: 100px;
+    height: 45px;
+    border: 1px solid rgb(204, 204, 204);
+    position: static;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    font-weight: 400;
+    cursor: pointer;
+}

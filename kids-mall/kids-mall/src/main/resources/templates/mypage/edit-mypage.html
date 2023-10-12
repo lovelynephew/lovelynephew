@@ -27,7 +27,7 @@
 	</header>
 	
 		<main class="main-edit">
-			<form>
+			<form id="form" method="post">
 				<table>
 					<div class="container">
 						<div class="div-edit4">
@@ -53,54 +53,49 @@
 						<div class="div-edit4">
 							<p class="p-edit1">우편번호</p>
 							<div class="div-edit6">
-								<input type="text" id="sample6_postcode" placeholder="우편번호">
-								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+								<input type="text" id="sample6_postcode" placeholder="우편번호" class="input-edit1">
+								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="find-btn"><br>
 							</div>
 						</div>
 						<div class="div-edit4">
 							<p class="p-edit1">주소</p>
 							<div class="div-edit6">
-								<input type="text" id="sample6_address" placeholder="주소"><br>
+								<input type="text" id="sample6_address" placeholder="주소" class="input-edit1"><br>
 							</div>
 						</div>
 						<div class="div-edit4">
 							<p class="p-edit1">상세주소</p>
 							<div class="div-edit6">
-								<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+								<input type="text" id="sample6_detailAddress" placeholder="상세주소" class="input-edit1">
 							</div>
 						</div>
 						<div class="div-edit4">
 							<p class="p-edit1">휴대폰 번호</p>
 							<div class="div-edit6">
-								<input type="tel" id="edit-phone" class="input-edit2">
+								<input type="tel" id="edit-phone" class="input-edit1" placeholder="숫자만 입력해 주세요.">
 							</div>
 						</div>
 						<div class="div-edit4">
 							<p class="p-edit1">이메일 주소</p>
 							<div class="div-edit6">
-								<input type="text" id="edit-email" class="input-edit1">
+								<input type="text" id="edit-email" class="input-edit1" placeholder="이메일">
 							</div>
 						</div>
 						<div class="div-edit4">
-							<p class="p-edit1">SMS 수신여부</p>
+							<p class="p-edit1">마케팅 수신여부</p>
 							<div class="div-edit6" id="smsRadio">
-								<input type="text" class="smstype" value="1" style="display: none;">
-							
-								<input type="radio" id="sms-true" name="option1" class="input-edit4" value="수신함">
-								<label class="label-edit1">수신함</label>
-								<input type="radio" id="sms-false" name="option1" class="input-edit4" value="수신안함" checked>
-								<label class="label-edit1">수신안함</label>
-							</div>
-						</div>
-						<div class="div-edit4">
-							<p class="p-edit1">이메일 수신여부</p>
-							<div class="div-edit6" id="emailRadio">
-								<input type="text" class="emailtype" value="1" style="display: none;">
-							
-								<input type="radio" id="email-true" name="option2" class="input-edit4" value="수신함">
-								<label class="label-edit1">수신함</label>
-								<input type="radio" id="email-false" name="option2" class="input-edit4" value="수신안함" checked>
-								<label class="label-edit1">수신안함</label>
+								
+								<input type="checkbox" class="input-edit4" value="sms" id="recive">
+								<label class="label-edit1">
+								sms 수신동의
+								</label>
+								
+								<input type="checkbox" class="input-edit4" value="email" id="recive">
+								<label class="label-edit1">
+								email 수신동의
+								</label>
+								
+								<input type="hidden" class="receive-hidden">
 							</div>
 						</div>
 						<div class="div-edit8">
