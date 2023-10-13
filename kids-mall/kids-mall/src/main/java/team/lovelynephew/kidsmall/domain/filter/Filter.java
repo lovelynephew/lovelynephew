@@ -14,7 +14,7 @@ import team.lovelynephew.kidsmall.web.dto.filter.SearchProductRespDto;
 @Data
 public class Filter {
 	private int filter_code;
-	private int user_flag;
+	private int user_code;
 	private String filter_name;
 	private String gender;
 	private int age;

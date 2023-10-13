@@ -12,7 +12,7 @@
 			filter_mst
 		values(
 		0,
-		#{user_flag},
+		#{user_code},
 		#{filter_name},
 		#{gender},
 		#{age},

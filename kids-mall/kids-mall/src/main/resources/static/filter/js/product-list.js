@@ -26,8 +26,8 @@ if (session != null) {
                                         <div class="recommend">
                                             <div class="recommend-img">
                                                 <img src="/static/images/jpg/ballonpackage.jpg" alt="">
-                                                <p class="explain">${productList[i].prdName}</p>
-                                                <p class="price">${productList[i].prdRegularPrice}원</p>
+                                                <p class="explain inner-explain">${productList[i].prdName}</p>
+                                                <p class="price inner-price">${productList[i].prdRegularPrice}원</p>
                                             </div>
                                         </div>
             `;
@@ -44,8 +44,8 @@ if (session != null) {
                                                     <div class="sale">${roundedDiscountRate}%</div>
                                                     <p class="sale-price">${productList[i].prdRegularPrice}원</p>
                                                 </div>
-                                                <p class="explain">${productList[i].prdName}</p>
-                                                <p class="price">${productList[i].prdDiscountPrice}원</p>
+                                                <p class="explain inner-explain">${productList[i].prdName}</p>
+                                                <p class="price inner-price">${productList[i].prdDiscountPrice}원</p>
                                             </div>
                                         </div>
             `;

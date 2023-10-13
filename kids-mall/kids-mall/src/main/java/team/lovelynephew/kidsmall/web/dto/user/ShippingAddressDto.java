@@ -24,6 +24,7 @@ public class ShippingAddressDto {
 				.user_code(userCode)
 				.addr_name(addrName)
 				.addr_zip_code(addrZipCode)
+				.road_address(roadAddress)
 				.addr_detail(addrDetail)
 				.addr_tel(addrTel)
 				.addr_emergentel(addrEmergentel)
