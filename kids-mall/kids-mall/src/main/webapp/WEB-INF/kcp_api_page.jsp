@@ -25,7 +25,7 @@
 <%@ page import="org.bouncycastle.operator.InputDecryptorProvider" %>
 <%@ page import="org.bouncycastle.operator.OperatorCreationException" %>
 <%!
-    /*
+    /* 
     ==========================================================================
     null 값을 처리하는 메소드                                                               
     --------------------------------------------------------------------------
@@ -47,7 +47,7 @@
         PrivateKey priKey = null;
         
         // 개인키 인증서 경로 및 비밀번호(테스트용)
-        String filePath = "/Users/smile/Desktop/certificate/splCert.pem";
+        String filePath = "C:\\...\\certificate\\splPrikeyPKCS8.pem";
         String privateKeyPassword = "changeit";
     
         try
@@ -149,19 +149,19 @@
     String kcp_cert_info        = "-----BEGIN CERTIFICATE-----MIIDgTCCAmmgAwIBAgIHBy4lYNG7ojANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJLUjEOMAwGA1UECAwFU2VvdWwxEDAOBgNVBAcMB0d1cm8tZ3UxFTATBgNVBAoMDE5ITktDUCBDb3JwLjETMBEGA1UECwwKSVQgQ2VudGVyLjEWMBQGA1UEAwwNc3BsLmtjcC5jby5rcjAeFw0yMTA2MjkwMDM0MzdaFw0yNjA2MjgwMDM0MzdaMHAxCzAJBgNVBAYTAktSMQ4wDAYDVQQIDAVTZW91bDEQMA4GA1UEBwwHR3Vyby1ndTERMA8GA1UECgwITG9jYWxXZWIxETAPBgNVBAsMCERFVlBHV0VCMRkwFwYDVQQDDBAyMDIxMDYyOTEwMDAwMDI0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAppkVQkU4SwNTYbIUaNDVhu2w1uvG4qip0U7h9n90cLfKymIRKDiebLhLIVFctuhTmgY7tkE7yQTNkD+jXHYufQ/qj06ukwf1BtqUVru9mqa7ysU298B6l9v0Fv8h3ztTYvfHEBmpB6AoZDBChMEua7Or/L3C2vYtU/6lWLjBT1xwXVLvNN/7XpQokuWq0rnjSRThcXrDpWMbqYYUt/CL7YHosfBazAXLoN5JvTd1O9C3FPxLxwcIAI9H8SbWIQKhap7JeA/IUP1Vk4K/o3Yiytl6Aqh3U1egHfEdWNqwpaiHPuM/jsDkVzuS9FV4RCdcBEsRPnAWHz10w8CX7e7zdwIDAQABox0wGzAOBgNVHQ8BAf8EBAMCB4AwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAQEAg9lYy+dM/8Dnz4COc+XIjEwr4FeC9ExnWaaxH6GlWjJbB94O2L26arrjT2hGl9jUzwd+BdvTGdNCpEjOz3KEq8yJhcu5mFxMskLnHNo1lg5qtydIID6eSgew3vm6d7b3O6pYd+NHdHQsuMw5S5z1m+0TbBQkb6A9RKE1md5/Yw+NymDy+c4NaKsbxepw+HtSOnma/R7TErQ/8qVioIthEpwbqyjgIoGzgOdEFsF9mfkt/5k6rR0WX8xzcro5XSB3T+oecMS54j0+nHyoS96/llRLqFDBUfWn5Cay7pJNWXCnw4jIiBsTBa3q95RVRyMEcDgPwugMXPXGBwNoMOOpuQ==-----END CERTIFICATE-----";
     String enc_data             = f_get_parm( request.getParameter( "enc_data" )); // 암호화 인증데이터
     String enc_info             = f_get_parm( request.getParameter( "enc_info" )); // 암호화 인증데이터
-    String ordr_mony            = "1"; // 결제요청금액   ** 1 원은 실제로 업체에서 결제하셔야 될 원 금액을 넣어주셔야 합니다. 결제금액 유효성 검증 **
+    String ordr_mony            = f_get_parm( request.getParameter( "good_mny"  )); ; // 결제요청금액   ** 1 원은 실제로 업체에서 결제하셔야 될 원 금액을 넣어주셔야 합니다. 결제금액 유효성 검증 **
     /* = -------------------------------------------------------------------------- = */
     String use_pay_method       = f_get_parm( request.getParameter( "use_pay_method" )); // 결제 방법
     String ordr_idxx            = f_get_parm( request.getParameter( "ordr_idxx" )); // 주문번호
 
     JSONObject json_req = new JSONObject();
 
-    json_req.put("tran_cd", "00100000");
-    json_req.put("site_cd", "T1234");
+    json_req.put("tran_cd", tran_cd);
+    json_req.put("site_cd", site_cd);
     json_req.put("kcp_cert_info", kcp_cert_info);
-    json_req.put("enc_data", "SnvXdGftIEjAequorkpNhJXc4u3GRuotLHW9vyDDOhdeorM4DPXMJgJlIEoRo6divo=");
-    json_req.put("enc_info", "A12345B12345");
-    json_req.put("ordr_mony","1004");
+    json_req.put("enc_data", enc_data);
+    json_req.put("enc_info", enc_info);
+    json_req.put("ordr_mony",ordr_mony);
 
     String temp_req_data = json_req.toString();
     String req_data = temp_req_data.replace(",",",\r\n");
@@ -785,7 +785,7 @@
                     <div class="right">
                         <div class="ipt-type-1 pc-wd-2">
                             <%=bankcode %>
-                        </div>
+                        </div>  
                     </div>
                 </li>
                 <li>

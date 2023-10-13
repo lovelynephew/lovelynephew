@@ -911,7 +911,7 @@
 .review_all_feed_data_wrapper01-2,
 .review_all_feed_data_wrapper01-3{
     padding: 24px 16px 16px;
-    border-bottom: 8px solid rgb(245, 246, 248);
+    /* border-bottom: 8px solid rgb(245, 246, 248); */
 }
 
 .review_all_feed_data_wrapper01-4{

@@ -17,7 +17,7 @@
 	   	FROM board_review
 	   	WHERE prd_code = 1 AND review_photo IS NOT NULL) AS record_count
 	FROM board_review
-	WHERE prd_code = 1 AND review_photo IS NOT NULL;
+	WHERE prd_code = 1 AND review_photo IS NOT NULL OR review_photo != "";
 </select>
   
   
