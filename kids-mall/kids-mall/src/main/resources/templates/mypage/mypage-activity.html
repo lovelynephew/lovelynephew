@@ -4,25 +4,32 @@
 <meta charset="UTF-8">
 <title>조카바보 - 활동정보</title>
 <link rel="stylesheet" href="/static/user/css/mypage-activity.css">
+<link rel="stylesheet" href="../../static/user/css/common.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <header>
-		<nav class="head-nav">
-			<div class="divbtn-back">
-				<button type="button" class="btn-back" onclick="location.href='/mypage'">
-					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
-						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
-					</svg>
-				</button>
-			</div>
-			<div class="div-mypage1">
-				<div class="body_17 div-mypage2">활동 정보</div>
-			</div>
-			<div class="div-mypage0"></div>
-		</nav>
-	</header>
 	<div class="container">
+    <!-- header 시작 -->
+        <div class="header">
+            <div class="header-img">
+                <button type="button" class="btn-back" onclick="location.href='/mypage'">
+                    <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+                        <path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="header-title">
+                <h3>활동 정보</h3>
+            </div>
+            <a href="/cart" class="a-cart">
+                <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
+                   <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
+                </svg>
+                <div class="div-cartnum">1</div>
+             </a>
+        </div>
+    <!-- header 끝 -->
 		<main class="main-mypage">
 			<div class="main-div1">
 				<div class="main-div2">
@@ -82,6 +89,42 @@
 			</button>
 			<div class="gray-line"></div>
 		</main>
+        <div class="bottom-btn">
+            <ul>
+                <li>
+                    <a href="/category">
+                        <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+                        <p>카테고리</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+                        <p>아이정보</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+                        <p>홈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+                        <p>찜</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/mypage">
+                        <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+                        <p>나의정보</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
 	</div>
+	<script type="text/javascript" src="/static/user/js/principal.js"></script>
+	<script type="text/javascript" src="/static/user/js/mypage-activity.js"></script>
 </body>
 </html>

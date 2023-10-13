@@ -9,7 +9,6 @@ const editPhone = document.querySelector("#edit-phone");
 const editEmail = document.querySelector("#edit-email");
 const editBirth = document.querySelector("#edit-birth");
 const editRecive = document.querySelectorAll("#recive");
-const editBank = document.querySelector("#userbank");
 const editRefundaccount = document.querySelector("#edit-refundaccount");
 const bankList = document.querySelector("#banklist");
 
@@ -35,10 +34,11 @@ function loadUserInfo() {
 	editEmail.value = getUser().user_email;
 	editRecive.value = getUser().user_recive;
 	editBirth.value = getUser().user_birth;
-	editBank.value = getUser().user_bank;
+	bankList.value = getUser().user_bank;
 	editRefundaccount.value = getUser().user_refundaccount;
 	
-	console.log(getUser().user_recive);
+	console.log(getUser().user_bank);
+	console.log(bankList.value);
 	
 	checkRecive();
 	function checkRecive() {

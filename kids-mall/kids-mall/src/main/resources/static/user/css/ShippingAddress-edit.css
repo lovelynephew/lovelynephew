@@ -160,9 +160,11 @@ svg:not(:root) {
     color: #fff;
     padding: 6px 12px;
     margin: auto;
-    margin-top: 50px;
 }
 
+.container {
+	padding-bottom: 80px;
+}
 
 main {
     display: block;

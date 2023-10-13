@@ -41,11 +41,13 @@ button {
     margin: 0;
     padding: 0;
     border: none;    
-}  
-button:hover {
+}
+
+/* button:hover {
     border: 2px solid #f99b20;
     color: #f99b20;
-}
+} */
+
 .order-wrap {
     width: 100%;
     display: flex;

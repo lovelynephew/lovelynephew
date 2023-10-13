@@ -93,7 +93,7 @@ svg:not(:root) {
 
 .a-cart {
     display: flex;
-    margin: 0 0 0 auto;
+/*     margin: 0 0 0 auto; */
     position: relative;
     width: 32px;
     height: 32px;
@@ -107,6 +107,7 @@ svg:not(:root) {
     background-color: #fff;
     margin: 0px auto;
 }
+
 
 div { display: block; }
 .divbtn-back { flex: 1;}
@@ -169,6 +170,14 @@ main {
     font-size: 20px;
     line-height: 24px;
     font-weight: 700;
+}
+
+.main-div2 p {
+	margin: 20px 0px 12px 0px;
+}
+
+.main-div3 p {
+	margin: 12px 0px 12px 0px;
 }
 
 .main-div3 {
@@ -284,5 +293,3 @@ main {
     height: auto;
     
 }
-
-

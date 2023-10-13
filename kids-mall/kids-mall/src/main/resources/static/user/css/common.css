@@ -21,8 +21,8 @@ body {
 }
 .container-wrap {
     margin: 0 auto;
-    padding-right: 20px;
-    padding-left: 20px;
+/*     padding-right: 20px;
+    padding-left: 20px; */
     background-color: #fff;
     max-width: 600px;
     min-height: 100%;
@@ -36,7 +36,7 @@ body {
 /* --------------- 공통 css 끝 ---------------- */
 /* --------------- header ---------------- */
 .header {
-    width: 560px;
+    width: 600px;
     display: flex;
     padding: 20px 20px 5px 20px;
     margin: 0 auto;
@@ -146,6 +146,7 @@ body {
     margin-bottom: 20px;
 }
 hr {
+	margin-top: 3px;
     border: 1px solid #323232;
     margin-bottom: 20px;
 }
@@ -208,6 +209,7 @@ hr {
     color: #9a9898;
     background-color: #fff;
 }
+
 .footer-wrap {
     width: 560px;
     bottom: 0;

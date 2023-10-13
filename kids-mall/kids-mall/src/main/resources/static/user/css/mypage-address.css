@@ -1,0 +1,93 @@
+@charset "EUC-KR";
+
+/* .content-wrap {
+    margin-top: 10px;
+} */
+h3 {
+    text-align: center;
+}
+th {
+    height: 29px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-bottom: 0;
+    /* border: none; */
+    padding: 10px 20px 10px 20px;
+    font-weight: 400;
+    background-color: #e5e5e5;
+    font-size: 13px;
+}
+table {
+    width: 100%;
+    /* border: 1px solid #323232; */
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+}
+table tr {
+    height: 30px;
+}
+td {
+    padding: 15px 10px 16px;
+    font-size: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 29px;
+}
+td.main-adress-wrap {
+display: flex;
+justify-content: center;
+align-items: center; /* 세로 가운데 정렬 */
+height: 100%;
+}
+td.main-adress-center {
+    padding: 0 25px 0 25px;
+}
+.main-adress-center {
+    justify-content: center;
+    align-items: center;
+}
+.main-adress-wrap {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    padding: 0 20px 0 20px;
+}
+.main-adress-font {
+    background-color: #71a1f0;
+    color: #fff;
+    padding: 1px 2px;
+    margin-right: 3px;
+}
+button {
+    cursor: pointer;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.btnbox button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 13px;
+    border-radius: 24px;
+    background: rgb(245, 246, 248);
+    color: #737373;
+    height: 35px;
+    width: 110px;
+}
+.btnbox button:hover {
+border: 2px solid #f99b20;
+color: #f99b20;
+}
+.adress-edit-btn {
+    padding: 3px 5px;
+    background: rgb(245, 246, 248);
+    color: #737373;
+    border: 1px solid #737373;
+}

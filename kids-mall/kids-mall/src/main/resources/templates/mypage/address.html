@@ -7,114 +7,23 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../static/user/css/common.css">
+<link rel="stylesheet" href="../../static/user/css/mypage-address.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<style>
-    .content-wrap {
-        margin-top: 10px;
-    }
-    h3 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    th {
-        height: 29px;
-        line-height: 22px;
-        vertical-align: middle;
-        border-bottom: 0;
-        /* border: none; */
-        padding: 10px 20px 10px 20px;
-        font-weight: 400;
-        background-color: #e5e5e5;
-        font-size: 13px;
-    }
-    table {
-        width: 100%;
-        /* border: 1px solid #323232; */
-        border-collapse: collapse;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    table tr {
-        height: 30px;
-    }
-    td {
-        padding: 15px 10px 16px;
-        font-size: 12px;
-        border-bottom: 1px solid #e5e5e5;
-        height: 29px;
-    }
-    td.main-adress-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* 세로 가운데 정렬 */
-    height: 100%;
-    }
-    td.main-adress-center {
-        padding: 0 25px 0 25px;
-    }
-    .main-adress-center {
-        justify-content: center;
-        align-items: center;
-    }
-    .main-adress-wrap {
-        display: flex;
-        align-items: center;
-        vertical-align: middle;
-        padding: 0 20px 0 20px;
-    }
-    .main-adress-font {
-        background-color: #71a1f0;
-        color: #fff;
-        padding: 1px 2px;
-        margin-right: 3px;
-    }
-    button {
-        cursor: pointer;
-        cursor: pointer;
-        background-color: transparent;
-        font-family: inherit;
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
-    .btnbox button {
-        cursor: pointer;
-        background-color: transparent;
-        font-family: inherit;
-        margin: 0;
-        padding: 0;
-        border: none;
-        font-size: 13px;
-        border-radius: 24px;
-        background: rgb(245, 246, 248);
-        color: #737373;
-        height: 35px;
-        width: 110px;
-    }
-    .btnbox button:hover {
-    border: 2px solid #f99b20;
-    color: #f99b20;
-}
-    .adress-edit-btn {
-        padding: 3px 5px;
-        background: rgb(245, 246, 248);
-        color: #737373;
-        border: 1px solid #737373;
-    }
-</style>
 <body>
     <div class="container-wrap">
         <div class="container">
+        <!-- header 시작 -->
             <div class="header">
-                <div class="header-logo">
-                    <a href="/">
-                        <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
-                    </a>
+                <div class="header-img">
+                    <button type="button" class="btn-back" onclick="location.href='/mypage/myshopping-info'">
+                        <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+                            <path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+                        </svg>
+                    </button>
                 </div>
-                <div class="search">
-                    <span class="search-img"><img src="../../static/images/svg/icons8-search (1).svg" alt=""></span>
-                    <input type="text" class="search-word" placeholder="검색어를 입력하세요.">
-                </div> 
+                <div class="header-title">
+                    <h3>배송 주소록 관리</h3>
+                </div>
                 <a href="/cart" class="a-cart">
                     <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
                        <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
@@ -122,12 +31,13 @@
                     <div class="div-cartnum">1</div>
                  </a>
             </div>
+        <!-- header 끝 -->
             <div class="content-wrap">
                 <div class="table-wrap">
-                    <div class="table-title">
+<!--                     <div class="table-title">
                         <h3>배송 주소록 관리</h3>
-                    </div>
-                    <hr />
+                    </div> -->
+                    <hr>
                     <table>
                         <thead>
                             <th class="checked"><input type="checkbox"></th>
@@ -199,7 +109,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/">
                             <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
@@ -211,14 +121,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/mypage">
                             <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="footer-wrap">
+<!--             <div class="footer-wrap">
                 <footer>
                     <div class="footer-01">
                         <div class="footer-subject">
@@ -384,7 +294,7 @@
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div> -->
         </div>
     </div>
 

@@ -46,7 +46,6 @@ main {
     justify-content: center;
     align-items: center;
 
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -65,6 +64,11 @@ button {
     background: #FFFFFF;
     margin: 0 auto;
     overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.pdp_simple_review {
+	padding-top: 50px;
 }
 
 .access-link {

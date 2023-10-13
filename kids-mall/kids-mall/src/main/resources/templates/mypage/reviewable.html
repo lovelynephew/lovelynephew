@@ -12,16 +12,18 @@
 <body>
     <div class="container-wrap">
         <div class="container">
+        <!-- header 시작 -->
             <div class="header">
-                <div class="header-logo">
-                    <a href="/">
-                        <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
-                    </a>
+                <div class="header-img">
+                    <button type="button" class="btn-back" onclick="location.href='/mypage'">
+                        <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+                            <path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+                        </svg>
+                    </button>
                 </div>
-                <div class="search">
-                    <span class="search-img"><img src="../../static/images/svg/icons8-search (1).svg" alt=""></span>
-                    <input type="text" class="search-word" placeholder="검색어를 입력하세요.">
-                </div> 
+                <div class="header-title">
+                    <h3>리뷰 조회</h3>
+                </div>
                 <a href="/cart" class="a-cart">
                     <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
                        <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
@@ -29,15 +31,16 @@
                     <div class="div-cartnum">1</div>
                  </a>
             </div>
+        <!-- header 끝 -->
             <div class="content-wrap">
                 <div class="table-wrap">
-                    <div class="table-title">
+<!--                     <div class="table-title">
             	        <button type="button" class="btn-back" onclick="location.href='/mypage/activity'">
 							<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
 								<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
 							</svg>
 						</button>
-                    </div>
+                    </div> -->
                     <div class="main-header">
                         <div class="reviewable" onclick="location.href='/mypage/reviewable';">작성 가능한 리뷰</div>
                         <div class="review-list" onclick="location.href='/mypage/review-list';">작성한 리뷰</div>
@@ -162,7 +165,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/">
                             <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
@@ -174,14 +177,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/mypage">
                             <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="footer-wrap">
+<!--             <div class="footer-wrap">
                 <footer>
                     <div class="footer-01">
                         <div class="footer-subject">
@@ -347,7 +350,7 @@
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
