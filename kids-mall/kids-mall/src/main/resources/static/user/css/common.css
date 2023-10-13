@@ -188,7 +188,8 @@ hr {
 }
 
 .bottom-btn ul {
-    
+    max-width: 600px;
+    width: 100%;
     display: flex; 
     justify-content: space-between; /* 각 요소 사이에 공간을 균등하게 배분 */
     padding: 0;

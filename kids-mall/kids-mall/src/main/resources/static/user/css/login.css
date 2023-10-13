@@ -201,7 +201,24 @@ button, input {
     padding: 14px 24px;
     min-height: 50px;
     min-width: 74px;
-    background-color: #FFD1DA;
+    background-color: #fa6ee3;
+    color: #fff;
+    margin: 2px 0px 28px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.btn-login:active {
+    border-radius: 24px;
+    white-space: pre;
+    display: inline-flex;
+    -webkit-box-align: center;
+    justify-content: center;
+    padding: 14px 24px;
+    min-height: 50px;
+    min-width: 74px;
+    background-color: #b34ea2;
     color: #fff;
     margin: 2px 0px 28px;
     width: 100%;
