@@ -10,8 +10,9 @@
 	VALUES (
 		0,
 		#{user_code},
-		#{addr_name},
+		#{name},
 		#{addr_zip_code},
+		#{addr_name},
 		#{addr_detail},
 		#{addr_tel},
 		#{addr_emergentel},
@@ -45,9 +46,9 @@
 				sa.addr_code,
 				rs.user_code,
 				rs.user_name,
-				sa.addr_name,
+				sa.name,
 				sa.addr_zip_code,
-				sa.road_address,
+				sa.addr_name,
 				sa.addr_detail,
 				sa.addr_tel,
 				sa.addr_emergentel,
@@ -76,9 +77,9 @@
 		update
 			shipping_address sa
 		set
-			sa.addr_name = #{addr_name},
+			sa.name = #{name},
 			sa.addr_zip_code = #{addr_zip_code},
-			sa.road_address = #{road_address},
+			sa.addr_name = #{addr_name},
 			sa.addr_detail = #{addr_detail},
 			sa.addr_tel = #{addr_tel},
 			sa.addr_emergentel = #{addr_emergentel},

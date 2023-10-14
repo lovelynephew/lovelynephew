@@ -44,9 +44,9 @@ function getData(data) {
 
                         </div>
                     </td>
-                    <td class="adress-name">${addr.userName}</td>
+                    <td class="adress-name">${addr.name}</td>
                     <td class="adress-phonenum">${addr.addrTel}</td>
-                    <td class="adress">${addr.roadAddress}, ${addr.addrDetail}</td>
+                    <td class="adress">${addr.addrName}, ${addr.addrDetail}</td>
                     <td class="adress-edit">
                         <div class="edit-btn">
                             <button type="button" class="adress-edit-btn" onclick="location.href='/mypage/myshopping-info/shippingaddress-edit'">수정</button>
@@ -59,12 +59,12 @@ function getData(data) {
 
         if(addr.addrDef === 'F') {
             addrNameBox.innerHTML = `
-                    <span>${addr.addrName}</span>
+                    <span>${addr.name}</span>
             `
         } else if(addr.addrDef === 'T') {
             addrNameBox.innerHTML = `
                     <div class="main-adress-font">기본</div>
-                    <span>${addr.addrName}</span>
+                    <span>${addr.name}</span>
             `
         }
 
@@ -74,7 +74,7 @@ function getData(data) {
     const addrData = document.querySelectorAll(".adress-edit-btn");
     for(let i = 0; i < addrData.length; i++) {
         addrData[i].onclick = () => {
-            // const queryString = `?addrCode=${data[i].addrCode}&addrName=${data[i].addrName}&addrZipCode=${data[i].addrZipCode}&roadAddress=${data[i].roadAddress}&addrDetail=${data[i].addrDetail}&addrTel=${data[i].addrTel}&addrEmergentel=${data[i].addrEmergentel}&addrRequire=${data[i].addrRequire}&addrDef=${data[i].addrDef}`;
+            // const queryString = `?addrCode=${data[i].addrCode}&name=${data[i].name}&addrZipCode=${data[i].addrZipCode}&addrName=${data[i].addrName}&addrDetail=${data[i].addrDetail}&addrTel=${data[i].addrTel}&addrEmergentel=${data[i].addrEmergentel}&addrRequire=${data[i].addrRequire}&addrDef=${data[i].addrDef}`;
             const queryString = `?addrCode=${data[i].addrCode}`;
             location.href = "/mypage/myshopping-info/shippingaddress-edit" + encodeURI(queryString);
         }
