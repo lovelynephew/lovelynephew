@@ -33,7 +33,7 @@
 }
 .recommend-box {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     margin-bottom: 20px;
     flex-wrap: wrap;
 }

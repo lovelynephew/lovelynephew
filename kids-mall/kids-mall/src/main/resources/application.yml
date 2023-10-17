@@ -9,6 +9,7 @@ server:
       force-response: true
   tomcat:
     uri-encoding: UTF-8
+    additional-tld-skip-patterns: "*.jar"    
     
 
 spring:
