@@ -12,10 +12,7 @@ public interface NoticeListRepository {
 	
 	public List<NoticeList> getNoticeList(Map<String, Object> map) throws Exception;
 	
-	public int getNoticeNum(int noticeNum) throws Exception;
 	
 	public NoticeList getNotice(int noticeNum) throws Exception;
 	
-	
-
 }

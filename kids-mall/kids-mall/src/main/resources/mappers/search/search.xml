@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="team.lovelynephew.kidsmall.domain.search.SearchRepository">
+	  <select id="getsearchCateProduct" 
+	  		parameterType="String" 
+	  		resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	  <!-- 대분류 검색 -->
+		SELECT 
+			p.prd_code,
+			p.sub_category_code,
+			p.prd_name,
+			p.prd_maker,
+			p.prd_gender,
+			p.prd_age,
+			p.prd_style,
+			p.prd_regular_price,
+			p.prd_discount_price,
+			p.prd_brif_explain,
+			p.prd_detail_explain,
+			p.prd_inventory,
+			p.prd_sales_volume,
+			p.prd_main_image
+		FROM
+			product p LEFT OUTER JOIN sub_category sc 
+			ON p.sub_category_code = sc.sub_category_code
+			LEFT OUTER JOIN parent_category pc 
+			ON sc.parent_category_code = pc.parent_category_code
+		WHERE 
+			pc.parent_category_name LIKE CONCAT('%', #{searchWords}, '%')
+			OR pc.parent_category_name LIKE CONCAT(#{searchWords}, '%')
+			OR pc.parent_category_name LIKE CONCAT('%', #{searchWords})
+			OR pc.parent_category_name LIKE(#{searchWords});
+	  </select>
+	  <select id="getsearchProduct"
+	  		parameterType="String" 
+	  		resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
+	  SELECT 
+			p.prd_code,
+			p.sub_category_code,
+			p.prd_name,
+			p.prd_maker,
+			p.prd_gender,
+			p.prd_age,
+			p.prd_style,
+			p.prd_regular_price,
+			p.prd_discount_price,
+			p.prd_brif_explain,
+			p.prd_detail_explain,
+			p.prd_inventory,
+			p.prd_sales_volume,
+			p.prd_main_image
+		FROM
+			product p LEFT OUTER JOIN sub_category sc 
+		  	ON p.sub_category_code = sc.sub_category_code
+		WHERE 
+			sc.sub_category_name LIKE CONCAT('%', #{searchWords}, '%')
+		  	OR sc.sub_category_name LIKE CONCAT(#{searchWords}, '%')
+		  	OR sc.sub_category_name LIKE CONCAT('%', #{searchWords})
+		  	OR sc.sub_category_name LIKE(#{searchWord})
+		
+			OR p.prd_name LIKE CONCAT ('%', #{searchWords}, '%')
+			OR p.prd_name LIKE CONCAT (#{searchWords}, '%')
+			OR p.prd_name LIKE CONCAT ('%', #{searchWords})
+			OR p.prd_name LIKE (#{searchWords})
+			
+
+			OR p.prd_brif_explain LIKE CONCAT ('%', #{searchWords}, '%')
+			OR p.prd_brif_explain LIKE CONCAT (#{searchWords}, '%')
+			OR p.prd_brif_explain LIKE CONCAT ('%', #{searchWords})
+			OR p.prd_brif_explain LIKE (#{searchWords});
+
+		
+	  </select>
+  </mapper>
+ 

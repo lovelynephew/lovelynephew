@@ -1,98 +1,81 @@
 <!DOCTYPE html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>조카바보 - 나의 위시리스트</title>
+    <title>상품검색</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../static/user/css/common.css">
+    <link rel="stylesheet" href="../../static/user/css/main.css">
+    <link rel="stylesheet" href="/static/user/css/searchpage.css">
+    <link rel="stylesheet" href="../../static/user/css/main-product.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/static/user/css/mywishlist.css">
-<link rel="stylesheet" href="../../static/user/css/common.css">
-
 <body>
     <div class="container-wrap">
         <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <a href="/">
-                        <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
-                    </a>
+                    <div class="header-img">
+                        <a href="/search">
+                            <img src="/static/images/jpg/free-icon-left-arrow-line-symbol-54321.png" alt="">    
+                        </a>
+                    </div>
                 </div>
                 <div class="search">
-                    <span class="search-img"><img src="../../static/images/jpg/free-icon-search-149852.png" alt=""></span>
-                    <input type="text" class="search-word" placeholder="검색어를 입력하세요.">
-                </div> 
-                <a href="/cart" class="a-cart">
-                    <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
-                       <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
-                    </svg>
-                    <div class="div-cartnum">1</div>
-                 </a>
+                    <span class="search-img">
+                        	<img src="/static/images/jpg/free-icon-search-149852.png" alt="">
+                        <a href="/search">
+                            <img class="close-img" src="/static/images/jpg/icons8-close-67.png" alt="">
+                        </a>
+                    </span>
+                    <a href="/search">
+                    	<input type="readonly" class="search-word" placeholder="장난감과 아이의 성향을 검색해보세요.">
+                    </a>
+                </div>  
             </div>
             <div class="content-wrap">
-                <div class="table-wrap">
-                    <div class="table-title">
-            	        <button type="button" class="btn-back" onclick="location.href='/mypage/activity'">
-							<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
-								<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
-							</svg>
-						</button>
-                        <h3>나의 위시리스트</h3>
-                    </div>
-                    <hr />
-                </div>
-            </div>
-            <div class="productbox box1">
-                <div class="recommend-box">
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img class="img-goods" src="../../static/images/jpg/ballonpackage.jpg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
-                        </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
-                    </div>
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img src="../../static/images/jpg/pants.jpg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
-                        </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
-                    </div>
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img src="../../static/images/jpg/bearT-shirt.jpg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
-                        </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
+                <hr>
+                <div>
+					<div class="product-arrange">
+                        <select name="" id="">
+                            <option value="1">추천순</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="2">연령</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="3">성향</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="4">가격</option>
+                        </select>
                     </div>
                 </div>
-                <div class="recommend-box">
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img src="../../static/images/jpg/sinanoroll.jpg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
+                <div class="productbox box2 category-detail">   
+                    <div class="recommend-box">
+                        <!--<div class="recommend">
+                            <div class="recommend-img">
+                                <img src="../../static/images/jpg/ballonpackage.jpg" alt="">
+                                <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
+                                <p class="price">19,900원</p>
+                            </div>
                         </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
-                    </div>
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img src="../../static/images/jpg/pororocars.jpg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
+                        <div class="recommend">
+                            <div class="recommend-img">
+                                <img src="../../static/images/jpg/pants.jpg" alt="">
+                                <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
+                                <p class="price">19,900원</p>
+                            </div>
                         </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
-                    </div>
-                    <div class="recommend">
-                        <div class="recommend-img">
-                            <img src="../../static/images/jpg/babyshark.jpeg" alt="">
-                            <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
-                            <p class="price">19,900원</p>
-                        </div>
-                        <img class="img-heart" src="/static/images/jpg/card_heart_filled.png">
+                        <div class="recommend">
+                            <div class="recommend-img">
+                                <img src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                <p class="explain">레터링 풍선 포장 여아 곰돌이<br>반팔티셔츠</p>
+                                <p class="price">19,900원</p>
+                            </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -100,41 +83,44 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-menu-2976215.png" alt="">
                             <p>카테고리</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-baby-4397453.png" alt="">
                             <p>아이정보</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
                             <p>찜</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>
                 </ul>
             </div>
+        </div>
             <div class="footer-wrap">
                 <footer>
                     <div class="footer-01">
                         <div class="footer-subject">
-                            <p><strong>조카바보</strong></p>
+                            <a href="/">
+                                <img src="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/category/logo/v2_06088e06c72a5f00610e6398366a43ae_JyY4JQghLM_top.jpg" alt="조카바보" data-ez-eb="//ecimg.cafe24img.com/pg357b08311253043/dusgh0624/web/upload/ezst/shop1/ez-logo-top.edibotbanner.json">
+                            </a>
                         </div>
                         <br>
                         <div class="footer-content">
@@ -300,4 +286,5 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="/static/search/searchproduct.js"></script>
 </html>

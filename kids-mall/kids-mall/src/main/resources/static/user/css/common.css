@@ -70,13 +70,13 @@ body {
     font-size: 10pt;
     float: left;
     color: #63717f;
-    padding-left: 45px;
+    padding-left: 35px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
 }
 .search .search-word::-webkit-input-placeholder {
-    color: #65737e;
+    color: #9c9d9d;
  }
  .search .search-word:-moz-placeholder { /* Firefox 18- */
     color: #65737e;  
@@ -88,11 +88,11 @@ body {
     color: #65737e;  
  }
  .search .search-img img {
-    top: 2px;
+    top: 5px;
     left: 10px;
     position: absolute;
-    z-index: 1;
-    width: 25px;
+    z-index: 3;
+    width: 18px;
     height: auto;
  }
  .div-cartnum {
