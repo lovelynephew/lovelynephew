@@ -94,6 +94,20 @@
 		    <artifactId>firebase-admin</artifactId>
 		    <version>8.1.0</version>
 		</dependency>
+		<!-- javax.servlet/jstl -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		</dependency>
+		<!-- tomcat-embed-jasper -->
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+
+
+
 		<!-- email -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
