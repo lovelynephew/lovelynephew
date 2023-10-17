@@ -1,7 +1,6 @@
 /*배송지 등록*/
 
 const btnSave = document.querySelector("#btnsave");
-const dataInput = document.querySelectorAll(".input_wrap input");
 const addrName = document.querySelector("#addr-name");
 const addrZip = document.querySelector("#addr-zip");
 const addrDetail = document.querySelector("#addr-detail");
@@ -47,11 +46,11 @@ btnSave.onclick = () => {
 		error: (error) => {
 			if(error.status == 400) {
 				   alert(JSON.stringify(error.responseJSON.data))
-			   }else {
-				   console.log("요청실패");
-				   console.log(error);
-				   alert("배송지 등록 실패");
-			   }
+			}else {
+				console.log("요청실패");
+				console.log(error);
+				alert("배송지 등록 실패");
+			}
 		}
     });
 }

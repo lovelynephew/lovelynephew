@@ -8,7 +8,7 @@ import team.lovelynephew.kidsmall.domain.filter.Filter;
 
 @Data
 public class FilterDataReqDto {
-	private int userFlag;
+	private int userCode;
 	private String filterName;
 	private String gender;
 	private int age;
@@ -19,7 +19,7 @@ public class FilterDataReqDto {
 	
 	public Filter filterToEntity() {
 		return Filter.builder()
-				.user_flag(userFlag)
+				.user_code(userCode)
 				.filter_name(filterName)
 				.gender(gender)
 				.age(age)
