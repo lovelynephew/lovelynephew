@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.header-img img {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+}
+.search {
+    width: 480px;
+    position: relative;
+    display: inline-block;
+    margin: auto;
+}
+.search .search-word {
+    
+    width: 100%;
+    
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 35px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+.search .search-word::-webkit-input-placeholder {
+    color: #65737e;
+}
+.search .search-word:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;  
+}
+.search .search-word::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;  
+}
+.search .search-word:-ms-input-placeholder {  
+    color: #65737e;  
+}
+.search .search-img img {
+    top: 5px;
+    left: 10px;
+    position: absolute;
+    z-index: 3;
+    width: 18px;
+    height: auto;
+}
+.search .search-img .close-img {
+    top: 5px;
+    left: 450px;
+    position: absolute;
+    z-index: 3;
+    width: 18px;
+    height: auto;
+}
+.section1, 
+.section2 {
+    /* display: block; */
+    margin-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.section1 .item {
+    display: flex;
+}
+.section1 .item img,
+.section2 .item img {  
+    width: 18px;
+    margin-right: 5px;
+}
+.section1 .hot-item span,
+.section2 .hot-item span {
+    font-size: 15px;
+    font-weight: bolder;
+    
+}
+.item .update-time {
+    color: #a1a1a1;
+}
+.section1 .popular-item .item-img-wrap {
+    display: flex;
+    gap: 0 5px;
+}
+.section1 .item-img-wrap .item-img {
+    border: 1px solid rgb(113, 113, 113);
+
+    margin: 35px 0;
+    justify-content: space-between;
+    
+    width: 83px;
+    height: 83px;
+    border-radius: 70%;
+    overflow: hidden;
+    
+}
+.section1 .item-img-wrap .item-img .item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section2 .item {
+    display: flex;
+    justify-content: space-between;
+}
+.section2 .item .popular {
+    display: flex;
+}
+.section2 .popular-item {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.popular-item .item-rank-wrap {
+    margin-top: 20px;
+}
+.item-rank-wrap .rank{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.rank-box {
+    width: 240px;
+    height: 36px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #565656;
+}  
