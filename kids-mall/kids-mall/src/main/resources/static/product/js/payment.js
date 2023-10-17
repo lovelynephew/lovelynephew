@@ -59,10 +59,7 @@ $(document).ready(function() {
 									</h4>
 									<div class="payment_prd_wrapper05">
 										<span class="payment_prd_op_wrapper01">
-											<span>
-											${products[pcode].characterSelect}/${products[pcode].wrappingSelect}/${products[pcode].gasSelect}/${products[pcode].letteringSelect}
-											</span>
-											${products[pcode].prdAmount}개
+											1개
 											<span></span>
 										</span>
 									</div>
@@ -86,12 +83,76 @@ $(document).ready(function() {
 //가격 정보 뿌리기
 	document.getElementById("payment_total_info_reguralPrice").innerHTML = prdRegularP +" 원";
 	document.getElementById("payment_total_info_discountPrice").innerHTML = "(-)" + (prdRegularP - prdDiscountP);
-	document.getElementById("payment_total_info_totaltPrice").value= prdDiscountP;
+	document.getElementById("payment_total_info_totaltPrice").value= prdDiscountP+3000;
 
-    codeExecuted = true; // 코드가 한 번 실행되었음을 표시
+    codeExecuted =false; // 코드가 한 번 실행되었음을 표시
     }	
+
+	openAgreeMomal();
 });
 
+function openAgreeMomal() {
+	const agree01 = document.querySelector(".payment_agreement_info01_wrap03");
+	const buyAgreePopupBackground01 = document.querySelector(".buy_agree_popup_background01");
+	const buyAgreePopupCloseBtn01 = document.querySelector(".buy_agree_popup_close_btn01");
+
+	const agree02 = document.querySelector(".payment_agreement_info02_wrap01");
+	const buyAgreePopupBackground02 = document.querySelector(".buy_agree_popup_background02");
+	const buyAgreePopupCloseBtn02 = document.querySelector(".buy_agree_popup_close_btn03");
+
+	agree01.addEventListener('click', () => {
+		buyAgreePopupBackground02.style.display = 'none';
+		buyAgreePopupBackground01.style.display = 'block';
+	});
+	
+	buyAgreePopupCloseBtn01.addEventListener('click', () => {
+		buyAgreePopupBackground01.style.display = 'none';
+	});
+
+
+	agree02.addEventListener('click', () => {
+		buyAgreePopupBackground01.style.display = 'none';
+		buyAgreePopupBackground02.style.display = 'block';
+
+	 });
+	
+	buyAgreePopupCloseBtn02.addEventListener('click', () => {
+		buyAgreePopupBackground02.style.display = 'none';
+	});
+
+}
+
+function agree1() {
+const agree01 = document.querySelector(".payment_agreement_info01_wrap03");
+const buyAgreePopupBackground01 = document.querySelector(".buy_agree_popup_background01");
+const buyAgreePopupCloseBtn01 = document.querySelector(".buy_agree_popup_close_btn01");
+
+agree01.addEventListener('click', () => {
+	buyAgreePopupBackground01.style.display = 'block';
+});
+
+buyAgreePopupCloseBtn01.addEventListener('click', () => {
+	buyAgreePopupBackground01.style.display = 'none';
+});
+
+}
+
+
+
+function agree2 () {
+const agree02 = document.querySelector(".payment_agreement_info02_wrap01");
+const buyAgreePopupBackground02 = document.querySelector(".buy_agree_popup_background02");
+const buyAgreePopupCloseBtn02 = document.querySelector(".buy_agree_popup_close_btn03");
+
+ agree02.addEventListener('click', () => {
+	console.log("클릭");
+ 	buyAgreePopupBackground02.style.display = 'block';
+ });
+
+buyAgreePopupCloseBtn02.addEventListener('click', () => {
+	buyAgreePopupBackground02.style.display = 'none';
+});
+}
 
 
 
@@ -100,5 +161,46 @@ $(document).ready(function() {
 
 
 
-
-
+{/* <section class="payment_personal_prd_wrapper02">
+					<header class="payment_personal_prd_wrapper03">
+						<div class="payment_personal_prd_top_wrapper01">
+							<div class="payment_personal_prd_brd_name">
+								${products[pcode].name}
+							</div>
+						</div>
+						<div class="shoppring_fee">
+							<span class="shopping_fee_text">배송비</span>
+							<span class="shopping_fee_price"><span>3,000원</span></span>
+						</div>
+					</header>
+					<div class="payment_prd_info_wrapper01">
+						<div class="payment_prd_info_wrapper02"> 
+							<div class="payment_prd_info_wrapper03">
+								<figure>
+									<img class="payment_prd_info_img" src="https://cf.product-image.s.zigzag.kr/original/d/2023/8/25/25938_202308251727060762_56489.gif?width=400&height=400&quality=80&format=webp" alt="">
+								</figure>
+								<div class="payment_prd_info_wrapper04">
+									<h4 class="payment_prd_name">
+										<input type="text" name="good_name" value="${products[pcode].name}" size="100" />
+									</h4>
+									<div class="payment_prd_wrapper05">
+										<span class="payment_prd_op_wrapper01">
+											<span>
+											${products[pcode].characterSelect}/${products[pcode].wrappingSelect}/${products[pcode].gasSelect}/${products[pcode].letteringSelect}
+											</span>
+											${products[pcode].prdAmount}개
+											<span></span>
+										</span>
+									</div>
+									<span class="payment_prd_regular_price">${products[pcode].productRegularPrice}<span>원</span></span>
+									<div class="payment_prd_dis_price_wrapper01">
+										<div class="payment_prd_dis_price_wrapper02">
+											<span class="payment_prd_text">Z할인가</span>
+											<span class="payment_prd_dis_price">${products[pcode].productDiscountPrice}<span>원</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section> */}
