@@ -1,130 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>조카바보 - 배송 주소록 등록</title>
-<link rel="stylesheet" href="/static/user/css/ShippingAddress-registration.css">
-<link rel="stylesheet" href="../../static/user/css/common.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>조카바보 - 배송 주소록 등록</title>
+	<link rel="stylesheet" href="/static/user/css/ShippingAddress-registration.css">
+	<link rel="stylesheet" href="/static/user/css/common.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
+
 <body>
-    <div class="container">
-    <!-- header 시작 -->
-        <div class="header">
-            <div class="header-img">
-                <button type="button" class="btn-back" onclick="location.href='/mypage/myshopping-info/address'">
-                    <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
-                        <path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="header-title">
-                <h3>배송 주소록 등록</h3>
-            </div>
-            <a href="/cart" class="a-cart">
-                <svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
-                   <path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path><path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
-                </svg>
-                <div class="div-cartnum">1</div>
-             </a>
-        </div>
-    <!-- header 끝 -->
-	<div class="main-container">
-		<main class="main-edit">
-			<div class="input-wrap">
-				<form id="form" name="form" action="/mypage/myshopping-info/shippingaddress-registration" method="post">
-					<table>
-						<div class="container">
-							<div class="div-add4">
-								<p class="p-add1">이름</p>
-								<div class="div-add6">
-									<input type="text" class="input-add1" id="addr-name" placeholder="홍길동">
-								</div>
-							</div>
-							<div class="div-add4">
-								<p class="p-add1">주소</p>
-								<div class="div-add6">
-									<input type="text" class="input-add3" id="addr-zip" placeholder="우편번호">
-									<button class="btn-add2">
-										<p class="p-add2">우편번호 검색</p>
-									</button>
-								</div>
-							</div>
-							<div class="div-add4">
-								<p class="p-add1">상세주소</p>
-								<div class="div-add6">
-									<input type="text" class="input-add1" id="addr-detail" placeholder="상세주소를 입력해주세요.">
-								</div>
-							</div>
-							<div class="div-add4">
-								<p class="p-add1">휴대폰 번호</p>
-								<div class="div-add6">
-									<input type="tel" class="input-add2" id="addr-tel1" placeholder="01012341234">
-								</div>
-							</div>
-							<div class="div-add4">
-								<p class="p-add1">비상연락처</p>
-								<div class="div-add6">
-									<input type="tel" class="input-add2" id="addr-tel2" placeholder="01012341234">
-								</div>
-							</div>
-							<div class="div-add4">
-								<p class="p-add1">배송 메세지</p>
-								<div class="div-add6">
-									<input type="text" class="input-add2" id="addr-message" value="문 앞에 놔둬주세요.">
-								</div>
-							</div>
-							<div class="div-add4">
-								<div class="div-add6">
-									<input type="checkbox" name="option1" class="input-add4" id="addr-def" value="T">
-									<label class="label-add1">기본 배송지로 설정</label>
-								</div>
-							</div>
-						</div>
-					</table>
-				</form>
+	<div class="container">
+		<!-- header 시작 -->
+		<div class="header">
+			<div class="header-img">
+				<button type="button" class="btn-back" onclick="location.href='/mypage/myshopping-info/address'">
+					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+					</svg>
+				</button>
 			</div>
-		</main>
+			<div class="header-title">
+				<h3>배송 주소록 등록</h3>
+			</div>
+			<a href="/cart" class="a-cart">
+				<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#121314" class="svg-bagimg">
+					<path stroke="currentColor" stroke-width="2" d="m22.59 10 1.312 14H8.098l1.313-14h13.178Z"></path>
+					<path stroke="currentColor" stroke-width="2" d="M13 14V8.5c0-2 1.5-3 3-3s3 1 3 3V14"></path>
+				</svg>
+				<div class="div-cartnum">1</div>
+			</a>
+		</div>
+		<!-- header 끝 -->
+		<div class="main-container">
+			<main class="main-edit">
+				<div class="input-wrap">
+					<form id="form" name="form" action="/mypage/myshopping-info/shippingaddress-registration"
+						method="post">
+						<table>
+							<div class="container">
+								<div class="div-add4">
+									<p class="p-add1">이름</p>
+									<div class="div-add6">
+										<input type="text" class="input-add1 user-name" placeholder="우리집">
+									</div>
+								</div>
+								<div class="div-add4">
+									<p class="p-add1">우편번호</p>
+									<div class="div-add6 div-edit6">
+										<input type="text" id="sample6_postcode" class="input-add3 addr-zip"
+											placeholder="47551">
+										<input type="button" class="p-add2 btn-add2"
+											onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></input>
+									</div>
+								</div>
+								<div class="div-edit4">
+									<p class="p-edit1">주소</p>
+									<div class="div-edit6">
+										<input type="text" id="sample6_address" class="input-add3 addr-name"
+											placeholder="주소"><br>
+									</div>
+								</div>
+								<div class="div-edit4">
+									<p class="p-edit1">상세주소</p>
+									<div class="div-edit6">
+										<input type="text" class="input-add3 addr-detail" placeholder="상세주소">
+									</div>
+								</div>
+								<div class="div-add4">
+									<p class="p-add1">휴대폰 번호</p>
+									<div class="div-add6">
+										<input type="tel" class="input-add2 addr-tel1" placeholder="01012341234">
+									</div>
+								</div>
+								<div class="div-add4">
+									<p class="p-add1">비상연락처</p>
+									<div class="div-add6">
+										<input type="tel" class="input-add2 addr-tel2" placeholder="01012341234">
+									</div>
+								</div>
+								<div class="div-add4">
+									<p class="p-add1">배송 메세지</p>
+									<div class="div-add6">
+										<input type="text" class="input-add2 addr-message" value="문 앞에 놔둬주세요.">
+									</div>
+								</div>
+								<div class="div-add4">
+									<div class="div-add6">
+										<input type="checkbox" name="option1" class="input-add4 addr-def" value="T">
+										<label class="label-add1">기본 배송지로 설정</label>
+									</div>
+								</div>
+							</div>
+						</table>
+					</form>
+				</div>
+			</main>
+		</div>
+		<button href="/mypage/myshopping-info/address" type="button" class="btn-save">저장하기</button>
 	</div>
-		<button href="/mypage/myshopping-info/address" type="button" class="btn-save" id="btnsave">저장하기</button>
+	<div class="bottom-btn">
+		<ul>
+			<li>
+				<a href="#">
+					<img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+					<p>카테고리</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+					<p>아이정보</p>
+				</a>
+			</li>
+			<li>
+				<a href="/">
+					<img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+					<p>홈</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png"
+						alt="">
+					<p>찜</p>
+				</a>
+			</li>
+			<li>
+				<a href="/mypage">
+					<img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+					<p>나의정보</p>
+				</a>
+			</li>
+		</ul>
 	</div>
-            <div class="bottom-btn">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
-                            <p>카테고리</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
-                            <p>아이정보</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
-                            <p>홈</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img class="menu-bar"
-                                src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
-                            <p>찜</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/mypage">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
-                            <p>나의정보</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-		
-		<script src="/static/user/js/address.js"></script>
+	<script src="/static/user/js/principal.js"></script>
+	<script src="/static/user/js/address-api.js"></script>
+	<script src="/static/user/js/address.js"></script>
 </body>
+
 </html>

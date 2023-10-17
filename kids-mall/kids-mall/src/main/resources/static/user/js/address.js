@@ -1,15 +1,18 @@
 /*배송지 등록*/
 
-const btnSave = document.querySelector("#btnsave");
-const addrName = document.querySelector("#addr-name");
-const addrZip = document.querySelector("#addr-zip");
-const addrDetail = document.querySelector("#addr-detail");
-const addrTel1 = document.querySelector("#addr-tel1");
-const addrTel2 = document.querySelector("#addr-tel2");
-const addrMessage = document.querySelector("#addr-message");
-const addrDef = document.querySelector("#addr-def");
+const btnSave = document.querySelector(".btn-save");
+const userName = document.querySelector(".user-name");
+const addrZip = document.querySelector(".addr-zip");
+const addrName = document.querySelector(".addr-name");
+const addrDetail = document.querySelector(".addr-detail");
+const addrTel1 = document.querySelector(".addr-tel1");
+const addrTel2 = document.querySelector(".addr-tel2");
+const addrMessage = document.querySelector(".addr-message");
+const addrDef = document.querySelector(".addr-def");
 
 let checkAddrFlag = false;
+
+const userCode = getUser().user_code;
 
 
 btnSave.onclick = () => {
@@ -21,8 +24,10 @@ btnSave.onclick = () => {
 	}
 
     let addrData = {
-        addrName: addrName.value,
+		userCode: userCode,
+		name: userName.value,
         addrZipCode: addrZip.value,
+        addrName: addrName.value,
         addrDetail: addrDetail.value,
         addrTel: addrTel1.value,
         addrEmergentel: addrTel2.value,
@@ -54,19 +59,3 @@ btnSave.onclick = () => {
 		}
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
