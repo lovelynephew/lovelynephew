@@ -9,11 +9,12 @@ const filterMenu = document.querySelectorAll(".filter-menu");
 const resetButton = document.querySelector(".reset-button");
 const skipButton = document.querySelector(".skip-button");
 
-let userCode = null;
+let userCode = getUser() != null ? getUser().user_code : null;
 
-if(getUser() != null) {
-    userCode = getUser().user_code;
-}
+let genderCheck = null;
+let ageCheck = null;
+
+load();
 
 let gender = null;
 let age = null;
@@ -28,10 +29,6 @@ styleButtons.forEach((button, index) => {
         styleButtons[index].classList.toggle("active-color");
     };
 });
-
-
-let genderCheck = null;
-let ageCheck = null;
 
 for(let i = 0; i < genderButtons.length; i++) {
     genderButtons[i].onclick = () => {
@@ -54,6 +51,8 @@ for(let i = 0; i < genderButtons.length; i++) {
         }
     }
 }
+
+
 
 for(let i = 0; i < ageRangeButtons.length; i++) {
     ageRangeButtons[i].onclick = () => {
@@ -163,6 +162,9 @@ resetButton.onclick = () => {
         priceMinInput.disabled = false;
         priceMaxInput.disabled = false;
     }
+
+    genderCheck = null;
+    ageCheck = null;
 }
 
 
@@ -204,8 +206,8 @@ function setData() {
         if (button.classList.contains("active-color")) {
             age = button.textContent.charAt(0);
         }
-
-        if(index == 8) {
+        
+        if(button[index] == 8) {
             age = 8;
         }
     });
@@ -217,25 +219,33 @@ function setData() {
     });
 }
 
-
-load();
-
 function load() {
+    const accessLink = document.querySelector(".access-link");
+    if(getUser() != null) {
+        accessLink.innerHTML = `<a href="/" class="signin-link">로그인</a>`;
+    }
+
     if (loadDataFromSessionStorage() != null) {
-        genderButtons.forEach((button) => {
+        genderButtons.forEach((button, index) => {
             if (button.textContent.charAt(0) == loadDataFromSessionStorage().gender) {
                 button.classList.toggle("active-color");
                 console.log("필터 불러오기 test: " + button.textContent);
+            }
+
+            if(button.classList.contains("active-color")) {
+                genderCheck = index;
             }
         });
 
         ageRangeButtons.forEach((button, index) => {
             if (button.textContent.charAt(0) == loadDataFromSessionStorage().age) {
                 button.classList.toggle("active-color");
+            } else if(index == 8 && loadDataFromSessionStorage().age == 8) {
+                button.classList.toggle("active-color");
             }
 
-            if(index == 8 && loadDataFromSessionStorage().age == 8) {
-                button.classList.toggle("active-color");
+            if(button.classList.contains("active-color")) {
+                ageCheck = index;
             }
         });
 
