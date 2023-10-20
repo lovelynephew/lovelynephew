@@ -8,7 +8,7 @@ import net.nurigo.sdk.message.service.DefaultMessageService;
 
 @Configuration
 public class MessageServiceConfig {
-    @Value("${coolsms.api.key}")
+	@Value("${coolsms.api.key}")
     private String apiKey;
 
     @Value("${coolsms.api.secret}")
