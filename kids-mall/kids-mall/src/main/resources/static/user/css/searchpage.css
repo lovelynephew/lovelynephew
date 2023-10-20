@@ -6,6 +6,7 @@
     background-color: transparent;
     width: 18px;
     height: 18px;
+    
 }
 .search {
     width: 480px;
@@ -29,16 +30,16 @@
     border-radius: 30px;
 }
 .search .search-word::-webkit-input-placeholder {
-    color: #65737e;
+    color: #a4a4a4;
 }
 .search .search-word:-moz-placeholder { /* Firefox 18- */
-    color: #65737e;  
+    color: #a4a4a4;
 }
 .search .search-word::-moz-placeholder {  /* Firefox 19+ */
-    color: #65737e;  
+    color: #a4a4a4;
 }
 .search .search-word:-ms-input-placeholder {  
-    color: #65737e;  
+    color: #a4a4a4;
 }
 .search .search-img img {
     top: 5px;
@@ -56,26 +57,62 @@
     width: 18px;
     height: auto;
 }
-.section1, 
+.section0,
+.section1,
 .section2 {
     /* display: block; */
-    margin-top: 10px;
+    
     padding-right: 20px;
     padding-left: 20px;
 }
+.section0 .search-ex-wrap a {
+    margin-right: 5px;
+    
+}
+.section0 .search-ex-wrap a button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: inherit;
+    
+    margin: 10px 0;
+    width: 50px;
+    padding: 8px 0;
+    padding-left: 2px;
+    border: none;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 17px;
+    /* white-space: pre; */
+    align-items: center;
+    
+    /* -webkit-box-align: center; */
+    justify-self: center;
+    /* height: 35px; */
+    /* width: 50px; */
+
+    background: #ebebeb;
+    color: #2c2c2c
+}
+.section0 .item, 
 .section1 .item {
     display: flex;
 }
+.section0 .item img,
 .section1 .item img,
 .section2 .item img {  
     width: 18px;
     margin-right: 5px;
 }
+.section0 .hot-item span,
 .section1 .hot-item span,
 .section2 .hot-item span {
     font-size: 15px;
     font-weight: bolder;
-    
+}
+.section1 {
+    margin-top: 20px;
 }
 .item .update-time {
     color: #a1a1a1;
@@ -87,7 +124,8 @@
 .section1 .item-img-wrap .item-img {
     border: 1px solid rgb(113, 113, 113);
 
-    margin: 35px 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
     justify-content: space-between;
     
     width: 83px;
