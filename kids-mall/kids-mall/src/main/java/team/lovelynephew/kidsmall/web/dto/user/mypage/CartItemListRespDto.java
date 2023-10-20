@@ -18,4 +18,5 @@ public class CartItemListRespDto {
 	private String prdMainImg;
 	
 	private int cartProductCount;
-	}
+	private int itemCount;
+}

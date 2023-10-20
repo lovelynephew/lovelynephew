@@ -72,8 +72,8 @@ btnSave.onclick = () => {
 		dataType: "json",
 		success: (response) => {
 			if(response.data) {
-				alert("회원정보 수정완료");
-				location.replace("/mypage/profile");
+				alert("배송지 등록 완료");
+				location.replace("/mypage/myshopping-info/address");
 			}
 		},
 		error: (error) => {

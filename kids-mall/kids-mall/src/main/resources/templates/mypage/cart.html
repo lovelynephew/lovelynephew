@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>조카바보 - 장바구니</title>
 <link rel="stylesheet" href="/static/user/css/cart.css">
-<link rel="stylesheet" href="../../static/user/css/common.css">
+<link rel="stylesheet" href="/static/user/css/common.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -33,11 +33,17 @@
 							<div>
 								<section class="section-cart1">
 									<label class="label-cart1">
-										<input type="checkbox" class="input-cart1">
+										<input type="checkbox" class="input-cart2">
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6"><path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path></svg>
 										<span class="span-cart1">
 											<span class="body_14 span-cart2">전체선택</span>
-											<span class="body_13 span-cart3">(0/1)</span>
+											<span class="body_13 span-cart3">
+												(
+												<p class="select-total">0</p>
+												/
+												<p class="item-total">2</p>
+												)
+											</span>
 										</span>
 									</label>
 									<div class="div-cart6">
@@ -49,10 +55,10 @@
 										<div class="div-cart9">
 											<section class="section-cart2">
 												<label class="label-cart2">
-													<input type="checkbox" class="input-cart2">
+													<!-- <input type="checkbox" class="input-cart2">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
 														<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
-													</svg>
+													</svg> -->
 													<header class="header-cart1">
 														<div class="div-cart10">
 															<div class="body_16 div-cart11">조카바보</div>
@@ -65,111 +71,368 @@
 														</span>
 													</header>
 												</label>
-												<div class="div-citem1">
-													<div class="div-citem2">
-														<div class="div-citem3">
-															<label class="label-citem1">
-																<input type="checkbox" class="input-cart2">
-																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
-																	<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
-																</svg>
-															</label>
-															<div class="div-citem4">
-																<div class="div-citem5">
-																	<figure class="figure-citem1">
-																		<img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
-																	</figure>
-																	<div class="div-citem6">
-																		<h4 class="body_14 h4-citem1">곰돌이 반팔 티셔츠</h4>
-																		<div class="div-citem7">
-																			<span class="span-citem1">
-																				<span>white(반팔) (오늘출발)/Free</span>
-																				<span class="span-citem2"></span>
-																			</span>
-																		</div>
-																		<div class="div-citem8">
-																			<div class="div-citem9">09.30(토) 이내 발송 예정</div>
-																			<div class="div-citem10">
-																				<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
-																					<path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
-																				</svg>
-																				<!-- <div class="body_15 div-citem11">
-																					<div class="div-citem12">
-																						<div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
-																						<div style="margin-left: 4px;" class="div-citem13">
-																							<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
-																								<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+												<div class="item-container">
+													<div class="div-citem1">
+														<div class="div-citem2">
+															<div class="div-citem3">
+																<label class="label-citem1">
+																	<input type="checkbox" class="input-cart2">
+																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
+																		<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
+																	</svg>
+																</label>
+																<div class="div-citem4">
+																	<div class="div-citem5">
+																		<figure class="figure-citem1">
+																			<img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
+																		</figure>
+																		<div class="div-citem6">
+																			<h4 class="body_14 h4-citem1">곰돌이 반팔 티셔츠</h4>
+																			<div class="div-citem7">
+																				<span class="span-citem1">
+																					<span>white(반팔) (오늘출발)/Free</span>
+																					<span class="span-citem2"></span>
+																				</span>
+																			</div>
+																			<div class="div-citem8">
+																				<div class="div-citem9">09.30(토) 이내 발송 예정</div>
+																				<div class="div-citem10">
+																					<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
+																						<path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
+																					</svg>
+																					<!-- <div class="body_15 div-citem11">
+																						<div class="div-citem12">
+																							<div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
+																							<div style="margin-left: 4px;" class="div-citem13">
+																								<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
+																									<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																								</svg>
+																							</div>
+																						</div>
+																						<div>
+																							<svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
+																								<path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
 																							</svg>
 																						</div>
-																					</div>
-																					<div>
-																						<svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
-																							<path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
-																						</svg>
-																					</div>
-																				</div> -->
+																					</div> -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="div-citem14">
+																		<div class="div-citem15">
+																				<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
+																					<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																				</svg>
 																			</div>
 																		</div>
 																	</div>
-																	<div class="div-citem14">
-																	<div class="div-citem15">
-																			<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
-																				<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
-																			</svg>
+																</div>
+															</div>
+															<div class="div-amount1">
+																<div class="div-amount2">
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#B8BFC2" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
+																		<path stroke="currentColor" d="M6 16h20"></path>
+																	</svg>
+																	<div class="div-amount3">
+																		<input class="span-amount1" value="1">
+																	</div>
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
+																		<path stroke="currentColor" d="M6 16h20M16 6v20"></path>
+																	</svg>
+																</div>
+																<span class="body_15 span-amount2">
+																	<span class="span-amount3">
+																		<p>32,000</p>
+																		<span class="span-amount4">원</span>
+																	</span>
+																	<div class="div-amount4">
+																		<span class="span-amount5">Z할인가</span>
+																		<span class="body_15 span-amount6">
+																			<p>18,900</p>
+																			<span class="body_15 span-amount7">원</span>
+																		</span>
+																	</div>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="div-citem1">
+														<div class="div-citem2">
+															<div class="div-citem3">
+																<label class="label-citem1">
+																	<input type="checkbox" class="input-cart2">
+																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
+																		<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
+																	</svg>
+																</label>
+																<div class="div-citem4">
+																	<div class="div-citem5">
+																		<figure class="figure-citem1">
+																			<img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
+																		</figure>
+																		<div class="div-citem6">
+																			<h4 class="body_14 h4-citem1">곰돌이 반팔 티셔츠</h4>
+																			<div class="div-citem7">
+																				<span class="span-citem1">
+																					<span>white(반팔) (오늘출발)/Free</span>
+																					<span class="span-citem2"></span>
+																				</span>
+																			</div>
+																			<div class="div-citem8">
+																				<div class="div-citem9">09.30(토) 이내 발송 예정</div>
+																				<div class="div-citem10">
+																					<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
+																						<path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
+																					</svg>
+																					<!-- <div class="body_15 div-citem11">
+																						<div class="div-citem12">
+																							<div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
+																							<div style="margin-left: 4px;" class="div-citem13">
+																								<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
+																									<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																								</svg>
+																							</div>
+																						</div>
+																						<div>
+																							<svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
+																								<path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
+																							</svg>
+																						</div>
+																					</div> -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="div-citem14">
+																		<div class="div-citem15">
+																				<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
+																					<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																				</svg>
+																			</div>
 																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
-														<div class="div-amount1">
-															<div class="div-amount2">
-																<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#B8BFC2" class="counter_btn css-1weaxp5 e170kbym0">
-																	<path stroke="currentColor" d="M6 16h20"></path>
-																</svg>
-																<div class="div-amount3">
-																	<span class="span-amount1">1</span>
+															<div class="div-amount1">
+																<div class="div-amount2">
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#B8BFC2" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
+																		<path stroke="currentColor" d="M6 16h20"></path>
+																	</svg>
+																	<div class="div-amount3">
+																		<input class="span-amount1" value="1">
+																	</div>
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
+																		<path stroke="currentColor" d="M6 16h20M16 6v20"></path>
+																	</svg>
 																</div>
-																<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0">
-																	<path stroke="currentColor" d="M6 16h20M16 6v20"></path>
-																</svg>
-															</div>
-															<span class="body_15 span-amount2">
-																<span class="span-amount3">
-																	32,000
-																	<span class="span-amount4">원</span>
-																</span>
-																<div class="div-amount4">
-																	<span class="span-amount5">Z할인가</span>
-																	<span class="body_15 span-amount6">
-																		18,900
-																		<span class="body_15 span-amount7">원</span>
+																<span class="body_15 span-amount2">
+																	<span class="span-amount3">
+																		<p>32,000</p>
+																		<span class="span-amount4">원</span>
 																	</span>
+																	<div class="div-amount4">
+																		<span class="span-amount5">Z할인가</span>
+																		<span class="body_15 span-amount6">
+																			<p>18,900</p>
+																			<span class="body_15 span-amount7">원</span>
+																		</span>
+																	</div>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="div-citem1">
+														<div class="div-citem2">
+															<div class="div-citem3">
+																<label class="label-citem1">
+																	<input type="checkbox" class="input-cart2">
+																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
+																		<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
+																	</svg>
+																</label>
+																<div class="div-citem4">
+																	<div class="div-citem5">
+																		<figure class="figure-citem1">
+																			<img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
+																		</figure>
+																		<div class="div-citem6">
+																			<h4 class="body_14 h4-citem1">곰돌이 반팔 티셔츠</h4>
+																			<div class="div-citem7">
+																				<span class="span-citem1">
+																					<span>white(반팔) (오늘출발)/Free</span>
+																					<span class="span-citem2"></span>
+																				</span>
+																			</div>
+																			<div class="div-citem8">
+																				<div class="div-citem9">09.30(토) 이내 발송 예정</div>
+																				<div class="div-citem10">
+																					<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
+																						<path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
+																					</svg>
+																					<!-- <div class="body_15 div-citem11">
+																						<div class="div-citem12">
+																							<div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
+																							<div style="margin-left: 4px;" class="div-citem13">
+																								<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
+																									<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																								</svg>
+																							</div>
+																						</div>
+																						<div>
+																							<svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
+																								<path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
+																							</svg>
+																						</div>
+																					</div> -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="div-citem14">
+																		<div class="div-citem15">
+																				<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
+																					<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																				</svg>
+																			</div>
+																		</div>
+																	</div>
 																</div>
-															</span>
+															</div>
+															<div class="div-amount1">
+																<div class="div-amount2">
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#B8BFC2" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
+																		<path stroke="currentColor" d="M6 16h20"></path>
+																	</svg>
+																	<div class="div-amount3">
+																		<input class="span-amount1" value="1">
+																	</div>
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
+																		<path stroke="currentColor" d="M6 16h20M16 6v20"></path>
+																	</svg>
+																</div>
+																<span class="body_15 span-amount2">
+																	<span class="span-amount3">
+																		<p>32,000</p>
+																		<span class="span-amount4">원</span>
+																	</span>
+																	<div class="div-amount4">
+																		<span class="span-amount5">Z할인가</span>
+																		<span class="body_15 span-amount6">
+																			<p>18,900</p>
+																			<span class="body_15 span-amount7">원</span>
+																		</span>
+																	</div>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="div-citem1">
+														<div class="div-citem2">
+															<div class="div-citem3">
+																<label class="label-citem1">
+																	<input type="checkbox" class="input-cart2">
+																	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
+																		<path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
+																	</svg>
+																</label>
+																<div class="div-citem4">
+																	<div class="div-citem5">
+																		<figure class="figure-citem1">
+																			<img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
+																		</figure>
+																		<div class="div-citem6">
+																			<h4 class="body_14 h4-citem1">곰돌이 반팔 티셔츠</h4>
+																			<div class="div-citem7">
+																				<span class="span-citem1">
+																					<span>white(반팔) (오늘출발)/Free</span>
+																					<span class="span-citem2"></span>
+																				</span>
+																			</div>
+																			<div class="div-citem8">
+																				<div class="div-citem9">09.30(토) 이내 발송 예정</div>
+																				<div class="div-citem10">
+																					<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
+																						<path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
+																					</svg>
+																					<!-- <div class="body_15 div-citem11">
+																						<div class="div-citem12">
+																							<div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
+																							<div style="margin-left: 4px;" class="div-citem13">
+																								<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
+																									<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																								</svg>
+																							</div>
+																						</div>
+																						<div>
+																							<svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
+																								<path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
+																							</svg>
+																						</div>
+																					</div> -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="div-citem14">
+																		<div class="div-citem15">
+																				<svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
+																					<path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
+																				</svg>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="div-amount1">
+																<div class="div-amount2">
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#B8BFC2" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
+																		<path stroke="currentColor" d="M6 16h20"></path>
+																	</svg>
+																	<div class="div-amount3">
+																		<input class="span-amount1" value="1">
+																	</div>
+																	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
+																		<path stroke="currentColor" d="M6 16h20M16 6v20"></path>
+																	</svg>
+																</div>
+																<span class="body_15 span-amount2">
+																	<span class="span-amount3">
+																		<p>32,000</p>
+																		<span class="span-amount4">원</span>
+																	</span>
+																	<div class="div-amount4">
+																		<span class="span-amount5">Z할인가</span>
+																		<span class="body_15 span-amount6">
+																			<p>18,900</p>
+																			<span class="body_15 span-amount7">원</span>
+																		</span>
+																	</div>
+																</span>
+															</div>
 														</div>
 													</div>
 												</div>
 												<div class="body_13 div-cprice1">
 													<div>
 														<span class="span-cprice1">
-															상품
-															0
-															<span class="span-cprice2">원</span>
+																상품
+																<p>0</p>
+																원
 														</span>
 														<span class="span-cprice1">
-															+ 배송비
-															0
-															<span class="span-cprice2">원</span>
+																+ 배송비
+																<p>0</p>
+																원
 														</span>
-														<span class="span-cprice2"> = </span>
+														<span class="span-cprice1"> = </span>
 														<span class="span-cprice3">
-															총
-															0
-															<span class="span-cprice2">원</span>
+																총
+																<p>0</p>
+																원
 														</span>
 													</div>
 												</div>
 											</section>
+										</div>
+										<div class="buy-button-box">
+											<button type="button" class="buy-button">구매하기</button>
 										</div>
 									</div>
 								</div>
@@ -184,37 +447,38 @@
                 <ul>
                     <li>
                         <a href="/category">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-menu-2976215.png" alt="">
                             <p>카테고리</p>
                         </a>
                     </li>
                     <li>
                         <a href="/search/filter">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-baby-4397453.png" alt="">
                             <p>아이정보</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
                     </li>
                     <li>
                         <a href="/wishList">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
                             <p>찜</p>
                         </a>
                     </li>
                     <li>
                         <a href="/mypage">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>
                 </ul>
             </div>
 		<script src="/static/user/js/principal.js"></script>
-		<script src="/static/user/js/cart.js"></script>
+		<script src="/static/user/js/cart-data.js"></script>
+		<!-- <script src="/static/user/js/cart.js"></script> -->
 </body>
 </html>

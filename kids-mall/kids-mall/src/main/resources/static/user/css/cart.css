@@ -44,10 +44,6 @@ input, textarea {
     user-select: text;
 }
 
-input, textarea, input[type='text'] {
-    appearance: none;
-}
-
 a, button, input, optgroup, select, figure, textarea {
     font-family: inherit;
     margin: 0;
@@ -94,9 +90,18 @@ svg:not(:root) {
     margin: 0px auto;
 }
 
-[type='checkbox'], [type='radio'] {
-    box-sizing: border-box;
-    padding: 0;
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+input[type="checkbox"]:checked {
+    background: rgb(250, 110, 227);;
+    border: none;
 }
 
 .h4-citem1 {
@@ -348,6 +353,7 @@ div { display: block; }
 .div-amount2 {
     display: inline-flex;
     -webkit-box-align: center;
+    justify-content: center;
     align-items: center;
     width: 70px;
     height: 24px;
@@ -386,6 +392,10 @@ div { display: block; }
     color: rgb(79, 85, 88);
 }
 
+.div-cprice1 p {
+    margin-left: 4px;
+}
+
 /* section */
 .section-cart1 {
     margin-top: 0px;
@@ -408,6 +418,11 @@ div { display: block; }
 .section-cart1 .checkbox .text {
     margin: 0px 0px 0px 8px;
     color: rgb(36, 39, 41);
+}
+
+.section-cart1 .label-cart1 {
+    display: flex;
+    align-items: center;
 }
 
 .section-cart2 {
@@ -451,6 +466,8 @@ div { display: block; }
     cursor: pointer;
     align-items: flex-start;
     margin: 0px 8px 0px 0px;
+    width: 24px;
+    height: 24px;
 }
 
 /* input */
@@ -465,17 +482,18 @@ div { display: block; }
 
 .input-cart2 {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0;
+    top: 5px;
+    left: 5px;
     width: 24px;
     height: 24px;
+    border: none;
 }
 
 /* span */
 .span-cart1 {
     margin: 0px 0px 0px 8px;
     color: rgb(36, 39, 41);
+    display: flex;
 }
 
 .span-cart2 {
@@ -483,8 +501,9 @@ div { display: block; }
 }
 
 .span-cart3 {
-    margin-left: 1px;
+    margin-left: 3px;
     font-weight: 500;
+    display: flex;
 }
 
 .span-cart4 {
@@ -510,6 +529,9 @@ div { display: block; }
     color: rgb(18, 19, 20);
     font-size: 12px;
     line-height: 14px;
+    height: 24px;
+    width: 32px;
+    text-align: center;
 }
 
 .span-amount2 {
@@ -518,8 +540,11 @@ div { display: block; }
 
 .span-amount3 {
     font-weight: 400;
-    display: inline-flex;
-    word-break: break-all;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: line-through;
+    color: rgb(161, 169, 173);
 }
 
 .span-amount5 {
@@ -596,4 +621,22 @@ div { display: block; }
     transform: translate(-50%, -50%);
     object-fit: cover;
     cursor: default;
+}
+
+.buy-button-box {
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+
+    width: 566px;
+    height: 50px;
+    font-weight: 700;
+    background-color: rgb(250, 110, 227);
+
+    margin: 20px auto 100px;
+}
+
+.buy-button {
+    font-weight: 700;
+    color: white;
 }

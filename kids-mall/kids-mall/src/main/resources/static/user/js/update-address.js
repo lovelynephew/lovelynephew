@@ -94,7 +94,7 @@ saveButton.onclick = () => {
 		success: (response) => {
 			alert("배송지 수정완료");
 			console.log(response.data);
-			location.replace("/mypage/profile");
+			location.replace("/mypage/myshopping-info/address");
 		},
 		error: (error) => {
 			if(error.status == 400) {
