@@ -130,4 +130,10 @@ public class MypageController {
 	public String getOrderDetailInfo() {
 		return "mypage/order-detail-info";
 	}
+	
+	//회원탈퇴
+	@GetMapping("/resign")
+	public String getResign() {
+		return "mypage/resign";
+	}
 }

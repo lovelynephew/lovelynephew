@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import team.lovelynephew.kidsmall.service.user.PrincipalDetailsService;
 import team.lovelynephew.kidsmall.service.user.PrinipalDetails;
 import team.lovelynephew.kidsmall.service.user.RegisterService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.DeleteUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
@@ -99,6 +101,16 @@ public class RegisterRestController {
 		
 		return ResponseEntity.ok(new CMRespDto<>(1, "success to load", prinipalDetails.getRegisterEntity()));
 	}
+
+	@GetMapping("/resign/principal/password")
+	public ResponseEntity<?> getPrincipalPassword(@AuthenticationPrincipal PrinipalDetails prinipalDetails) {
+		if(principalDetailsService == null) {
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "principal is null", null));
+		}
+		
+		return ResponseEntity.ok(new CMRespDto<>(1, "success to load", prinipalDetails.getPassword()));
+	}
+	
 	
     @PostMapping("/email/register")
     public ResponseEntity<?> sendEmail(@RequestBody SendMailDto sendMailDto) throws Exception {
@@ -153,7 +165,7 @@ public class RegisterRestController {
 	}
 	
 	@PutMapping("/modification/password")
-	public ResponseEntity<?> modifyUserPassword(UpdateUserPwReqDto updateUserPwReqDto) {
+	public ResponseEntity<?> modifyUserPassword(@RequestBody UpdateUserPwReqDto updateUserPwReqDto) {
 		boolean status = false;
 		try {
 			status = registerService.updateUserPassword(updateUserPwReqDto);
@@ -162,6 +174,25 @@ public class RegisterRestController {
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", status));
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", status));
+	}
+	
+	//회원탈퇴
+	@DeleteMapping("/resign/{userCode}")
+	public ResponseEntity<?> deleteUser(@RequestBody DeleteUserReqDto deleteUserReqDto) {
+		boolean status = false;
+		System.out.println(deleteUserReqDto);
+		try {
+			status = registerService.deleteUser(deleteUserReqDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "DELETE FAILED", status));
+			
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "DELETE SUCCESS", status));
+		
+		
+		
 	}
 	
 }

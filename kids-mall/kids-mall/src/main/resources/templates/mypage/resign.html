@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>회원탈퇴 페이지</title>
+<link rel="stylesheet" href="/static/user/css/resign.css">
+<link rel="stylesheet" href="../../static/user/css/common.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="divbtn-back">
+				<button type="button" class="btn-back" onclick="location.href='/main'">
+					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+					</svg>
+				</button>
+			</div>
+		</nav>
+	</header>
+	
+	<div class="container">
+
+		<main class="main">
+			<div class="main-div">
+				<h1>회원탈퇴</h1>
+				<form method="post" action="/signin">
+					<div class="div-in">
+						<label class="body_13 label-login">
+							<div class="body_13 la-divlog">아이디</div>
+						</label>
+						<span class="body_15 span-log">
+							<input name="username" type="text" placeholder="아이디" required class="userid" id="myId">
+						</span>
+					</div>
+					<div class="div-in">
+						<label class="body_13 label-login">
+							<div class="body_13 la-divlog">이름</div>
+						</label>
+						<span class="body_15 span-log">
+							<input name="myname" type="text" placeholder="이름" required class="username" id="myName">
+						</span>
+					</div>
+					<div class="div-in">
+						<label class="body_13 label-login">
+							<div class="body_13 la-divlog">비밀번호</div>
+						</label>
+						<span class="body_15 span-log">
+							<input placeholder="비밀번호" name="password" type="password" required autocomplete="current-password" class="userPwd1" id="myPw">
+						</span>
+					</div>
+					<div class="div-resign-cancle">
+						<button type="button" class="body_15 btn-resign" name="btn-resign" id="btn-resign">탈퇴</button>
+                    	<button type="button" class="body_15 btn-cancel" name="btn-cancel">취소</button>
+					</div>
+					
+		</main>
+		<div class="bottom-btn">
+			<ul>
+				<li>
+					<a href="#">
+						<img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+						<p>카테고리</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+						<p>아이정보</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+						<p>홈</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img class="menu-bar" src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+						<p>찜</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+						<p>나의정보</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="/static/user/js/principal.js"></script>
+		<script src="/static/user/js/resign.js"></script>
+</body>
+</html>

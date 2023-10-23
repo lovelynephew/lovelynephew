@@ -36,7 +36,6 @@ public class PrincipalDetailsService implements UserDetailsService {
 	public boolean checkPassword(String p1, String p2) {
 		boolean status = false;
 		status = passwordEncoder.matches(p1, p2);
-		
 		return status;
 	}
 }

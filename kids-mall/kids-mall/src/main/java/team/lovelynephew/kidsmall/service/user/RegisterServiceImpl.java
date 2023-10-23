@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
 import team.lovelynephew.kidsmall.domain.user.RegisterRepository;
 import team.lovelynephew.kidsmall.web.dto.user.BankListRespDto;
+import team.lovelynephew.kidsmall.web.dto.user.DeleteUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
@@ -18,6 +19,7 @@ import team.lovelynephew.kidsmall.web.dto.user.UpdateUserPwReqDto;
 public class RegisterServiceImpl implements RegisterService {
 	
 	private final RegisterRepository registerRepository;
+	private final PrincipalDetailsService principalDetailsService;
 	
 	
 	//아이디 중복확인
@@ -62,6 +64,24 @@ public class RegisterServiceImpl implements RegisterService {
 	@Override
 	public boolean updateUserPassword(UpdateUserPwReqDto updateUserPwReqDto) throws Exception {
 		return registerRepository.updateUserPassword(updateUserPwReqDto.toUpdateUserPassword()) > 0;
+	}
+
+	//회원탈퇴 및 비밀번호 확인
+	@Override
+	public boolean deleteUser(DeleteUserReqDto deleteUserReqDto) throws Exception {
+		RegisterEntity registerEntity = null;
+		boolean status = false;
+		registerEntity = registerRepository.findUserByUsername(deleteUserReqDto.getUserId());
+		System.out.println(registerEntity);
+		status = principalDetailsService.checkPassword(deleteUserReqDto.getUserPwd(), registerEntity.getUser_pwd());
+		System.out.println(status);
+		if(status) {
+			return registerRepository.deleteUser(deleteUserReqDto.getUserCode()) > 0;
+		}else {
+			return false;
+		}
+		
+		
 	}
 
 

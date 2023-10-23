@@ -34,10 +34,8 @@ for(let i = 0; i < sizeButtons.length; i++) {
             console.log("sizeCheck == null ? 체크하기");
         }else {
             if(sizeCheck != i) {
-                alert("중복 선택이 불가능합니다.");
-                console.log("중복 선택이 불가능합니다.");
                 sizeButtons[sizeCheck].classList.toggle("active-color");
-                genderCheck = i;
+                sizeCheck = i;
                 sizeButtons[sizeCheck].classList.toggle("active-color");
             } else {
                 sizeButtons[sizeCheck].classList.toggle("active-color");
@@ -56,8 +54,6 @@ for(let i = 0; i < colorRangeButtons.length; i++) {
             console.log("colorcheck == null ? 체크하기");
         }else {
             if(colorCheck != i) {
-                alert("중복 선택이 불가능합니다.");
-                console.log("중복 선택이 불가능합니다.");
                 colorRangeButtons[colorCheck].classList.toggle("active-color");
                 colorCheck = i;
                 colorRangeButtons[colorCheck].classList.toggle("active-color");
@@ -78,10 +74,8 @@ for(let i = 0; i < styleButtons.length; i++) {
             console.log("sizeCheck == null ? 체크하기");
         }else {
             if(styleCheck != i) {
-                alert("중복 선택이 불가능합니다.");
-                console.log("중복 선택이 불가능합니다.");
                 styleButtons[styleCheck].classList.toggle("active-color");
-                genderCheck = i;
+                styleCheck = i;
                 styleButtons[styleCheck].classList.toggle("active-color");
             } else {
                 styleButtons[styleCheck].classList.toggle("active-color");

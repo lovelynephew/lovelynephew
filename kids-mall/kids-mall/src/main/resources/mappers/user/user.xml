@@ -161,4 +161,15 @@
 			user_id = #{user_id};
 	</update>
 	
+	<delete id="deleteUser" parameterType="Integer">
+		DELETE
+		FROM
+			register
+		WHERE
+			user_code = #{user_code}
+	</delete>
+	
+	
+	
+	
 </mapper>

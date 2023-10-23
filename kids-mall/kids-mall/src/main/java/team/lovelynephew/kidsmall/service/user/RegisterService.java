@@ -1,6 +1,9 @@
 package team.lovelynephew.kidsmall.service.user;
 
+import com.google.api.services.storage.Storage.BucketAccessControls.Delete;
+
 import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
+import team.lovelynephew.kidsmall.web.dto.user.DeleteUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.EditUserReqDto;
 import team.lovelynephew.kidsmall.web.dto.user.IdCheckDto;
 import team.lovelynephew.kidsmall.web.dto.user.RegisterDto;
@@ -27,4 +30,7 @@ public interface RegisterService {
 	
 	//아이디로가져오기
 	public RegisterEntity getUserByUserId(String userId) throws Exception;
+	
+	//회원탈퇴
+	public boolean deleteUser(DeleteUserReqDto deleteUserReqDto) throws Exception;
 }

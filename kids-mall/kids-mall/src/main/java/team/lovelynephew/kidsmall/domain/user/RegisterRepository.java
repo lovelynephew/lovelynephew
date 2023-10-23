@@ -22,4 +22,6 @@ public interface RegisterRepository {
 	
 	public RegisterEntity findUserByPhone(String userPhone) throws Exception;
 	
+	public int deleteUser(int userCode) throws Exception;
+	
 }
