@@ -79,17 +79,17 @@ function getData(data) {
 
     userAddress.innerHTML = `${data.userDetailAddress}`;
 
-    productPrice.innerHTML = `${priceToString(data.prdRegularPrice)}`;
+    productPrice.innerHTML = `${priceToString(data.prdRegularPrice)}원`;
 
     let discountPriceValue = data.prdRegularPrice - data.prdDiscountPrice;
     console.log("할인금액: " + discountPriceValue);
-    discountPrice.innerHTML = `${priceToString(discountPriceValue)}`;
+    discountPrice.innerHTML = `${priceToString(discountPriceValue)}원`;
 
-    paymentPrice.innerHTML = `${priceToString(data.paymentAmount)}`;
+    paymentPrice.innerHTML = `${priceToString(data.paymentAmount)}원`;
 
     paymentStatus.innerHTML = `${data.paymentMethod}`;
 
-    cardPrice.innerHTML = `${priceToString(data.paymentAmount)}`;
+    cardPrice.innerHTML = `${priceToString(data.paymentAmount)}원`;
 
 }
 

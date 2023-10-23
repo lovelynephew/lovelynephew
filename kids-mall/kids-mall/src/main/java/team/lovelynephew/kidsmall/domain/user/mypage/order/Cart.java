@@ -21,6 +21,7 @@ public class Cart {
 	private String prd_main_image;
 	
 	private int cart_product_count;
+	private int item_count;
 	
 	public CartItemListRespDto cartItemListToDto() {
 		return CartItemListRespDto.builder()
@@ -33,6 +34,7 @@ public class Cart {
 				.prdDiscountPercentage(prd_discount_percentage)
 				.prdMainImg(prd_main_image)
 				.cartProductCount(cart_product_count)
+				.itemCount(item_count)
 				.build();
 	}
 }

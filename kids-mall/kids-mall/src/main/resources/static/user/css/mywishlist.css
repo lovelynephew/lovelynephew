@@ -137,8 +137,8 @@ button {
     margin-bottom: 20px;
 }
 .recommend-img img {
-    width: 170px;
-    height: 200px;
+    width: 160px;
+    height: 190px;
     border: 2px solid rgba(154, 152, 152, 0.1);
     border-radius: 10px;
 }
@@ -169,6 +169,6 @@ button {
     position: relative;
     width: 25px;
     height: auto;
-    top: -110px;
+    top: -95px;
     left: 130px;
 }

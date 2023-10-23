@@ -16,6 +16,8 @@ th {
     font-weight: 400;
     background-color: #e5e5e5;
     font-size: 13px;
+
+    white-space: nowrap;
 }
 table {
     width: 100%;
@@ -36,7 +38,7 @@ td {
 td.main-adress-wrap {
 display: flex;
 justify-content: center;
-align-items: center; /* ¼¼·Î °¡¿îµ¥ Á¤·Ä */
+align-items: center; /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îµ¥ ï¿½ï¿½ï¿½ï¿½ */
 height: 100%;
 }
 td.main-adress-center {
@@ -51,12 +53,18 @@ td.main-adress-center {
     align-items: center;
     vertical-align: middle;
     padding: 0 20px 0 20px;
+
+    white-space: nowrap;
 }
 .main-adress-font {
     background-color: #71a1f0;
     color: #fff;
     padding: 1px 2px;
     margin-right: 3px;
+}
+
+.adress-phonenum {
+    white-space: nowrap;
 }
 button {
     cursor: pointer;
