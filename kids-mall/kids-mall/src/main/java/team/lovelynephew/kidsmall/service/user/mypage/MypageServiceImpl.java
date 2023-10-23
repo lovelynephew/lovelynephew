@@ -1,11 +1,14 @@
 package team.lovelynephew.kidsmall.service.user.mypage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import team.lovelynephew.kidsmall.domain.user.mypage.MypageEntity;
 import team.lovelynephew.kidsmall.domain.user.mypage.MypageRepogitory;
+import team.lovelynephew.kidsmall.web.dto.user.CartRespDto;
 import team.lovelynephew.kidsmall.web.dto.user.ShippingAddressDto;
 
 @Slf4j
@@ -28,6 +31,20 @@ public class MypageServiceImpl implements MypageService {
 		
 		log.info("status: " + status);
 		return status != 0;
+	}
+
+	@Override
+	public List<CartRespDto> getCart(String userId) throws Exception {
+		List<CartRespDto> dtos = new ArrayList<>();
+		System.out.println(dtos);
+		
+		mypageRepogitory.getCart(userId).forEach(entity -> {
+			dtos.add(entity.cartEntityToDto());
+		});
+		
+		System.out.println(dtos);
+		
+		return dtos;
 	}
 	
 	

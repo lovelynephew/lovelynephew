@@ -16,7 +16,7 @@ public class PaymentRestController {
 	
 	private final CartService service;
 	
-	@PostMapping("/cart")
+	@PostMapping("/product/cart")
 	public ResponseEntity<?> addcart (@RequestBody CartReqDto cart) {
 		boolean result = false;
 		try {

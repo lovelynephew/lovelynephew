@@ -555,7 +555,7 @@ function addCart (prdCode) {
         $.ajax({
             async: false,
             type: "post",
-            url: "/cart",
+            url: "/product/cart",
             contentType: "application/json",
             data: JSON.stringify({
                 "userId" : "userId",
@@ -564,6 +564,7 @@ function addCart (prdCode) {
             dataType: "json",
             success: (response) => {
                 console.log(response.data);
+                console.log("찜하기 완료");
             },
             error: (error) => {
                 if(error.status == 400) {//서버가 요청을 이해하지 못함 
