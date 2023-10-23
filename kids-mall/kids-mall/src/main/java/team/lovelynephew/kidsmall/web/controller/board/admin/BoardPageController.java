@@ -18,10 +18,15 @@ public class BoardPageController {
 	public String noticeWrite() {
 		return "admin/noticeboard/admin-notice-write";
 	}
-	//관리자 공지사항 게시물 삭제 페이지
-	@GetMapping("/notice/delete")
+	//관리자 공지사항 게시물 페이지
+	@GetMapping("/notice/noticelist")
 	public String noticeDelete() {
 		return "admin/noticeboard/board-delete";
+	}
+	//관리자 공지사항 삭제 뷰 페이지
+	@GetMapping("notice/delete/detail/{noticeNum}")
+	public String noticeDeletView() {
+		return "admin/noticeboard/notice-delete-view";
 	}
 	//상품후기- 상품리스트페이지
 	@GetMapping("/review/product")

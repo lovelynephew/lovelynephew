@@ -32,7 +32,9 @@
 			pc.parent_category_name LIKE CONCAT('%', #{searchWords}, '%')
 			OR pc.parent_category_name LIKE CONCAT(#{searchWords}, '%')
 			OR pc.parent_category_name LIKE CONCAT('%', #{searchWords})
-			OR pc.parent_category_name LIKE(#{searchWords});
+			OR pc.parent_category_name LIKE(#{searchWords})
+			
+		ORDER BY p.prd_code DESC;
 	  </select>
 	  <select id="getsearchProduct"
 	  		parameterType="String" 
@@ -70,9 +72,9 @@
 			OR p.prd_brif_explain LIKE CONCAT ('%', #{searchWords}, '%')
 			OR p.prd_brif_explain LIKE CONCAT (#{searchWords}, '%')
 			OR p.prd_brif_explain LIKE CONCAT ('%', #{searchWords})
-			OR p.prd_brif_explain LIKE (#{searchWords});
-
-		
+			OR p.prd_brif_explain LIKE (#{searchWords})
+			
+		ORDER BY p.prd_code DESC;
 	  </select>
   </mapper>
  

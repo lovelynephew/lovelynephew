@@ -15,4 +15,7 @@ public interface NoticeListRepository {
 	
 	public NoticeList getNotice(int noticeNum) throws Exception;
 	
+	public NoticeList getDeleteNotice(int noticeNum) throws Exception;
+	
+	public int deleteNotice(int noticeNum) throws Exception;
 }
