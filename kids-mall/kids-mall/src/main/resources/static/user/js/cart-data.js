@@ -1,5 +1,9 @@
 
+let regularPriceArray = new Array();
+let discountPriceArray = new Array();
+
 load();
+
 
 function load() {
     // principal.js 에서 가져옴
@@ -66,7 +70,7 @@ function getData(data) {
                                     <img src="${imgURL}" class="img-cart1">
                                 </figure>
                                 <div class="div-citem6">
-                                    <h4 class="body_14 h4-citem1">${data[i].prdName}</h4>
+                                    <h4 class="body_14 h4-citem1" value="${data[i].cartId}">${data[i].prdName}</h4>
                                     <div class="div-citem8">
                                         <div class="div-citem10">
                                             <svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
@@ -105,23 +109,32 @@ function getData(data) {
         `
 
         const priceInput = item.querySelector(".span-amount2");
+        let regularPrice1 = 0;
+        let discountPrice1 = 0;
+
+        regularPrice1 = data[i].prdRegularPrice;
+        discountPrice1 = data[i].prdDiscountPrice;
 
         priceInput.innerHTML = "";
         if(data[i].prdDiscountPrice != 0) {
+            regularPriceArray[i] = regularPrice1;
+            discountPriceArray[i] = discountPrice1;
             priceInput.innerHTML = `
                     <span class="span-amount3">
-                        <p>${priceToString(data[i].prdRegularPrice)}</p>
+                        <p>${priceToString(data[i].prdRegularPrice * data[i].cartProductCount)}</p>
                         <span class="span-amount4">원</span>
                     </span>
                     <div class="div-amount4">
                         <span class="span-amount5">Z할인가</span>
                         <span class="body_15 span-amount6">
-                            <p>${priceToString(data[i].prdDiscountPrice)}</p>
+                            <p>${priceToString(data[i].prdDiscountPrice * data[i].cartProductCount)}</p>
                             <span class="body_15 span-amount7">원</span>
                         </span>
                     </div>
             `;
         }else {
+            regularPriceArray[i] = 0;
+            discountPriceArray[i] = regularPrice1;
             priceInput.innerHTML = `
                     <span class="span-amount3">
                         <p></p>
@@ -129,7 +142,7 @@ function getData(data) {
                     <div class="div-amount4">
                         <span class="span-amount5"></span>
                         <span class="body_15 span-amount6">
-                            <p>${priceToString(data[i].prdRegularPrice)}</p>
+                            <p>${priceToString(data[i].prdRegularPrice * data[i].cartProductCount)}</p>
                             <span class="body_15 span-amount7">원</span>
                         </span>
                     </div>
@@ -211,8 +224,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const discountPrice = document.querySelectorAll(".span-amount6 p");
     const priceCheck = document.querySelectorAll(".span-amount5");
 
-    let regularPriceArray = new Array();
-    let discountPriceArray = new Array();
+    const cartValue = document.querySelectorAll(".h4-citem1");
+
+    // let regularPriceArray = new Array();
+    // let discountPriceArray = new Array();
     let priceValue1 = 0;
     let priceValue2 = 0;
 
@@ -224,10 +239,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 subButton[idx].style.color = "#121314";
                 subButton[idx].disabled = false;
                 //기본 가격
-                if(priceCheck[idx].textContent !== '') {
-                    regularPriceArray[idx] = parseInt(regularPrice[idx].textContent.replaceAll(",", ""));
-                }
-                discountPriceArray[idx] = parseInt(discountPrice[idx].textContent.replaceAll(",", ""));
+                // if(priceCheck[idx].textContent !== '') {
+                //     regularPriceArray[idx] = parseInt(regularPrice[idx].textContent.replaceAll(",", ""));
+                // } else {
+                //     regularPriceArray[idx] = null;
+                // }
+                // discountPriceArray[idx] = parseInt(discountPrice[idx].textContent.replaceAll(",", ""));
             }
             itemValue[idx].value = parseInt(itemValue[idx].value) + 1;
             if(priceCheck[idx].textContent !== '') {
@@ -236,10 +253,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 regularPrice[idx].textContent = priceToString(priceValue1);
             }
 
+            console.log("priceValue: " + parseInt(discountPriceArray[idx]));
+            console.log("priceValue: " + parseInt(itemValue[idx].value));
+            console.log("priceValue type: " + idx + typeof parseInt(discountPriceArray[idx]));
+            console.log("priceValue type: " + idx + typeof parseInt(itemValue[idx].value));
             // 최종 가격
-            priceValue2 = discountPriceArray[idx] * parseInt(itemValue[idx].value);
+            priceValue2 = parseInt(discountPriceArray[idx]) * parseInt(itemValue[idx].value);
             discountPrice[idx].textContent = priceToString(priceValue2);
 
+            updateCart(idx);
             loadPrice();
         }
     })
@@ -263,7 +285,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 discountPrice[idx].textContent = priceToString(priceValue2);
             }
 
-                loadPrice();
+            updateCart(idx);
+            loadPrice();
         }
     })
 
@@ -282,5 +305,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         finalPrice[0].textContent = priceToString(totalPrice);
         finalPrice[2].textContent = priceToString(totalPrice);
+    }
+
+    function updateCart(idx) {
+        console.log("상품 개수 변경됨");
+        const cartId = cartValue[idx].getAttribute("value");
+        const productCount = itemValue[idx].value;
+    
+        console.log("cartId: " + cartId);
+        console.log("productCount: " + productCount);
+    
+        $.ajax({
+            async: false,
+            type: "put",
+            url: `/mypage/cart/${cartId}/${productCount}`, // URL 템플릿 리터럴 수정
+            dataType: "json",
+            success: (response) => {
+                console.log(response.data);
+            },
+            error: (error) => {
+                if (error.status == 400) {
+                    alert(JSON.stringify(error.responseJSON.data));
+                } else {
+                    console.log("요청실패");
+                    console.log(error);
+                }
+            }
+        });
     }
 });

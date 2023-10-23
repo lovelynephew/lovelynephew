@@ -119,5 +119,13 @@
 			point_code desc
 	</select>
 	
+	<update id="updateCart" parameterType="hashmap">
+		update
+			cart
+		set
+			cart_product_count = #{productCount}
+		where
+			cart_id = #{cartId}
+	</update>
 	
 </mapper>
