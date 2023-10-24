@@ -100,6 +100,8 @@ public class MypageController {
 	@GetMapping("/mypage/review")
 	public String myReviewlist() {
 		return "mypage/myboard-list";
+	}
+	
 	public String myBoardlist() {
 		return "thymeleaf/mypage/myboard-list";
 	}

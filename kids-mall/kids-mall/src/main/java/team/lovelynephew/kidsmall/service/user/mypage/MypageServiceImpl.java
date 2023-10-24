@@ -42,6 +42,8 @@ public class MypageServiceImpl implements MypageService {
 		});
 		
 		return list;
+	}
+	
 	public List<CartRespDto> getCart(String userId) throws Exception {
 		List<CartRespDto> dtos = new ArrayList<>();
 		System.out.println(dtos);
