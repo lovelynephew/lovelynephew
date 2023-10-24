@@ -65,13 +65,10 @@
     /* 표준웹 실행 */
     function jsf__pay( form )
     { 
-    	form.pay_method.value="001000000000"; //무통장
         try
         {
-           
+        	 init_orderid();
             KCP_Pay_Execute_Web( form );
-
-
         }
         catch (e)
         {
@@ -81,7 +78,7 @@
     
     
     // 주문번호 생성 예제
-    /* function init_orderid()
+    function init_orderid()
     { 
         var today = new Date();
         var year  = today.getFullYear();
@@ -97,7 +94,8 @@
         var vOrderID = year + "" + month + "" + date + "" + time;
 
         document.forms[0].ordr_idxx.value = vOrderID;
-    }    */
+    }  
+   
 </script>
 
 

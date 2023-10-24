@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.MypageRepogitory">
+
+	<select id="getCart" parameterType="String" resultType="team.lovelynephew.kidsmall.domain.user.mypage.CartEntity">
+		SELECT *
+		FROM cart
+	    WHERE  user_id = #{userId};
+	</select>
+	
+	
+</mapper>

@@ -15,4 +15,6 @@ public interface MypageRepogitory {
 
 	//수정
 	public int updateAddress(MypageEntity mypageEntity) throws Exception;
+	
+	public List<CartEntity>	 getCart (String userId) throws Exception; 
 }

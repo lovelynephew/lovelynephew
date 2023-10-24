@@ -3,7 +3,7 @@ let productMaker= "";
 let productRegularPrice = "";
 let productDiscountPrice = "";
 
-load(2);
+load(1);
 //chiceOption();
 //제품 띄우기
 function load(productCode) {
@@ -316,20 +316,20 @@ function prdReviewAll(productCode) {
         success: (response) => {
             let review_dom= document.getElementById("product_review_id");
 
-            for(let i =0; i<3; i++) {
-            if(response.data[i].option_lettering==null) {
-                    response.data[i].option_lettering="레터링안함";
-            }
-            if(response.data[i].optionChar==null) {
-                response.data[i].optionChar="캐릭터선택안함";
-            }
-            if(response.data[i].optionRapping==null) {
-                response.data[i].optionRapping="포장지선택안함";
-            }
-            if(response.data[i].optionGas==null) {
-                response.data[i].optionGas="가스선택안함";
-            }
-            }
+            // for(let i =0; i<3; i++) {
+            // if(response.data[i].option_lettering==null) {
+            //         response.data[i].option_lettering="레터링안함";
+            // }
+            // if(response.data[i].optionChar==null) {
+            //     response.data[i].optionChar="캐릭터선택안함";
+            // }
+            // if(response.data[i].optionRapping==null) {
+            //     response.data[i].optionRapping="포장지선택안함";
+            // }
+            // if(response.data[i].optionGas==null) {
+            //     response.data[i].optionGas="가스선택안함";
+            // }
+            // }
 
         for(let i = 0; i < 3; i++){
             if(i==1) {
@@ -525,6 +525,7 @@ const products = {}; //선택한 물품 담기
 
 
 dirPayment();
+addCart(1);
 //바로구매 버튼을 눌렀을 때
 function dirPayment(){
     const nowBuyBtn = document.querySelector(".now_buy_btn");
@@ -546,7 +547,37 @@ function dirPayment(){
 }
 
 
-
+//장바구니 눌렀을때 
+function addCart (prdCode) {
+    const cartBtn = document.querySelector(".cart_btn");
+    cartBtn.addEventListener("click", function() {
+        console.log("장바구니 버튼을 누름");
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/product/cart",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "userId" : "userId",
+                "prdCode" : prdCode
+            }),
+            dataType: "json",
+            success: (response) => {
+                console.log(response.data);
+                console.log("찜하기 완료");
+            },
+            error: (error) => {
+                if(error.status == 400) {//서버가 요청을 이해하지 못함 
+                    alert(JSON.stringify(error.responseJSON.data));
+                }else {
+                    console.log("요청실패");
+                    console.log(error);
+                }
+            }
+        
+        })
+    });
+}
 
 
 

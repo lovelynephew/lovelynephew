@@ -198,6 +198,7 @@
 
     String temp_result = outResult.toString();
     String res_data = temp_result.replace(",",",\r\n");
+   
     
     /* 
     ==========================================================================
@@ -247,7 +248,7 @@
     String cash_id_info   = f_get_parm( request.getParameter( "cash_id_info"   ) ); // 현금 영수증 등록 번호
     String cash_authno    = ""; // 현금 영수증 승인 번호
     String cash_no        = ""; // 현금 영수증 거래 번호    
-    
+
     // RES JSON DATA Parsing
     JSONParser parser = new JSONParser();
     JSONObject json_res = (JSONObject)parser.parse(temp_result);
@@ -261,6 +262,7 @@
         res_cd    = f_get_parm((String)json_res.get("res_cd"));
         res_msg   = f_get_parm((String)json_res.get("res_msg"));
         amount    = f_get_parm((String)json_res.get("amount"));
+       
         // 카드
         if ( use_pay_method.equals("100000000000") )
         {
@@ -440,6 +442,7 @@
             res_cd  = f_get_parm((String)json_res.get("res_cd"));
             res_msg = f_get_parm((String)json_res.get("res_msg"));
             
+            
         }
     }
     
@@ -453,6 +456,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi">
     <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/resources/static/user/css/order-detail.css">
+    <link rel="stylesheet" href="/static/user/css/order-detail.css">
     <script type="text/javascript">
         /* 신용카드 영수증 */ 
         /* 실결제시 : "https://admin8.kcp.co.kr/assist/bill.BillActionNew.do?cmd=card_bill&tno=" */ 
@@ -488,558 +493,161 @@
             receiptWin3 = "http://devadmin.kcp.co.kr/Modules/Noti/TEST_Vcnt_Noti.jsp"; 
             window.open(receiptWin3, "", "width=520, height=300"); 
         }
+        
+        
     </script>
 </head>
 <body oncontextmenu="return false;">
-    <div class="wrap">
-        <!-- header -->
-        <div class="header">
-            <a href="index.html" class="btn-back"><span>뒤로가기</span></a>
-            <h1 class="title">TEST SAMPLE</h1>
+    <header>
+		<nav class="head-nav">
+			<div class="divbtn-back">
+				<button type="button" class="btn-back" onclick="location.href='/mypage'">
+					<svg width="32" height="32" fill="none" viewBox="0 0 32 32" color="#242729" class="svg-back">
+						<path stroke="currentColor" stroke-width="2" d="m20 7-9 9 9 9"></path>
+					</svg>
+				</button>
+			</div>
+			<div class="div-mypage1">
+				<div class="body_17 div-mypage2">주문상세</div>
+			</div>
+			<div class="div-mypage0"></div>
+		</nav>
+	</header>
+
+    <main>
+        <div class="main-container">
+			<div class="main-top">
+				<div class="order-number">
+					<p>No. <%= ordr_idxx %></p>
+					(<span>
+						 <% String paymentDate= ordr_idxx.substring(0, 4)+"."+
+								 				ordr_idxx.substring(4, 6)+"."+
+								 				ordr_idxx.substring(6, 8);%>
+						<%= paymentDate %> 
+					</span>) 
+				</div>
+				<button class="delete-history-button">내역삭제</button>
+			</div>
+			<div class="gap-color"></div>
+			<div class="main-middle">
+				<div class="product-detail-box">
+					<div class="product-box-top">
+						<p id="prdName" >기차놀이세트</p>
+					</div>
+					<div class="product-box-middle">
+						<span>구매확정</span>
+						<div class="product-data">
+							<img src="/static/images/jpg/babyshark.jpeg">
+							<div class="product-desc">
+								<p id="paidPrdName">기차놀이세트</p>
+								<div class="price-box">
+									<span id="regPrice">15,000원</span>
+								</div>
+							</div>
+						</div>
+						<div class="other-service">
+							<p>배송현황</p>
+							<p>문의하기</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gap-color"></div>
+			<div class="delivery-address-info">
+				<div class="delivery-box-top">
+					<h4>배송지 정보</h4>
+					<div class="delivery-info">
+						<p>수령인</p>
+						<span>고준호</span>
+					</div>
+					<div class="delivery-info">
+						<p>휴대폰</p>
+						<span>010-9926-0864</span>
+					</div>
+					<div class="delivery-info">
+						<p>주소</p>
+						<span>경남 창원시 진해구 안청북로 39, 111동 111호</span>
+					</div>
+					<div class="delivery-info">
+						<p>배송메모</p>
+						<span>집 앞에 놔주세요.</span>
+					</div>
+				</div>
+			</div>
+			<div class="gap-color"></div>
+			<div class="payment-amount">
+				<div class="payment-box">
+					<h4>결제금액</h4>
+					<div class="payment-info">
+						<p>상품금액</p>
+						<span id="prdPrice">15,000</span>
+					</div>
+					<div class="payment-info division">
+						<p>할인금액</p>
+						<span id="prdDisPrice">(-)1,500</span>
+					</div>
+					<div class="payment-info division">
+						<p>배송비</p>
+						<span id="prdDisPrice">3,000</span>
+					</div>
+					<div class="payment-info final-price">
+						<strong>최초결제금액</strong>
+						<span><%=amount %>원</span>
+					</div>
+					<div class="payment-info">
+						<% String payMethod = "";%>
+					   <%
+						if(use_pay_method.equals("100000000000")){
+							payMethod = "신용/체크카드/카카오페이";}
+						else if(use_pay_method.equals("000010000000")){
+							payMethod = "휴대폰 결제";
+						}else if(use_pay_method.equals("001000000000")){
+							payMethod = "무통장 입금";
+						}
+						%>
+						<p> <%= payMethod%></p>
+						<span><%=amount %>원</span>
+					</div>
+					
+					<% if (use_pay_method.equals("001000000000")) { %>
+					    <div style="font-size:14px; padding-bottom:50px">
+					        <% String formatted_va_date = va_date.substring(0, 4) + "년"
+					            + va_date.substring(4, 6) + "월" 
+					            + va_date.substring(6, 8) + "일" 
+					            + va_date.substring(8, 10) + ":" 
+					            + va_date.substring(10, 12) + ":" 
+					            + va_date.substring(12, 14); %>
+					            
+					        <p style="color: #666666;"> 
+					            예금주 : <%=depositor %> <br>
+					            <%=bankname%>(<%=account %>) <br>
+					            마감기한 <%= formatted_va_date %> 까지
+					        </p>
+					    </div>
+					<% } %>
+					
+					<% if (use_pay_method.equals("100000000000")) { %>
+					    <div style="font-size:14px; padding-bottom:50px">
+					        <p style="color: #666666;"> 
+					            카드사 : <%=card_name %>(<%=card_cd %>) <br>
+					            승인번호 :  <%=app_no %> <br>
+					            할부개월 :  <%=quota %> <br>
+					            무이자 여부:  <%=noinf %> 
+					        </p>
+					    </div>
+					<% } %>
+					<% if (use_pay_method.equals("000010000000")) { %>
+					    <div style="font-size:14px; padding-bottom:50px">
+					        <p style="color: #666666;"> 
+					            통신사 코드 : <%=commid %>(<br>
+					            휴대폰 번호 :  <%=mobile_no %> <br>
+					        </p>
+					    </div>
+					<% } %>
+				</div>
+			</div>
         </div>
-        <!-- //header -->
-        <!-- contents -->
-        <div id="skipCont" class="contents">
-            <h2 class="title-type-3">요청  DATA</h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left">
-                        <p class="title"></p>
-                    </div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-3">
-                            <textarea style="height:200px; width:450px" readonly><%=req_data%></textarea>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <h2 class="title-type-3">응답  DATA </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left">
-                        <p class="title"></p>
-                    </div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-3">
-                            <textarea style="height:200px; width:450px" readonly><%=res_data%></textarea>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <h2 class="title-type-3">처리 결과 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">결과코드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=res_cd %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">결과메세지</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=res_msg %><br/>
-                        </div>
-                    </div>
-                </li>
-                 <% 
-                 if (bSucc == "false") 
-                 {
-                 %>
-                <li>
-                    <div class="left"><p class="title">결과 상세 메세지</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%
-                            if ( "0000".equals(res_cd) )
-                            {
-                            %>
-                            결제는 정상적으로 이루어졌지만 쇼핑몰에서 결제 결과를 처리하는 중 오류가 발생하여 자동으로 취소 처리 되었습니다.
-                            <% 
-                            }
-                            else 
-                            {
-                            %> 
-                            결제는 정상적으로 이루어졌지만 쇼핑몰에서 결제 결과를 처리하는 중 오류가 발생하여 자동으로 취소 요청 하였으나, 취소가 실패 되었습니다.
-                            <%
-                            }
-                            %>
-                        </div>
-                    </div>
-                </li>
-                <%
-                 }
-                %>
-            </ul>
-            <%
-            if ( "0000".equals(res_cd) && "".equals(bSucc) )
-            {
-            %>
-            <h2 class="title-type-3">공통 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">KCP 거래번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=tno %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">결제금액</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=amount %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                // 신용카드 결제 결과 출력
-                if ( use_pay_method.equals("100000000000") )
-                {
-            %>
-            <h2 class="title-type-3">카드 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">카드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=card_name %>(<%=card_cd %>)
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">승인번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=app_no %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">할부개월</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=quota %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">무이자여부</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=noinf %>
-                        </div>
-                    </div>
-                </li>
-                <%
-                    // 복합결제(포인트+신용카드) 승인 결과 처리
-                    if ( pnt_issue.equals("SCSK") || pnt_issue.equals( "SCWB" ) )
-                    {
-                %>
-                <li>
-                    <div class="left"><p class="title">포인트사</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_issue %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">포인트 승인시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">포인트 승인번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_app_no %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">적립금액  or 사용금액</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_amount %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">발생 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=add_pnt %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">사용가능 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=use_pnt %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">총 누적 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=rsv_pnt %>
-                        </div>
-                    </div>
-                </li>
-                <!-- 포인트 현금영수증 출력 -->
-                <% 
-                        if (cash_yn.equals("Y")) 
-                        {
-                %>
-                <li>
-                    <div class="left"><p class="title">현금영수증 확인</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <a href="javascript:receiptView2('<%= cash_no %>', '<%= ordr_idxx %>', '<%= pnt_amount %>' )"><span style="color:blue">현금영수증을  확인합니다.</span></a>
-                        </div>
-                    </div>
-                </li>
-                <% 
-                        }
-                    }
-                %>
-                <!-- 신용카드 영수증 확인 -->
-                <li>
-                    <div class="left"><p class="title">영수증 확인</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <a href="javascript:receiptView('<%=tno%>','<%=ordr_idxx%>','<%=amount%>')"><span style="color:blue">영수증을 확인합니다.</span></a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                }
-                // 계좌이체 결과 출력
-                else if ( use_pay_method.equals("010000000000") )
-                {
-            %>
-            <h2 class="title-type-3">계좌이체 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">계좌이체시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">이체은행</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=bank_name %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">은행코드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=bank_code %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                }
-                // 가상계좌 결과 출력
-                else if ( use_pay_method.equals("001000000000") )
-                {
-            %>
-            <h2 class="title-type-3">가상계좌 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">가상계좌 채번시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">채번은행</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=bankname %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">채번은행코드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=bankcode %>
-                        </div>  
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">가상계좌번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=account %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">입금할 계좌 입금주</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=depositor %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">가상계좌 입금마감일자</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=va_date %>
-                        </div>
-                    </div>
-                </li>
-                <!-- 모의 입금 -->
-                <li>
-                    <div class="left"><p class="title">가상계좌 모의입금<br/>(테스트시 사용)</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <a href="javascript:receiptView3()"><span style="color:blue">모의입금 페이지로 이동합니다.</span></a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                }
-                // 포인트 결과 출력
-                else if ( use_pay_method.equals("000100000000") )
-                {
-            %>
-            <h2 class="title-type-3">포인트 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">포인트사</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_issue %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">포인트 승인시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">포인트 승인번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_app_no %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">적립금액 or 사용금액</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=pnt_amount %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">발생 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=add_pnt %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">사용가능 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=use_pnt %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">총 누적 포인트</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=rsv_pnt %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                }
-                // 휴대폰 결과 출력
-                else if ( use_pay_method.equals("000010000000") )
-                {
-            %>
-            <h2 class="title-type-3">휴대폰 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">휴대폰 결제시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">통신사 코드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=commid %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">휴대폰 번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=mobile_no %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                }
-                // 상품권 결과 출력
-                else if ( use_pay_method.equals("000000001000") )
-                {
-            %>
-            <h2 class="title-type-3">상품권 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">발급사 코드</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=tk_van_code %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">승인 시간</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=tk_app_time %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">승인 번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=tk_app_no %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            
-            <%
-                }
-                // 현금영수증 정보 출력
-                if( !"".equals ( cash_yn ) )
-                {
-                    // 결제수단 가상계좌, 계좌이체, 포인트
-                    if ( "010000000000".equals ( use_pay_method ) | "001000000000".equals ( use_pay_method ) | "000100000000".equals ( use_pay_method ) )
-                    {
-            %>
-            <h2 class="title-type-3">현금영수증 </h2>
-            <ul class="list-type-1">
-                <li>
-                    <div class="left"><p class="title">현금영수증 등록여부</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=cash_yn %>
-                        </div>
-                    </div>
-                </li>
-                <% 
-                        //현금영수증이 등록된 경우 승인번호 값이 존재
-                        if( !"".equals ( cash_authno ) )
-                        {
-                %>
-                <li>
-                    <div class="left"><p class="title">현금영수증 승인번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=cash_authno %>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left"><p class="title">현금영수증 거래번호</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <%=cash_no %>
-                        </div>
-                    </div>
-                </li>
-                <!-- 현금영수증 출력 -->
-                <li>
-                    <div class="left"><p class="title">현금영수증 확인</p></div>
-                    <div class="right">
-                        <div class="ipt-type-1 pc-wd-2">
-                            <% 
-                            // 결제수단 포인트
-                            if ("000100000000".equals ( use_pay_method ))
-                            {
-                            %>
-                            <a href="javascript:receiptView2('<%= cash_no %>', '<%= ordr_idxx %>', '<%= pnt_amount %>' )"><span style="color:blue">현금영수증을  확인합니다.</span></a>
-                            <%
-                            }
-                            else 
-                            {
-                            %>
-                            <a href="javascript:receiptView2('<%= cash_no %>', '<%= ordr_idxx %>', '<%= amount %>' )"><span style="color:blue">현금영수증을  확인합니다.</span></a>
-                            <%
-                            }
-                            %>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <%
-                        }
-                    }
-                }
-            }
-            
-            %>
-            
-            <ul class="list-btn-2">
-                <li class="pc-only-show"><a href="index.html" class="btn-type-3 pc-wd-2">처음으로</a></li>
-            </ul>
-        </div>
-        <div class="grid-footer">
-            <div class="inner">
-                <!-- footer -->
-                <div class="footer">
-                    ⓒ NHN KCP Corp.
-                </div>
-                <!-- //footer -->
-            </div>
-        </div>
-    </div>
-    <!--//wrap-->
+    </main>   
+<script src="/static/product/js/kcp_api_page.js"></script>
 </body>
 </html>

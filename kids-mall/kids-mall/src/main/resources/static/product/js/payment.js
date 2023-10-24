@@ -1,4 +1,6 @@
 let codeExecuted = false;
+let privacy = {};
+
 $(document).ready(function() {
 //상품금액
 	let prdRegularP = 0;
@@ -21,6 +23,7 @@ $(document).ready(function() {
 
 // 로컬 저장소에서 정보를 가져옴
 		const productsData = localStorage.getItem('productsData');
+		
 		if (productsData) {
 // JSON 문자열을 파싱하여 Products 객체로 변환
 			const products = JSON.parse(productsData);
@@ -91,6 +94,7 @@ $(document).ready(function() {
 	openAgreeMomal();
 });
 
+//약관 동의 모달창
 function openAgreeMomal() {
 	const agree01 = document.querySelector(".payment_agreement_info01_wrap03");
 	const buyAgreePopupBackground01 = document.querySelector(".buy_agree_popup_background01");
@@ -121,43 +125,6 @@ function openAgreeMomal() {
 	});
 
 }
-
-function agree1() {
-const agree01 = document.querySelector(".payment_agreement_info01_wrap03");
-const buyAgreePopupBackground01 = document.querySelector(".buy_agree_popup_background01");
-const buyAgreePopupCloseBtn01 = document.querySelector(".buy_agree_popup_close_btn01");
-
-agree01.addEventListener('click', () => {
-	buyAgreePopupBackground01.style.display = 'block';
-});
-
-buyAgreePopupCloseBtn01.addEventListener('click', () => {
-	buyAgreePopupBackground01.style.display = 'none';
-});
-
-}
-
-
-
-function agree2 () {
-const agree02 = document.querySelector(".payment_agreement_info02_wrap01");
-const buyAgreePopupBackground02 = document.querySelector(".buy_agree_popup_background02");
-const buyAgreePopupCloseBtn02 = document.querySelector(".buy_agree_popup_close_btn03");
-
- agree02.addEventListener('click', () => {
-	console.log("클릭");
- 	buyAgreePopupBackground02.style.display = 'block';
- });
-
-buyAgreePopupCloseBtn02.addEventListener('click', () => {
-	buyAgreePopupBackground02.style.display = 'none';
-});
-}
-
-
-
-
-
 
 
 
