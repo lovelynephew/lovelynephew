@@ -29,7 +29,7 @@ function addNotice(noticelist) {
 		success: function(response) {
 			if(response.data) {
 				alert("작성완료");
-				location.replace("/notice/noticelist");
+				location.replace("/admin/board/notice/noticelist");
 			}
 		},
         error: function(error) {

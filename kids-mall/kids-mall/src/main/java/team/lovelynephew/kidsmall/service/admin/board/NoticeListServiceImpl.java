@@ -68,6 +68,30 @@ public class NoticeListServiceImpl implements NoticeListService{
 		return getNoticeRepDto;
 	}
 
+	@Override
+	public GetNoticeRepDto getDeleteNotice(int noticeNum) throws Exception {
+		GetNoticeRepDto getNoticeRepDto = null;
+		
+		NoticeList noticeList = noticeListRepository.getDeleteNotice(noticeNum);
+		
+		getNoticeRepDto = GetNoticeRepDto.builder()
+				.noticeNum(noticeList.getNotice_num())
+				.noticeSubject(noticeList.getNotice_subject())
+				.noticeWriter(noticeList.getNotice_writer())
+				.noticeContent(noticeList.getNotice_content())
+				.noticeUpdate(noticeList.getNotice_update().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))		
+				.build();
+		
+		return getNoticeRepDto;
+	}
+
+	@Override
+	public boolean deleteNotice(int noticeNum) throws Exception {
+		
+		return noticeListRepository.deleteNotice(noticeNum) > 0;
+		
+	}
+
 
 
 }

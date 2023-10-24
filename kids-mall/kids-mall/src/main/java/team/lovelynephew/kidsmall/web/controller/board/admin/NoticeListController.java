@@ -3,6 +3,7 @@ package team.lovelynephew.kidsmall.web.controller.board.admin;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,4 +74,37 @@ public class NoticeListController {
 		
 	}
 	
-}
+	@GetMapping("/admin/notice/delete/noticelist/detail/{noticeNum}") 
+		public ResponseEntity<?> getDeleteNotice(@PathVariable int noticeNum) {
+			GetNoticeRepDto getNoticeRepDto = null;
+			System.out.println(noticeNum);
+			try {
+				getNoticeRepDto = noticeListService.getNotice(noticeNum);
+				System.out.println(getNoticeRepDto);
+				if(getNoticeRepDto == null) {
+					return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "DATABASE FAILED!", null));
+				}
+				System.out.println(getNoticeRepDto);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				return ResponseEntity.internalServerError().body(new CMRespDto<>(-1, "DATABASE ERROR!", null));
+			}
+			return ResponseEntity.ok().body(new CMRespDto<>(1, "success", getNoticeRepDto));
+			
+		}
+	
+	@GetMapping("/admin/notice/delete/{noticeNum}")
+	public ResponseEntity<?> deleteNotice(@PathVariable int noticeNum) {
+		boolean status = false;
+		
+		try {
+			status = noticeListService.deleteNotice(noticeNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", status));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", status));
+	}
+	}

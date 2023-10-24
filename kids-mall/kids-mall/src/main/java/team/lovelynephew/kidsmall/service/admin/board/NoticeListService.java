@@ -12,4 +12,8 @@ public interface NoticeListService {
 	public List<NoticeListRespDto> getNoticeList(int page, int contentCount) throws Exception;
 	
 	public GetNoticeRepDto getNotice(int noticeNum) throws Exception;
+	
+	public GetNoticeRepDto getDeleteNotice(int noticeNum) throws Exception;
+	
+	public boolean deleteNotice(int NoticeNum) throws Exception;
 }
