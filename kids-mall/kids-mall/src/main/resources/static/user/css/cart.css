@@ -637,6 +637,8 @@ div { display: block; }
 }
 
 .buy-button {
+    width: 100%;
     font-weight: 700;
     color: white;
+    text-align: center;
 }

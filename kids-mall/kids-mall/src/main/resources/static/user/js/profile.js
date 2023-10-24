@@ -15,3 +15,10 @@ function loaduserName() {
 	`
 
 }
+
+
+const logoutButton = document.querySelector(".logout-button");
+
+logoutButton.onclick = () => {
+	sessionStorage.removeItem("filterData");
+}

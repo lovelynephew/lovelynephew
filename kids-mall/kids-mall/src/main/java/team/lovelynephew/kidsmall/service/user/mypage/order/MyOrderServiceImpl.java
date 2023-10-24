@@ -64,5 +64,21 @@ public class MyOrderServiceImpl implements MyOrderService{
 		return list;
 	}
 
+	@Override
+	public boolean updateCart(int cartId, int productCount) throws Exception {
+		boolean status = false;
+		
+		System.out.println("장바구니 업데이트 요청 서비스");
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("cartId", cartId);
+		map.put("productCount", productCount);
+		
+		status = myOrderRepository.updateCart(map);
+		
+		return status != false;
+	}
+
 
 }

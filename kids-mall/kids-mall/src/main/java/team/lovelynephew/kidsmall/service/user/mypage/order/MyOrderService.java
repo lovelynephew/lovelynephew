@@ -16,4 +16,6 @@ public interface MyOrderService {
 	public OrderDetailInfoRespDto getOrderDetailInfo(int orderCode) throws Exception;
 	
 	public List<PointRespDto> getPoint(int userCode) throws Exception;
+	
+	public boolean updateCart(int cartId, int productCount) throws Exception;
 }

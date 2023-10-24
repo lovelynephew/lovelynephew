@@ -171,4 +171,19 @@ public class MypageRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1,"카트 불러오기 성공", list));
 	}
 	
+	
+	@PutMapping("/mypage/cart/{cartId}/{productCount}")
+	public ResponseEntity<?> updateCart(@PathVariable int cartId, @PathVariable int productCount) {
+		boolean status = false;
+		
+		log.info("장바구니 업데이트 요청 컨트롤러");
+		try {
+			status = myOrderService.updateCart(cartId, productCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "장바구니 업데이트 실패", status));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 업데이트 성공", status));
+	}
 }
