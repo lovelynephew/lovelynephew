@@ -13,6 +13,7 @@ import team.lovelynephew.kidsmall.service.main.ProductService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductCategoryRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.product.ProductRespDto;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,5 +61,19 @@ public class ProductMainRestController {
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", listRespDtos));
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", listRespDtos));
+	}
+	
+	@GetMapping("/popular-products")
+	public ResponseEntity<?> getPopularProductList() {
+		List<ProductRespDto> list = new ArrayList<ProductRespDto>();
+		
+		try {
+			list = productService.getPopularProductList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", list));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", list));
 	}
 }

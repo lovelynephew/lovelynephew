@@ -9,8 +9,10 @@ import lombok.RequiredArgsConstructor;
 import team.lovelynephew.kidsmall.domain.admin.product.ItemCategoryRepository;
 import team.lovelynephew.kidsmall.domain.admin.product.Product;
 import team.lovelynephew.kidsmall.domain.admin.product.ProductRepository;
+import team.lovelynephew.kidsmall.domain.product.ProductinfoRepository;
 import team.lovelynephew.kidsmall.web.dto.product.ProductCategoryRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.product.ProductRespDto;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +20,7 @@ public class ProductServiceImpl implements ProductService {
 
 	private final ItemCategoryRepository itemCategoryRepository;
 	private final ProductRepository productRepository;
+	private final ProductinfoRepository productinfoRepository;
 	
 	@Override
 	public ProductCategoryRespDto getProductCategoryList(int categoryCode) throws Exception {
@@ -43,6 +46,17 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductListRespDto> getProductsListAll(int parentCode) throws Exception {
 		List<Product> products = productRepository.getProductsListAll(parentCode);
 		return createProductsListRespDtos(products);
+	}
+
+	@Override
+	public List<ProductRespDto> getPopularProductList() throws Exception {
+		List<ProductRespDto> list = new ArrayList<ProductRespDto>();
+		
+		productinfoRepository.getPopularProductList().forEach(product -> {
+			list.add(product.productToDto());
+		});
+		
+		return list;
 	}
 
 }
