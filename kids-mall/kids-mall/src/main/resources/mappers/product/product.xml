@@ -3,13 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="team.lovelynephew.kidsmall.domain.product.ProductinfoRepository">
+<mapper namespace="team.lovelynephew.kidsmall.domain.product.ProductinfoRepository">
+	<select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Product">
+		SELECT *
+		FROM product
+		WHERE product.prd_code= #{prdCode};
+  	</select>
   
-  <select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Product">
-	SELECT *
-	FROM product
-	WHERE product.prd_code= #{prdCode};
-  </select>
+  	<select id="getPopularProductList" resultType="team.lovelynephew.kidsmall.domain.product.Product">
+  		select
+  			prd_code,
+			sub_category_code,
+			prd_name,
+			prd_maker,
+			prd_gender,
+			prd_age,
+			prd_style,
+			prd_regular_price,
+			prd_discount_price,
+			prd_discount_percentage,
+			prd_main_image,
+			prd_brif_explain,
+			prd_detail_explain,
+			prd_inventory,
+			prd_sales_volume
+  		from
+  			product
+  		order by
+  			prd_sales_volume desc
+  		limit 6
+  	</select>
   
-  
-  </mapper>
+</mapper>
