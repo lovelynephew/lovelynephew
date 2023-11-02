@@ -33,8 +33,8 @@ $(document).ready(function() {
 
 			for (const pcode in products) {
 //총 가격처리 위함				
-				prdRegularP += products[pcode].productRegularPrice;
-				prdDiscountP += products[pcode].productDiscountPrice;
+				prdRegularP += parseInt(products[pcode].productRegularPrice, 10);
+				prdDiscountP += parseInt(products[pcode].productDiscountPrice, 10);
 				//totalPrice += prdRegularP;
 								
 				paymentInnerHTml.innerHTML += `

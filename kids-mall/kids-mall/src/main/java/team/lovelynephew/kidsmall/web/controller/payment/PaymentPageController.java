@@ -20,11 +20,6 @@ public class PaymentPageController {
 		return "kcp_api_page";
 	}
 	
-	@GetMapping("/testJsp")
-	public String testjsp() {
-		return "test";
-	}
-	
 	@GetMapping("/product")
 	public String product (){
 		return "thymeleaf/product/product";

@@ -8,7 +8,7 @@ public class RegisterController {
 	
 	@GetMapping("/signin")
 	public String getLogin() {
-		return "employees/signin";
+		return "thymeleaf/employees/signin";
 	}
 	
 	@GetMapping("/register") 
