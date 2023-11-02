@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class searchController {
 	@GetMapping("/search")
 	public String loadSearch() {
-		return "main/searchpage";
+		return "thymeleaf/main/searchpage";
 	}
 	
 	@GetMapping("/search/searchproduct/{searchWords}")
 	public String loadSearchProduct() {
-		return "main/searchproduct";
+		return "thymeleaf/main/searchproduct";
 	}
 }

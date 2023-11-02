@@ -99,7 +99,7 @@ public class MypageController {
 	//리뷰
 	@GetMapping("/mypage/review")
 	public String myReviewlist() {
-		return "mypage/myboard-list";
+		return "thymeleaf/mypage/myboard-list";
 	}
 	
 	public String myBoardlist() {
@@ -109,7 +109,7 @@ public class MypageController {
 	//리뷰 상세페이지
 	@GetMapping("/mypage/review-detail")
 	public String reviewDetail() {
-		return "mypage/review-detail";
+		return "thymeleaf/mypage/review-detail";
 	}
 	
 	//포인트
@@ -126,17 +126,17 @@ public class MypageController {
 	
 	@GetMapping("/mypage/activity/myboard-list")
 	public String getBoard() {
-		return "mypage/myboard-list";
+		return "thymeleaf/mypage/myboard-list";
 	}
 
 	@GetMapping("/mypage/myshopping-info/detail")
 	public String getOrderDetailInfo() {
-		return "mypage/order-detail-info";
+		return "thymeleaf/mypage/order-detail-info";
 	}
 	
 	//회원탈퇴
 	@GetMapping("/resign")
 	public String getResign() {
-		return "mypage/resign";
+		return "thymeleaf/mypage/resign";
 	}
 }
