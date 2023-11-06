@@ -1,37 +1,41 @@
-const innerProduct = document.querySelector(".inner-product");
+getPopularProducts();
 
-innerProduct.innerHTML = "";
+function getPopularProducts() {
+    $.ajax({
+        async: false,
+        type: "get",
+        url: `/popular-products`,
+        dataType: "json",
+        success: (response) => {
+            console.log(response.data);
+            getData(response.data);
+            console.log("get완료");
+        },
+        error: (error) => {
+            console.log(data);
+            console.log(error);
+        }
+    });
+}
 
-let flag = location.href.includes("product/main");
-console.log("flag 로그: " + flag);
 
-// 필터 미등록 시에는 내 조카 맞춤선물을 보여주지 않는다.
-if (session != null) {
-    console.log("filter null검사");
-    innerProduct.innerHTML += `<p class="product-title">내 조카 맞춤선물</p>`;
+function getData(productList) {
 
-
+    const popularProducts = document.querySelector(".popular-products");
+    
+    popularProducts.innerHTML = `<p class="product-title">인기상품</p>`
+    
     for (let i = 0; i < productList.length; i++) {
 
-        if((i >= 6 || i == productList.length - 1) && flag != true) {
-            innerProduct.innerHTML += `
-                    <div class="more-view-product">
-                        <a href="/product/main/0">
-                            <p>필터 맞춤상품 더보기</p>
-                        </a>
-                    </div>
-            `
-            break;
-        }
         // 한줄에 3개씩 보여준다.
         if (i % 3 == 0) {
-            innerProduct.innerHTML += `
+            popularProducts.innerHTML += `
                                     <div class="recommend-box">
                                     </div>
             `;
         }
 
-        const recommendBox = document.querySelector(".inner-product .recommend-box:nth-last-child(1)");
+        const recommendBox = document.querySelector(".popular-products .recommend-box:nth-last-child(1)");
 
 
         if(productList[i].prdDiscountPrice == 0) {
