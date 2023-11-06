@@ -30,8 +30,8 @@
   		from
   			product
   		order by
-  			prd_sales_volume desc
-  		limit 6
+  			prd_code desc
+  		limit 9
   	</select>
   
 </mapper>
