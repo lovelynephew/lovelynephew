@@ -28,6 +28,8 @@ public class Filter {
 	private int category_code;
 	private int prd_regular_price;
 	private int prd_discount_price;
+	private int prd_discount_percentage;
+	private String prd_main_image;
 	private String prd_style;
 	private int prd_sales_volume;
 
@@ -42,6 +44,8 @@ public class Filter {
 				.subCategoryCode(category_code)
 				.prdRegularPrice(prd_regular_price)
 				.prdDiscountPrice(prd_discount_price)
+				.prdDiscountPercentage(prd_discount_percentage)
+				.prdMainImage(prd_main_image)
 				.build();
 	}
 }

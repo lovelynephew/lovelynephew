@@ -33,21 +33,27 @@
 		        pt.prd_name,
 		        pt.sub_category_code,
 		        pt.prd_regular_price,
-		        pt.prd_discount_price
+		        pt.prd_discount_price,
+		        pt.prd_discount_percentage,
+		        pt.prd_main_image
 		    FROM
 		        product pt
 		    WHERE 1 = 1
-		    <if test='catagoryCode != null'>
+<!-- 		    <if test='catagoryCode != null'>
 		        AND pt.sub_category_code == #{categoryCode}
-		    </if>
+		    </if> -->
 		    <if test='gender != null'>
 		        AND pt.prd_gender LIKE CONCAT('%', #{gender}, '%')
 		    </if>
 		    <if test='age != null'>
 		        AND pt.prd_age LIKE CONCAT('%', #{age}, '%')
 		    </if>
-<!-- 		    <if test="kidStyle != null">
-		        AND prd_style = #{kidStyle}
+ 		    <!-- <if test="kidStyle != null">
+ 		    	 AND (
+			        <foreach collection="kidStyle" item="style" open="" separator=" OR " close="">
+			            prd_style LIKE CONCAT('%', #{style}, '%')
+			        </foreach>
+			    )
 		    </if> -->
 		    <if test="priceMin > 0">
 		    	AND (
