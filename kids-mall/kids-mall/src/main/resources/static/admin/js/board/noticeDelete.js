@@ -110,6 +110,10 @@ function getNoticeList(data) {
 				<td>${content.noticeUpdate}</td>
 				<td class="notice-delete">
 					<a>
+						<button class="update-btn"">수정</button>
+						&nbsp;/&nbsp;
+					</a>
+					<a>
 						<button class="delete-btn" onclick="deleteNotice(${content.noticeNum})">삭제</button>
 					</a>
 				</td>
@@ -142,7 +146,7 @@ function deleteNotice(noticeNum) {
 	
 	if(confirm("삭제하시겠습니까?\n삭제된 정보는 복원 할 수 없습니다.")){
 		$.ajax({
-			type: "get",
+			type: "delete",
 			async : false,
 			url: "/admin/notice/delete/" + noticeNum,
 			data: {"noticeNum" : noticeNum},

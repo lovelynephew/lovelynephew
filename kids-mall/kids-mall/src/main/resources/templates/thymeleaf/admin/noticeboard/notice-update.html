@@ -37,25 +37,29 @@
                     <hr />
                     <div class="notice-view" style="padding-right: 10px; padding-left: 10px;">
                         <div class="notice-view-subject" style="margin-bottom: 5px; font-size: 16px;">
-                            
+							<input type="text" class="notice-subject" name="noticeSubject">
                         </div>
                         <div class="update">
                             <div class="notice-view-writer">
-                               
+								<!--<input type="text" class="notice-writer" name="noticeWriter">-->
                             </div>
                             <div class="notice-view-update">
-                               
+								<input type="date" class="notice-update" name="noticeUpdate">
                             </div>
                         </div>
                         <div class="notice-view-content" style="height: 600px; padding-top: 10px; font-size: 14px;">
-                           
+								<textarea class="notice-content" name="noticeContent"></textarea>
                         </div>
                     </div>
                     <div class="write-btn">
-						<a href="/notice/noticelist">
+						<a href="/admin/board/notice/delete">
 							<button class="write">목록</button>	
 						</a>
-                        
+                    </div>
+                    <div class="update-btn">
+						<a>
+							<button class="update">수정</button>	
+						</a>
                     </div>
                 </div>
             </div>
@@ -98,5 +102,5 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/static/admin/js/board/noticeView.js"></script>
+<script type="text/javascript" src="/static/admin/js/board/noticeUpdate.js"></script>
 </html>
