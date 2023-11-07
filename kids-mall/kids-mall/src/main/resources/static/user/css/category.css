@@ -88,10 +88,26 @@ section {
 }
 
 .product {
-    height: 90px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bolder;
 }
+
+.product:nth-child(1) {
+	margin-bottom: 10px;
+}
+
+.product:nth-child(2) {
+	margin-bottom: 145px;
+}
+
+.product:nth-child(3) {
+	margin-bottom: 115px;
+}
+
+.product:nth-child(4) {
+	margin-bottom: 120px;
+}
+
 .section-right {
     flex-basis: 80%;
     background-color: #fff;
@@ -132,16 +148,17 @@ section {
     content: '';
 }
 
-.product1, .product2, .product3, .product4, .product5 {
+.product0 .product1, .product2, .product3, .product4, .product5 {
 	margin-bottom: 20px;
 }
 
-.product1 p {
+.product0 p {
     font-size: 18px;
     font-weight: bolder;
     color: #404040;
     margin-bottom: 15px;
 }
+.product1 p,
 .product2 p,
 .product3 p,
 .product4 p,

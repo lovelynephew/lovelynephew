@@ -1,4 +1,7 @@
-
+const headerTitle = document.querySelector(".header-title");
+const categoryWrap = document.querySelectorAll(".category-wrap");
+const categoryWrapText = document.querySelectorAll(".category-wrap a");
+const categoryDetailLi = document.querySelectorAll(".category-detail-li");
 
 let categoryCode = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 console.log(categoryCode);
@@ -26,7 +29,6 @@ function load() {
 }
 
 function getProductMain(data) {
-	const headerTitle = document.querySelector(".header-title");
 	const categoryDetailUl = document.querySelector(".category-detail-ul");
 	if(data.parentCategoryCode == 1) {
 		headerTitle.innerHTML = `
@@ -81,9 +83,6 @@ function getProductMain(data) {
 }
 
 function changeBold(data) {
-	const categoryWrap = document.querySelectorAll(".category-wrap");
-	const categoryWrapText = document.querySelectorAll(".category-wrap a");
-	const categoryDetailLi = document.querySelectorAll(".category-detail-li");
 	for(let i = 1; i < categoryWrap.length; i++) {
 		if(categoryWrap[i].textContent.trim() == data.parentCategoryName) {
 			categoryWrapText[i-1].style.fontWeight="700";
@@ -154,7 +153,13 @@ function getFilterData() {
 
 	/**세션 스토리지에 등록되어 있는 검색조건 설정값 */
 	let session = loadDataFromSessionStorage();
+	
 
+	headerTitle.innerHTML = `
+    	<h3>추천</h3>
+	`;
+	
+	categoryWrapText[0].style.fontWeight="700";
 
 	console.log(session);
 
