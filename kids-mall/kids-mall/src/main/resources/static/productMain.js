@@ -185,7 +185,7 @@ function getFilterData() {
 				console.log(response.data);
 				console.log("get완료");
 				productList = response.data;
-				loadProducts(productList);
+				loadProducts(response.data);
 			},
 			error: (error) => {
 				console.log(data);
