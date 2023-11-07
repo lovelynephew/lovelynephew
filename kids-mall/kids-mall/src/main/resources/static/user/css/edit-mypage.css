@@ -101,22 +101,6 @@ svg:not(:root) {
     padding-right: 8px;
 }
 
-.btn-edit1 {
-    display: flex;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    margin: 0px;
-    min-height: 48px;
-    border: none;
-    background: #f9f9f9;
-    border-radius: 4px;
-    padding: 0px 40ox 0px 12px;
-}
-
 .btn-edit2 {
     width: 100px;
     height: 45px;
@@ -215,6 +199,19 @@ div { display: block; }
     display: flex;
     -webkit-box-align: center;
     align-items: center;
+   	display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin: 0px;
+    min-height: 48px;
+    border: none;
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 0px 40ox 0px 12px;
 }
 
 .div-edit6 {
@@ -404,20 +401,20 @@ rect {
 
 .find-btn {
     margin-bottom: 4px;
-    margin-left: 12px;
+    margin-left: 10px;
     font-size: 13px;
 
     font-weight: 400;
     letter-spacing: -.2px;
     line-height: 16px;
-    margin: 20px;
+    margin: 15px;
     white-space: nowrap;
     
     width: 100px;
     height: 45px;
     border: 1px solid rgb(204, 204, 204);
     position: static;
-    border-radius: 6px;
+    border-radius: 30px;
     background-color: #fff;
     color: #1f1f1f;
     display: flex;
@@ -427,3 +424,30 @@ rect {
     font-weight: 400;
     cursor: pointer;
 }
+
+.find-btn:active {
+    margin-bottom: 4px;
+    margin-left: 10px;
+    font-size: 13px;
+
+    font-weight: 400;
+    letter-spacing: -.2px;
+    line-height: 16px;
+    margin: 15px;
+    white-space: nowrap;
+    
+    width: 100px;
+    height: 45px;
+    border: 1px solid rgb(204, 204, 204);
+    position: static;
+    border-radius: 30px;
+    background-color: #767676;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    font-weight: 400;
+    cursor: pointer;
+}
+
