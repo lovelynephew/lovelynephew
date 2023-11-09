@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@page import="com.google.gson.Gson"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.json.simple.JSONObject" %>
 <%@ page import="org.json.simple.parser.JSONParser" %>
 <%@ page import="org.json.simple.parser.ParseException" %>
@@ -518,7 +519,7 @@
         <div class="main-container">
 			<div class="main-top">
 				<div class="order-number">
-					<p>No. <%= ordr_idxx %></p>
+					<p id="orderCode">No. <%= ordr_idxx %></p>
 					(<span>
 						 <% String paymentDate= ordr_idxx.substring(0, 4)+"."+
 								 				ordr_idxx.substring(4, 6)+"."+
@@ -648,6 +649,7 @@
 			</div>
         </div>
     </main>   
+
 <script src="/static/product/js/kcp_api_page.js"></script>
 </body>
 </html>

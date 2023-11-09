@@ -69,7 +69,7 @@ spring:
 
   thymeleaf:
     cache: false
-    prefix: classpath:templates/*
+    prefix: classpath:templates/
     suffix: .html
     view-names: thymeleaf/*
 
