@@ -11,7 +11,7 @@ import team.lovelynephew.kidsmall.web.dto.user.mypage.PointRespDto;
 @Mapper
 public interface MyOrderRepository {
 
-	public List<MyOrder> getOrderList(int userCode) throws Exception;
+	public List<MyOrder> getOrderList(Map<String, Object> map) throws Exception;
 	
 	public List<Cart> getCartItemList(int userCode) throws Exception;
 	

@@ -6,7 +6,7 @@
 <mapper namespace="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrderRepository">
 
 	<select id="getOrderList" 
-			parameterType="Integer" 
+			parameterType="hashmap" 
 			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.MyOrder"
 			>
 		
@@ -31,6 +31,19 @@
 				LEFT OUTER JOIN product pd ON(pd.prd_code = om.prd_code)
 			where
 				om.user_code = #{userCode}
+				<choose>
+					<when test="deliveryFlag == 0">
+					</when>
+					<when test="deliveryFlag == 3">
+						and om.cs_status > 0
+					</when>
+					<when test="deliveryFlag == 1">
+						and om.order_status = 4
+					</when>
+					<when test="deliveryFlag == 2">
+						and om.order_status = 5
+					</when>		
+				</choose>
 			order by
 				order_code desc
 	</select>

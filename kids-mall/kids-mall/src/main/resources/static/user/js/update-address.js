@@ -51,7 +51,7 @@ function setData(data) {
     secondPhone.value = data[0].addrEmergentel;
     sendMessage.value = data[0].addrRequire;
 	
-	if (defAddress.checked) {
+	if (defAddress.value == 'T') {
 		defAddress.checked = true;
 	} else {
 		defAddress.checked = false;

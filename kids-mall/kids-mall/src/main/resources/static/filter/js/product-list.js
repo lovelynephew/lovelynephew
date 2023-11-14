@@ -13,6 +13,14 @@ if (session != null) {
 
     for (let i = 0; i < productList.length; i++) {
 
+        let imgURL = null;
+
+        if(productList[i].prdMainImage != null) {
+            imgURL = `${productList[i].prdMainImage}`;
+        }else {
+            imgURL = "/static/user/images/non-img.png";
+        }
+
         if((i >= 6 || i == productList.length - 1) && flag != true) {
             innerProduct.innerHTML += `
                     <div class="more-view-product">
@@ -38,7 +46,7 @@ if (session != null) {
             recommendBox.innerHTML += ` 
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src=${imgURL} alt="">
                                                 <p class="explain inner-explain">${productList[i].prdName}</p>
                                                 <p class="price inner-price">${productList[i].prdRegularPrice}원</p>
                                             </div>
@@ -52,7 +60,7 @@ if (session != null) {
             recommendBox.innerHTML += `
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src=${imgURL} alt="">
                                                 <div class="sale-box">
                                                     <div class="sale">${roundedDiscountRate}%</div>
                                                     <p class="sale-price">${productList[i].prdRegularPrice}원</p>
