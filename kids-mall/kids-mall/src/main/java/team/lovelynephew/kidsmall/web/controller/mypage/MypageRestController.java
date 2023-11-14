@@ -73,13 +73,15 @@ public class MypageRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "배송지 수정 성공", status));
 	}
 	
-	@GetMapping("/mypage/order/history/{userCode}")
-	public ResponseEntity<?> getMyOrderHistory(@PathVariable int userCode) {
+	@GetMapping("/mypage/order/history/{userCode}/{deliveryFlag}")
+	public ResponseEntity<?> getMyOrderHistory(@PathVariable int userCode, @PathVariable int deliveryFlag) {
 		List<OrderListRespDto> list = new ArrayList<OrderListRespDto>();
 		
-		log.info("usercode: "+userCode);
+		log.info("usercode: " + userCode);
+		log.info("deliveryFlag: " + deliveryFlag);
+		
 		try {
-			list = myOrderService.getMyOrderList(userCode);
+			list = myOrderService.getMyOrderList(userCode, deliveryFlag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "주문 내역 조회 실패", list));

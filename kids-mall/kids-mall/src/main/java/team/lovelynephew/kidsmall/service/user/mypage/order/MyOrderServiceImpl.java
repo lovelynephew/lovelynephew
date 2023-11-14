@@ -23,10 +23,15 @@ public class MyOrderServiceImpl implements MyOrderService{
 	private final MyOrderRepository myOrderRepository;
 	
 	@Override
-	public List<OrderListRespDto> getMyOrderList(int userCode) throws Exception{
+	public List<OrderListRespDto> getMyOrderList(int userCode, int deliveryFlag) throws Exception{
 		List<OrderListRespDto> list = new ArrayList<OrderListRespDto>();
 		
-		myOrderRepository.getOrderList(userCode).forEach(order -> {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("userCode", userCode);
+		map.put("deliveryFlag", deliveryFlag);
+		
+		myOrderRepository.getOrderList(map).forEach(order -> {
 			list.add(order.orderHistoryToDto());		
 		});
 		

@@ -121,7 +121,7 @@ public class MypageController {
 	//장바구니
 	@GetMapping("/cart")
 	public String getCartHtml() {
-		return "mypage/cart";
+		return "thymeleaf/mypage/cart";
 	}
 	
 	@GetMapping("/mypage/activity/myboard-list")
