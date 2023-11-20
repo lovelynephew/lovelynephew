@@ -93,13 +93,10 @@ $(document).ready(function() {
 
 	openAgreeMomal();
 	
-	const payBtn = document.querySelector(".pay_btn");
-	payBtn.addEventListener("click", function() {
-		deliveryRequest();
-		console.log("함수 실행 됨");
-	})
-
-	console.log("함수 실행 되고 끝남");
+	// const payBtn = document.querySelector(".pay_btn");
+	// const agreeCheckbox = document.getElementById("orderAgreeCheckBox");
+	// const isOrderAgreed = false;
+	
 
 });
 

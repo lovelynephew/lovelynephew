@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Order {
-	private int order_code;
+	private String order_code;
 	private int user_code;
-	private int prd_code;
+	private String prd_code;
 	private int event_code;
 	private int payment_status;
 	private int order_status;
@@ -22,3 +22,9 @@ public class Order {
 	private int payment_amount;
 	private String delivery_request;
 }
+
+
+
+
+
+

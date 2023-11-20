@@ -1,18 +1,13 @@
+const headerCart = document.querySelector(".div-price-bar");
 const itemInnerHtml = document.querySelector(".item-container");
 let totalPrice = 0;
 const checkedPrdInfo = []; // 선택된 물건 정보를 담을 배열
 
-// products[0] = {
-//     "name" : productName ,
-//     "maker": productMaker,
-//     "productRegularPrice" : productRegularPrice,
-//     "productDiscountPrice" : productDiscountPrice,
-// };
+let selectedPrd = 0; //선택된 물건 개수
+const selectTotal = document.getElementById("selectTotal");
 
 getCartInfo();
 toPayment();
-
-///////
 
 //장바구니 정보 들고오기
 function getCartInfo() {
@@ -23,15 +18,19 @@ function getCartInfo() {
             "userId" : 40
         },
         success: (response) => {
-           
+           console.log(response.data); 
+
+            //장바구니 정보 뿌리기 
             for(let i =0; i < response.data.length; i++) {
-               getProductInfo(response.data[i].prdCode);             
-            }        
+               getProductInfo(response.data[i].prdCode);         
+            }   
+
+            //선택/전체 개수 표시
+            const itemTotal = document.getElementById("itemTotal");
+            itemTotal.innerText = response.data.length;
 
             price(totalPrice); 
-            
             checkbox();
-
         },
         error: (error) => {
             if(error.status == 400) {
@@ -59,13 +58,12 @@ function getProductInfo (productCode) {
             "prdCode" : productCode
         },
         success: (response) => {
-            totalPrice += response.data.prdDiscountPrice;
             itemInnerHtml.innerHTML += `
                 <div class="div-citem1">
                     <div class="div-citem2">
                         <div class="div-citem3">
                             <label class="label-citem1">
-                                <input type="checkbox" class="input-cart2" id = "prdChoice-${productCode}" value= "prd-${productCode}">
+                                <input type="checkbox" name="product" class="input-cart2" id = "prdChoice-${productCode}" value= "prd-${productCode}">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
                                     <path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
                                 </svg>
@@ -135,7 +133,7 @@ function getProductInfo (productCode) {
                                 <div class="div-amount4">
                                     <span class="span-amount5">Z할인가</span>
                                     <span class="body_15 span-amount6">
-                                        <p id = "prdDiscountPrice-${productCode}" >${response.data.prdDiscountPrice}</p>
+                                        <p id = "prdDiscountPrice-${productCode}"  class="prdDisPrice">${response.data.prdDiscountPrice}</p>
                                         <span class="body_15 span-amount7">원</span>
                                     </span>
                                 </div>
@@ -144,7 +142,7 @@ function getProductInfo (productCode) {
                     </div>
                 </div>
                 `;
-
+            
         },
         error: (error) => {
             if(error.status == 400) {
@@ -159,8 +157,9 @@ function getProductInfo (productCode) {
 
 //총 가격 들고오기
 function price(totalPrice) {
-    const prdPlusdeli = totalPrice + 3000;
-    itemInnerHtml.innerHTML += `
+    let prdPlusdeli = totalPrice + 3000;
+    headerCart.innerHTML =``;
+    headerCart.innerHTML += `
     <div class="body_13 div-cprice1">
         <div>
             <span class="span-cprice1">
@@ -180,7 +179,8 @@ function price(totalPrice) {
                     원
             </span>
         </div>
-    </div>`;
+    </div>`
+    ;
 }
 
 
@@ -196,9 +196,9 @@ function checkbox() {
                 console.log(`체크박스 ${i}가 선택되었습니다.`);
                 const prdName = document.getElementById(`prdName-${i}`).innerText;
                 const prdMaker = document.getElementById(`prdMaker-${i}`).value;
-                const prdRPrice = document.getElementById(`prdregularPrice-${i}`).innerText;
-                const prdDPrice = document.getElementById(`prdDiscountPrice-${i}`).innerHTML;
-                const EA = document.getElementById(`amount-${i}`).value;
+                let prdRPrice = document.getElementById(`prdregularPrice-${i}`).innerText;
+                let prdDPrice = document.getElementById(`prdDiscountPrice-${i}`).innerHTML;
+                let EA = document.getElementById(`amount-${i}`).value;
                 checkedPrdInfo.push({
                     "productCode" : `${i}`,
                     "name" : prdName ,
@@ -207,11 +207,19 @@ function checkbox() {
                     "productDiscountPrice" : prdDPrice,
                      EA: EA
                 });
-                console.log(checkedPrdInfo);
+               
+                selectedPrd += 1;
+                selectTotal.innerText = ``;
+                selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+
+                totalPrice += parseInt(prdDPrice, 10);
+                price(totalPrice);
+
             } else {
                 console.log(`체크박스 ${i}가 선택 해제되었습니다.`);
                 const prdCode = i; 
                 const EA = document.getElementById(`amount-${i}`).value;;
+                let prdDPrice = document.getElementById(`prdDiscountPrice-${i}`).innerHTML;
 
                 const index = checkedPrdInfo.findIndex(item => item.productCode === prdCode);
                
@@ -220,6 +228,13 @@ function checkbox() {
                     checkedPrdInfo.splice(index, 1);
                 }
                 console.log(checkedPrdInfo);
+
+                selectedPrd -= 1;
+                selectTotal.innerText = ``;
+                selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+
+                totalPrice -= parseInt(prdDPrice, 10); // 총 상품 금액
+                price(totalPrice);
             }
         }
     });
@@ -236,4 +251,49 @@ function toPayment() {
     });
 
 }
-//배열 정보 챙우는것 부터 하기
+
+//전체 선택 전체 해제 
+const checkedAll = document.getElementById("all");
+console.log(checkedAll.checked);
+ const eachChecked = document.getElementsByName("product");
+
+checkedAll.addEventListener("click", function() {
+   totalPrice = 0;
+    if(checkedAll.checked) {
+      
+       //전체 가격 구하기
+       document.querySelectorAll(".prdDisPrice").forEach(function(price) {
+        console.log(price.textContent);
+        totalPrice += parseInt(price.textContent, 10);
+        });
+        price(totalPrice);
+
+        //체크 값 변경
+        eachChecked.forEach(function(product){
+            product.checked = true;
+        });
+
+        selectedPrd = 7;
+        selectTotal.innerText = ``;
+        selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+
+
+    }else {
+        //전체가격 구하기
+        totalPrice = 0;
+        price(totalPrice);
+
+        //체크값 변경
+        eachChecked.forEach(function(product){
+            product.checked =false;
+        });
+
+        selectedPrd = 0;
+        selectTotal.innerText = ``;
+        selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+    }
+})
+
+//TODOLIST  
+//전체선택할 시 결제하기까지 정보 넘어가게 하기 //지우기 백 작업은 함 
+//삭제하기

@@ -5,9 +5,9 @@ import team.lovelynephew.kidsmall.domain.payment.Order;
 
 @Data
 public class OrderReqDto {
-	private int orderCode;
+	private String orderCode;
 	private int userCode;
-	private int prdCode;
+	private String prdCode;
 	private int eventCode;
 	private int paymentStatus;
 	private int orderStatus;

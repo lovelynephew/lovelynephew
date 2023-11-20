@@ -570,8 +570,8 @@
 						<span>경남 창원시 진해구 안청북로 39, 111동 111호</span>
 					</div>
 					<div class="delivery-info">
-						<p>배송메모</p>
-						<span>집 앞에 놔주세요.</span>
+						<p >배송메모</p>
+						<span id="deleveryRequest">집 앞에 놔주세요.</span>
 					</div>
 				</div>
 			</div>
@@ -606,7 +606,7 @@
 							payMethod = "무통장 입금";
 						}
 						%>
-						<p> <%= payMethod%></p>
+						<p id="payMethod"> <%= payMethod%></p>
 						<span><%=amount %>원</span>
 					</div>
 					
@@ -649,7 +649,7 @@
 			</div>
         </div>
     </main>   
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/static/product/js/kcp_api_page.js"></script>
 </body>
 </html>

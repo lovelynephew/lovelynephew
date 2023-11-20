@@ -20,8 +20,13 @@ public class CartSerivceImpl implements CartService {
 
 	@Override
 	public boolean postOrderInfo(OrderReqDto orderInfo) throws Exception {
-		
 		return repository.addOrder(orderInfo.orderToEntity())>0;
+	}
+
+	@Override
+	public boolean deliteCart(int prdCode) throws Exception {
+		
+		return repository.deliteCart(prdCode)>0;
 	}
 
 }
