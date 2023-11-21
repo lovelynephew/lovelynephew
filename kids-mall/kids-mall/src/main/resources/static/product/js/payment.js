@@ -87,11 +87,17 @@ $(document).ready(function() {
 	document.getElementById("payment_total_info_reguralPrice").innerHTML = prdRegularP +" 원";
 	document.getElementById("payment_total_info_discountPrice").innerHTML = "(-)" + (prdRegularP - prdDiscountP);
 	document.getElementById("payment_total_info_totaltPrice").value= prdDiscountP+3000;
-
+	
     codeExecuted =false; // 코드가 한 번 실행되었음을 표시
     }	
 
 	openAgreeMomal();
+	
+	// const payBtn = document.querySelector(".pay_btn");
+	// const agreeCheckbox = document.getElementById("orderAgreeCheckBox");
+	// const isOrderAgreed = false;
+	
+
 });
 
 //약관 동의 모달창
@@ -123,9 +129,28 @@ function openAgreeMomal() {
 	buyAgreePopupCloseBtn02.addEventListener('click', () => {
 		buyAgreePopupBackground02.style.display = 'none';
 	});
-
 }
 
+//배송 요청사항
+function deliveryRequest () {
+	const productsData = localStorage.getItem('productsData');
+    const products = JSON.parse(productsData);
+
+    // select 요소를 가져옵니다.
+    const selectRequestElement = document.querySelector(".payment_delivery_Req_wrapper02");
+    const selectRequest = selectRequestElement.value;
+
+    const textRequestElement = document.querySelector(".payment_delivery_req_text");
+    const textRequest = textRequestElement.value;
+
+    // 새로운 정보 추가
+    products[0]["selectRequest"] = selectRequest;
+    products[0]["textRequest"] = textRequest;
+    console.log(products);
+
+    // 업데이트된 데이터를 다시 로컬 스토리지에 저장
+    localStorage.setItem('productsData', JSON.stringify(products));
+}
 
 
 {/* <section class="payment_personal_prd_wrapper02">
@@ -171,3 +196,4 @@ function openAgreeMomal() {
 						</div>
 					</div>
 				</section> */}
+

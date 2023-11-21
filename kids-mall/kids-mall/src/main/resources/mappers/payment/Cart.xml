@@ -16,4 +16,28 @@
 	);
   </insert>
   
+  
+  <insert id="addOrder" parameterType="team.lovelynephew.kidsmall.domain.payment.Order">
+  INSERT INTO order_mst
+  VALUES(
+	#{order_code},
+	#{user_code},
+	#{prd_code},
+	#{event_code},
+	#{payment_status},
+	#{order_status},
+	#{cs_status},
+	#{payment_method},
+	#{payment_amount},
+	#{delivery_request},
+	now(),
+	now()	
+  );
+  
+  </insert>
+  
+  <delete id="deliteCart" parameterType="Integer">
+  DELETE FROM cart
+  WHERE cart.prd_code = #{prdCode} and user_id = 40;
+  </delete>
   </mapper>

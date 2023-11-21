@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@page import="com.google.gson.Gson"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.json.simple.JSONObject" %>
 <%@ page import="org.json.simple.parser.JSONParser" %>
 <%@ page import="org.json.simple.parser.ParseException" %>
@@ -518,7 +519,7 @@
         <div class="main-container">
 			<div class="main-top">
 				<div class="order-number">
-					<p>No. <%= ordr_idxx %></p>
+					<p id="orderCode">No. <%= ordr_idxx %></p>
 					(<span>
 						 <% String paymentDate= ordr_idxx.substring(0, 4)+"."+
 								 				ordr_idxx.substring(4, 6)+"."+
@@ -569,8 +570,8 @@
 						<span>경남 창원시 진해구 안청북로 39, 111동 111호</span>
 					</div>
 					<div class="delivery-info">
-						<p>배송메모</p>
-						<span>집 앞에 놔주세요.</span>
+						<p >배송메모</p>
+						<span id="deleveryRequest">집 앞에 놔주세요.</span>
 					</div>
 				</div>
 			</div>
@@ -605,7 +606,7 @@
 							payMethod = "무통장 입금";
 						}
 						%>
-						<p> <%= payMethod%></p>
+						<p id="payMethod"> <%= payMethod%></p>
 						<span><%=amount %>원</span>
 					</div>
 					
@@ -648,6 +649,7 @@
 			</div>
         </div>
     </main>   
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/static/product/js/kcp_api_page.js"></script>
 </body>
 </html>

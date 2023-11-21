@@ -65,9 +65,16 @@
     { 
     	
         try
-        {
+        {   
+            //결제창 열기전 주문내용 확인 및 결제 동의 체크 여부 확인하기 
+            const payBtn = document.querySelector(".pay_btn");
+	        const agreeCheckbox = document.getElementById("orderAgreeCheckBox");
+            if(orderAgreeCheckBox.checked){
+                 KCP_Pay_Execute_Web( form );
+            }else {
+                alert("약관에 동의해주세요.");
+            }
            
-            KCP_Pay_Execute_Web( form );
 
 
         }
@@ -376,7 +383,7 @@
                                         <span>
                                             <div>
                                                 <label for="">
-                                                    <input type="checkbox">
+                                                    <input id="orderAgreeCheckBox" type="checkbox">
                                                     <span>주문내용 확인 및 결제 동의</span>
                                                 </label>
                                             </div>

@@ -5,4 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CartRepository {
 	public int addCart (Cart cart) throws Exception;
+	public int addOrder(Order order) throws Exception;
+	public int deliteCart(int prdCode) throws Exception;
 }
