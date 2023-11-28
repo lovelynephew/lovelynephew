@@ -29,7 +29,7 @@ pipeline {
           steps {
             echo 'Bulid Maven'
             dir('.'){
-				sh "mvn -Dmaven.test.failure.ignore=true clean package"
+				sh "./mvnw clean install -DskipTests"
             }
           }
           post {
