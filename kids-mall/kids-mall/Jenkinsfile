@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    tools {
+        maven "maven-3.8.7"
+    }
 
     environment {
         imagename = "donguk585/lovelynephew"
@@ -29,8 +33,7 @@ pipeline {
           steps {
             echo 'Bulid Maven'
             dir('.'){
-            	sh "chmod 755 ./kids-mall/kids-mall/mvnw"
-				sh "./kids-mall/kids-mall/mvnw clean install -DskipTests"
+            	sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
           }
           post {
