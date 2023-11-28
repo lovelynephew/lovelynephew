@@ -29,7 +29,7 @@ pipeline {
           steps {
             echo 'Bulid Maven'
             dir('.'){
-				sh "./mvnw clean install -DskipTests"
+				sh "./kids-mall/kids-mall/mvnw clean install -DskipTests"
             }
           }
           post {
