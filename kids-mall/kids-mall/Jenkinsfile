@@ -33,7 +33,7 @@ pipeline {
           steps {
             echo 'Bulid Maven'
             dir('.'){
-            	sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            	sh "cd kids-mall/kids-mall; mvn -Dmaven.test.failure.ignore=true clean package"
             }
           }
           post {
