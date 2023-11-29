@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=kids-mall/kids-mall/target/*.jar
 
 COPY ${JAR_FILE} app.jar
 
