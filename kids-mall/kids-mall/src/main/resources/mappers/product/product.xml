@@ -4,34 +4,40 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="team.lovelynephew.kidsmall.domain.product.ProductinfoRepository">
-	<select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Product">
+	<select id="product" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.Products">
 		SELECT *
 		FROM product
 		WHERE product.prd_code= #{prdCode};
   	</select>
   
-  	<select id="getPopularProductList" resultType="team.lovelynephew.kidsmall.domain.product.Product">
+  	<select id="getPopularProductList" parameterType= "hashmap" resultType="team.lovelynephew.kidsmall.domain.admin.product.Product">
   		select
-  			prd_code,
-			sub_category_code,
-			prd_name,
-			prd_maker,
-			prd_gender,
-			prd_age,
-			prd_style,
-			prd_regular_price,
-			prd_discount_price,
-			prd_discount_percentage,
-			prd_main_image,
-			prd_brif_explain,
-			prd_detail_explain,
-			prd_inventory,
-			prd_sales_volume
-  		from
-  			product
-  		order by
-  			prd_code desc
-  		limit 9
+		   pm.prd_code,
+		   pm.sub_category_code,
+		   pm.prd_name,
+		   pm.prd_maker,
+		   pm.prd_gender,
+		   pm.prd_age,
+		   pm.prd_style,
+		   pm.prd_regular_price,
+		   pm.prd_discount_price,
+		   pm.prd_discount_percentage,
+		   pm.prd_main_image,
+		   pm.prd_brif_explain,
+		   pm.prd_detail_explain,
+		   pm.prd_inventory,
+		   pm.prd_sales_volume,
+		   tm.total_count
+		from
+		   product pm
+		   LEFT OUTER JOIN (SELECT
+		                        COUNT(*) AS total_count
+		                     FROM
+		                        product) tm ON (1 = 1)
+		order by
+		   pm.prd_code desc
+		LIMIT
+		   #{index}, #{count};
   	</select>
   
 </mapper>

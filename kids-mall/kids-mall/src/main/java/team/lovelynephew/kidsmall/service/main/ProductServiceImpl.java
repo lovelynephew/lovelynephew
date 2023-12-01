@@ -1,7 +1,9 @@
 package team.lovelynephew.kidsmall.service.main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -49,14 +51,30 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductRespDto> getPopularProductList() throws Exception {
-		List<ProductRespDto> list = new ArrayList<ProductRespDto>();
-		
-		productinfoRepository.getPopularProductList().forEach(product -> {
-			list.add(product.productToDto());
-		});
-		
-		return list;
+	public List<ProductRespDto> getPopularProductList(int page, int contentCount) throws Exception {
+		List<Product> product = productinfoRepository.getPopularProductList(creategetPopularProductListMap(page, contentCount));
+		System.out.println("56번째" + product);
+		return creategetProductsListRespDtos(product);
 	}
+	
+	private List<ProductRespDto> creategetProductsListRespDtos(List<Product> product) {
+		List<ProductRespDto> productRespDtos = new ArrayList<ProductRespDto>();
+		product.forEach(productList -> {
+			productRespDtos.add(productList.productToDto());
+		});
+		System.out.println("65번째: "+ productRespDtos);
+		
+		return productRespDtos;
+	}
+
+	private Map<String, Object> creategetPopularProductListMap(int page, int contentCount) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("index", (page-1) * contentCount);
+		map.put("count", contentCount);
+		System.out.println("map:" + map);
+		return map;
+	}
+
+
 
 }
