@@ -1,7 +1,7 @@
 const headerTitle = document.querySelector(".header-title");
 const categoryWrap = document.querySelectorAll(".category-wrap");
 const categoryWrapText = document.querySelectorAll(".category-wrap a");
-const categoryDetailLi = document.querySelectorAll(".category-detail-li");
+
 
 let categoryCode = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 console.log(categoryCode);
@@ -18,6 +18,7 @@ function load() {
 		url: "/product/main/list/" + categoryCode,
 		dataType: "json",
 		success: (response) => {
+			console.log(response.data);
 			getProductMain(response.data);
 			changeBold(response.data);
 			getProductList(response.data);
@@ -50,7 +51,7 @@ function getProductMain(data) {
 			<li class="category-detail-li"><a href="/product/main/18">전체</a></li>
 			<li class="category-detail-li"><a href="/product/main/6">상의</a></li>
 			<li class="category-detail-li"><a href="/product/main/7">하의</a></li>
-			<li class="category-detail-li"><a href="/product/main/8">모자 및 악세서리</a></li>
+			<li class="category-detail-li"><a href="/product/main/8">모자 및 악세사리</a></li>
 			<li class="category-detail-li"><a href="/product/main/9">실내복 및 팬티</a></li>
 			<li class="category-detail-li"></li>
 		`
@@ -61,9 +62,9 @@ function getProductMain(data) {
 		categoryDetailUl.innerHTML = `
 			<li class="category-detail-li"><a href="/product/main/19">전체</a></li>
 			<li class="category-detail-li"><a href="/product/main/10">생일 및 기념일 선물용품</a></li>
-			<li class="category-detail-li"><a href="/product/main/11">크리스마스 선물용품</a></li>
+			<li class="category-detail-li"><a href="/product/main/13">크리스마스 선물용품</a></li>
 			<li class="category-detail-li"><a href="/product/main/12">할로윈 선물용품</a></li>
-			<li class="category-detail-li"><a href="/product/main/13">추석 선물용품</a></li>
+			<li class="category-detail-li"><a href="/product/main/11">추석 선물용품</a></li>
 			<li class="category-detail-li"></li>
 		`
 	} else if(data.parentCategoryCode == 4) {
@@ -85,11 +86,17 @@ function getProductMain(data) {
 function changeBold(data) {
 	for(let i = 1; i < categoryWrap.length; i++) {
 		if(categoryWrap[i].textContent.trim() == data.parentCategoryName) {
+			console.log(categoryWrap[i].textContent.trim());
+			console.log(data.parentCategoryName);
 			categoryWrapText[i-1].style.fontWeight="700";
 		}
 	}
+	const categoryDetailLi = document.querySelectorAll(".category-detail-li");
 	for(let i = 0; i < categoryDetailLi.length; i++) {
+		
 		if(categoryDetailLi[i].textContent == data.subCategoryName) {
+			console.log(categoryDetailLi[i].textContent);
+			console.log(data.subCategoryName);
 			categoryDetailLi[i].style.fontWeight="700";
 		}
 	}
