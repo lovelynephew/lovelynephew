@@ -1,12 +1,38 @@
+let recommendBox = document.querySelector(".recommend-box-all");
+
+let page = 1;
+let totalPage = 0;
+
+window.onscroll = () => {
+	let recommendHeight = recommendBox.offsetHeight;  // 무한스크롤할 추천아이템의 로드된 높이
+	let scroll = window.scrollY; // 현재 스크롤의 위치
+	let windowHight = window.innerHeight; // 전체 화면의 높이
+	console.log(recommendHeight);
+	console.log(scroll);
+	console.log(windowHight);
+	
+	if(scroll + windowHight >= recommendHeight) {
+		let newPage = page++;
+		if(newPage < totalPage) {
+			load();
+		}
+	}
+}
 
 load();
 function load() {
 	$.ajax({
 		async: false,
 		type: "get",
-		url: "/popular-products",
+		url: "/popular-product", //페이지를 포함할 주소,
+		data: {
+			"page" : page,
+			contentCount : 9
+		},
 		dataType: "json",
 		success: (response) => {
+			
+			console.log(response.data);
 			loadProducts(response.data);
 		},
 		error: (error) => {
@@ -15,8 +41,12 @@ function load() {
 	})
 }
 
+
+
 function loadProducts(data) {
-	const recommendBox = document.querySelector(".recommend-box-all");
+	
+	setTotalCount(data[0].totalCount);
+	
 	for(let i = 0; i < data.length; i++) {
 		recommendBox.innerHTML += `
 	        <div class="recommend">
@@ -34,4 +64,8 @@ function loadProducts(data) {
 	        </div>
 		`
 	}
+}
+
+function setTotalCount (totalCount) {
+	totalPage = totalCount % 9 == 0 ? totalCount / 9 : Math.floor(totalCount / 9) + 1;
 }

@@ -14,5 +14,5 @@ public interface ProductService {
 	
 	public List<ProductListRespDto> getProductsListAll(int parentCode) throws Exception;
 	
-	public List<ProductRespDto> getPopularProductList() throws Exception;
+	public List<ProductRespDto> getPopularProductList(int page, int contentCount) throws Exception;
 }
