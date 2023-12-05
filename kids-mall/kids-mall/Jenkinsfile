@@ -48,7 +48,7 @@ pipeline {
             echo 'Bulid Docker'
 
             script {
-                dockerImage = docker.build imagename, "-f ./kids-mall/kids-mall ."
+                dockerImage = docker.build imagename, "-f ./kids-mall/kids-mall/Dockerfile ."
             }
           }
           post {
@@ -74,5 +74,21 @@ pipeline {
           }
         }
 
+    }
+	post {
+        success {
+            discordSend description: "알림테스트",
+            footer: "테스트 빌드가 성공했습니다.",
+            link: env.BUILD_URL, result: currentBuild.currentResult,
+            title: "테스트 젠킨스 job",
+            webhookURL: "https://discord.com/api/webhooks/1181590407612747848/2Dw4EahssAzu5eEEL71VwkspJcAff_nwIPvrBSy2NOSH_da7kl-0fPFPG63iaH3RLuD5"
+        }
+        failure {
+            discordSend description: "알림테스트",
+            footer: "테스트 빌드가 실패했습니다.",
+            link: env.BUILD_URL, result: currentBuild.currentResult,
+            title: "테스트 젠킨스 job",
+            webhookURL: "https://discord.com/api/webhooks/1181590407612747848/2Dw4EahssAzu5eEEL71VwkspJcAff_nwIPvrBSy2NOSH_da7kl-0fPFPG63iaH3RLuD5"
+        }
     }
 }
