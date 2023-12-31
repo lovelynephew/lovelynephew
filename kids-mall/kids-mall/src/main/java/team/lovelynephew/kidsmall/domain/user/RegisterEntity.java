@@ -30,12 +30,13 @@ public class RegisterEntity {
 	private int user_region;
 	private String user_roles;
 	private String user_recive;
+	private String user_birth; //생년월일
+	private String user_bank; //은행
+	private String user_refundaccount; //환불계좌
 	private int signout; //회원탈퇴
 	private String signout_reason;
 	private LocalDateTime user_inertdate; //가입날짜
 	private LocalDateTime user_updatedate; //수정날짜
-	private String user_birth; //생년월일
-	private String user_bank; //은행
-	private String user_refundaccount; //환불계좌
+
 
 }
