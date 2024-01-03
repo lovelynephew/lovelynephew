@@ -58,7 +58,8 @@ e커머스 시장은 남녀노소를 불문하고 성장하고 있지만, 유아
 
 ---
 
-![KakaoTalk_20231229_120639950.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/cc2b6abe-7d79-4845-af75-8dab3fa68528/0f6b527a-2552-4142-9dea-b6f0b169ee70/KakaoTalk_20231229_120639950.png)
+<img width="1075" alt="KakaoTalk_20231229_120639950" src="https://github.com/lovelynephew/lovelynephew/assets/137376258/5af51913-6ce5-44cc-a696-ea4f4f4e1df7">
+
 
 ### API명세서
 
