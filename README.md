@@ -61,12 +61,6 @@ e커머스 시장은 남녀노소를 불문하고 성장하고 있지만, 유아
 <img width="1075" alt="조카바보-ERD" src="https://github.com/lovelynephew/lovelynephew/assets/137376258/b93195e2-3f28-4883-8515-c2136dddc606">
 
 
-### API명세서
-
----
-
-[조카바보 API명세서](https://www.notion.so/API-49e2fc962f29425086da502bebb62caf?pvs=21)
-
 ### 프로젝트 설명
 
 ---
