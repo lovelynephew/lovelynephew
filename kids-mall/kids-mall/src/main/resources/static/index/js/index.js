@@ -1,3 +1,18 @@
+let modal = document.querySelector("#modal"); 
+
+function openModal() {
+	modal.style.display = "block";
+}
+function closeModal() {
+	modal.style.display = "none";
+}
+window.onload = function() {
+	openModal();
+}
+function ok() {
+	location.href = "/search/filter";
+}
+
 let recommendBox = document.querySelector(".recommend-box-all");
 
 let page = 1;

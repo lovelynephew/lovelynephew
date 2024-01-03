@@ -24,12 +24,12 @@ public class BoardPageController {
 		return "thymeleaf/admin/noticeboard/board-delete";
 	}
 	//관리자 공지사항 상세페이지
-	@GetMapping("notice/delete/detail/{noticeNum}")
+	@GetMapping("/notice/delete/detail/{noticeNum}")
 	public String noticeDeletView() {
 		return "thymeleaf/admin/noticeboard/notice-delete-view";
 	}
 	//관리자 공지사항 수정 페이지
-	@GetMapping("notice/update/detail")
+	@GetMapping("/notice/update/detail")
 	public String noticeUpdate() {
 		return "admin/noticeboard/notice-update";
 	}
