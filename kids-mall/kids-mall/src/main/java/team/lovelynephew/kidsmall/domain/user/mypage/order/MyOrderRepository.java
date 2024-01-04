@@ -20,5 +20,7 @@ public interface MyOrderRepository {
 	public List<Point> getPoint(int userCode) throws Exception;
 	
 	public boolean updateCart(Map<String, Object> map) throws Exception;
+	
+	public boolean deleteCart(int cartId) throws Exception;
 
 }

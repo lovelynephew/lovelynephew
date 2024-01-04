@@ -18,4 +18,6 @@ public interface MyOrderService {
 	public List<PointRespDto> getPoint(int userCode) throws Exception;
 	
 	public boolean updateCart(int cartId, int productCount) throws Exception;
+	
+	public boolean deleteCart(int cardId) throws Exception;
 }

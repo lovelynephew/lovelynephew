@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -187,5 +188,19 @@ public class MypageRestController {
 		}
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 업데이트 성공", status));
+	}
+	
+	@DeleteMapping("/mypage/cart/{cartId}")
+	public ResponseEntity<?> deleteCart(@PathVariable int cartId) {
+		boolean status = false;
+		
+		try {
+			status = myOrderService.deleteCart(cartId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "장바구니 삭제 실패", status));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 삭제 성공", status));
 	}
 }
