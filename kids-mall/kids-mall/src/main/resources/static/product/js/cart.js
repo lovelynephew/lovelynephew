@@ -6,17 +6,14 @@ const checkedPrdInfo = []; // 선택된 물건 정보를 담을 배열
 let selectedPrd = 0; //선택된 물건 개수
 const selectTotal = document.getElementById("selectTotal");
 
-getCartInfo();
+getCartInfo("40");
 toPayment();
 
 //장바구니 정보 들고오기
-function getCartInfo() {
+function getCartInfo(userId) {
     $.ajax({
         type: "GET",
-        url: "/mypage/cart",
-        data: {
-            "userId" : 40
-        },
+        url:` /mypage/cart/${userId}`,
         success: (response) => {
            console.log(response.data); 
 
@@ -25,7 +22,7 @@ function getCartInfo() {
                getProductInfo(response.data[i].prdCode);         
             }   
 
-            //선택/전체 개수 표시
+            //선택 전체 개수 표시
             const itemTotal = document.getElementById("itemTotal");
             itemTotal.innerText = response.data.length;
 
@@ -42,11 +39,6 @@ function getCartInfo() {
         }
     });
 }
-
-
-
-
-
 
 
 //물건 상세정보 들고옴
@@ -273,7 +265,7 @@ checkedAll.addEventListener("click", function() {
             product.checked = true;
         });
 
-        selectedPrd = 7;
+        selectedPrd = 0;
         selectTotal.innerText = ``;
         selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
 

@@ -3,17 +3,17 @@ let productMaker= "";
 let productRegularPrice = "";
 let productDiscountPrice = "";
 
-load(1);
-//chiceOption();
+load(15);
 //제품 띄우기
 function load(productCode) {
     $.ajax({
         type: "GET",
-        url: "/productInfo",
+        url: `/productInfo/${productCode}`,
         data: {
             "prdCode": productCode
         },
         success: (response) => {
+			console.log(response.data);
             //결제하기에 정보 가져가기 위함 
             productName = response.data.prdName;
             productMaker = response.data.prdMaker;
@@ -32,8 +32,18 @@ function load(productCode) {
             document.getElementById("pdp_price_discountLate_id").innerHTML = response.data.prdDiscountPercentage+"%";
             document.getElementById("pdp_price_discount_price_id").innerHTML = response.data.prdDiscountPrice;
             document.getElementById("pdp_price_regular_price_id").innerHTML = response.data.prdRegularPrice;
-            document.getElementById("prd_detail_img_id").src=response.data.prdDetailExplain;
+            //document.getElementById("prd_detail_img_id").src=response.data.prdDetailExplain;
             
+            
+            const prdDetailExplain = response.data.prdDetailExplain;
+
+			const imgRegex = /<img.*?src="(.*?)"/;
+			const match = prdDetailExplain.match(imgRegex);
+
+			if (match) {
+			    const imageUrl = match[1]; // 첫 번째 캡처된 그룹을 이미지 URL로 추출합니다.
+			    document.getElementById("prd_detail_img_id").src = imageUrl;
+			}
         },  
         error: (error) => {
         }
@@ -548,6 +558,7 @@ function dirPayment(){
 
 
 //장바구니 눌렀을때 
+let prdCode = 1;
 function addCart (prdCode) {
     const cartBtn = document.querySelector(".cart_btn");
     cartBtn.addEventListener("click", function() {
@@ -558,7 +569,7 @@ function addCart (prdCode) {
             url: "/product/cart",
             contentType: "application/json",
             data: JSON.stringify({
-                "userId" : "userId",
+                "userId" : 40,
                 "prdCode" : prdCode
             }),
             dataType: "json",

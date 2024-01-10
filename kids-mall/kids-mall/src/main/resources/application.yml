@@ -77,7 +77,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://lovelynephewdb.cz997nixexiw.ap-northeast-2.rds.amazonaws.com:3306/lovelynephewdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
     username: admin
-    password: 1q2w3e4r
+    password: zz0103300!! 
     
   servlet:
     multipart:

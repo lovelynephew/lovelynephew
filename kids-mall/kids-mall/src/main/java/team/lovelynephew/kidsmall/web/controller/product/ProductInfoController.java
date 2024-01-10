@@ -2,6 +2,7 @@ package team.lovelynephew.kidsmall.web.controller.product;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +18,8 @@ public class ProductInfoController {
 	
 	private final ProductinfoService service;
 	
-	@GetMapping("/productInfo")
-	public ResponseEntity<?> product(@RequestParam int prdCode) {
+	@GetMapping("/productInfo/{prdCode}")
+	public ResponseEntity<?> product(@PathVariable int prdCode) {
 		
 		ProductRespDto productRespDto = null;
 		try {

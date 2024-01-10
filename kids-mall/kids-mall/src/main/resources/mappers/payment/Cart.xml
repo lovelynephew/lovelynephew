@@ -11,8 +11,8 @@
 	(
 		0,
 		#{user_id},
-		#{prd_code},
-		1
+		#{prd_code}
+		
 	);
   </insert>
   
