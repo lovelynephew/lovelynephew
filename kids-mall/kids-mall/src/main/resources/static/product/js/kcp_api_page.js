@@ -6,20 +6,46 @@ const orderCodeText = document.getElementById("orderCode").innerText; //주문�
 const orderCode =  orderCodeText.slice(4);
 const userCode = 2; //유저코드 
 
-// 주문 상품 코드를 배열로 설정
+//주문 상품 코드를 배열로 설정
 const prdCode = [];
 for (let i = 0; i < productsData.length; i++) {
     prdCode.push(productsData[i].productCode);
 }
-const prdCodeAsString = JSON.stringify(prdCode);//구매상품 코드를 String으로 변환
 
-const textRequest = productsData["0"].textRequest;//요청사항
-const payMethod = document.getElementById("payMethod").innerText;//결제수단
+const prdInnerHtml = document.querySelector(".main-middle");
+for(let i=0; i<productsData.length; i++) {
+	const textRequest = productsData["0"].textRequest;//요청사항
+	const payMethod = document.getElementById("payMethod").innerText;//결제수단
+	
+	console.log("textRequest: "+textRequest);
+	console.log("payMethod: "+payMethod);	
 
+	console.log(productsData[0]);
+	
+	prdInnerHtml.innerHTML += `
+	<div class="product-detail-box">
+		<div class="product-box-top">
+			<p id="prdName" >${productsData[i].name}</p>
+		</div>
+		<div class="product-box-middle">
+			<span>구매확정</span>
+			<div class="product-data">
+				<img src="${productsData[i].prdMainImg}" id="prdMainImg">
+				<div class="product-desc">
+					<p id="paidPrdName">${productsData[i].name}</p>
+					<div class="price-box">
+						<span id="regPrice">${productsData[i].productRegularPrice}원</span>
+					</div>
+				</div>
+			</div>
+			<div class="other-service">
+				<p>배송현황</p>
+				<p>문의하기</p>
+			</div>
+		</div>
+	</div>`;
+}
 
-document.getElementById("prdName").innerHTML= productsData["0"].name;//제품이름
-document.getElementById("paidPrdName").innerHTML= productsData["0"].name;
-document.getElementById("regPrice").innerHTML = productsData["0"].productRegularPrice;//정가
 
 //정가 상품 총 가격
 let prdReqPrice = 0;
@@ -36,20 +62,21 @@ for(let i=0; i<productsData.length; i++) {
 document.getElementById("prdDisPrice").innerHTML = "(-)" + (prdReqPrice-prdDisPrice);
 
 //배송요청사항
+document.getElementById("deleveryselectRequest").innerHTML=productsData["0"].selectRequest;
 document.getElementById("deleveryRequest").innerHTML = productsData["0"].textRequest;
 
 // 결제 정보 db에 넣음
 const orderInfo = {
     "orderCode": orderCode,
     "userCode": 3,
-    "prdCode": prdCodeAsString,
+    "prdCode": productsData.productCode,
     "eventCode": 3,
     "paymentStatus": 4,
     "orderStatus": 5,
     "csStatus": 6,
     "paymentMethod": payMethod,
     "paymentAmount": prdDisPrice+3000,
-    "deliveryRequest": textRequest
+    "deliveryRequest": "textRequest"
 };
 
 $.ajax({

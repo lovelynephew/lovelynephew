@@ -836,7 +836,7 @@ function addCart (prdCode) {
 
 // function dirPayment(){
 //     const nowBuyBtn = document.querySelector(".now_buy_btn");
-//         nowBuyBtn.addEventListener("click", function () {
+//      nowBuyBtn.addEventListener("click", function () {
 //             //window.location.href = "/payment";
 
 //             // 정보를 로컬 저장소에 저장

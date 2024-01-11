@@ -45,10 +45,8 @@ function getCartInfo(userId) {
 function getProductInfo (productCode) {
     $.ajax({
         type: "GET",
-        url: "/productInfo",
-        data: {
-            "prdCode" : productCode
-        },
+        url: `/productInfo/${productCode}`,
+        
         success: (response) => {
             itemInnerHtml.innerHTML += `
                 <div class="div-citem1">
@@ -63,7 +61,7 @@ function getProductInfo (productCode) {
                             <div class="div-citem4">
                                 <div class="div-citem5">
                                     <figure class="figure-citem1">
-                                        <img src="/static/images/jpg/bearT-shirt.jpg" class="img-cart1">
+                                        <img src="${response.data.prdMainImage}" class="img-cart1" id="prdMainImg-${productCode}">
                                     </figure>
                                     <div class="div-citem6">
                                         <input type="hidden" id= "prdMaker-${productCode}" name="prdMaker" value= "${response.data.prdMaker}">
@@ -185,18 +183,20 @@ function checkbox() {
             const i = checkbox.getAttribute("value").replace("prd-", "");
 
             if (checkbox.checked) {
-                console.log(`체크박스 ${i}가 선택되었습니다.`);
                 const prdName = document.getElementById(`prdName-${i}`).innerText;
                 const prdMaker = document.getElementById(`prdMaker-${i}`).value;
                 let prdRPrice = document.getElementById(`prdregularPrice-${i}`).innerText;
                 let prdDPrice = document.getElementById(`prdDiscountPrice-${i}`).innerHTML;
                 let EA = document.getElementById(`amount-${i}`).value;
+                let mainImg = document.getElementById(`prdMainImg-${i}`).src;
+                
                 checkedPrdInfo.push({
                     "productCode" : `${i}`,
                     "name" : prdName ,
                     "maker": prdMaker,
                     "productRegularPrice" : prdRPrice,
                     "productDiscountPrice" : prdDPrice,
+                    "prdMainImg" : mainImg,
                      EA: EA
                 });
                
@@ -215,10 +215,10 @@ function checkbox() {
 
                 const index = checkedPrdInfo.findIndex(item => item.productCode === prdCode);
                
-                console.log("index: " +index);
                 if (index > -1) {
                     checkedPrdInfo.splice(index, 1);
                 }
+                
                 console.log(checkedPrdInfo);
 
                 selectedPrd -= 1;
@@ -244,17 +244,17 @@ function toPayment() {
 
 }
 
-//전체 선택 전체 해제 
+//전체 선택, 전체 해제 
 const checkedAll = document.getElementById("all");
 console.log(checkedAll.checked);
- const eachChecked = document.getElementsByName("product");
+const eachChecked = document.getElementsByName("product");
 
 checkedAll.addEventListener("click", function() {
-   totalPrice = 0;
+totalPrice = 0;
+   
     if(checkedAll.checked) {
-      
        //전체 가격 구하기
-       document.querySelectorAll(".prdDisPrice").forEach(function(price) {
+        document.querySelectorAll(".prdDisPrice").forEach(function(price) {
         console.log(price.textContent);
         totalPrice += parseInt(price.textContent, 10);
         });
@@ -265,10 +265,37 @@ checkedAll.addEventListener("click", function() {
             product.checked = true;
         });
 
-        selectedPrd = 0;
+		//물건 선택 개수 수정 
+        selectedPrd = document.getElementById("itemTotal").innerText;
         selectTotal.innerText = ``;
-        selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+        selectTotal.innerText += selectedPrd;
+        
+        //정보 로컬저장소에 넣기
+        for(let i =0; i< eachChecked.length; i++) {
+			let prdCode = eachChecked[i].getAttribute("value").replace("prd-", "");
+			
+			const prdName = document.getElementById(`prdName-${prdCode}`).innerText;
+                const prdMaker = document.getElementById(`prdMaker-${prdCode}`).value;
+                let prdRPrice = document.getElementById(`prdregularPrice-${prdCode}`).innerText;
+                let prdDPrice = document.getElementById(`prdDiscountPrice-${prdCode}`).innerHTML;
+                let EA = document.getElementById(`amount-${prdCode}`).value;
+                let mainImg = document.getElementById(`prdMainImg-${prdCode}`).src;
+                
+                checkedPrdInfo.push({
+                    "productCode" : `${prdCode}`,
+                    "name" : prdName ,
+                    "maker": prdMaker,
+                    "productRegularPrice" : prdRPrice,
+                    "productDiscountPrice" : prdDPrice,
+                    "prdMainImg" : mainImg,
+                     EA: EA
+                });
+		}
+        selectTotal.innerText = ``;
+        selectTotal.innerText = selectedPrd;//물건 선택 개수 수정 
 
+        totalPrice += parseInt(prdPrice, 10);
+        price(totalPrice);
 
     }else {
         //전체가격 구하기
@@ -282,10 +309,9 @@ checkedAll.addEventListener("click", function() {
 
         selectedPrd = 0;
         selectTotal.innerText = ``;
-        selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
+        selectTotal.innerText =0;//물건 선택 개수 수정 
+        
+        //로컬 저장소의 정보 지우기 
+        checkedPrdInfo.splice(0,checkedPrdInfo.length);
     }
 })
-
-//TODOLIST  
-//전체선택할 시 결제하기까지 정보 넘어가게 하기 //지우기 백 작업은 함 
-//삭제하기

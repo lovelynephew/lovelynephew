@@ -10,7 +10,9 @@ $(document).ready(function() {
     if (!codeExecuted) {
 //글자수세기
 		$("#ord_receiver_memo").keyup(function(e) {
+			
 			var content = $(this).val();
+			
 			$("#textLengthCheck").text("(" + content.length + " / 최대 50자)"); //실시간 글자수 카운팅
 				if (content.length > 50) {
 					alert("최대 50자까지 입력 가능합니다.");
@@ -18,8 +20,6 @@ $(document).ready(function() {
 					$('#textLengthCheck').text("(50 / 최대 50자)");
 				}
 		});
-
-
 
 // 로컬 저장소에서 정보를 가져옴
 		const productsData = localStorage.getItem('productsData');
@@ -46,15 +46,14 @@ $(document).ready(function() {
 							</div>
 						</div>
 						<div class="shoppring_fee">
-							<span class="shopping_fee_text">배송비</span>
-							<span class="shopping_fee_price"><span>3,000원</span></span>
+							
 						</div>
 					</header>
 					<div class="payment_prd_info_wrapper01">
 						<div class="payment_prd_info_wrapper02"> 
 							<div class="payment_prd_info_wrapper03">
 								<figure>
-									<img class="payment_prd_info_img" src="https://cf.product-image.s.zigzag.kr/original/d/2023/8/25/25938_202308251727060762_56489.gif?width=400&height=400&quality=80&format=webp" alt="">
+									<img class="payment_prd_info_img" src="${products[pcode].prdMainImg}" alt="">
 								</figure>
 								<div class="payment_prd_info_wrapper04">
 									<h4 class="payment_prd_name">
@@ -129,71 +128,28 @@ function openAgreeMomal() {
 	buyAgreePopupCloseBtn02.addEventListener('click', () => {
 		buyAgreePopupBackground02.style.display = 'none';
 	});
+	
+	//주문하기 버튼을 눌렀을때 스토리지에 정보를 쩌장해야하는데
+
 }
 
 //배송 요청사항
-function deliveryRequest () {
-	const productsData = localStorage.getItem('productsData');
-    const products = JSON.parse(productsData);
-
+/*function deliveryRequest () {
     // select 요소를 가져옵니다.
-    const selectRequestElement = document.querySelector(".payment_delivery_Req_wrapper02");
-    const selectRequest = selectRequestElement.value;
+   let selectRequestElement = document.querySelector(".payment_delivery_Req_wrapper02");
+   let selectRequest = selectRequestElement.innerHTML;
 
-    const textRequestElement = document.querySelector(".payment_delivery_req_text");
-    const textRequest = textRequestElement.value;
+   let textRequestElement = document.querySelector(".payment_delivery_req_text");
+	let textRequest = textRequestElement.value;
+
 
     // 새로운 정보 추가
     products[0]["selectRequest"] = selectRequest;
     products[0]["textRequest"] = textRequest;
-    console.log(products);
 
     // 업데이트된 데이터를 다시 로컬 스토리지에 저장
     localStorage.setItem('productsData', JSON.stringify(products));
-}
+}*/
 
 
-{/* <section class="payment_personal_prd_wrapper02">
-					<header class="payment_personal_prd_wrapper03">
-						<div class="payment_personal_prd_top_wrapper01">
-							<div class="payment_personal_prd_brd_name">
-								${products[pcode].name}
-							</div>
-						</div>
-						<div class="shoppring_fee">
-							<span class="shopping_fee_text">배송비</span>
-							<span class="shopping_fee_price"><span>3,000원</span></span>
-						</div>
-					</header>
-					<div class="payment_prd_info_wrapper01">
-						<div class="payment_prd_info_wrapper02"> 
-							<div class="payment_prd_info_wrapper03">
-								<figure>
-									<img class="payment_prd_info_img" src="https://cf.product-image.s.zigzag.kr/original/d/2023/8/25/25938_202308251727060762_56489.gif?width=400&height=400&quality=80&format=webp" alt="">
-								</figure>
-								<div class="payment_prd_info_wrapper04">
-									<h4 class="payment_prd_name">
-										<input type="text" name="good_name" value="${products[pcode].name}" size="100" />
-									</h4>
-									<div class="payment_prd_wrapper05">
-										<span class="payment_prd_op_wrapper01">
-											<span>
-											${products[pcode].characterSelect}/${products[pcode].wrappingSelect}/${products[pcode].gasSelect}/${products[pcode].letteringSelect}
-											</span>
-											${products[pcode].prdAmount}개
-											<span></span>
-										</span>
-									</div>
-									<span class="payment_prd_regular_price">${products[pcode].productRegularPrice}<span>원</span></span>
-									<div class="payment_prd_dis_price_wrapper01">
-										<div class="payment_prd_dis_price_wrapper02">
-											<span class="payment_prd_text">Z할인가</span>
-											<span class="payment_prd_dis_price">${products[pcode].productDiscountPrice}<span>원</span></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section> */}
 
