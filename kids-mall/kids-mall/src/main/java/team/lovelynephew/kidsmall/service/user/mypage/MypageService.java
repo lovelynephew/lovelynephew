@@ -14,6 +14,6 @@ public interface MypageService {
 	//배송지 수정
 	public boolean updataAddress(ShippingAddressDto shippingAddressDto) throws Exception;
 	
-	
+	//카트 정보
 	public List<CartRespDto> getCart(String userId) throws Exception;
 }

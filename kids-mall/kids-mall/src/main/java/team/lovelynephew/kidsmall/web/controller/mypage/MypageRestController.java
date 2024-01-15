@@ -162,8 +162,6 @@ public class MypageRestController {
 	@GetMapping("/mypage/cart")
 	public ResponseEntity<?> getCart(@RequestParam String userId) {
 		List<CartRespDto> list = new ArrayList<>();
-		System.out.println("컨트롤러 입성");
-		System.out.println(userId);
 		try {
 			list = mypageService.getCart(userId);
 		} catch (Exception e) {

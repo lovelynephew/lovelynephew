@@ -52,8 +52,7 @@
 			parameterType="Integer"
 			resultType="team.lovelynephew.kidsmall.domain.user.mypage.order.Cart"
 			>
-			
-			select
+		select
 				ct.cart_id,
 				rs.user_code,
 				
@@ -62,22 +61,16 @@
 				pt.prd_regular_price,
 				pt.prd_discount_price,
 				pt.prd_discount_percentage,
-				pt.prd_main_image,
+				pt.prd_main_image
 				
-				ct.cart_product_count,
-				(select
-					count(*)
-				from
-					cart
-				where
-					user_id = #{userCode}
-				) as item_count
+				
 			from
 				cart ct
 				left outer join register rs on(rs.user_code = ct.user_id)
 				left outer join product pt on(pt.prd_code = ct.prd_code)
 			where
-				rs.user_code = #{userCode}
+				rs.user_code = 40
+				
 			order by
 				cart_id desc
 	</select>

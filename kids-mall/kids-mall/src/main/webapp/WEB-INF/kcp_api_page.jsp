@@ -531,14 +531,14 @@
 			</div>
 			<div class="gap-color"></div>
 			<div class="main-middle">
-				<div class="product-detail-box">
+				<!-- <div class="product-detail-box">
 					<div class="product-box-top">
 						<p id="prdName" >기차놀이세트</p>
 					</div>
 					<div class="product-box-middle">
 						<span>구매확정</span>
 						<div class="product-data">
-							<img src="/static/images/jpg/babyshark.jpeg">
+							<img src="" id="prdMainImg">
 							<div class="product-desc">
 								<p id="paidPrdName">기차놀이세트</p>
 								<div class="price-box">
@@ -548,10 +548,10 @@
 						</div>
 						<div class="other-service">
 							<p>배송현황</p>
-							<p>문의하기</p>
+							<p>문의하기</p
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="gap-color"></div>
 			<div class="delivery-address-info">
@@ -571,6 +571,7 @@
 					</div>
 					<div class="delivery-info">
 						<p >배송메모</p>
+						<span id="deleveryselectRequest"></span>
 						<span id="deleveryRequest">집 앞에 놔주세요.</span>
 					</div>
 				</div>

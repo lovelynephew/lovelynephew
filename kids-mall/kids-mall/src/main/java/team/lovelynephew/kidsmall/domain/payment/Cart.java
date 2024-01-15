@@ -10,5 +10,5 @@ public class Cart {
 	private int cart_id; //
 	private String user_id;
 	private int prd_code;
-	private int cart_product_count; // 
+	//private int cart_product_count; // 
 }
