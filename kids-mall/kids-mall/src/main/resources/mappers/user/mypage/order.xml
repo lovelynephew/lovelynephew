@@ -134,4 +134,12 @@
 			cart_id = #{cartId}
 	</update>
 	
+	<delete id="deleteCart" parameterType="Integer">
+		DELETE
+		FROM
+			cart
+		WHERE
+			cart_id = #{cartId}
+	</delete>
+	
 </mapper>

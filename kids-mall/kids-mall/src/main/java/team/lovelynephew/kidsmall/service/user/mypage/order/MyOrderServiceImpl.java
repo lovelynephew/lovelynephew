@@ -85,5 +85,14 @@ public class MyOrderServiceImpl implements MyOrderService{
 		return status != false;
 	}
 
+	@Override
+	public boolean deleteCart(int cardId) throws Exception {
+		boolean status = false;
+		
+		status = myOrderRepository.deleteCart(cardId);
+		
+		return status != false;
+	}
+
 
 }
