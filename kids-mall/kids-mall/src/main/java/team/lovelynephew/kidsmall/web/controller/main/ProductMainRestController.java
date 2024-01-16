@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import team.lovelynephew.kidsmall.service.main.ProductService;
 import team.lovelynephew.kidsmall.web.dto.CMRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductCategoryRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.product.ProductRespDto;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,5 +62,21 @@ public class ProductMainRestController {
 			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", listRespDtos));
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", listRespDtos));
+	}
+	
+	@GetMapping("/popular-product")
+	public ResponseEntity<?> getPopularProductList(@RequestParam int page, int contentCount) {
+		System.out.println(page);
+		System.out.println(contentCount);
+		List<ProductRespDto> productRespDtos = new ArrayList<ProductRespDto>();
+		try {
+			productRespDtos =productService.getPopularProductList(page, contentCount);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "failed", productRespDtos));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", productRespDtos));
 	}
 }

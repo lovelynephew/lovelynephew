@@ -15,6 +15,7 @@ import team.lovelynephew.kidsmall.domain.admin.board.NoticeList;
 import team.lovelynephew.kidsmall.web.dto.admin.board.CreateNoticeReqDto;
 import team.lovelynephew.kidsmall.web.dto.admin.board.GetNoticeRepDto;
 import team.lovelynephew.kidsmall.web.dto.admin.board.NoticeListRespDto;
+import team.lovelynephew.kidsmall.web.dto.admin.board.UpdateNoticeReqDto;
 
 @Service
 @RequiredArgsConstructor
@@ -91,6 +92,13 @@ public class NoticeListServiceImpl implements NoticeListService{
 		return noticeListRepository.deleteNotice(noticeNum) > 0;
 		
 	}
+
+	/*
+	 * @Override public boolean updateNotice(UpdateNoticeReqDto updateNoticeReqDto)
+	 * throws Exception {
+	 * 
+	 * return noticeListRepository.updateNotice(updateNoticeReqDto.toEntity())>0; }
+	 */
 
 
 

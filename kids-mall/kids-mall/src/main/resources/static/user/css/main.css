@@ -33,9 +33,18 @@
 }
 .recommend-box {
     display: flex;
+    justify-content: space-around;
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
+
+.recommend-box-all {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap;	
+}
+
 .sale-box {
     display: flex;
     font-size: 13px;
@@ -79,3 +88,21 @@
     margin: 20px 20px 50px 20px;
 }
 /* --------------- main content 끝 ---------------- */
+
+/* --------------- filter 맟춤상품 ---------------- */
+.more-view-product {
+    border: 1px solid #dbdbdb;
+    border-radius: 100px;
+    width: 550px;
+    height: 45px;
+
+    line-height: 38px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.more-view-product p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #242729;
+}

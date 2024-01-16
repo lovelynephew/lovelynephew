@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.lovelynephew.kidsmall.web.dto.admin.product.AdProductListRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.product.ProductRespDto;
 
 @Builder
 @NoArgsConstructor
@@ -29,6 +30,7 @@ public class Product {
 	private int prd_sales_volume;
 	private int total_count;
 	private int sale_count;
+	
 	
 	public AdProductListRespDto toProductListDto() {
 		return AdProductListRespDto.builder()
@@ -66,5 +68,27 @@ public class Product {
 				.prdsalesVolume(prd_sales_volume)
 				.prdMainImage(prd_main_image)
 				.build();
+	}
+	
+	public ProductRespDto productToDto() {
+		return ProductRespDto.builder()
+				.prdCode(prd_code)
+				.subCategoryCode(sub_category_code)
+				.prdName(prd_name)
+				.prdMaker(prd_maker)
+				.prdGender(prd_gender)
+				.prdAge(prd_age)
+				.prdStyle(prd_style)
+				.prdRegularPrice(prd_regular_price)
+				.prdDiscountPrice(prd_discount_price)
+				.prdBrifExplain(prd_brif_explain)
+				.prdDetailExplain(prd_detail_explain)
+				.prdInventory(prd_inventory)
+				.prdSalesVolume(prd_sales_volume)
+				.prdMainImage(prd_main_image)
+				.prdDiscountPercentage(prd_discount_percentage)
+				.totalCount(total_count)
+				.build();
+				
 	}
 }

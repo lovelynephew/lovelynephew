@@ -28,4 +28,6 @@ public class ProductRespDto {
 	private String prdMainImage;
 	
 	private int prdDiscountPercentage;
+	
+	private int totalCount;
 }

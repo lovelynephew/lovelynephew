@@ -4,6 +4,7 @@ import java.util.List;
 
 import team.lovelynephew.kidsmall.web.dto.product.ProductCategoryRespDto;
 import team.lovelynephew.kidsmall.web.dto.product.ProductListRespDto;
+import team.lovelynephew.kidsmall.web.dto.product.ProductRespDto;
 
 public interface ProductService {
 
@@ -12,4 +13,6 @@ public interface ProductService {
 	public List<ProductListRespDto> getProductsList(int categoryCode) throws Exception;
 	
 	public List<ProductListRespDto> getProductsListAll(int parentCode) throws Exception;
+	
+	public List<ProductRespDto> getPopularProductList(int page, int contentCount) throws Exception;
 }

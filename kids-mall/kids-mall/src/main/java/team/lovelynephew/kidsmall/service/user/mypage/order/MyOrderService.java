@@ -9,7 +9,7 @@ import team.lovelynephew.kidsmall.web.dto.user.mypage.PointRespDto;
 
 public interface MyOrderService {
 	
-	public List<OrderListRespDto> getMyOrderList(int userCode) throws Exception;
+	public List<OrderListRespDto> getMyOrderList(int userCode, int deliveryFlag) throws Exception;
 	
 	public List<CartItemListRespDto> getCartItemList(int userCode) throws Exception;
 	
@@ -18,4 +18,6 @@ public interface MyOrderService {
 	public List<PointRespDto> getPoint(int userCode) throws Exception;
 	
 	public boolean updateCart(int cartId, int productCount) throws Exception;
+	
+	public boolean deleteCart(int cardId) throws Exception;
 }

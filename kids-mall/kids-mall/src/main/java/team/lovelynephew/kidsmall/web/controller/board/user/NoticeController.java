@@ -13,13 +13,13 @@ public class NoticeController {
 	//사용자 공지사항리스트페이지
 	@GetMapping("/noticelist")
 	public String loadNoticeList() {
-		return "board/board-notice";
+		return "thymeleaf/board/board-notice";
 	}
 	
 	//사용자 공지사항 세부내용
 	@GetMapping("/noticelist/detail/{noticeNum}")
 	public String loadNoticeDetail() {
-		return "board/notice-view";
+		return "thymeleaf/board/notice-view";
 	}
 	
 }

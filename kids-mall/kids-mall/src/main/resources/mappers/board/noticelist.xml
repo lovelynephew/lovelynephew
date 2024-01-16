@@ -67,10 +67,20 @@
 			notice_num = #{noticeNum};
   	</select>
   	<delete id="deleteNotice" parameterType="Integer">
-  		delete
-		from
+  		DELETE
+		FROM
 			board_notice
-		where
+		WHERE
 			notice_num = #{noticeNum};
   	</delete>
+  	<!-- <update id="updateNotice" parameterType="Integer">
+  		UPDATE
+  			board_notice
+  		SET
+  			notice_subject = #{noticeSubject},
+  			notice_content = #{noticeContent},
+  			notice_update = now()
+  		WHERE
+  			notice_num = #{noticeNum};
+  	</update> -->
   </mapper>

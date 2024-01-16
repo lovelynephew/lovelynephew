@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,13 +74,15 @@ public class MypageRestController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "배송지 수정 성공", status));
 	}
 	
-	@GetMapping("/mypage/order/history/{userCode}")
-	public ResponseEntity<?> getMyOrderHistory(@PathVariable int userCode) {
+	@GetMapping("/mypage/order/history/{userCode}/{deliveryFlag}")
+	public ResponseEntity<?> getMyOrderHistory(@PathVariable int userCode, @PathVariable int deliveryFlag) {
 		List<OrderListRespDto> list = new ArrayList<OrderListRespDto>();
 		
-		log.info("usercode: "+userCode);
+		log.info("usercode: " + userCode);
+		log.info("deliveryFlag: " + deliveryFlag);
+		
 		try {
-			list = myOrderService.getMyOrderList(userCode);
+			list = myOrderService.getMyOrderList(userCode, deliveryFlag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "주문 내역 조회 실패", list));
@@ -183,5 +186,19 @@ public class MypageRestController {
 		}
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 업데이트 성공", status));
+	}
+	
+	@DeleteMapping("/mypage/cart/{cartId}")
+	public ResponseEntity<?> deleteCart(@PathVariable int cartId) {
+		boolean status = false;
+		
+		try {
+			status = myOrderService.deleteCart(cartId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "장바구니 삭제 실패", status));
+		}
+		
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "장바구니 삭제 성공", status));
 	}
 }

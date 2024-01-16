@@ -19,11 +19,11 @@ public class ProductReviewRespDto {
 	private String reviewContent;
 	private int rating;
 	private String reviewPhoto;
-	private String optionChar;
-	private String optionRapping;
-	private String optionGas;
-	private String option_lettering;
-	private LocalDate reviewUpdate;
+//	private String optionChar;
+//	private String optionRapping;
+//	private String optionGas;
+//	private String option_lettering;
+	private LocalDate reviewRegdate;
 	
 	private int recordCount;
 }

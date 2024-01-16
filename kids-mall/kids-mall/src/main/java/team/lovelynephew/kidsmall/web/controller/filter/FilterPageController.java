@@ -8,7 +8,7 @@ public class FilterPageController {
 	
 	@GetMapping("/search/filter")
 	public String getFilter() {
-		return "search/filter";
+		return "thymeleaf/search/filter";
 	}
 	
 

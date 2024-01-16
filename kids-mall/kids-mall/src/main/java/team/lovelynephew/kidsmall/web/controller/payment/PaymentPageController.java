@@ -20,7 +20,7 @@ public class PaymentPageController {
 		return "kcp_api_page";
 	}
 	
-	@GetMapping("/product")
+	@GetMapping("/product/{productCode}")
 	public String product (){
 		return "thymeleaf/product/product";
 	}
@@ -37,6 +37,11 @@ public class PaymentPageController {
 		return "thymeleaf/product/review-detail";
 	}
 	
+	//찜 
+	@GetMapping("/wishlist")
+	public String wishList() {
+		return "thymeleaf/mypage/mywishlist";
+	}
 	
 	
 	

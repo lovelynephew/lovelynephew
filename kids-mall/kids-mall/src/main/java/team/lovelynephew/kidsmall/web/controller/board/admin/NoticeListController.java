@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -94,7 +95,7 @@ public class NoticeListController {
 			
 		}
 	
-	@GetMapping("/admin/notice/delete/{noticeNum}")
+	@DeleteMapping("/admin/notice/delete/{noticeNum}")
 	public ResponseEntity<?> deleteNotice(@PathVariable int noticeNum) {
 		boolean status = false;
 		
@@ -107,4 +108,9 @@ public class NoticeListController {
 		
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "success", status));
 	}
-	}
+	
+	/*
+	 * @PutMapping("/admin/notice/noticelist/detail/update/{noticeNum}") public
+	 * String updateNotice(@PathVariable int noticeNum) { return null; }
+	 */
+}

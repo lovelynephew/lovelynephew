@@ -13,25 +13,25 @@ public class RegisterController {
 	
 	@GetMapping("/register") 
 	public String getRegister() {
-		return "employees/register";
+		return "thymeleaf/employees/register";
 	}
 
 	@GetMapping("/find-id/{pageCode}")
 	public String getFindId() {
 
-		return "employees/findid";
+		return "thymeleaf/employees/findid";
 	}
 	
 	@GetMapping("/find-password")
 	public String getPassword() {
 		
-		return "employees/findpassword";
+		return "thymeleaf/employees/findpassword";
 	}
 	
 	@GetMapping("/changePassword")
 	public String getChangePassword() {
 		
-		return "employees/changepassword";
+		return "thymeleaf/employees/changepassword";
 	}
 	
 }

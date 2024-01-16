@@ -12,4 +12,6 @@ public class SearchProductRespDto {
 	private int prdDiscountPrice;
 	private String prdStyle;
 	private int salesVolume;
+	private String prdMainImage;
+	private int prdDiscountPercentage;
 }

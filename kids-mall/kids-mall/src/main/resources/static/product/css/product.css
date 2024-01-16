@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.caption_review {
+	cursor: pointer;
+}
+
 .product_main_img img {
     width: 100%;
     height: 100%;
@@ -472,6 +476,8 @@
 }
 
 .info_bar_btn {
+	text-decoration:none;
+	
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;color: #242729;
@@ -510,8 +516,8 @@
 .prd_detail_wrapper02{
     position: relative;
     overflow: hidden;
-    height: 1600px;
-
+    height: 800px;
+	padding : none;
     color: #242729;
 }
 

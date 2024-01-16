@@ -35,6 +35,7 @@ function getNotice(notice) {
                         </p>`;
 	noticeViewWriter.innerHTML = `<p>
                             `+ notice.noticeWriter +`
+                            &nbsp;&nbsp
                         </p>`;
 	noticeViewUpdate.innerHTML = `<p>
                             `+ notice.noticeUpdate +`

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문내역</title>
-    <link rel="stylesheet" href="../../static/user/css/main.css">
-    <link rel="stylesheet" href="../../static/user/css/category.css">
-    <link rel="stylesheet" href="../../static/user/css/order-list.css">
-    <link rel="stylesheet" href="../../static/user/css/common.css">
+    <link rel="stylesheet" href="/static/user/css/main.css">
+    <link rel="stylesheet" href="/static/user/css/category.css">
+    <link rel="stylesheet" href="/static/user/css/order-list.css">
+    <link rel="stylesheet" href="/static/user/css/common.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
@@ -38,24 +38,16 @@
             <div class="content-wrap">
                 <div class="category-wrap">
                     <div class="category-wrap">
-                        <a href="">
-                            <button class="all btn-option" style="width: 60px;">전체 <span>3</span></button>
-                        </a>
+                        <button type="button" class="delivery-button btn-option" style="width: 60px;">전체</button>
                     </div>
                     <div class="category-wrap">
-                        <a href="">
-                            <button class="delivery btn-option" style="width: 80px;">배송중</button>
-                        </a>
+                        <button type="button" class="delivery-button btn-option" style="width: 80px;">배송중</button>
                     </div>
                     <div class="category-wrap">
-                        <a href="">
-                            <button class="delivery-complete btn-option" style="width: 90px;">배송완료</button>
-                        </a>
+                        <button type="button" class="delivery-button btn-option" style="width: 90px;">배송완료</button>
                     </div>
                     <div class="category-wrap">
-                        <a href="">
-                            <button class="cancel btn-option" style="width: 110px;">취소/교환/반품</button>
-                        </a>
+                        <button type="button" class="delivery-button btn-option" style="width: 110px;">취소/교환/반품</button>
                     </div>
                 </div>
                 <hr>
@@ -73,12 +65,12 @@
                                     </div>
                                 </div>
                                 <div class="order-item-body">
-                                    <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                    <img class="order-img" src="/static/images/jpg/bearT-shirt.jpg" alt="">
                                     <div class="order-product-wrap">
                                         <div class="order-product">
                                             <div class="product-name">곰돌이티셔츠</div>
                                             <div class="product-sale">10% sale</div>
-                                            <div class="product-option">19800원 화이트/ s사이즈 <span>1개</span></div>
+                                            <div class="product-option">19800원 화이트/ s사이즈 <!--<span>1개</span> --></div>
                                         </div>
                                     </div>
     
@@ -99,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="order-item-body">
-                                    <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                    <img class="order-img" src="/static/images/jpg/bearT-shirt.jpg" alt="">
                                     <div class="order-product-wrap">
                                         <div class="order-product">
                                             <div class="product-name">곰돌이티셔츠</div>
@@ -125,7 +117,7 @@
     
                                 </div>
                                 <div class="order-item-body">
-                                    <img class="order-img" src="../../static/images/jpg/bearT-shirt.jpg" alt="">
+                                    <img class="order-img" src="/static/images/jpg/bearT-shirt.jpg" alt="">
                                     <div class="order-product-wrap">
                                         <div class="order-product">
                                             <div class="product-name">곰돌이티셔츠</div>
@@ -145,32 +137,32 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-menu-2976215.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-menu-2976215.png" alt="">
                             <p>카테고리</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-baby-4397453.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-baby-4397453.png" alt="">
                             <p>아이정보</p>
                         </a>
                     </li>
                     <li>
                         <a href="/">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-home-1946488.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-home-1946488.png" alt="">
                             <p>홈</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <img class="menu-bar"
-                                src="../../static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
+                                src="/static/images/jpg/free-icon-heart-shape-silhouette-25451.png" alt="">
                             <p>찜</p>
                         </a>
                     </li>
                     <li>
                         <a href="/mypage">
-                            <img class="menu-bar" src="../../static/images/jpg/free-icon-user-456283.png" alt="">
+                            <img class="menu-bar" src="/static/images/jpg/free-icon-user-456283.png" alt="">
                             <p>나의정보</p>
                         </a>
                     </li>
@@ -276,27 +268,27 @@
                     <div class="footer-sns">
                         <div class="title">SNS</div>
                         <a href="https://instagram.com" target="_blank">
-                            <img src="../../static/images/svg/icons8-instagram.svg" alt="instagram" width="20"
+                            <img src="/static/images/svg/icons8-instagram.svg" alt="instagram" width="20"
                                 height="20" fill="none" viewBox="0 0 20 20 " class="icon" " instagram">
                         </a>
                         <a href="https://youtube.com" target="_blank">
-                            <img src="../../static/images/svg/icons8-youtube-logo.svg" alt="youtube" width="28.94"
+                            <img src="/static/images/svg/icons8-youtube-logo.svg" alt="youtube" width="28.94"
                                 height="20.52" fill="none" viewBox="0 0 28.94 20.52" class="icon" " youtube">
                         </a>
                         <a href="https://facebook.com" target="_blank">
-                            <img src="../../static/images/svg/icons8-facebook-f.svg" alt="facebook" width="18"
+                            <img src="/static/images/svg/icons8-facebook-f.svg" alt="facebook" width="18"
                                 height="21.18" fill="none" viewBox="0 0 18 21.18" class="icon" " facebook">
                         </a>
                         <a href="https://pf.kakao.com" target="_blank">
-                            <img src="../../static/images/svg/kakao.svg" alt="kakao" width="15" height="21.18"
+                            <img src="/static/images/svg/kakao.svg" alt="kakao" width="15" height="21.18"
                                 fill="none" viewBox="0 0 15 21.18" class="icon" " kakao">
                         </a>
                         <a href="https://twitter.com" target="_blank">
-                            <img src="../../static/images/svg/icons8-twitter.svg" alt="twitter" width="22.46"
+                            <img src="/static/images/svg/icons8-twitter.svg" alt="twitter" width="22.46"
                                 height="18.25" fill="none" viewBox="0 0 22.46 18.25" class="icon" " twitter">
                         </a>
                         <a href="https://naver.com" target="_blank">
-                            <img src="../../static/images/svg/naver-square-svgrepo-com.svg" alt="naver" width="20"
+                            <img src="/static/images/svg/naver-square-svgrepo-com.svg" alt="naver" width="20"
                                 height="20" fill="none" viewBox="0 0 20 20" class="icon" " naver">
                         </a>
                     </div>

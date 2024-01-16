@@ -1,14 +1,15 @@
-console.log("!!");
-prdReviewAll(1);
+let productCode = parseInt(window.location.pathname.match(/\d+/)[0]); //상품번호 추출ㅔㅁ
+prdReviewAll(productCode);
 
 function prdReviewAll(productCode) {
     $.ajax({
         type: "GET",
-        url: "/prdReviewAll",
+        url: "/review/all",
         data: {
             "prdCode": productCode
         },
         success: (response) => {
+		console.log("디비 정보:"+ response.data);
         const reviewAllDom = document.querySelector(".product_review_id");
 
         for(let i =0; i<response.data.length; i++) {
@@ -38,8 +39,8 @@ function prdReviewAll(productCode) {
                 
                     <div class="review_all_feed_data_wrapper02">
                         <div class="review_all_feed_data_wrapper03">
-                            <span class="review_all_userId">${response.data[i].userId}</span>
-                            <span class="review_all_date">${response.data[i].reviewUpdate}</span>
+                            <span class="review_all_userId" style="margin-top: 10px;">${response.data[i].userId}</span>
+                            <span class="review_all_date">${response.data[i].reviewRegdate}</span>
                         </div>
                         <div class="review_all_star_wrapper01">
                             <div class="review_all_star_wrapper02">
@@ -54,9 +55,9 @@ function prdReviewAll(productCode) {
                                 <div> ${response.data[i].optionChar} / ${response.data[i].optionChar} / ${response.data[i].optionGas} / ${response.data[i].option_lettering} </div>
                             </div>
                         </div>
-                        <div class="review_all_text">
+                        <div class="review_all_text" style="margin-bottom: 20px;">
                             ${response.data[i].reviewContent}
-                            <span>더보기</span>
+                           
                         </div>
                     </div>   
                       
@@ -107,16 +108,7 @@ function prdReviewAll(productCode) {
             </div>    
                 `;
             }
-
-            
         }
-
-        
-
-        
-
-        
-
 
         },
         error: (error) => {
@@ -127,7 +119,5 @@ function prdReviewAll(productCode) {
                 console.log(error);
             }
         }
-
-
     });
 }

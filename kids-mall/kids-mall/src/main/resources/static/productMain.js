@@ -1,8 +1,16 @@
+const headerTitle = document.querySelector(".header-title");
+const categoryWrap = document.querySelectorAll(".category-wrap");
+const categoryWrapText = document.querySelectorAll(".category-wrap a");
 
 
 let categoryCode = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 console.log(categoryCode);
-load();
+
+if(location.href == "http://localhost:8888/product/main/0") {
+	getFilterData();
+} else {
+	load();
+}
 function load() {
 	$.ajax({
 		async: false,
@@ -10,6 +18,7 @@ function load() {
 		url: "/product/main/list/" + categoryCode,
 		dataType: "json",
 		success: (response) => {
+			console.log(response.data);
 			getProductMain(response.data);
 			changeBold(response.data);
 			getProductList(response.data);
@@ -21,7 +30,6 @@ function load() {
 }
 
 function getProductMain(data) {
-	const headerTitle = document.querySelector(".header-title");
 	const categoryDetailUl = document.querySelector(".category-detail-ul");
 	if(data.parentCategoryCode == 1) {
 		headerTitle.innerHTML = `
@@ -43,7 +51,7 @@ function getProductMain(data) {
 			<li class="category-detail-li"><a href="/product/main/18">전체</a></li>
 			<li class="category-detail-li"><a href="/product/main/6">상의</a></li>
 			<li class="category-detail-li"><a href="/product/main/7">하의</a></li>
-			<li class="category-detail-li"><a href="/product/main/8">모자 및 악세서리</a></li>
+			<li class="category-detail-li"><a href="/product/main/8">모자 및 악세사리</a></li>
 			<li class="category-detail-li"><a href="/product/main/9">실내복 및 팬티</a></li>
 			<li class="category-detail-li"></li>
 		`
@@ -54,9 +62,9 @@ function getProductMain(data) {
 		categoryDetailUl.innerHTML = `
 			<li class="category-detail-li"><a href="/product/main/19">전체</a></li>
 			<li class="category-detail-li"><a href="/product/main/10">생일 및 기념일 선물용품</a></li>
-			<li class="category-detail-li"><a href="/product/main/11">크리스마스 선물용품</a></li>
+			<li class="category-detail-li"><a href="/product/main/13">크리스마스 선물용품</a></li>
 			<li class="category-detail-li"><a href="/product/main/12">할로윈 선물용품</a></li>
-			<li class="category-detail-li"><a href="/product/main/13">추석 선물용품</a></li>
+			<li class="category-detail-li"><a href="/product/main/11">추석 선물용품</a></li>
 			<li class="category-detail-li"></li>
 		`
 	} else if(data.parentCategoryCode == 4) {
@@ -76,16 +84,19 @@ function getProductMain(data) {
 }
 
 function changeBold(data) {
-	const categoryWrap = document.querySelectorAll(".category-wrap");
-	const categoryWrapText = document.querySelectorAll(".category-wrap a");
-	const categoryDetailLi = document.querySelectorAll(".category-detail-li");
 	for(let i = 1; i < categoryWrap.length; i++) {
 		if(categoryWrap[i].textContent.trim() == data.parentCategoryName) {
+			console.log(categoryWrap[i].textContent.trim());
+			console.log(data.parentCategoryName);
 			categoryWrapText[i-1].style.fontWeight="700";
 		}
 	}
+	const categoryDetailLi = document.querySelectorAll(".category-detail-li");
 	for(let i = 0; i < categoryDetailLi.length; i++) {
+		
 		if(categoryDetailLi[i].textContent == data.subCategoryName) {
+			console.log(categoryDetailLi[i].textContent);
+			console.log(data.subCategoryName);
 			categoryDetailLi[i].style.fontWeight="700";
 		}
 	}
@@ -142,5 +153,66 @@ function loadProducts(data) {
 	            </div>
 	        </div>
 		`
+	}
+}
+
+function getFilterData() {
+
+	/**세션 스토리지에 등록되어 있는 검색조건 설정값 */
+	let session = loadDataFromSessionStorage();
+	
+
+	headerTitle.innerHTML = `
+    	<h3>추천</h3>
+	`;
+	
+	categoryWrapText[0].style.fontWeight="700";
+
+	console.log(session);
+
+	let productList = new Array();
+
+	if (session != null) {
+		loadFilter();
+	}
+
+	function loadFilter() {
+
+		const data = {
+			category: null,
+			gender: session.gender,
+			prdAge: session.age,
+			prdStyle: session.kidStyle,
+			priceMin: session.priceMin,
+			priceMax: session.priceMax
+		}
+
+		$.ajax({
+			async: false,
+			type: "get",
+			data: data,
+			url: `/api/v1/search/product`,
+			dataType: "json",
+			success: (response) => {
+				console.log(response.data);
+				console.log("get완료");
+				productList = response.data;
+				loadProducts(response.data);
+			},
+			error: (error) => {
+				console.log(data);
+				console.log(error);
+			}
+		});
+		return productList;
+	}
+
+	function loadDataFromSessionStorage() {
+		// sessionStorage에서 데이터를 가져와서 JSON으로 파싱
+		const filterData = sessionStorage.getItem('filterData');
+		if (filterData) {
+			return JSON.parse(filterData);
+		}
+		return null; // 데이터가 없으면 null 반환
 	}
 }

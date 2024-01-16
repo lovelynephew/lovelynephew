@@ -2,6 +2,9 @@ const innerProduct = document.querySelector(".inner-product");
 
 innerProduct.innerHTML = "";
 
+let flag = location.href.includes("product/main");
+console.log("flag 로그: " + flag);
+
 // 필터 미등록 시에는 내 조카 맞춤선물을 보여주지 않는다.
 if (session != null) {
     console.log("filter null검사");
@@ -10,6 +13,24 @@ if (session != null) {
 
     for (let i = 0; i < productList.length; i++) {
 
+        let imgURL = null;
+
+        if(productList[i].prdMainImage != null) {
+            imgURL = `${productList[i].prdMainImage}`;
+        }else {
+            imgURL = "/static/user/images/non-img.png";
+        }
+
+        if((i >= 6 || i == productList.length - 1) && flag != true) {
+            innerProduct.innerHTML += `
+                    <div class="more-view-product">
+                        <a href="/product/main/0">
+                            <p>필터 맞춤상품 더보기</p>
+                        </a>
+                    </div>
+            `
+            break;
+        }
         // 한줄에 3개씩 보여준다.
         if (i % 3 == 0) {
             innerProduct.innerHTML += `
@@ -25,7 +46,7 @@ if (session != null) {
             recommendBox.innerHTML += ` 
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src=${imgURL} alt="">
                                                 <p class="explain inner-explain">${productList[i].prdName}</p>
                                                 <p class="price inner-price">${productList[i].prdRegularPrice}원</p>
                                             </div>
@@ -39,7 +60,7 @@ if (session != null) {
             recommendBox.innerHTML += `
                                         <div class="recommend">
                                             <div class="recommend-img">
-                                                <img src="/static/images/jpg/ballonpackage.jpg" alt="">
+                                                <img src=${imgURL} alt="">
                                                 <div class="sale-box">
                                                     <div class="sale">${roundedDiscountRate}%</div>
                                                     <p class="sale-price">${productList[i].prdRegularPrice}원</p>

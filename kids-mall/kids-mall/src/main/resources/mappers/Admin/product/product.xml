@@ -18,12 +18,12 @@
 		#{prd_style},
 		#{prd_regular_price},
 		#{prd_discount_price},
-		#{prd_discount_percentage},
-		#{prd_main_image},
 		#{prd_brif_explain},
 		#{prd_detail_explain},
 		#{prd_inventory},
-		#{prd_sales_volume}
+		#{prd_sales_volume},		
+		#{prd_main_image},
+		#{prd_discount_percentage}
 	)
 	</insert>
 	

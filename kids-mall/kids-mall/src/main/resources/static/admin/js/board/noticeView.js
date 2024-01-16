@@ -30,14 +30,16 @@ function getNotice(notice) {
 	noticeNum = notice.noticeNum;
 	
 	noticeVeiwSubject.innerHTML = `<p>
-                            `+ notice.noticeSubject +`
+                            `+ notice.noticeSubject +` 
                             </br>
                         </p>`;
 	noticeViewWriter.innerHTML = `<p>
                             `+ notice.noticeWriter +`
+                            &nbsp;&nbsp 
                         </p>`;
 	noticeViewUpdate.innerHTML = `<p>
                             `+ notice.noticeUpdate +`
+                            
                         </p>`;
 	noticeViewContent.innerHTML = `<p style="height=300px;" >
                             `+ notice.noticeContent +`
