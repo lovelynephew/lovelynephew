@@ -6,9 +6,12 @@
   <mapper namespace="team.lovelynephew.kidsmall.domain.product.ProductReviewRepository">
   
   <select id="prdAllReview" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.ProductReview">
+
 	SELECT *
 	FROM board_review
-	WHERE prd_code= #{prdCode};
+	WHERE prd_code = #{prdCode}
+	ORDER BY review_regdate DESC;
+
   </select>
   
  <select id="prdPicReview" parameterType="Integer" resultType="team.lovelynephew.kidsmall.domain.product.ProductReview">

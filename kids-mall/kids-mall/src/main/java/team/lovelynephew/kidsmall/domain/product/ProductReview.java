@@ -20,12 +20,11 @@ public class ProductReview {
 	private String review_content;
 	private int rating;
 	private String review_photo;
-	private String option_char;
-	private String option_rapping;
-	private String option_gas;
-	private String option_lettering;
-	private LocalDate review_update;
-	
+//	private String option_char;
+//	private String option_rapping;
+//	private String option_gas;
+//	private String option_lettering;
+	private LocalDate review_regdate;
 	private int record_count;
 	
 	public ProductReviewRespDto productReviewToDto() {
@@ -40,11 +39,12 @@ public class ProductReview {
 				.reviewContent(review_content)
 				.rating(rating)
 				.reviewPhoto(review_photo)
-				.optionChar(option_char)
-				.optionRapping(option_rapping)
-				.optionGas(option_gas)
-				.option_lettering(option_lettering)
-				.reviewUpdate(review_update)
+//				.optionChar(option_char)
+//				.optionRapping(option_rapping)
+//				.optionGas(option_gas)
+//				.option_lettering(option_lettering)
+				.reviewRegdate(review_regdate)
+				.recordCount(record_count)
 				.build();
 	}
 	
@@ -60,12 +60,12 @@ public class ProductReview {
 				.reviewContent(review_content)
 				.rating(rating)
 				.reviewPhoto(review_photo)
-				.optionChar(option_char)
-				.optionRapping(option_rapping)
-				.optionGas(option_gas)
-				.option_lettering(option_lettering)
+//				.optionChar(option_char)
+//				.optionRapping(option_rapping)
+//				.optionGas(option_gas)
+//				.option_lettering(option_lettering)
 				.recordCount(record_count)
-				.reviewUpdate(review_update)
+				.reviewRegdate(review_regdate)
 				.build();
 	}
 }

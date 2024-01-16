@@ -19,10 +19,11 @@ public class ProductReviewController {
 	private final ProductReviewService service;
 	
 	//상품에 대한 모든 리뷰를 들고오기 
-	@GetMapping("prdReviewAll")
+	@GetMapping("/review/all")
 	public ResponseEntity<?> prdAllReview (@RequestParam int prdCode) {
 		
 		List<ProductReviewRespDto> list = null;
+		
 		try {
 			list =service.prdAllReview(prdCode);
 		} catch (Exception e) {
