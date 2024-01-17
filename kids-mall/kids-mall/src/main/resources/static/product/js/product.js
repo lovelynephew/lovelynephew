@@ -1,4 +1,4 @@
-const reviewAllBtn = document.querySelector(".review_preview_btn");
+	const reviewAllBtn = document.querySelector(".review_preview_btn");
 const reviewAllBtn2 = document.querySelector(".caption_review");
 
 let productName = "";
@@ -71,7 +71,7 @@ function mainRating(productCode) {
             }
             console.log("rating:" +response.data);
         
-            document.getElementById("review_score").innerHTML = rating;
+            document.getElementById("review_score").innerHTML =  Math.round(rating * 10) / 10;
             document.getElementById("middle_star_score").innerHTML = rating;
            
             if(rating>4.4) {

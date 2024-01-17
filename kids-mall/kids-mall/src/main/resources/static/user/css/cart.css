@@ -240,10 +240,6 @@ div { display: block; }
     text-overflow: ellipsis;
 }
 
-.div-citem1 {
-    padding: 0px 12px;
-}
-
 .div-citem2 {
     position: relative;
 }
