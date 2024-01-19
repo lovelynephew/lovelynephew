@@ -44,7 +44,7 @@ function getData(data) {
 
                         </div>
                     </td>
-                    <td class="adress-name">${addr.name}</td>
+                    <td class="adress-name">${addr.userName}</td>
                     <td class="adress-phonenum">${addr.addrTel}</td>
                     <td class="adress">${addr.addrName}, ${addr.addrDetail}</td>
                     <td class="adress-edit">
