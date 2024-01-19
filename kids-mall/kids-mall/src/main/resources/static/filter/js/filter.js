@@ -122,13 +122,13 @@ completeButton.onclick = () => {
             console.log(response.data);
             alert("필터 등록 성공");
             saveDataToSessionStorage(data);
-            // console.log(priceMinInput.value);
-            // console.log(priceMaxInput.value);
             location.href = "/main";
         },
-        error: (error) => {
-            console.log(error);
-        }
+        error: (request, status, error) => {
+        console.log("code: " + request.status)
+        console.log("message: " + request.responseText)
+        console.log("error: " + error);
+    }
     });
 }
 
