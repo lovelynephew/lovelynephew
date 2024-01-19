@@ -63,10 +63,11 @@ function loadProducts(data) {
 	setTotalCount(data[0].totalCount);
 	
 	for(let i = 0; i < data.length; i++) {
+		let prdNum = data[i].prdCode;
 		recommendBox.innerHTML += `
 	        <div class="recommend">
 	            <div class="recommend-img">
-	            	<a href="">
+	            	<a href="/product/${prdNum}">
 	                <img src="${data[i].prdMainImage}" alt="">
                     <div class="sale-box">
                         <div class="sale">${data[i].prdDiscountPercentage}%</div>

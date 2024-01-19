@@ -142,10 +142,11 @@ function getProductList(name) {
 function loadProducts(data) {
 	const recommendBox = document.querySelector(".recommend-box");
 	for(let i = 0; i < data.length; i++) {
+		let prdNum = data[i].prdCode;
 		recommendBox.innerHTML += `
 	        <div class="recommend">
 	            <div class="recommend-img">
-	            	<a href="">
+	            	<a href="/product/${prdNum}">
 	                <img src="${data[i].prdMainImage}" alt="">
 	                <p class="explain">${data[i].prdName}</p>
 	                <p class="price">${data[i].prdDiscountPrice}원</p>
