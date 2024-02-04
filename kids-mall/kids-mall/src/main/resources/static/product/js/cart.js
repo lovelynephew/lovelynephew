@@ -2,15 +2,13 @@ const headerCart = document.querySelector(".div-price-bar");
 const itemInnerHtml = document.querySelector(".item-container");
 let totalPrice = 0;
 const checkedPrdInfo = []; // 선택된 물건 정보를 담을 배열
-
+let allPrdPrice = 0; // 전체선택 했을때가격
 let selectedPrd = 0; //선택된 물건 개수
 const selectTotal = document.getElementById("selectTotal");
 
-const prdCodeList = [];
 
 getCartInfo("40");
 toPayment();
-
 
 //장바구니 정보 들고오기
 function getCartInfo(userId) {
@@ -18,30 +16,39 @@ function getCartInfo(userId) {
         type: "GET",
         url:` /mypage/cart/${userId}`,
         success: (response) => {
-			console.log(response.data);
+		console.log(response.data);
+		const prdCodes = []; // 물건 코드번호 
+		const prdAmount = {}; // 물건 개수 
 			
-			
-            //장바구니 정보 뿌리기
            for (let i = 0; i < response.data.length; i++) {
-		    const prdCode = response.data[i].prdCode;
-				console.log(i+"번째");
-				
-			    // 이미 처리된 prdCode일 경우 건너뛰기
-			    if (prdCodeList.includes(prdCode)) {
-					
-		    	}else{
-					getProductInfo(prdCode);
-		    		prdCodeList[i] = prdCode;
-				}
+				prdCodes[i]= response.data[i].prdCode;
+				allPrdPrice += response.data[i].prdDiscountPrice;
 			}
+		    
+		    prdCodes.forEach(code =>{
+				if (prdAmount[code]) {
+				    // 있으면 개수를 증가
+				    prdAmount[code]++;
+				  } else {
+				    // 없으면 새로운 상품 번호를 객체에 추가하고 개수를 1로 설정
+				    prdAmount[code] = 1;
+				  }
+			});
 			
+			 //장바구니 정보 뿌리기
+			for (const prdCode in prdAmount) {
+			    const prdCount = prdAmount[prdCode];
+			    getProductInfo(prdCode, prdCount);
+			}
+			   
             //선택 전체 개수 표시
             const itemTotal = document.getElementById("itemTotal");
-            itemTotal.innerText = response.data.length;
+            itemTotal.innerText = Object.keys(prdAmount).length;
 
             price(totalPrice); 
             checkbox();
             ea();
+            
         },
         error: (error) => {
             if(error.status == 400) {
@@ -52,13 +59,11 @@ function getCartInfo(userId) {
             }
         }
     });
-    
-   
 }
 
 
 //물건 상세정보 들고옴
-function getProductInfo (productCode) {
+function getProductInfo (productCode,prdAmount) {
     $.ajax({
         type: "GET",
         url: `/productInfo/${productCode}`,
@@ -112,7 +117,7 @@ function getProductInfo (productCode) {
                                     </div>
                                     <div class="div-citem14">
                                     <div class="div-citem15-${productCode}" style="cursor: pointer;">
-                                            <svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
+                                            <svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0" id="xBtm-${productCode}">
                                                 <path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
                                             </svg>
                                         </div>
@@ -123,12 +128,12 @@ function getProductInfo (productCode) {
                         <div class="div-amount1">
                             <div class="div-amount2">
                             <div class="minus-button-${productCode}" style="cursor: pointer;" >
-                            	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
+                            	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1weaxp5 e170kbym0 sub-button" id="minusBtn-${productCode}">
                                     <path stroke="currentColor" d="M6 16h20"></path>
                                 </svg>
                             </div>
                             <div class="div-amount3" >
-                                <input readonly="readonly" class="span-amount1"  id = "amount-${productCode}" value="1">
+                                <input readonly="readonly" class="span-amount1"  id = "amount-${productCode}" value="${prdAmount}">
                             </div>
                              <div class="plus-button-${productCode}" style="cursor: pointer;">
                              	 <svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
@@ -153,6 +158,36 @@ function getProductInfo (productCode) {
                     </div>
                 </div>
                 `;
+                
+	const xBtns = document.querySelectorAll(".css-1n1x2t.e170kbym0");
+	xBtns.forEach(function(xBtn) {
+    xBtn.addEventListener("click", function(event) {
+		// 클릭된 요소의 id 속성 가져오기
+        const idAttribute = event.target.getAttribute("id");
+        // id에서 "xBtm-"을 제외한 부분을 추출
+        const prdCode = idAttribute.slice(5);
+		console.log(prdCode);
+		
+		$.ajax({
+	        type: "DELETE",
+	        url: `/product/cart/40/${prdCode}`,
+	        success: (response) => {
+			console.log(response.data);
+			console.log("장바구니가 삭제됐습니다.");
+			location.reload();
+	        },
+	        error: (error) => {
+	            if(error.status == 400) {
+	                alert(JSON.stringify(error.responseJSON.data));
+	            }else {
+	                console.log("요청실패");
+	                console.log(error);
+	            }
+	        }
+	     });
+	  });
+	});
+	
         },
         error: (error) => {
             if(error.status == 400) {
@@ -167,113 +202,6 @@ function getProductInfo (productCode) {
 }
 
 
-//물건 상세정보 들고옴(중복됐을때)
-/*function getProductInfo2 (productCode) {
-    $.ajax({
-        type: "GET",
-        url: `/productInfo/${productCode}`,
-        
-        success: (response) => {
-            itemInnerHtml.innerHTML += `
-                <div class="div-citem1-${productCode}" style="padding: 0px 12px;">
-                    <div class="div-citem2">
-                        <div class="div-citem3">
-                            <label class="label-citem1">
-                                <input type="checkbox" name="product" class="input-cart2" id = "prdChoice-${productCode}" value= "prd-${productCode}">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#D2D5D6">
-                                    <path d="M12 2C17.5197 2 22 6.48032 22 12C22 17.5197 17.5197 22 12 22C6.48032 22 2 17.5197 2 12C2 6.48032 6.48032 2 12 2Z" stroke="currentColor" stroke-width="2"></path>
-                                </svg>
-                            </label>
-                            <div class="div-citem4">
-                                <div class="div-citem5">
-                                    <figure class="figure-citem1">
-                                        <img src="${response.data.prdMainImage}" class="img-cart1" id="prdMainImg-${productCode}">
-                                    </figure>
-                                    <div class="div-citem6">
-                                        <input type="hidden" id= "prdMaker-${productCode}" name="prdMaker" value= "${response.data.prdMaker}">
-                                        <h4 class="body_14 h4-citem1" id ="prdName-${productCode}" >${response.data.prdName}</h4>
-                                        <div class="div-citem7">
-                                            
-                                        </div>
-                                        <div class="div-citem8">
-                                           
-                                            <div class="div-citem10">
-                                                <svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#A1A9AD" class="css-eslpka e170kbym0">
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M26 16c0 5.523-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6s10 4.477 10 10Zm-9.834-4.25c-1.224 0-2.216 1.083-2.216 2.05h-1.5c0-1.833 1.7-3.55 3.716-3.55 1.592 0 2.687.987 3.147 1.77.751 1.28.404 2.759-.635 3.728l-.998.932-.004.004-.022.022a3.757 3.757 0 0 0-.377.447c-.226.315-.36.621-.36.847h-1.5c0-.708.364-1.335.639-1.72.147-.205.293-.375.402-.494l.196-.2 1-.934c.602-.562.71-1.285.366-1.872a2.197 2.197 0 0 0-1.854-1.03ZM15.45 20v2h1.5v-2h-1.5Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                                <!-- <div class="body_15 div-citem11">
-                                                    <div class="div-citem12">
-                                                        <div class="div-citem13">발송 예정일은 판매자가 설정한 정보이며, 판매자 사정에 따라 변경 또는 지연될 수 있습니다.</div>
-                                                        <div style="margin-left: 4px;" class="div-citem13">
-                                                            <svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#FFFFFF" class="css-1jnore5 e170kbym0">
-                                                                <path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <svg width="30" height="6" viewBox="0 0 30 6" fill="none" xmlns="http://www.w3.org/2000/svg" direction="up" position="right" class="css-uwbfzl e8fb3wz0">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 6L21 0H9L15 6Z" fill="#8F82FF"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="div-citem14">
-                                    <div class="div-citem15-${productCode}" style="cursor: pointer;">
-                                            <svg width="20" height="20" fill="none" viewBox="0 0 32 32" color="#697175" class="css-1n1x2t e170kbym0">
-                                                <path stroke="currentColor" stroke-linejoin="round" d="M9 23 24 8M9 8l7.5 7.5L24 23"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="div-amount1">
-                            <div class="div-amount2">
-                            <div class="minus-button-${productCode}" style="cursor: pointer;" >
-                            	<svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1weaxp5 e170kbym0 sub-button">
-                                    <path stroke="currentColor" d="M6 16h20"></path>
-                                </svg>
-                            </div>
-                            <div class="div-amount3" >
-                                <input readonly="readonly" class="span-amount1"  id = "amount-${productCode}" value="1">
-                            </div>
-                             <div class="plus-button-${productCode}" style="cursor: pointer;">
-                             	 <svg width="16" height="16" fill="none" viewBox="0 0 32 32" color="#121314" class="counter_btn css-1x0xddi e170kbym0 add-button">
-                                    <path stroke="currentColor" d="M6 16h20M16 6v20"></path>
-                                </svg>
-                             </div>
-                            </div>
-                            <span class="body_15 span-amount2">
-                                <span class="span-amount3">
-                                    <p id = "prdregularPrice-${productCode}">${response.data.prdRegularPrice}</p>
-                                    <span class="span-amount4">원</span>
-                                </span>
-                                <div class="div-amount4">
-                                    <span class="span-amount5">할인가</span>
-                                    <span class="body_15 span-amount6">
-                                        <p id = "prdDiscountPrice-${productCode}"  class="prdDisPrice">${response.data.prdDiscountPrice}</p>
-                                        <span class="body_15 span-amount7">원</span>
-                                    </span>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                `;
-        },
-        error: (error) => {
-            if(error.status == 400) {
-                alert(JSON.stringify(error.responseJSON.data));
-            }else {
-                console.log("요청실패");
-                console.log(error);
-            }
-        }
-    });
-
-} */
 //총 가격 들고오기
 function price(totalPrice) {
     let prdPlusdeli = totalPrice + 3000;
@@ -333,11 +261,9 @@ function checkbox() {
                 selectTotal.innerText = ``;
                 selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
 
-                totalPrice += parseInt(prdDPrice, 10);
+                totalPrice += parseInt(prdDPrice*EA, 10);
                 price(totalPrice);
-
             } else {
-                console.log(`체크박스 ${i}가 선택 해제되었습니다.`);
                 const prdCode = i; 
                 const EA = document.getElementById(`amount-${i}`).value;;
                 let prdDPrice = document.getElementById(`prdDiscountPrice-${i}`).innerHTML;
@@ -354,7 +280,7 @@ function checkbox() {
                 selectTotal.innerText = ``;
                 selectTotal.innerText += selectedPrd;//물건 선택 개수 수정 
 
-                totalPrice -= parseInt(prdDPrice, 10); // 총 상품 금액
+                totalPrice -= parseInt(prdDPrice*EA, 10); // 총 상품 금액
                 price(totalPrice);
             }
         }
@@ -379,16 +305,11 @@ console.log(checkedAll.checked);
 const eachChecked = document.getElementsByName("product");
 
 checkedAll.addEventListener("click", function() {
-totalPrice = 0;
-   
-    if(checkedAll.checked) {
-       //전체 가격 구하기
-        document.querySelectorAll(".prdDisPrice").forEach(function(price) {
-        console.log(price.textContent);
-        totalPrice += parseInt(price.textContent, 10);
-        });
-        price(totalPrice);
 
+    if(checkedAll.checked) {
+       totalPrice = allPrdPrice;
+        price(allPrdPrice);
+	
         //체크 값 변경
         eachChecked.forEach(function(product){
             product.checked = true;
@@ -423,8 +344,6 @@ totalPrice = 0;
         selectTotal.innerText = ``;
         selectTotal.innerText = selectedPrd;//물건 선택 개수 수정 
 
-        totalPrice += parseInt(prdPrice, 10);
-        price(totalPrice);
 
     }else {
         //전체가격 구하기
@@ -445,7 +364,31 @@ totalPrice = 0;
     }
 })
 
-//각 상품에 대한 개수처리 
-function ea() {
-	const minusBtn = document.querySelector(".counter_btn.css-1weaxp5.e170kbym0.sub-button");
-}
+// 선택 된것 삭제하기 
+const selectedprdDelete = document.querySelector(".div-cart7");
+selectedprdDelete.addEventListener("click", function(){
+    eachChecked.forEach(function(product){
+		if( product.checked){
+			prdCode = product.value.substr(4);
+			
+			$.ajax({
+	        type: "DELETE",
+	        url: `/product/cart/40/${prdCode}`,
+	        success: (response) => {
+			console.log(response.data);
+			console.log("장바구니가 삭제됐습니다.");
+			location.reload();
+	        },
+	        error: (error) => {
+	            if(error.status == 400) {
+	                alert(JSON.stringify(error.responseJSON.data));
+	            }else {
+	                console.log("요청실패");
+	                console.log(error);
+	            }
+	        }
+	     });
+		}
+    });
+    
+});

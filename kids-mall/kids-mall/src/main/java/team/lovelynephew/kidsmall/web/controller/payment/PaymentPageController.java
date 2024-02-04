@@ -38,7 +38,7 @@ public class PaymentPageController {
 	}
 	
 	//찜 
-	@GetMapping("/wishlist")
+	@GetMapping("/wishList")
 	public String wishList() {
 		return "thymeleaf/mypage/mywishlist";
 	}

@@ -517,10 +517,10 @@ window.addEventListener("click", (event) => {
 //물품 정보
 const products = {}; //선택한 물품 담기
 dirPayment();
-addCart(1);
+addCart(productCode);
 
 //바로구매 버튼을 눌렀을 때
-function dirPayment(){
+function dirPayment(){	
     const nowBuyBtn = document.querySelector(".now_buy_btn");
         nowBuyBtn.addEventListener("click", function () {
             products[0] = {
@@ -541,8 +541,7 @@ function dirPayment(){
 
 
 //장바구니 눌렀을때 
-let prdCode = 1;
-function addCart (prdCode) {
+function addCart (productCode) {
     const cartBtn = document.querySelector(".cart_btn");
     cartBtn.addEventListener("click", function() {
         console.log("장바구니 버튼을 누름");
@@ -552,12 +551,13 @@ function addCart (prdCode) {
             url: "/product/cart",
             contentType: "application/json",
             data: JSON.stringify({
-                "userId" : 40,
-                "prdCode" : prdCode
+                "userId" : "TESTER",
+                "prdCode" : productCode
             }),
             dataType: "json",
             success: (response) => {
                 console.log(response.data);
+                console.log(productCode);
                 console.log("찜하기 완료");
             },
             error: (error) => {

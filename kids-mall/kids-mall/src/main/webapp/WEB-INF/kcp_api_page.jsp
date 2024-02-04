@@ -315,13 +315,13 @@
             account   = f_get_parm((String)json_res.get("account"));
             va_date   = f_get_parm((String)json_res.get("va_date"));
             app_time  = f_get_parm((String)json_res.get("app_time"));
-            
+           
             // 현금영수증 발급시 
             if ( cash_yn.equals("Y") ) 
             {
             	// 현금영수증 발급 후 처리
-                //cash_authno = f_get_parm((String)json_res.get("cash_authno"));
-                //cash_no     = f_get_parm((String)json_res.get("cash_no"));
+                cash_authno = f_get_parm((String)json_res.get("cash_authno"));
+                cash_no     = f_get_parm((String)json_res.get("cash_no"));
             }
         }
         // 포인트
@@ -531,27 +531,6 @@
 			</div>
 			<div class="gap-color"></div>
 			<div class="main-middle">
-				<!-- <div class="product-detail-box">
-					<div class="product-box-top">
-						<p id="prdName" >기차놀이세트</p>
-					</div>
-					<div class="product-box-middle">
-						<span>구매확정</span>
-						<div class="product-data">
-							<img src="" id="prdMainImg">
-							<div class="product-desc">
-								<p id="paidPrdName">기차놀이세트</p>
-								<div class="price-box">
-									<span id="regPrice">15,000원</span>
-								</div>
-							</div>
-						</div>
-						<div class="other-service">
-							<p>배송현황</p>
-							<p>문의하기</p
-						</div>
-					</div>
-				</div> -->
 			</div>
 			<div class="gap-color"></div>
 			<div class="delivery-address-info">
@@ -613,13 +592,14 @@
 					
 					<% if (use_pay_method.equals("001000000000")) { %>
 					    <div style="font-size:14px; padding-bottom:50px">
-					        <% String formatted_va_date = va_date.substring(0, 4) + "년"
+					        <%  String formatted_va_date = va_date.substring(0, 4) + "년"
 					            + va_date.substring(4, 6) + "월" 
 					            + va_date.substring(6, 8) + "일" 
 					            + va_date.substring(8, 10) + ":" 
 					            + va_date.substring(10, 12) + ":" 
 					            + va_date.substring(12, 14); %>
 					            
+					           
 					        <p style="color: #666666;"> 
 					            예금주 : <%=depositor %> <br>
 					            <%=bankname%>(<%=account %>) <br>

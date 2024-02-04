@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 // 로컬 저장소에서 정보를 가져옴
 		const productsData = localStorage.getItem('productsData');
-		
+	
 		if (productsData) {
 // JSON 문자열을 파싱하여 Products 객체로 변환
 			const products = JSON.parse(productsData);
@@ -92,10 +92,6 @@ $(document).ready(function() {
 
 	openAgreeMomal();
 	
-	// const payBtn = document.querySelector(".pay_btn");
-	// const agreeCheckbox = document.getElementById("orderAgreeCheckBox");
-	// const isOrderAgreed = false;
-	
 
 });
 
@@ -129,27 +125,7 @@ function openAgreeMomal() {
 		buyAgreePopupBackground02.style.display = 'none';
 	});
 	
-	//주문하기 버튼을 눌렀을때 스토리지에 정보를 쩌장해야하는데
-
 }
-
-//배송 요청사항
-/*function deliveryRequest () {
-    // select 요소를 가져옵니다.
-   let selectRequestElement = document.querySelector(".payment_delivery_Req_wrapper02");
-   let selectRequest = selectRequestElement.innerHTML;
-
-   let textRequestElement = document.querySelector(".payment_delivery_req_text");
-	let textRequest = textRequestElement.value;
-
-
-    // 새로운 정보 추가
-    products[0]["selectRequest"] = selectRequest;
-    products[0]["textRequest"] = textRequest;
-
-    // 업데이트된 데이터를 다시 로컬 스토리지에 저장
-    localStorage.setItem('productsData', JSON.stringify(products));
-}*/
 
 
 

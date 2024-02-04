@@ -2,6 +2,7 @@ package team.lovelynephew.kidsmall.web.controller.payment;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,16 +34,16 @@ public class PaymentRestController {
 	}
 	
 	//장바구니 삭제
-	@DeleteMapping("/product/cart/{prdCode}")
-	public ResponseEntity<?> deliteCart(@RequestParam int prdCode){
+	@DeleteMapping("/product/cart/{id}/{productCode}")
+	public ResponseEntity<?> deliteCart(@PathVariable String id,@PathVariable int productCode){
 		boolean result = false;
 		try {
-			result = service.deliteCart(prdCode);
+			result = service.deliteCart(id, productCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.ok().body(new CMRespDto<>(-1, "Cart Delite Failed", result));
+			return ResponseEntity.ok().body(new CMRespDto<>(-1, "Cart Delete Failed", result));
 		}
-		return ResponseEntity.ok().body(new CMRespDto<>(1, "Cart Delite Success", result));
+		return ResponseEntity.ok().body(new CMRespDto<>(1, "Cart Delete Success", result));
 	}
 	
 	//결제정보 넣기
