@@ -247,6 +247,7 @@ function checkbox() {
                 let EA = document.getElementById(`amount-${i}`).value;
                 let mainImg = document.getElementById(`prdMainImg-${i}`).src;
                 
+               console.log("ea:"+EA);
                 checkedPrdInfo.push({
                     "productCode" : `${i}`,
                     "name" : prdName ,
