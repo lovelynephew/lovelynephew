@@ -16,20 +16,20 @@ import team.lovelynephew.kidsmall.domain.user.RegisterEntity;
 public class EditUserReqDto {
 
 	private int userCode;
-	private String userId;
+	private String userId; //아이디
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\\d~!@#$%^&*()+|=]{5,16}$", message = "영문자, 숫자, 특수문자를 모두 포함하여 6자 이상 17자 이하 입력만 가능 합니다.")
-	private String userPwd;
-	private String userPostcode;
-	private String userAddress;
-	private String userDetailaddress;
-	private String userName;
-	private String userPhone;
+	private String userPwd; //비밀번호
+	private String userPostcode; //우편번호
+	private String userAddress; //주소
+	private String userDetailaddress; //상세주소
+	private String userName; //이름
+	private String userPhone; //핸드폰번호
 	@NotBlank
 	@Email
-	private String userEmail;
-	private String userGender;
-	private int userRegion;
-	private String userRoles;
+	private String userEmail; //이메일
+	private String userGender; //성별
+//	private int userRegion; //지역
+//	private String userRoles;
 	private String userRecive;
 	private int signout; //회원탈퇴
 	private String signoutReason;

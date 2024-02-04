@@ -42,27 +42,24 @@ function loadUserInfo() {
 	
 	checkRecive();
 	function checkRecive() {
-	let checksms = getUser().user_recive;
+	    let checksms = getUser()?.user_recive || ""; // getUser()가 null이면 빈 문자열로 설정
 	
-		if(checksms.indexOf("sms,email") != -1) {
-			console.log("둘다 있음");
-			editRecive[0].checked = true;
-			editRecive[1].checked = true;
-			
-		} else if (checksms.indexOf("sms") != -1) {
-			console.log("sms 있음");
-			editRecive[0].checked = true;
-		} else if(checksms.indexOf("email") != -1) {
-			console.log("email 있음");
-			editRecive[1].checked = true;
-		} else {
-			console.log("없음");
-			
-		}
+	    if (checksms && checksms.indexOf("sms") !== -1 && checksms.indexOf("email") !== -1) {
+	        console.log("둘다 있음");
+	        editRecive[0].checked = true;
+	        editRecive[1].checked = true;
+	    } else if (checksms && checksms.indexOf("sms") !== -1) {
+	        console.log("sms 있음");
+	        editRecive[0].checked = true;
+	    } else if (checksms && checksms.indexOf("email") !== -1) {
+	        console.log("email 있음");
+	        editRecive[1].checked = true;
+	    } else {
+	        console.log("없음");
+	    }
+	}
 	
-	
-}
-}
+	}
 
 
 
@@ -117,14 +114,14 @@ btnSave.onclick = () => {
 		userEmail: editEmail.value,
 		userRecive: reciveHidden.value.slice(0, -1),
 		userBirth: editBirth.value,
-		userBank: editBank.value,
+		userBank: getUser().user_bank, //userBank: editBank.value 로 하면 안됨
 		userRefundaccount: editRefundaccount.value
 		
 	}
 	
 	$.ajax({
 		async: false,
-		type: "put",
+		type: `put`,
 		url: `/mypage/edit-mypage/${userCode}`,
 		contentType: "application/json",
 		data: JSON.stringify(editData),

@@ -103,7 +103,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.user_phone((String)response.get("mobile"))
 					.user_email((String)response.get("email"))
 					.user_gender(gen)
-					.user_roles("ROLE_USER")
+//					.user_roles("ROLE_USER")
 					.user_birth((String)response.get("birthyear") + birthDay)
 					.build();
 			
@@ -151,7 +151,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.user_phone("010-0000-0000")
 					.user_email((String)response.get("email"))
 					.user_gender(gen)
-					.user_roles("ROLE_USER")
+//					.user_roles("ROLE_USER")
 					.user_birth((String)response.get("birthday"))
 					.build();
 			
@@ -191,7 +191,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.user_name((String)response.get("name"))
 					.user_phone("010-0000-0000")
 					.user_email((String)response.get("email"))
-					.user_roles("ROLE_USER")
+//					.user_roles("ROLE_USER")
 					.build();
 
 			try {

@@ -27,8 +27,8 @@ public class RegisterEntity {
 	private String user_phone;
 	private String user_email;
 	private String user_gender;
-	private int user_region;
-	private String user_roles;
+//	private int user_region;
+//	private String user_roles;
 	private String user_recive;
 	private String user_birth; //생년월일
 	private String user_bank; //은행
