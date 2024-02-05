@@ -1,41 +1,64 @@
 let codeExecuted = false;
 let privacy = {};
-
-$(document).ready(function() {
-//상품금액
-	let prdRegularP = 0;
-	let prdDiscountP = 0;
-	let totalPrice= 0;
-
-    if (!codeExecuted) {
-//글자수세기
-		$("#ord_receiver_memo").keyup(function(e) {
-			
-			var content = $(this).val();
-			
-			$("#textLengthCheck").text("(" + content.length + " / 최대 50자)"); //실시간 글자수 카운팅
-				if (content.length > 50) {
-					alert("최대 50자까지 입력 가능합니다.");
-					$(this).val(content.substring(0, 50));
-					$('#textLengthCheck').text("(50 / 최대 50자)");
-				}
-		});
-
-// 로컬 저장소에서 정보를 가져옴
-		const productsData = localStorage.getItem('productsData');
+	
+	$(document).ready(function() {
+	//상품금액
+		let prdRegularP = 0;
+		let prdDiscountP = 0;
+		let totalPrice= 0;
 		
-		if (productsData) {
-// JSON 문자열을 파싱하여 Products 객체로 변환
-			const products = JSON.parse(productsData);
-			console.log(products);
+	// 옵션 값이 변경될 때 이벤트 핸들러 등록
+document.getElementById("deliveryOption").addEventListener("change", function() {
+    // 선택된 옵션의 값을 가져옴
+    const selectedValue = this.value;
+    
+    // 가져온 값으로 로컬 스토리지에 저장
+    localStorage.setItem('deliveryOption', selectedValue);
+    
+    // 저장된 값을 콘솔에 출력 (테스트용)
+    console.log('Selected value saved to local storage (deliveryOption):', selectedValue);
+});
+		
+	    if (!codeExecuted) {
+	//글자수세기
+			$("#ord_receiver_memo").keyup(function(e) {
+				
+				var content = $(this).val();
+				
+				$("#textLengthCheck").text("(" + content.length + " / 최대 50자)"); //실시간 글자수 카운팅
+					if (content.length > 50) {
+						alert("최대 50자까지 입력 가능합니다.");
+						$(this).val(content.substring(0, 50));
+						$('#textLengthCheck').text("(50 / 최대 50자)");
+					}
+					
+			 // 글자를 작성하는 것을 멈추면 로컬 스토리지에 memo2에 값을 저장
+	        clearTimeout(this.timer);
+	        this.timer = setTimeout(function() {
+	            saveToLocalStorage1();
+	        }, 1000); // 1초 동안 입력이 없으면 저장
+		});
+	function saveToLocalStorage1() {
+    const content = $("#ord_receiver_memo").val();
+    // 로컬 스토리지에 데이터 저장
+    localStorage.setItem('memo2', content);
+    console.log('memo1:', content);
+	}
+
+	// 로컬 저장소에서 정보를 가져옴
+			const productsData = localStorage.getItem('productsData');
+		
+			if (productsData) {
+	// JSON 문자열을 파싱하여 Products 객체로 변환
+				const products = JSON.parse(productsData);
+				console.log(products);
 //구매물품 정보 뿌리기
 			const paymentInnerHTml = document.querySelector(".payment_personal_prd_wrapper01");
 
 			for (const pcode in products) {
 //총 가격처리 위함				
-				prdRegularP += parseInt(products[pcode].productRegularPrice, 10);
-				prdDiscountP += parseInt(products[pcode].productDiscountPrice, 10);
-				//totalPrice += prdRegularP;
+				prdRegularP += parseInt(products[pcode].productRegularPrice, 10) *  parseInt(products[pcode].EA, 10);
+				prdDiscountP += parseInt(products[pcode].productDiscountPrice, 10)*  parseInt(products[pcode].EA, 10);
 								
 				paymentInnerHTml.innerHTML += `
 				<section class="payment_personal_prd_wrapper02">
@@ -61,7 +84,7 @@ $(document).ready(function() {
 									</h4>
 									<div class="payment_prd_wrapper05">
 										<span class="payment_prd_op_wrapper01">
-											1개
+											${products[pcode].EA}개
 											<span></span>
 										</span>
 									</div>
@@ -92,11 +115,6 @@ $(document).ready(function() {
 
 	openAgreeMomal();
 	
-	// const payBtn = document.querySelector(".pay_btn");
-	// const agreeCheckbox = document.getElementById("orderAgreeCheckBox");
-	// const isOrderAgreed = false;
-	
-
 });
 
 //약관 동의 모달창
@@ -129,27 +147,7 @@ function openAgreeMomal() {
 		buyAgreePopupBackground02.style.display = 'none';
 	});
 	
-	//주문하기 버튼을 눌렀을때 스토리지에 정보를 쩌장해야하는데
-
 }
-
-//배송 요청사항
-/*function deliveryRequest () {
-    // select 요소를 가져옵니다.
-   let selectRequestElement = document.querySelector(".payment_delivery_Req_wrapper02");
-   let selectRequest = selectRequestElement.innerHTML;
-
-   let textRequestElement = document.querySelector(".payment_delivery_req_text");
-	let textRequest = textRequestElement.value;
-
-
-    // 새로운 정보 추가
-    products[0]["selectRequest"] = selectRequest;
-    products[0]["textRequest"] = textRequest;
-
-    // 업데이트된 데이터를 다시 로컬 스토리지에 저장
-    localStorage.setItem('productsData', JSON.stringify(products));
-}*/
 
 
 

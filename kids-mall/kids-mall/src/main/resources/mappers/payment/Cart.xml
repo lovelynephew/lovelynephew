@@ -11,7 +11,8 @@
 	(
 		0,
 		#{user_id},
-		#{prd_code}
+		#{prd_code},
+		1
 		
 	);
   </insert>
@@ -36,8 +37,8 @@
   
   </insert>
   
-  <delete id="deliteCart" parameterType="Integer">
+  <delete id="deliteCart">
   DELETE FROM cart
-  WHERE cart.prd_code = #{prdCode} and user_id = 40;
+  WHERE cart.prd_code = #{productCode} and user_id = #{id};
   </delete>
   </mapper>

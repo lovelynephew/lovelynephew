@@ -6,5 +6,5 @@ import team.lovelynephew.kidsmall.web.dto.payment.OrderReqDto;
 public interface CartService {
 	public boolean addCart (CartReqDto cart) throws Exception;
 	public boolean postOrderInfo (OrderReqDto orderInfo) throws Exception;
-	public boolean deliteCart(int prdCode) throws Exception;
+	public boolean deliteCart(String id,int productCode) throws Exception;
 }

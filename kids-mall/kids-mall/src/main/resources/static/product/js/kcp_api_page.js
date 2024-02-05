@@ -62,8 +62,8 @@ for(let i=0; i<productsData.length; i++) {
 document.getElementById("prdDisPrice").innerHTML = "(-)" + (prdReqPrice-prdDisPrice);
 
 //배송요청사항
-document.getElementById("deleveryselectRequest").innerHTML=productsData["0"].selectRequest;
-document.getElementById("deleveryRequest").innerHTML = productsData["0"].textRequest;
+document.getElementById("deleveryselectRequest").innerHTML=localStorage.getItem('deliveryOption');
+document.getElementById("deleveryRequest").innerHTML =localStorage.getItem('memo2');
 
 // 결제 정보 db에 넣음
 const orderInfo = {

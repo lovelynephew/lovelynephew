@@ -24,9 +24,9 @@ public class CartSerivceImpl implements CartService {
 	}
 
 	@Override
-	public boolean deliteCart(int prdCode) throws Exception {
+	public boolean deliteCart(String id, int productCode) throws Exception {
 		
-		return repository.deliteCart(prdCode)>0;
+		return repository.deliteCart(id, productCode)>0;
 	}
 
 }
